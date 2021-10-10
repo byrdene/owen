@@ -1,0 +1,19 @@
+uuid: d41c8ca1-cde1-446b-b8bb-46c77d07a667
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: b70drbwYvU9jVCJ7ZXlyRKyOLrSvf6jyiruKmvoplY8
+name: 4x3_x_small
+label: '4:3 X-Small (432x324)'
+effects:
+  c78f9255-68ba-462a-af1a-44847e02fda6:
+    uuid: c78f9255-68ba-462a-af1a-44847e02fda6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 432
+      height: 324
+      crop_type: focal_point

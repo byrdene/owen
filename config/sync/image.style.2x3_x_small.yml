@@ -1,0 +1,19 @@
+uuid: f3a58bd6-1452-426c-83c1-ad10eefc862d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: 6z4H5gfhQ2JOKgHFZY9SIU27kiPdiFj5hYLIw1NwTiQ
+name: 2x3_x_small
+label: '2:3 X-Small (360x540)'
+effects:
+  59e33a04-5a19-44c7-8464-457a80f6abc3:
+    uuid: 59e33a04-5a19-44c7-8464-457a80f6abc3
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 540
+      crop_type: focal_point

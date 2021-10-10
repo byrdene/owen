@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16x9_x_large
+label: '16:9 X-Large (1920 x 1080)'
+effects:
+  ed28a262-4001-40e9-be71-9ce60277ebc5:
+    uuid: ed28a262-4001-40e9-be71-9ce60277ebc5
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 1080
+      crop_type: focal_point

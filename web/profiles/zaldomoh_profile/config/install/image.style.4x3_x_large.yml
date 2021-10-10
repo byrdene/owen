@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4x3_x_large
+label: '4:3 X-Large (1536x1152)'
+effects:
+  c0a79f96-6545-4ed9-b932-16f49d4a17cf:
+    uuid: c0a79f96-6545-4ed9-b932-16f49d4a17cf
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1536
+      height: 1152
+      crop_type: focal_point

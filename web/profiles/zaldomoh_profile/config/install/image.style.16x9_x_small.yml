@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16x9_x_small
+label: '16:9 X-Small (480 x 270)'
+effects:
+  88fbcfe8-f7b2-46ca-a8fe-01002bd39856:
+    uuid: 88fbcfe8-f7b2-46ca-a8fe-01002bd39856
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      crop_type: focal_point

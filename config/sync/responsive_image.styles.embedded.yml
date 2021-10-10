@@ -1,0 +1,25 @@
+uuid: 9081ce6c-3000-42a8-8269-0d7091b4e7cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.scaled_original_mobile
+    - image.style.scaled_original_narrow
+    - image.style.scaled_original_wide
+_core:
+  default_config_hash: oaZyD1VXJ8c8iTD47Il-a6_T3821sUlcGJmo6WYThrg
+id: embedded
+label: Embedded
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - scaled_original_mobile
+        - scaled_original_narrow
+        - scaled_original_wide
+breakpoint_group: responsive_image
+fallback_image_style: scaled_original_wide

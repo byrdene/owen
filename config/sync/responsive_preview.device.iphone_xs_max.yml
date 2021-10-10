@@ -1,0 +1,14 @@
+uuid: f5c0e609-58e4-48d0-9156-12e53f7dd4ba
+langcode: en
+status: 0
+dependencies: {  }
+_core:
+  default_config_hash: ZkvmPlfZBZ7MMZemqxIDKOQv8uEn1amrzuyxieWJipY
+id: iphone_xs_max
+label: 'iPhone XS Max'
+weight: -7
+orientation: portrait
+dimensions:
+  width: 1242
+  height: 2688
+  dppx: !!float 3

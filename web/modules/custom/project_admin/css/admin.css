@@ -1,0 +1,14 @@
+/*Gin Admin theme overrides.*/
+
+/*Toolbar*/
+
+.toolbar-icon-toggle-horizontal,
+.toolbar-icon-toggle-vertical {
+  z-index: 2;
+}
+
+/*General node edit form*/
+.page-title em {
+  display: inline-block;
+  margin-right: .25em;
+}

@@ -1,0 +1,6 @@
+# overrides for admin themes
+admin-overrides:
+  version: VERSION
+  css:
+    theme:
+      css/admin.css: {}

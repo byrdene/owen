@@ -1,0 +1,17 @@
+uuid: c11972e3-30a2-491b-9117-81c8efbcd15f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KHH_GJkbxGIhydwHEiR2PDwxaXZFs_4dTPoZSJ3e7aM
+name: scaled_original_wide
+label: 'Scaled original (wide)'
+effects:
+  2ccd486c-fc95-4d82-b1ee-5bb28aaf8408:
+    uuid: 2ccd486c-fc95-4d82-b1ee-5bb28aaf8408
+    id: image_scale
+    weight: 1
+    data:
+      width: 1823
+      height: null
+      upscale: false

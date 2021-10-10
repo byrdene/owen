@@ -1,0 +1,5 @@
+name: General project customizations
+type: module
+description: General project customizations
+core_version_requirement: ^8.8.0 || ^9.0
+package: Custom

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains project_admin.module.
+ */
+
+function project_admin_page_attachments(array &$attachments) {
+  $config = \Drupal::config('system.theme');
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  if ($theme == $config->get('admin')) {
+    $attachments['#attached']['library'][] = 'project_admin/admin-overrides';
+  }
+}

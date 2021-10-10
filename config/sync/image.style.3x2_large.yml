@@ -1,0 +1,19 @@
+uuid: 808d18f6-9743-45e6-b49f-5920fe3ef0bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: WTlS08QfJGAl-W2psaadIop8u5u8tIToOp1oaDXfGj0
+name: 3x2_large
+label: '3:2 Large (2160 x 1440)'
+effects:
+  ab9cfb15-a52b-4f8f-807e-36eedb2822a6:
+    uuid: ab9cfb15-a52b-4f8f-807e-36eedb2822a6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2160
+      height: 1440
+      crop_type: focal_point

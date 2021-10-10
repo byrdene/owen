@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3x2_small
+label: '3:2 Small (810 x 540)'
+effects:
+  6dc53050-5462-4069-9d15-35f0d081a0c9:
+    uuid: 6dc53050-5462-4069-9d15-35f0d081a0c9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 810
+      height: 540
+      crop_type: focal_point

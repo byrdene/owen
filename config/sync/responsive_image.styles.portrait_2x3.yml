@@ -1,0 +1,23 @@
+uuid: 568519c8-cc4c-4daf-bc53-ceb4c9e9d444
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.2x3_small
+    - image.style.2x3_x_small
+_core:
+  default_config_hash: QTGanZMKjrn6k7nmMmRsccyaxPNjWropXUQehcqGlbU
+id: portrait_2x3
+label: 'Portrait (2x3)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 2x3_small
+        - 2x3_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 2x3_small

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.4x3_large
+    - image.style.4x3_medium
+    - image.style.4x3_small
+    - image.style.4x3_x_large
+    - image.style.4x3_x_small
+id: landscape_full_width_4x3
+label: 'Landscape - Full width (4x3)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 4x3_large
+        - 4x3_medium
+        - 4x3_small
+        - 4x3_x_large
+        - 4x3_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 4x3_x_small

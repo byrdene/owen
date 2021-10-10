@@ -1,0 +1,17 @@
+uuid: 65943a07-9602-4704-97d6-2100de386741
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QET_d3QzwIkQeTw8kogoIQAZ-lTAKLjm15CZs4vWJKs
+name: scaled_original_narrow
+label: 'Scaled original (narrow)'
+effects:
+  96b09868-712b-4eaf-8ea4-6f18fa995e3a:
+    uuid: 96b09868-712b-4eaf-8ea4-6f18fa995e3a
+    id: image_scale
+    weight: 1
+    data:
+      width: 1199
+      height: null
+      upscale: false

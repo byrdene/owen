@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4x3_small
+label: '4:3 Small (576x432)'
+effects:
+  75e00a54-e1a8-42c3-863f-06c787145def:
+    uuid: 75e00a54-e1a8-42c3-863f-06c787145def
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 576
+      height: 432
+      crop_type: focal_point

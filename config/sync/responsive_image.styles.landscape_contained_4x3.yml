@@ -1,0 +1,25 @@
+uuid: 6ccf74ed-0069-4dff-8374-5b24759b0195
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.4x3_medium
+    - image.style.4x3_small
+    - image.style.4x3_x_small
+_core:
+  default_config_hash: n2SA9G6s8TV3tuFacMpI2hFveu3muDOLg4SSdmK35po
+id: landscape_contained_4x3
+label: 'Landscape - Contained (4x3)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 4x3_medium
+        - 4x3_small
+        - 4x3_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 4x3_x_small

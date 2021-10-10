@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4x3_medium
+label: '4:3 Medium (768x576)'
+effects:
+  a27f26c0-c98f-4380-847e-549d7af7a020:
+    uuid: a27f26c0-c98f-4380-847e-549d7af7a020
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 576
+      crop_type: focal_point

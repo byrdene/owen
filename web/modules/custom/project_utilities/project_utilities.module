@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Contains project_utilities.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+
+function project_utilities_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+  $view = $form_state->get('view');
+
+  if ($form_id == 'views_exposed_form') {
+
+    // Add a class to the form if any of the exposed filters have a value
+    // This is useful for isolating styles setting focus based on whether or not the user
+    // has submitted the exposed form
+    // The code is based on ExposedFormPluginBase.php in the Views module,
+    // specifically the public function, exposedFormAlter()
+    $exposed_filters = [];
+    foreach ($view->filter as $id => $handler) {
+      if ($handler->canExpose() && $handler->isExposed() && !empty($handler->options['expose']['identifier'])) {
+        $exposed_filters[$handler->options['expose']['identifier']] = $id;
+      }
+    }
+    if (array_intersect_key($exposed_filters, $view->getExposedInput())) {
+      $form['#attributes']['class'][] = 'form-active-filters';
+    }
+
+    // Add classes (needed for theming and working with ajax)
+    $form['keys']['#attributes']['class'][] = 'form-item--id-keys';
+    $form['keyword-filter']['#attributes']['class'][] = 'form-item--id-keyword-filter';
+    $form['combine']['#attributes']['class'][] = 'form-item--id-combine';
+
+    // Uncomment to add Accessibility improvements. Update the variables for the project's specific filterable views
+//    $calendar = $form["#id"] == "views-exposed-form-calendar-page-1";
+//    $news = $form["#id"] == "views-exposed-form-news-ideas-page-1";
+//    $faculty = $form["#id"] == "views-exposed-form-faculty-staff-directory-page-1";
+//
+//    if ($calendar) {
+//      $form['#attributes']['aria-label'] = 'Calendar Search';
+//    }
+//    if ($news) {
+//      $form['#attributes']['aria-label'] = 'News Search';
+//    }
+//    if ($faculty) {
+//      $form['#attributes']['aria-label'] = 'Faculty & Staff Search';
+//    }
+
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function project_utilities_form_alter(&$form, &$form_state, $form_id) {
+
+  // Kill the redundant help message under the login username/password fields.
+  if ($form_id == 'user_login_form') {
+    unset($form['name']['#description']);
+    unset($form['pass']['#description']);
+  }
+
+  // Hide access to fields since Field Permissions is either overkill or doesn't do the job
+  $user_role = \Drupal::currentUser()->getRoles();
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  $uid = $user->get('uid')->value;
+  if (($uid == 1) || (in_array('developer', $user_role))) {
+    $form['field_related_view']['#access'] = TRUE;
+    $form['field_components']['widget'][0]['subform']['field_custom_class']['#access'] = TRUE;
+  }
+  else {
+    $form['field_related_view']['#access'] = FALSE;
+    $form['field_components']['widget'][0]['subform']['field_custom_class']['#access'] = FALSE;
+  }
+
+}

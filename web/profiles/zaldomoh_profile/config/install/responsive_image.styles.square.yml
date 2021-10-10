@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.1x1_medium
+    - image.style.1x1_small
+    - image.style.1x1_x_small
+id: square
+label: Square
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 1x1_medium
+        - 1x1_small
+        - 1x1_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 1x1_x_small

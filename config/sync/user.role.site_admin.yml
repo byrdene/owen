@@ -1,0 +1,11 @@
+uuid: 30a5ad37-8524-47ee-aa1d-eee8432c5f6b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uAKrmoZ0xL8nAOsHY74PdWfvarVcgF2ed5jbTXe7yfI
+id: site_admin
+label: 'Site Admin'
+weight: 3
+is_admin: null
+permissions: {  }

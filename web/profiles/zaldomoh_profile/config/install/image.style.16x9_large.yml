@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16x9_large
+label: '16:9 Large (1280 x 720)'
+effects:
+  b272fc7e-ea18-487f-8497-f3a3c1ffefa6:
+    uuid: b272fc7e-ea18-487f-8497-f3a3c1ffefa6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 720
+      crop_type: focal_point

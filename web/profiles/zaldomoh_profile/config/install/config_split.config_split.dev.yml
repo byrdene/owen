@@ -1,0 +1,19 @@
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Dev
+description: ''
+folder: ../config/splits/dev
+module:
+  composer_deploy: 0
+  form_display_field_machine_name: 0
+  git_deploy: 0
+  update: 0
+  upgrade_status: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 1

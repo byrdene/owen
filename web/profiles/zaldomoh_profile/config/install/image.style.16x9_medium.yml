@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16x9_medium
+label: '16:9 Medium (960x540)'
+effects:
+  c637216e-df57-4793-9001-6ff6933bb285:
+    uuid: c637216e-df57-4793-9001-6ff6933bb285
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 540
+      crop_type: focal_point

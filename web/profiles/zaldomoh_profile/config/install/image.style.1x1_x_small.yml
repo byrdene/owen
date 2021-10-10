@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1x1_x_small
+label: '1:1 X-Small (240x240)'
+effects:
+  ec76dc7c-5f7b-4d83-a11f-491d4d929e13:
+    uuid: ec76dc7c-5f7b-4d83-a11f-491d4d929e13
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 240
+      crop_type: focal_point

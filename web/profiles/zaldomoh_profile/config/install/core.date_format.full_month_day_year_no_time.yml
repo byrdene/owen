@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: full_month_day_year_no_time
+label: 'Full Month, Day, Year - no time'
+locked: false
+pattern: 'F j, Y'

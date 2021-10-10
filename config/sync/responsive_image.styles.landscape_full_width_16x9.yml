@@ -1,0 +1,29 @@
+uuid: c811e1ea-0927-405b-9c92-44ca1bbe1085
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.16x9_large
+    - image.style.16x9_medium
+    - image.style.16x9_small
+    - image.style.16x9_x_large
+    - image.style.16x9_x_small
+_core:
+  default_config_hash: bnFMzCeq76MCfGm7m1uXjRLIe7kyD_p5bvdA1H2KcXs
+id: landscape_full_width_16x9
+label: 'Landscape - Full width (16x9)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 16x9_large
+        - 16x9_medium
+        - 16x9_small
+        - 16x9_x_large
+        - 16x9_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 16x9_x_small

@@ -1,0 +1,16 @@
+uuid: 5321bc65-600b-4d0f-b976-c7a04d3cebbc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 9xlbaC-Xbkgk5VJ5bRkrJqUE9lj1CUVXgyXKkLhGefI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view media'

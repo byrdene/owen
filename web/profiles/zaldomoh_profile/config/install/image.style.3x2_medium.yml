@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3x2_medium
+label: '3:2 Medium (1080 x 720)'
+effects:
+  e012cd73-ec5f-4f22-bbf1-f57d2d8fcd3e:
+    uuid: e012cd73-ec5f-4f22-bbf1-f57d2d8fcd3e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1080
+      height: 720
+      crop_type: focal_point

@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: scaled_original_wide
+label: 'Scaled original (wide)'
+effects:
+  2ccd486c-fc95-4d82-b1ee-5bb28aaf8408:
+    uuid: 2ccd486c-fc95-4d82-b1ee-5bb28aaf8408
+    id: image_scale
+    weight: 1
+    data:
+      width: 1823
+      height: null
+      upscale: false

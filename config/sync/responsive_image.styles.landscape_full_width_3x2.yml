@@ -1,0 +1,25 @@
+uuid: 5ef78b36-da9d-4f04-b294-68190af1007a
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.3x2_large
+    - image.style.3x2_medium
+    - image.style.3x2_small
+_core:
+  default_config_hash: Dg0iaNXPPSG8pbj23sPZGJXKCCdCcQmI-PLM3IMWag4
+id: landscape_full_width_3x2
+label: 'Landscape - Full width (3x2)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 3x2_large
+        - 3x2_medium
+        - 3x2_small
+breakpoint_group: responsive_image
+fallback_image_style: 3x2_small

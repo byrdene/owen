@@ -1,0 +1,11 @@
+langcode: en
+status: 1
+dependencies: {  }
+id: small
+label: 'Smart phone'
+weight: -10
+orientation: portrait
+dimensions:
+  width: 768
+  height: 1280
+  dppx: !!float 2

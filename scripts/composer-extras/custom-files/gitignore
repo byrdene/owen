@@ -1,0 +1,67 @@
+# Drupal #
+##########
+# Ignore paths that contain user-generated content.
+*/sites/*/files
+*/sites/*/private
+
+# Ignore environment-specific settings.
+*/sites/*/settings.local.php
+*/sites/*/local.services.yml
+*/sites/local.sites.php
+
+# Logs and databases.
+*.log
+*.sql
+
+# OS generated files #
+######################
+# Thumbnails
+^Icon
+*.swp~
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+Desktop.ini
+
+# macOS
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Front-end #
+#############
+.sass-cache/
+*.sassc
+*.scssc
+*.css.map
+node_modules/
+npm-debug.log
+
+# IDEs #
+########
+.idea
+.vscode
+
+# Other #
+#########
+# S3 Credentials
+.s3config
+
+# Vim generated files
+*.un~

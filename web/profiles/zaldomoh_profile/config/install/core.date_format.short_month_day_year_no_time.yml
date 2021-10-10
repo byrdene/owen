@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: short_month_day_year_no_time
+label: 'Short Month, Day, Year - no time'
+locked: false
+pattern: 'M j, Y'

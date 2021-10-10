@@ -1,0 +1,12 @@
+uuid: 8c1c82eb-7c07-4ffa-9375-64b63abb5037
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: mcuhN434BS0DW7HoYKeR4AGwFnqeW3W4SvaFb9wVKCo
+id: media.landscape_full_width_4x3
+label: 'Landscape - Full width (4x3)'
+targetEntityType: media
+cache: true

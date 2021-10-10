@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1x1_small
+label: '1:1 Small (480 x 480)'
+effects:
+  69c76705-0a89-4697-8a2b-4d9b2f46c0ce:
+    uuid: 69c76705-0a89-4697-8a2b-4d9b2f46c0ce
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 480
+      crop_type: focal_point

@@ -1,0 +1,14 @@
+langcode: en
+status: false
+dependencies: {  }
+id: test
+label: Test
+description: 'This is the Test or Stage environment.'
+folder: ../config/splits/test
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 2

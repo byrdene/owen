@@ -1,0 +1,23 @@
+uuid: fc6e2b30-f689-4860-8878-93dbfec6f7ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.3x4_small
+    - image.style.3x4_x_small
+_core:
+  default_config_hash: 1R85o0sdK_Q0orKUJKq3hEXqgRnX-smPqZ9DK3PU4-s
+id: portrait_3x4
+label: 'Portrait (3x4)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 3x4_small
+        - 3x4_x_small
+breakpoint_group: responsive_image
+fallback_image_style: 3x4_x_small

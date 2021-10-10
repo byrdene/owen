@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1x1_medium
+label: '1:1 Medium (800x800)'
+effects:
+  98e8f498-093e-488f-82ff-b811103b69dc:
+    uuid: 98e8f498-093e-488f-82ff-b811103b69dc
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 800
+      crop_type: focal_point

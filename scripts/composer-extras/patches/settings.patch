@@ -1,0 +1,63 @@
+--- sites/default/default.settings.php
++++ sites/default/settings.php
+@@ -90,6 +90,7 @@
+  */
+ $databases = [];
+
++
+ /**
+  * Customizing database settings.
+  *
+@@ -528,7 +529,7 @@
+  * See https://www.drupal.org/documentation/modules/file for more information
+  * about securing private files.
+  */
+-# $settings['file_private_path'] = '';
++$settings['file_private_path'] = 'sites/default/files/private';
+
+ /**
+  * Temporary file path:
+@@ -541,7 +542,7 @@
+  *
+  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
+  */
+-# $settings['file_temp_path'] = '/tmp';
++$settings["file_temp_path"] = $_SERVER['HOME'] . '/tmp';
+
+ /**
+  * Session write interval:
+@@ -762,6 +763,22 @@
+  */
+ $settings['migrate_node_migrate_type_classic'] = FALSE;
+
++$databases['default']['default'] = array (
++  'database' => 'DBPROD',
++  'username' => 'DBPROD',
++  'password' => 'DBPROD',
++  'prefix' => '',
++  'host' => 'localhost',
++  'port' => '3306',
++  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
++  'driver' => 'mysql',
++);
++
++/**
++ * Place the config directory outside of the Drupal root.
++ */
++$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config/sync';
++
+ /**
+  * Load local development override configuration, if available.
+  *
+@@ -775,7 +792,7 @@
+  *
+  * Keep this code block at the end of this file to take full effect.
+  */
+-#
+-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+-#   include $app_root . '/' . $site_path . '/settings.local.php';
+-# }
++
++if (file_exists(__DIR__ . '/settings.local.php')) {
++  include_once __DIR__ . '/settings.local.php';
++}

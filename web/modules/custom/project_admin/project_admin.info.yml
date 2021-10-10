@@ -1,0 +1,5 @@
+name: Admin Theme Overrides
+type: module
+description: Custom overrides to the admin theme.
+core_version_requirement: ^8.8.0 || ^9.0
+package: Custom

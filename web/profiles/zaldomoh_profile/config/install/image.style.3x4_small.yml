@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3x4_small
+label: '3:4 Small (576x768)'
+effects:
+  5e613778-4ed1-4844-9726-ac83725205d7:
+    uuid: 5e613778-4ed1-4844-9726-ac83725205d7
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 576
+      height: 768
+      crop_type: focal_point

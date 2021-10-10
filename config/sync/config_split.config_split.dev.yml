@@ -1,0 +1,22 @@
+uuid: 9b966eb5-c22a-42e0-b1e5-33f30d7e56fb
+langcode: en
+status: false
+dependencies: {  }
+_core:
+  default_config_hash: l8StUI0Y0nEkzT92eJFabZKvwORASdt_vi-tiCpK2v0
+id: dev
+label: Dev
+description: ''
+folder: ../config/splits/dev
+module:
+  composer_deploy: 0
+  form_display_field_machine_name: 0
+  git_deploy: 0
+  update: 0
+  upgrade_status: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 1

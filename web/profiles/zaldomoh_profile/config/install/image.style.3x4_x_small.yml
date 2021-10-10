@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3x4_x_small
+label: '3:4 X-Small (384x512)'
+effects:
+  bb19d55d-8547-4f1e-8e13-bfd278fff454:
+    uuid: bb19d55d-8547-4f1e-8e13-bfd278fff454
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 384
+      height: 512
+      crop_type: focal_point

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.landscape_contained_3x2
+label: 'Landscape - Contained (3x2)'
+targetEntityType: media
+cache: true

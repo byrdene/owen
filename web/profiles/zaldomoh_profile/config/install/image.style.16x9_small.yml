@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16x9_small
+label: '16:9 Small (640 x 360)'
+effects:
+  dc0730b1-59f8-4b60-8e09-ddd0934d8a68:
+    uuid: dc0730b1-59f8-4b60-8e09-ddd0934d8a68
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 360
+      crop_type: focal_point

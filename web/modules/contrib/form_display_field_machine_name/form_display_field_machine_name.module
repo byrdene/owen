@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains form_display_field_machine.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function form_display_field_machine_name_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the semantic_ui_form module.
+    case 'help.page.form_display_field_machine_name':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module support to show field machine name in form display.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function form_display_field_machine_name_form_entity_form_display_edit_form_alter(&$form, $formstate) {
+  foreach ($form['fields'] as $key => &$field) {
+    if (!empty($field['human_name']['#plain_text'])) {
+      $field['human_name'] = [
+        '#markup' => $field['human_name']['#plain_text'] . '<br /><i>' . $key . '</i>',
+      ];
+    }
+  }
+}
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function form_display_field_machine_name_form_entity_view_display_edit_form_alter(&$form, $formstate) {
+  foreach ($form['fields'] as $key => &$field) {
+    if (!empty($field['human_name']['#plain_text'])) {
+      $field['human_name'] = [
+        '#markup' => $field['human_name']['#plain_text'] . '<br /><i>' . $key . '</i>',
+      ];
+    }
+  }
+}

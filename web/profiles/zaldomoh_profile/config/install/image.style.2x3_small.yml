@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 2x3_small
+label: '2:3 Small (540 x 810)'
+effects:
+  3a1301b4-befd-40bc-b05f-99f259e04ecd:
+    uuid: 3a1301b4-befd-40bc-b05f-99f259e04ecd
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 540
+      height: 810
+      crop_type: focal_point

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.landscape_full_width_3x2
+label: 'Landscape - Full width (3x2)'
+targetEntityType: media
+cache: true

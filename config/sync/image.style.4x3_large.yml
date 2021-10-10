@@ -1,0 +1,19 @@
+uuid: e3ec2548-b023-42e1-99d1-a8b2f4023978
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: xwcgR0zWKTS0lqqf5U_dCUroYbRGV6cJ5rmM6N_xY7Q
+name: 4x3_large
+label: '4:3 Large (1024x768)'
+effects:
+  ab1e5307-7950-4ba5-ac37-77893e18021f:
+    uuid: ab1e5307-7950-4ba5-ac37-77893e18021f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 768
+      crop_type: focal_point

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.3x2_medium
+    - image.style.3x2_small
+id: landscape_contained_3x2_
+label: 'Landscape - Contained (3x2)'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 3x2_medium
+        - 3x2_small
+breakpoint_group: responsive_image
+fallback_image_style: 3x2_small

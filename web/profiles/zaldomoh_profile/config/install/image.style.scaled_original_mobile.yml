@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: scaled_original_mobile
+label: 'Scaled original (mobile)'
+effects:
+  d4f3e8f5-9e16-4bae-bddb-dd63467892ec:
+    uuid: d4f3e8f5-9e16-4bae-bddb-dd63467892ec
+    id: image_scale
+    weight: 1
+    data:
+      width: 767
+      height: null
+      upscale: false

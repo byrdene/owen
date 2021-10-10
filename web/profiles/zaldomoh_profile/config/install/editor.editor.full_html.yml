@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Styles
+            - Bold
+            - Italic
+            - RemoveFormat
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+            - Blockquote
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Media
+          items:
+            - embed_image
+        -
+          name: Tools
+          items:
+            - Redo
+            - Undo
+            - SpecialChar
+            - ShowBlocks
+            - Source
+            - Maximize
+  plugins:
+    stylescombo:
+      styles: "p|Normal\r\nh2|Heading 2\r\nh3|Heading 3\r\nh4|Heading 4\r\np.citation|Quote Citation\r\na.button|Button Link - Solid\r\na.button.button--outlined|Button Link - Outlined"
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    customconfig:
+      ckeditor_custom_config: "forcePasteAsPlainText = true\r\nautoGrow_minHeight = 200\r\nautoGrow_onStartup  =  true"
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

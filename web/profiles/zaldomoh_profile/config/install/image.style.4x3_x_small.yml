@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 4x3_x_small
+label: '4:3 X-Small (432x324)'
+effects:
+  c78f9255-68ba-462a-af1a-44847e02fda6:
+    uuid: c78f9255-68ba-462a-af1a-44847e02fda6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 432
+      height: 324
+      crop_type: focal_point
