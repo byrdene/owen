@@ -135,6 +135,7 @@ final class Versions
   'drupal/schema_metatag' => '2.2.0@8.x-2.2',
   'drupal/search_api' => '1.20.0@8.x-1.20',
   'drupal/search_api_autocomplete' => '1.5.0@8.x-1.5',
+  'drupal/shield' => '1.4.0@8.x-1.4',
   'drupal/smart_date' => '3.4.2@3.4.2',
   'drupal/smart_trim' => '1.3.0@8.x-1.3',
   'drupal/stage_file_proxy' => '1.1.0@8.x-1.1',
@@ -293,7 +294,7 @@ final class Versions
   'symfony/lock' => 'v4.4.27@6ca476d4ac992802f2a4043929f68f1818449486',
   'symfony/phpunit-bridge' => 'v5.3.8@e9c0548d8d7abcd257f18f0adc0517895996a9c1',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'drupal/recommended-project' => 'No version set (parsed as 1.0.0)@',
+  'drupal/recommended-project' => 'dev-master@a794fbc8efaed89459dc829a61ea738b8f4570db',
 );
 
     private function __construct()
