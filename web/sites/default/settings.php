@@ -787,9 +787,9 @@ $settings['entity_update_backup'] = TRUE;
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 $databases['default']['default'] = array (
-  'database' => 'owentsco_owen',
-  'username' => 'owentsco_owen',
-  'password' => 'B9c(pHTH_ZY1',
+  'database' => 'owentsco_drupal',
+  'username' => 'owentsco_drupal',
+  'password' => 'hya#J[^+888g',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
