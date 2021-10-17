@@ -1,0 +1,16 @@
+@import "0-config/__config";
+
+// BASE: CSS reset/normalize plus HTML element styling Read more about SMACSS
+// categorization for Drupal Themes: https://www.drupal.org/node/1887922
+
+// This file is compiled separately so we can pull in config dependencies above
+// while also maintaining Drupal's SMACSS structure.
+
+@import "1-base/typography";
+@import "1-base/buttons";
+@import "1-base/blockquotes";
+@import "1-base/forms";
+@import "1-base/horizontal-rules";
+@import "1-base/lists";
+@import "1-base/media";
+@import "1-base/tables";

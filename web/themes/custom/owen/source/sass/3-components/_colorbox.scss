@@ -1,0 +1,12 @@
+// ==========================================================================
+//   COLORBOX
+// ==========================================================================
+
+#cboxWrapper {
+  font-family: $base-font-family;
+  color: $base-font-color;
+  #cboxCurrent {
+    color: $base-font-color;
+    bottom: -2px;
+  }
+}

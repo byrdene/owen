@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override for the navigation region.
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    {# Hamburger navigation #}
+    <div class="hamburger-navigation">
+      <button id="hamburger" class="hamburger hamburger--squeeze" type="button"
+              aria-label="Menu" aria-controls="navigation-panel" aria-expanded="false">
+      <span class="hamburger-label">Menu</span>
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      </button>
+      <div id="navigation-panel">
+      <div class="wrapper">
+        {{ content }}
+{#        <div class="utility-men-wrapper">{{ drupal_menu('utility') }}</div>#}
+      </div>
+    </div>
+    </div>
+
+    {# "Full Display" navigation #}
+{#    <div class="full-display-navigation">#}
+{#      <div class="wrapper">#}
+{#        {{ content }}#}
+{#      </div>#}
+{#    </div>#}
+  </div>
+{% endif %}

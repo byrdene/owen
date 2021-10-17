@@ -1,0 +1,77 @@
+
+<div{{ attributes.addClass(
+'layout-container'
+) }}>
+
+    <!-- HEADER -->
+    <header>
+      <div id="site-header" class="container page-width padded-row">
+        <div class="logo-wrapper">
+          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+            <div class="logo"><strong>Owen Cooper '23</strong></div>
+          </a>
+        </div>
+
+        <div class="nav-wrapper">
+
+          {% if page.navigation_primary %}
+            {{ page.navigation_primary }}
+          {% endif %}
+
+        </div>
+
+      </div><!-- /#site-header -->
+
+      <div class="tagline bg-ice">
+        <div class="tagline-wrapper container page-width padded-row"><strong>Waring School, Beverly, MA</strong></div>
+      </div>
+    </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- PRIMARY-CONTENT -->
+    <div id="primary-content">
+        <div class="container">
+
+            <div id="content">
+              {% if is_front %}
+                <h1 class="visually-hidden">Homepage</h1>
+              {% endif %}
+
+
+
+                {{ page.content }}
+
+
+
+
+            </div><!-- /#content -->
+        </div><!-- /.container -->
+    </div><!-- /#primary-content -->
+
+  </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-ice">
+        <div class="container padded-row">
+
+
+                <div id="footer-first">
+                  <h2 class="h3">Owen Cooper, '23</h2>
+                  <h3 class="h4">Wolfpack Machina, Team Captain </h3>
+                  <div class="main-men-wrapper">{{ drupal_menu('main') }}</div>
+                    {{ page.footer_first }}
+                </div><!-- /#footer-first -->
+
+
+
+                <div id="footer-second">
+                    {{ page.footer_second }}
+                </div><!-- /#footer-second -->
+
+
+        </div><!-- /.container -->
+    </footer>
+
+</div><!-- /.layout-container -->

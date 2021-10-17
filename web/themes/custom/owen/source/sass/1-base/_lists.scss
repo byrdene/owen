@@ -1,0 +1,63 @@
+// ==========================================================================
+//   LISTS
+// ==========================================================================
+
+$support-for-rtl: true !default;
+
+// All list items
+li {
+  margin-bottom: rem($vertical-spacing / 2);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// All ordered and unordered lists
+ol, ul {
+  margin: 0 0 rem($vertical-spacing) rem($vertical-spacing);
+  padding: 0 0 0 18px; // LTR
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding: 0 18px 0 0; // right padding should match left padding in LTR
+    }
+  }
+  ol,
+  ul {
+    margin: rem($vertical-spacing / 2) 0 0;
+  }
+}
+
+// Bulleted lists created in the RTE
+.rte,
+.field--type-text-with-summary,
+.field--type-text {
+  ul:not(.contextual-links):not(.pager__items):not(.pager):not(.menu):not(.js-tablist) {
+    list-style: none;
+    > li {
+      position: relative;
+      &:before {
+        display: block;
+        position: absolute;
+        font-size: .6em; // adjust size for actual icon in the font file
+        top: 4px; // adjust for font size used
+        left: 0;
+        margin-left: -18px; // this is right padding set on the parent ul
+        font-family: $icomoon;
+        content: $icon-bullet;
+        color: $action-color;
+      }
+    }
+  }
+}
+
+// Description lists
+dl {
+  margin: 0 0 rem($vertical-spacing);
+  dt {
+    @include font-weight(bold);
+  }
+  dd {
+    margin-bottom: rem($vertical-spacing);
+  }
+}
+

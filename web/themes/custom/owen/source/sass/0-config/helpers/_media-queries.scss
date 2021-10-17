@@ -1,0 +1,79 @@
+@import "../init/breakpoint";
+
+////////////////////////////////////////////////////////////////////////////////////
+// BP
+// Use the breakpoint names defined in breakpoint.scss
+// The $direction argument can be either "up", "down" or a second breakpoint
+// (higher or lower than the first).
+////////////////////////////////////////////////////////////////////////////////////
+
+
+@function create-media-query($min: "none", $max: "none") {
+  @if $min == "none" and $max == "none" {
+    @warn "You must provide a min or a max value to writeMediaQuery()";
+  }
+  @else {
+    $minText: "";
+    $maxText: "";
+    $andText: "";
+
+    @if $min != "none" {
+      $minText: "(min-width: #{$min})";
+    }
+    @if $max != "none" {
+      $maxText: "(max-width: #{$max})";
+    }
+    @if $maxText != "" and $minText != "" {
+      $andText: " and ";
+    }
+
+    @return "#{$minText}#{$andText}#{$maxText}";
+  }
+}
+
+// min is inclusive, max is not
+@mixin bp($bp, $direction) {
+  $min: false;
+  $max: false;
+  $output: false;
+
+  $bp1Index: map-get($named-breakpoints, $bp);
+
+  @if $bp1Index == null {
+    @warn "Your breakpoint," + $bp + ", wasn't found in the named breakpoints array.";
+  }
+  @else {
+    $bp1Point: nth($bp1Index, 1) ;
+
+    @if $direction == 'up' {
+      $min: $bp1Point;
+      $output: create-media-query($min);
+    }
+    @else if $direction == "down" {
+      $max: $bp1Point - 1px;
+      $output: create-media-query("none", $max);
+    }
+    @else {
+
+      $bp2Index: map-get($named-breakpoints, $direction);
+
+      @if $bp2Index == null {
+        @warn $bp2Index + " was not found in the breakpoints array.";
+      }
+      @else {
+        $bp2Point: nth($bp2Index, 1) ;
+
+        @if $bp1Point < $bp2Point {
+          $min: $bp1Point;
+          $max: $bp2Point;
+        }
+        @else {
+          $min: $bp2Point;
+          $max: $bp1Point;
+        }
+        $output: create-media-query($min, $max - 1px);
+      }
+    }
+    @media #{$output} { @content };
+  }
+}

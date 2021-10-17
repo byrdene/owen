@@ -1,0 +1,10 @@
+name: 'Paragraph - Gallery Slider'
+description: 'Paragraph bundle for slider of images'
+type: module
+package: Custom
+core_version_requirement: '^8.9 || ^9'
+dependencies:
+  - field
+  - media
+  - media_library
+  - paragraphs

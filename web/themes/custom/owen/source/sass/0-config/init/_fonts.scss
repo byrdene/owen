@@ -1,0 +1,40 @@
+// ==========================================================================
+//   FONTS
+// ==========================================================================
+
+@mixin add-font($fontName, $fontPath, $fontTag, $fontWeight, $fontStyle) {
+  @font-face{
+    font-family: $fontName;
+    src: url($fontPath +'.eot');
+    src: url($fontPath +'.eot?iefix') format('eot'),
+    url($fontPath +'.woff') format('woff'),
+    url($fontPath +'.woff2') format('woff2'),
+    url($fontPath +'.ttf') format('truetype'),
+    url($fontPath +'.svg'+ $fontTag) format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+    font-display: swap;
+  };
+}
+
+// ICO Moon Ultimate Font
+@include add-font(
+        $fontName: 'ICO Moon',
+        $fontPath: '../../static/fonts/icomoon/icomoon',
+        $fontTag: '#icomoon',
+        $fontWeight: normal,
+        $fontStyle: normal );
+
+// Typekit & Google fonts are loaded as libraries. Icon fonts are embedded above.
+$roboto:   "Roboto", sans-serif;
+$icomoon:   "ICO Moon", sans-serif;
+
+// Font weight
+$font-weights: (
+        thin: 200,
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+);

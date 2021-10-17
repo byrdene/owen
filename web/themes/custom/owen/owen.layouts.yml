@@ -1,0 +1,11 @@
+ds_2row:
+  label: Two row layout
+  category: Display Suite
+  class: '\Drupal\ds\Plugin\DsLayout'
+  type: partial
+  template: templates/ds-2row
+  regions:
+    top:
+      label: Top
+    bottom:
+      label: Bottom

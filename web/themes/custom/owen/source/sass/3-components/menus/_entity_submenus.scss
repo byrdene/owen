@@ -1,0 +1,10 @@
+// menu blocks
+
+.entity-submenu {
+  > .node {
+    max-width: $body-width;
+    & + .node {
+      margin-top: $vertical-spacing;
+    }
+  }
+}

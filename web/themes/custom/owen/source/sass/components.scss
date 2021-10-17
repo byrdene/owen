@@ -1,0 +1,35 @@
+@import "0-config/__config";
+
+// COMPONENTS: Discrete, reusable UI elements
+// Read more about SMACSS categorization for Drupal themes: https://www.drupal.org/node/1887922
+
+// This file is compiled separately so we can pull in config dependencies above
+// while also maintaining Drupal's SMACSS structure.
+
+//@import "3-components/site-branding";
+@import "3-components/page-title";
+@import "3-components/menus/menu";
+@import "3-components/menus/main-menu";
+//@import "3-components/menus/breadcrumb";
+//@import "3-components/menus/secondary-menu";
+@import "3-components/menus/social-media-menu";
+@import "3-components/hamburgers/hamburgers";
+@import "3-components/hamburger-navigation";
+//@import "3-components/menus/entity_submenus";
+//@import "3-components/search";
+//@import "3-components/pager";
+@import "3-components/colorbox.scss";
+//@import "3-components/accordions.scss";
+@import "3-components/modals.scss";
+@import "3-components/slick";
+//@import "3-components/custom-select";
+//@import "3-components/layouts";
+@import "3-components/paragraphs/rich-text";
+@import "3-components/paragraphs/image";
+//@import "3-components/paragraphs/quote";
+@import "3-components/paragraphs/tiles";
+@import "3-components/paragraphs/card-deck";
+@import "3-components/paragraphs/gallery-slider";
+@import "3-components/paragraphs/gallery-carousel";
+//@import "3-components/sharethis";
+@import "3-components/contextual-links";

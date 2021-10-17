@@ -1,0 +1,79 @@
+// ==========================================================================
+//   Base Icons
+// ==========================================================================
+
+$icon-plus:             '\ed5a'; // From $icomoon font
+$icon-minus:            '\ed5b'; // From $icomoon font
+$icon-arrow-right:      '\edba'; // From $icomoon font
+$icon-arrow-left:       '\edc2'; // From $icomoon font
+$icon-arrow-down:       '\edc6'; // From $icomoon font
+$icon-arrow-up:         '\ee7f'; // From $icomoon font
+$icon-triangle-right:   '\edc5'; // From $icomoon font
+$icon-triangle-left:    '\e90e'; // From $icomoon font
+$icon-triangle-down:    '\e918'; // From $icomoon font
+$icon-triangle-up:      '\e90d'; // From $icomoon font
+$icon-quotes-left:      '\e903'; // From $icomoon font
+$icon-quotes-right:     '\e902'; // From $icomoon font
+$icon-close:            '\e905'; // From $icomoon font
+$icon-circle:           '\e900'; // From $icomoon font
+$icon-square:           '\e904'; // From $icomoon font
+$icon-bullet:           $icon-square;
+$icon-dot:              $icon-circle;
+
+// ==========================================================================
+//   Form Element Icons
+// ==========================================================================
+
+$icon-radio-on:         '\e906'; // From $icomoon font
+$icon-radio-off:        '\ee70'; // From $icomoon font
+$icon-checkbox-on:      '\ee6b'; // From $icomoon font
+$icon-checkbox-off:	    '\ee7d'; // From $icomoon font
+$icon-select:           $icon-triangle-down; // custom select menu currently creates the arrow with border styles.
+
+// ==========================================================================
+//   Search/Menu Icons
+// ==========================================================================
+$icon-search:           '\eb30'; // From $icomoon font
+$icon-menu:             '\ec6e'; // From $icomoon font
+$icon-subnav:           $icon-arrow-right;
+$icon-mobile-subnav:           $icon-arrow-right;
+$icon-mobile-subnav-expanded:  $icon-arrow-down; // default rotates $icon-mobile-subnav for transition effects
+$icon-back-link:        $icon-arrow-left;
+
+// ==========================================================================
+//   Accordions
+// ==========================================================================
+$icon-accordion-open:   $icon-plus;
+$icon-accordion-close:  $icon-minus;
+
+// ==========================================================================
+//   Events/Calendar
+// ==========================================================================
+$icon-list:           '\ec57'; // From $icomoon font
+$icon-calendar:       '\ea62'; // From $icomoon font
+
+// ==========================================================================
+//   Social Media & Share Links
+// ==========================================================================
+
+$icon-facebook:       '\eee9'; // From $icomoon font
+$icon-twitter:        '\eeee'; // From $icomoon font
+$icon-instagram:      '\e908'; // From $icomoon font
+$icon-googleplus:     '\ee6e'; // From $icomoon font
+$icon-youtube:        '\eef5'; // From $icomoon font
+$icon-vimeo:          '\eef9'; // From $icomoon font
+$icon-linkedin:       '\ef24'; // From $icomoon font
+$icon-pinterest:      '\e909'; // From $icomoon font
+
+$icon-social-share:   '\eedd'; // From $icomoon font
+
+$icon-print:          '\ea65'; // From $icomoon font
+$icon-email:          '\ea32'; // From $icomoon font
+
+// ==========================================================================
+//   Miscellaneous
+// ==========================================================================
+
+$icon-new-tab:         '\e90c'; // From $icomoon font
+$icon-feed:            '\e90a'; // From $icomoon font
+$icon-pdf:             '\e90b'; // From $icomoon font

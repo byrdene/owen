@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override for the navigation region.
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="wrapper">
+    {{ content }}
+    </div>
+  </div>
+{% endif %}

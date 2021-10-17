@@ -1,0 +1,21 @@
+// ==========================================================================
+//   CONTEXTUAL LINKS
+// ==========================================================================
+
+
+// We don't really need those annoying contextual links everywhere!
+// They make it hard to click other things.
+
+nav,
+.search-block-form,
+.block-search {
+  .contextual {
+    display: none;
+  }
+}
+
+.contextual {
+  .trigger {
+    position: absolute !important;
+  }
+}

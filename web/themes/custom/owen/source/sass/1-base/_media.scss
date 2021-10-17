@@ -1,0 +1,163 @@
+// ==========================================================================
+//   MEDIA
+//   Images, Videos, Captions, etc.
+// ==========================================================================
+
+picture,
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+figure,
+article {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  &.embedded-entity {
+    margin: 0 0 rem($vertical-spacing) 0;
+  }
+  &.align-left {
+    float: none;
+    @include bp($sidebar, up) {
+      float: left;
+      margin: $gutter/2 $gutter $gutter 0;
+      max-width: 35%;
+    }
+  }
+  &.align-right {
+    float: none;
+    @include bp($sidebar, up) {
+      margin: $gutter/2 0 $gutter $gutter;
+      float: right;
+      max-width: 35%;
+    }
+  }
+}
+
+figure {
+  margin: 0 0 rem($vertical-spacing);
+  figcaption {
+    @extend %caption;
+  }
+}
+
+caption {
+  margin-bottom: rem($vertical-spacing / 2);
+}
+
+.field--type-image {
+  a {
+    &:focus {
+      outline-offset: 5px; // hard to see without an offset
+    }
+  }
+}
+
+.media {
+  position: relative;
+  .field--name-video-modal-button {
+    .launch-button {
+      position: absolute;
+      top: calc(50% - 40px); // minus half the height of the play button
+      left: calc(50% - 40px); // minus half the width of the play button
+      button {
+        background: transparent;
+        border: none;
+        span {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-indent: -9999px;
+          position: relative;
+          width: 80px;
+          height: 80px;
+          border: 1px solid $white;
+          @include border-radius(50%);
+          &:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: $icomoon;
+            content: $icon-triangle-right;
+            text-indent: 0;
+            text-align:center;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            color: $white;
+            font-size: 48px;
+            cursor: pointer;
+          }
+          &:hover,
+          &:focus {
+            &:after {
+              background-color: rgba(0, 0, 0, .4);
+            }
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .field--name-video-modal-button-audio-desc {
+    .launch-button.audio-description  {
+      margin-top: $gutter/2;
+      button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        span {
+          color: $action-color;
+          cursor: pointer;
+        }
+        &:hover,
+        &:focus {
+          outline: 1px dotted;
+          span {
+            color: $primary-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  /* fade image in after load */
+  .lazyload,
+  .lazyloading {
+    opacity: 0;
+  }
+  .lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+
+  // Broken image symbol
+  //img.lazyload:not([src]) {
+  //  visibility: hidden;
+  //}
+
+}
+
+// aspect ratios for media view modes
+.media--view-mode-square {
+  @include fluid-aspect-ratio(1 1);
+}
+
+.media--view-mode-landscape-full-width-16x9,
+.media--view-mode-landscape-contained-16x9 {
+  @include fluid-aspect-ratio(16 9);
+}
+
+.media--view-mode-landscape-full-width-4x3,
+.media--view-mode-landscape-contained-4x3 {
+  @include fluid-aspect-ratio(4 3);
+}

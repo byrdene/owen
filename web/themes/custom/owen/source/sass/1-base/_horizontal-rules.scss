@@ -1,0 +1,11 @@
+// ==========================================================================
+//   HORIZONTAL RULES
+// ==========================================================================
+
+hr {
+  color: transparent;
+  border-bottom: 1px solid $base-border-color;
+  box-sizing: content-box;
+  height: 0;
+  margin: rem($vertical-spacing) 0;
+}

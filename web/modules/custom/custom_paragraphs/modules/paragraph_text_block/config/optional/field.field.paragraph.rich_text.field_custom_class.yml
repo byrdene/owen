@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_custom_class
+    - paragraphs.paragraphs_type.rich_text
+id: paragraph.rich_text.field_custom_class
+field_name: field_custom_class
+entity_type: paragraph
+bundle: rich_text
+label: 'Custom Class(es)'
+description: 'Separate multiple class names with a single space. E.g. class1 class2 class3'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

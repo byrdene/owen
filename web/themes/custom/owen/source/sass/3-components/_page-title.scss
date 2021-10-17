@@ -1,0 +1,20 @@
+// ==========================================================================
+//   PAGE TITLE
+// ==========================================================================
+
+body.page-node,
+body.path-taxonomy {
+  .block-page-title-block {
+    display: none; // On node pages, the title is displayed and positioned with Display Suite
+  }
+}
+
+// Center the title on non-node, taxonomy pages
+.section-user {
+  .block-page-title-block {
+    .block__content {
+      text-align: center;
+    }
+  }
+}
+

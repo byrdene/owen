@@ -1,0 +1,15 @@
+name: 'Paragraph - Tiles'
+type: module
+core_version_requirement: '^8.9 || ^9'
+package: Custom
+description: 'Paragraph bundle for media tiles (image/video plus text)'
+dependencies:
+  - allowed_formats
+  - field
+  - link
+  - media
+  - media_library
+  - paragraphs
+  - text
+  - field_group
+  - entity_reference_revisions

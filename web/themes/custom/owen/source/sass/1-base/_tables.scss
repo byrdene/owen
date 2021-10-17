@@ -1,0 +1,122 @@
+// ==========================================================================
+//   TABLES
+// ==========================================================================
+
+
+table {
+  margin-bottom: rem($vertical-spacing);
+}
+
+table {
+  width: 100%;
+  border-width: $dt-table-border-width;
+  border-color: $dt-table-border-color;
+  border-style: $dt-table-border-style;
+  margin: $vertical-spacing 0;
+
+  thead tr th,
+  thead tr th.ui-state-default {
+    border: none;
+    @include font-weight(bold);
+    padding: $gutter * .75;
+    text-align: left;
+    text-transform: uppercase;
+    color: $dt-th-color;
+    background: $dt-th-background-color;
+    a {
+      color: $action-color;
+    }
+  }
+
+  td {
+    border-width: $dt-table-cell-border-width;
+    border-color: $dt-table-cell-border-color;
+    border-style: $dt-table-cell-border-style;
+    padding: $gutter * .75;
+    @include font-size($table-cell-font-size);
+    *:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// Table drag handles (based on Webform examples)
+a.tabledrag-handle .handle {
+  width: 30px;
+  height: 30px;
+}
+
+// Table with DataTables plugin applied for responsive collapsing
+table.dataTable.dtr-inline.collapsed > tbody > tr {
+
+  td, th {
+    &:first-child:before {
+      display: inline-block;
+      @extend %icon-font;
+      font-family: $icomoon;
+      content: $icon-accordion-open;
+      color: $action-color;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      margin: 0 5px 0 0;
+      cursor: pointer;
+    }
+  }
+
+  &.parent {
+    td, th {
+      &:first-child:before {
+        font-family: $icomoon;
+        content: $icon-accordion-close;
+      }
+    }
+  }
+
+  &.child {
+    td, th {
+      &:first-child:before {
+        display: none;
+      }
+      ul  {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          margin-left: 0;
+          &:before {
+            content:"";
+          }
+        }
+      }
+      .dtr-title {
+        @include font-weight(bold);
+        margin-right: 5px;
+        a {}
+      }
+    }
+  }
+}
+
+// Override default jQuery styling of headers
+.dataTables_wrapper {
+  .ui-widget-header {
+    border: 0;
+  }
+  .ui-state-default {
+    border: 0;
+    .DataTables_sort_wrapper {
+      // Remove the pointer cursor if "sort" is set to FALSE in jquery.responsiveTables.js
+      // cursor: pointer;
+      display: inline-block;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ui-icon {
+      display: inline-block;
+      position: absolute;
+      top: 3px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+// ==========================================================================
+//   PAGER
+// ==========================================================================
+
+.pager__items {
+  margin: 2em 0; /* LTR */
+  padding: 0;
+  text-align: center;
+}
+[dir="rtl"] .pager__items {
+  margin: 2em 0;
+}
+.pager__item {
+  display: inline-block;
+  color: $action-color;
+  @include font-size($base-font-size);
+  margin: 0;
+  padding: 0 $gutter/4 $gutter/2 $gutter/4;
+}
+.pager__item a {
+  border-bottom: 6px solid transparent;
+  line-height: 1.55em;
+  padding: 0 5px 2px;
+  @include font-weight(bold);
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+.pager__item.is-active a {
+  border-bottom-width: 6px;
+  border-bottom-color: $action-color;
+  color: $action-color;
+  @include font-weight(bold);
+}
+.pager__item a:hover,
+.pager__item a:focus {
+  border-bottom-color: $action-color;
+  color: $action-color;
+}
+.pager__item--next a,
+.pager__item--last a,
+.pager__item--first a,
+.pager__item--previous a {
+  border-bottom-width: 0;
+  color: $action-color;
+}
+
+// Infinite Scroll pager does its own thing
+.js-pager__items.pager {
+  text-align: center;
+  .pager__item {
+    a,
+    a:hover,
+    a:focus {
+      border-bottom: 0;
+    }
+  }
+}

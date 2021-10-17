@@ -1,0 +1,21 @@
+.menu--secondary {
+  display: none;
+  @include bp($main-nav, up) {
+    display: block;
+    float:right;
+    ul.menu {
+      li {
+        display: inline-block;
+        float:left;
+        padding: 0 .5em;
+        border-right: 1px solid $base-border-color;
+        &:last-of-type {
+          border-right: none;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

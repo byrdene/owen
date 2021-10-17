@@ -1,0 +1,72 @@
+uuid: 5d31fbf2-447a-4dd3-a6c8-90a45b7995aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.interest.body
+    - field.field.node.interest.field_branding_color
+    - field.field.node.interest.field_impact_statement
+    - field.field.node.interest.field_intro_text
+    - node.type.interest
+  module:
+    - path
+    - text
+id: node.interest.default
+targetEntityType: node
+bundle: interest
+mode: default
+content:
+  field_branding_color:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_impact_statement:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_intro_text:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  promote: true
+  sticky: true
+  uid: true

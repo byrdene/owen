@@ -1,0 +1,84 @@
+// ==========================================================================
+//   VIEWS
+// ==========================================================================
+
+// Empty view
+.view-empty {
+  clear: both;
+  text-align: center;
+  .filter-no-results { //class applied in Views UI or twig
+    display: inline-block;
+    &:focus {
+      outline: 1px dotted $base-border-color;
+      outline-offset: 10px;
+    }
+  }
+}
+
+// The number of views results
+// Note: these classes need to be added with the results tokens in the Views UI or
+// done programmatically in customized views-view.html.twig files
+.view-results-total {
+  clear: both;
+  text-align: center;
+  margin-top: $gutter/2;
+  margin-bottom: $gutter*1.5;
+  .filtered-results {
+    display: inline-block;
+    &:focus {
+      outline: 1px dotted $base-border-color;
+      outline-offset: 10px;
+    }
+  }
+}
+
+// Footer
+.view-footer {
+  clear: both;
+}
+
+// Pager
+.view {
+  .pager {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: $gutter;
+  }
+}
+
+// Better Exposed Filters
+.bef-exposed-form {
+  .form-item,
+  .form-actions {
+    clear: both;
+    float: left;
+  }
+}
+
+.view-database-search {
+  .view-header {
+    font-family: $base-font-family;
+    @include font-size($h3-font-size-mobile);
+    @include font-weight(medium);
+    color: $base-font-color;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1.28;
+    margin-bottom: $vertical-spacing;
+    .filtered-results {
+      display: inline-block;
+      &:focus {
+        outline: 1px dotted $base-border-color;
+        outline-offset: 10px;
+      }
+    }
+  }
+  .views-row {
+    & + .views-row {
+      margin-top: $vertical-spacing;
+      padding-top: $vertical-spacing;
+      border-top: 1px solid $base-border-color;
+    }
+  }
+}

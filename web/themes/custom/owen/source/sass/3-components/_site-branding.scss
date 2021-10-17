@@ -1,0 +1,32 @@
+// ==========================================================================
+//   SYSTEM BRANDING BLOCK
+// ==========================================================================
+
+.logo {
+  display: block;
+  position: $logo-position-mobile;
+  float: $logo-float-mobile;
+  width: $logo-mx-small;
+  max-width: $logo-mx-small;
+  outline-offset: 2px; // to improve keyboard accessibility
+  img {
+    width:100%;// Required to make height of SVGs responsive in IE.
+  }
+  @include bp(medium, up) {
+    width: $logo-mx-medium;
+    max-width: $logo-mx-medium;
+  }
+  @include bp(large, up) {
+    width: $logo-mx-large;
+    max-width: $logo-mx-large;
+  }
+  @include bp(x-large, up) {
+    width: $logo-mx-xlarge;
+    max-width: $logo-mx-xlarge;
+  }
+}
+.site-branding-text {
+  display: none;
+  .site-branding-name {}
+  .site-branding-slogan {}
+}

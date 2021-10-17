@@ -1,0 +1,87 @@
+
+<div{{ attributes.addClass(
+'layout-container'
+) }}>
+
+    <!-- HEADER -->
+    <header>
+      <div class="nav-wrapper container">
+
+        {% if page.navigation_primary %}
+          {{ page.navigation_primary }}
+        {% endif %}
+
+      </div>
+      <div id="site-header">
+        <div class="header-background-wrapper"><img src="{{ base_path ~ directory }}/static/images/header-bg.png" alt=""/></div>
+
+        <div class="logo-wrapper container">
+          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+          <div class="logo">
+              <img src="{{ base_path ~ directory }}/logo.png" alt="{{ 'Home'|t }}"/>
+          </div>
+          </a>
+        </div>
+
+
+      </div><!-- /#site-header -->
+    </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- PRIMARY-CONTENT -->
+    <div id="primary-content">
+        <div class="container">
+
+            <div id="content" class="container x-small-width padded-row padded-column">
+
+
+
+
+                {{ page.content }}
+
+
+
+
+            </div><!-- /#content -->
+        </div><!-- /.container -->
+    </div><!-- /#primary-content -->
+
+  </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container padded-row">
+
+            {% if page.footer_first %}
+                <div id="footer-first">
+                    {{ page.footer_first }}
+                </div><!-- /#footer-first -->
+            {% endif %}
+
+            {% if page.footer_second %}
+                <div id="footer-second">
+                    {{ page.footer_second }}
+                </div><!-- /#footer-second -->
+            {% endif %}
+
+
+                <div id="footer-third">
+                  <p>Pleasant Street Music Studio<br>
+                    All rights reserved. Copyright &#169; {{ "now"|date('Y') }} |
+
+                    {% if logged_in %}
+                      <a href="/user/logout">Logout</a>
+                    {% else %}
+                      <a href="/user">Login</a>
+                    {% endif %}
+                  </p>
+                </div><!-- /#footer-third -->
+
+
+        </div><!-- /.container -->
+      <div class="footer-background"></div>
+    </footer>
+
+</div><!-- /.layout-container -->

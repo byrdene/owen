@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.gallery_carousel.field_custom_class
+    - field.field.paragraph.gallery_carousel.field_gallery_images
+    - field.field.paragraph.gallery_carousel.field_heading
+    - field.field.paragraph.gallery_carousel.field_heading_status
+    - paragraphs.paragraphs_type.gallery_carousel
+id: paragraph.gallery_carousel.preview
+targetEntityType: paragraph
+bundle: gallery_carousel
+mode: preview
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_custom_class: true
+  field_gallery_images: true
+  field_heading_status: true
+  search_api_excerpt: true

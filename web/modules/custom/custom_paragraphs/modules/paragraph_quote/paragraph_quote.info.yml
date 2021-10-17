@@ -1,0 +1,12 @@
+name: 'Paragraph - Quote'
+description: 'Paragraph bundle for quotes or testimonials'
+type: module
+package: Custom
+core_version_requirement: '^8.9 || ^9'
+dependencies:
+  - allowed_formats
+  - field
+  - media
+  - media_library
+  - paragraphs
+  - text

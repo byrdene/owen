@@ -1,0 +1,192 @@
+
+// General container level styles and resets
+.layout-container {
+  div,
+  section {
+    position: relative;
+    @include clearfix;
+  }
+}
+
+.field,
+.block {
+  position: relative;
+  @include clearfix;
+}
+
+.container {
+  @include center-block;
+}
+
+// Widths
+.full-width {
+  width: 100%;
+  max-width: none;
+}
+
+.page-width {
+  width: 100%;
+  max-width: $page-width;
+}
+
+.medium-width {
+  width: 100%;
+  max-width: $content-width;
+}
+
+.small-width {
+  width: 100%;
+  max-width: $body-width;
+}
+
+.x-small-width {
+  width: 100%;
+  max-width: 640px;
+}
+
+
+// Gutters
+.padded-row {
+  padding: 0 $gutter;
+  @include bp(medium, up) {
+    padding: 0 $gutter*2;
+  }
+}
+
+.padded-column { //used mostly for outermost containers that are not one item in many
+  padding: $gutter/2 0 $gutter*3 0;
+  @include bp(medium, up) {
+    padding: $gutter*2 0 $gutter*4 0;
+  }
+}
+
+.section {
+  & + .section {
+    margin-top: $gutter*2;
+    @include bp(large, up) {
+      margin-top: $gutter*4;
+    }
+  }
+}
+
+.component {
+  & + .component {
+    margin-top: $gutter*2;
+    @include bp(large, up) {
+      margin-top: $gutter*4;
+    }
+  }
+}
+
+// Grid layouts
+
+// Two column grids. Outer class needs to be applied on the container
+// "grid-display-item" class needs to be applied to each grid item
+.two-col-grid {
+  .grid-display-item {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2em;
+    @include bp(small, up) {
+      float: left;
+      &:nth-of-type(2n+1) { // First item (1st in row of 2)
+        clear: left;
+        width: 48%;
+        margin: 0 2% 2em 0;
+      }
+      &:nth-of-type(2n+2) { // Last item (2nd in row of 2)
+        width: 48%;
+        margin: 0 0 2em 2%;
+      }
+    }
+  }
+}
+
+// Three column grids. Outer class needs to be applied on the container
+// "grid-display-item" class needs to be applied to each grid item
+.three-col-grid {
+  .grid-display-item {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2em;
+    @include bp(small, up) {
+      float: left;
+      &:nth-of-type(2n+1) { // First item (1st in row of 2)
+        clear: left;
+        width: 49%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
+        width: 49%;
+        margin: 0 0 2em 1%;
+      }
+    }
+    @include bp(medium, up) {
+      float: left;
+      &:nth-of-type(2n+1) {
+        clear: none; // reset from previous breakpoint
+      }
+      &:nth-of-type(3n+1) { // First item (1st in row of 3)
+        clear: left;
+        width: 32%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(3n+2) { // Middle item (2nd in row of 3)
+        width: 32%;
+        margin: 0 1% 2em 1%;
+      }
+      &:nth-of-type(3n+3) { // Last item (3rd in row of 3)
+        width: 32%;
+        margin: 0 0 2em 1%;
+      }
+    }
+  }
+}
+
+// Four column grids. Outer class needs to be applied on the container
+// "grid-display-item" class needs to be applied to each grid item
+.four-col-grid {
+  .grid-display-item {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2em;
+    @include bp(small, up) {
+      float: left;
+      &:nth-of-type(2n+1) { // First item (1st in row of 2)
+        clear: left;
+        width: 49%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
+        width: 49%;
+        margin: 0 0 2em 1%;
+      }
+    }
+    @include bp(medium, up) {
+      float: left;
+      &:nth-of-type(2n+1) {
+        clear: none; // reset from previous breakpoint
+      }
+      &:nth-of-type(4n+1) { // First item (1st in row of 4)
+        clear: left;
+        width: 23.5%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(4n+2) { // Second item (2nd in row of 4)
+        width: 23.5%;
+        margin: 0 1% 2em 1%;
+      }
+      &:nth-of-type(4n+3) { // Third item (3rd in row of 4)
+        width: 23.5%;
+        margin: 0 1% 2em 1%;
+      }
+      &:nth-of-type(4n) { // Last item (4th in row of 4)
+        width: 23.5%;
+        margin: 0 0 2em 1%;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+
+{%
+  set classes = [
+  'tile-item',
+  'container',
+  custom_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="tile-item-wrapper">
+    <div class="tile-item-content">
+    {{ title_suffix }}
+
+      <div class="image-wrapper">
+        {{ content.field_image }}
+      </div>
+
+      <div class="text-wrapper">
+        {{ content.field_text }}
+
+        {% if content.field_button|render %}
+          <div class="button-wrapper">
+            {{ content.field_button }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+</article>

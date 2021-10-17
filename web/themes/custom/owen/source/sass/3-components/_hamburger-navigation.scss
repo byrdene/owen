@@ -1,0 +1,120 @@
+// ==========================================================================
+//   PRIMARY NAVIGATION
+//   The styles for the animating hamburger button are in their own partial (hamburgers/hamburgers.scss
+//   These styles are for theming the button (colors,fonts, etc) and for the menu div that the button toggles open
+// ==========================================================================
+
+//html.js {
+//  #navigation-panel {
+//    display: none; // hide to start but only when js is enabled
+//  }
+//}
+
+#navigation-panel {
+  display: none; // hide to start
+}
+
+.hamburger-navigation {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  button.hamburger {
+    position: absolute;
+    top:-40px;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    width: 60px; // needs to allow for label (60px), hamburger box(40px), padding (15 * 2)
+    padding: 5px 0;
+    background-color: transparent;
+    &:hover {
+      //background: transparentize($black, .2);
+      opacity: 1;
+      outline: none;
+    }
+    &:active,
+    &:focus {
+      opacity: 1;
+      outline: none;
+      //outline-style: solid;
+      //outline-color: $black;
+      //outline-offset: -1px;
+      //outline-width: 1px;
+    }
+    .hamburger-label {
+      display: none;
+      //display: inline-block;
+      width: 60px;
+      color: $black;
+      text-decoration: none;
+      font-family: $base-font-family;
+      @include font-weight(medium);
+      @include font-size(18px);
+      text-transform: uppercase;
+    }
+    .hamburger-box {
+      top: -2px; // to visually center it
+      .hamburger-inner,
+      .hamburger-inner:after,
+      .hamburger-inner:before  {
+        background-color: $black;
+      }
+    }
+    //&:not(.is-active) {
+    //  .hamburger-inner {
+    //    &:after {
+    //      width: 80%;
+    //      right: 0;
+    //    }
+    //  }
+    //}
+  }
+
+  #navigation-panel {
+    background-color: $black;
+    z-index: 500;
+    width: 250px;
+    padding: $gutter;
+    float: right;
+    top: 10px;
+    right: 0;
+    .menu--main {
+      ul {
+        li {
+          display: block;
+          background-color: $action-color;
+          @include border-radius(4px);
+          padding: $gutter/2;
+          text-align: center;
+          & + li {
+            margin-top: $gutter/2;
+          }
+          a {
+            color: $white;
+            text-decoration: none;
+            @include font-size(14px);
+          }
+        }
+      }
+    }
+
+    .utility-men-wrapper {
+      margin-top: $gutter;
+      ul {
+        li {
+          display: block;
+          a {
+            color: $white;
+            text-decoration: none;
+            @include font-size(14px);
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

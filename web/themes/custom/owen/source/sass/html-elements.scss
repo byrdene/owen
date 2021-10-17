@@ -1,0 +1,316 @@
+// ==========================================================================
+//   HTML ELEMENTS
+//   Alphabetized after HTML and BODY
+// ==========================================================================
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box; // Safari <= 5
+  -moz-box-sizing: border-box; // Firefox <= 19
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  // Universal transitions
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+  transition-timing-function: linear;
+}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+  &:focus {
+    outline: 1px dotted;
+  }
+}
+
+abbr {
+  &[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  &:hover {
+    cursor: help;
+  }
+}
+
+address {}
+
+article {}
+
+aside {}
+
+audio {
+  &:not([controls]) {
+    display: none;
+    height: 0;
+  }
+}
+
+b {}
+
+blockquote {}
+
+// Don’t style button elements, since they’re often styled as links for
+// accessible widgets. Buttons are styled via classes.
+button {
+  overflow: visible;
+}
+
+canvas {
+  display: inline-block;
+}
+
+caption {}
+
+cite {}
+
+code {}
+
+col {}
+
+colgroup {}
+
+datalist {}
+
+dd {}
+
+del {}
+
+details {}
+
+dfn {
+  font-style: italic;
+}
+
+dl {}
+
+dt {}
+
+em {}
+
+embed {}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+figcaption {}
+
+figure {}
+
+footer {}
+
+form {}
+
+h1 {
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+}
+
+
+header {}
+
+hr {
+  border: 1px solid;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+i {}
+
+iframe {
+  border: 0;
+}
+
+img {
+  border: 0;
+  font-style: italic; // Makes alt text stand out from surrounding text.
+  height: auto;
+  max-width: 100%;
+}
+
+// Don't style button, submit, or reset elements, since they're often styled as
+// links for accessible widgets. Use classes instead.
+input {
+  line-height: normal;
+}
+
+input[type='button'] {}
+input[type='checkbox'] {}
+input[type='color'] {}
+input[type='date'] {}
+input[type='datetime'] {}
+input[type='datetime-local'] {}
+input[type='email'] {}
+input[type='file'] {}
+input[type='image'] {}
+input[type='month'] {}
+input[type='number'] {}
+input[type='password'] {}
+input[type='radio'] {}
+input[type='range'] {}
+input[type='reset'] {}
+input[type='search'] {}
+input[type='submit'] {}
+input[type='tel'] {}
+input[type='text'] {}
+input[type='time'] {}
+input[type='url'] {}
+input[type='week'] {}
+
+ins {}
+
+kbd {}
+
+label {}
+
+legend {
+  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+li {}
+
+main {}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+menu {}
+
+menuitem {}
+
+meter {}
+
+nav {}
+
+object {}
+
+ol {}
+
+optgroup {
+  font-weight: bold;
+}
+
+option {}
+
+output {}
+
+p {}
+
+param {}
+
+pre {
+  overflow: auto;
+}
+
+progress {}
+
+q {}
+
+s {}
+
+samp {}
+
+section {}
+
+select {}
+
+small {
+  font-size: .8em;
+}
+
+strong {}
+
+sub {
+  bottom: -0.25em;
+}
+
+summary {
+  display: list-item;
+}
+
+sup {
+  top: -0.5em;
+}
+
+svg {
+  &:not(:root) {
+    overflow: hidden;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 100%;
+}
+
+tbody {}
+
+td {}
+
+textarea {
+  overflow: auto;
+}
+
+tfoot {
+  td,
+  th {}
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  td,
+  th {}
+}
+
+time {}
+
+tr {}
+
+u {}
+
+ul {}
+
+var {}
+
+video {}

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: gallery_carousel
+label: 'Gallery Carousel'
+icon_uuid: null
+icon_default: null
+description: 'A carousel of images, one image at a time'
+behavior_plugins: {  }

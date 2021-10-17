@@ -1,0 +1,2 @@
+!function(s){s.fn.equalize=function(i){var t,h,e=!1,c=!1;return s.isPlainObject(i)?(t=i.equalize||"height",e=i.children||!1,c=i.reset||!1):t=i||"height",!!s.isFunction(s.fn[t])&&(h=0<t.indexOf("eight")?"height":"width",this.each(function(){var i=e?s(this).find(e):s(this).children(),n=0;i.each(function(){var i,e=s(this);c&&e.css(h,""),i=e[t](),n<i&&(n=i)}),i.css(h,n+"px")}))}}(jQuery);
+//# sourceMappingURL=equalize.js.map

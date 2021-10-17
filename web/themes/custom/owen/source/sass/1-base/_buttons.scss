@@ -1,0 +1,99 @@
+// ==========================================================================
+//   BUTTONS
+// ==========================================================================
+
+a,
+input {
+  // Primary solid version
+  &.button {
+    position: relative;
+    display: inline-block;
+    color: $white;
+    background: $action-color;
+    border: 1px solid $action-color;
+    @include border-radius(4px);
+    padding: .5em 1em;
+    @include font-size(14px);
+    @include font-weight(bold);
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover,
+    &:active {
+      text-decoration: none;
+      color: $white !important;
+      background: $primary-color;
+      border: 1px solid $primary-color;
+      @include border-radius(4px);
+    }
+    &:focus {
+      text-decoration: none;
+      color: $white !important;
+      background: $primary-color;
+      border: 1px solid $primary-color;
+      @include border-radius(4px);
+    }
+    &:active {
+      top: 1px;
+      left: 1px;
+    }
+
+    // outlined version of button links
+    &.button--outlined {
+      color: $primary-color;
+      background: transparent;
+      border: 2px solid $base-border-color;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $action-color !important;
+        background: transparent;
+        border: 2px solid $action-color;
+      }
+    }
+    // outlined version of button links
+    &.button-outlined-white {
+      color: $white;
+      background: transparent;
+      border: 2px solid $white;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $primary-color !important;
+        background: $white;
+        border: 2px solid $primary-color;
+      }
+    }
+  }
+}
+
+.skip-link {
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px
+}
+
+.skip-link:hover,
+.skip-link:active,
+.skip-link:focus {
+  text-decoration: none;
+  color: $white !important;
+  background: $action-color;
+  border: 1px solid $action-color;
+  clip: auto !important;
+  display: block;
+  padding: .5em 1em;
+  @include font-size(14px);
+  @include font-weight(normal);
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  height: auto;
+  left: 0;
+  top: 0;
+  width: auto;
+  z-index: 100000
+}

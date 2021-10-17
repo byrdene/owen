@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tile_item
+    - paragraphs.paragraphs_type.tiles
+    - paragraphs.paragraphs_type.tiles_item
+  module:
+    - entity_reference_revisions
+id: paragraph.tiles.field_tile_item
+field_name: field_tile_item
+entity_type: paragraph
+bundle: tiles
+label: 'Media Tile'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      tiles_item: tiles_item
+    target_bundles_drag_drop:
+      image:
+        weight: 5
+        enabled: false
+      rich_text:
+        weight: 6
+        enabled: false
+      tiles:
+        weight: 7
+        enabled: false
+      tiles_item:
+        enabled: true
+        weight: 8
+field_type: entity_reference_revisions

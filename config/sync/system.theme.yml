@@ -1,4 +1,4 @@
 admin: gin
-default: stark
+default: owen
 _core:
   default_config_hash: M3ua3MJWqz0lvE7O72aaygbynmOreqYH2RvxwDDzlpk

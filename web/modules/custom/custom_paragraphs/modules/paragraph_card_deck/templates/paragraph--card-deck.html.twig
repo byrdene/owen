@@ -1,0 +1,48 @@
+{# Default classes if no values exist in styling fields #}
+
+{% set custom_class = '' %}
+
+{# Apply classes based on field values if the field exists and it has a value #}
+
+{% if not (paragraph.field_custom_class.isEmpty == true) and paragraph.field_custom_class is defined %}
+  {% set custom_class = paragraph.field_custom_class.value %}
+{% endif %}
+
+{% set component_heading_status = false %}
+{% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
+  {% set component_heading_status = true %}
+  {% if paragraph.field_heading_status.value and paragraph.field_heading_status is defined %}
+    {% set component_heading_status = false %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'page-width',
+  'padded-row',
+  custom_class,
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+    {{ title_suffix }}
+
+    {% if component_heading_status %}
+    <div class="heading-wrapper">
+      {{ content.field_heading }}
+    </div>
+    {% endif %}
+
+      <div class="card-deck-wrapper">
+        {{ content.field_card }}
+      </div>
+
+    </div>
+  </div>
+</section>

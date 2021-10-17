@@ -1,0 +1,2 @@
+!function(n){var r=navigator.userAgent.match(/iPhone/i)?"touchstart":"click";Drupal.behaviors.toggleSearch={attach:function(a){var t,e;t=n(".search-button"),e=n(".block-search .block-inner"),t.each(function(){n(this).off(r).on(r,function(a){e.toggleClass("open").find(".form-item > input").focus(),e.hasClass("open")?(n(this).attr("aria-expanded","true"),e.attr("aria-hidden","false")):(n(this).attr("aria-expanded","false"),e.attr("aria-hidden","true"))})})}}}(jQuery);
+//# sourceMappingURL=owen-search.js.map

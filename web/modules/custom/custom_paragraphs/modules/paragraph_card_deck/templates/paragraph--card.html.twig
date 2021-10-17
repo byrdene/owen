@@ -1,0 +1,33 @@
+
+{%
+  set classes = [
+  'card',
+  'container',
+  custom_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="card-wrapper">
+    <div class="card-content">
+    {{ title_suffix }}
+
+      {% if content.field_image|render %}
+        <div class="image-wrapper">
+          {{ content.field_image }}
+        </div>
+      {% endif %}
+
+      <div class="item-heading-wrapper">
+        {{ content.field_item_heading }}
+      </div>
+
+      {% if content.field_text|render %}
+        <div class="text-wrapper">
+          {{ content.field_text }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</article>

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: tiles_item
+label: 'Media Tile'
+icon_uuid: null
+icon_default: null
+description: 'Consists of one media element and one text element'
+behavior_plugins: {  }

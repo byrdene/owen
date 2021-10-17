@@ -1,0 +1,17 @@
+overrides:
+  version: VERSION
+  css:
+    theme:
+      css/admin.css: {}
+
+slick:
+  version: VERSION
+  css:
+    theme:
+      vendor/slick/slick.css: {}
+
+  js:
+    vendor/slick/slick.min.js: {}
+    js/slick-init.js: {}
+  dependencies:
+    - core/jquery

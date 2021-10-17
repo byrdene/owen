@@ -1,0 +1,13 @@
+name: 'Paragraph - Card Deck'
+type: module
+description: 'Paragraph bundle for series of cards'
+package: Custom
+core_version_requirement: '^8.9 || ^9'
+dependencies:
+  - allowed_formats
+  - entity_reference_revisions
+  - field
+  - field_group
+  - media_library
+  - paragraphs
+  - text

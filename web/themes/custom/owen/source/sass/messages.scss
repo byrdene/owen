@@ -1,0 +1,87 @@
+@import "0-config/__config";
+
+// Messages.
+.messages {
+  position: relative;
+  padding: 9px;
+  margin: $gutter 0;
+  color: darken($ice, 30%);
+  background-color: $ice;
+  border: 1px solid darken($ice, 10%);
+  word-wrap: break-word;
+  box-shadow: none !important;
+  pre {
+    border: 0;
+  }
+  div.bt-close-message { // Button add by jquery
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: .5em 0 0 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: right;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      background-color: transparentize($white, .7);
+      content: "x";
+      text-align: center;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+}
+.messages--warning {
+  color: darken($error-color, 15%);
+  background-color: $warning-color;
+  border-color: darken($warning-color, 10%);
+  pre {
+    background-color: darken($warning-color, 10%);
+  }
+}
+.messages--error {
+  color: white;
+  background-color: $error-color;
+  border-color: darken($error-color, 10%);
+  pre {
+    background-color: darken($error-color, 10%);
+  }
+}
+//.messages--status {
+//  color: darken($status-color, 35%);
+//  background-color: $status-color;
+//  border-color: darken($status-color, 10%);
+//  a {
+//    color: darken($status-color, 35%);
+//    &:hover {
+//      color: darken($status-color, 35%);
+//    }
+//  }
+//  pre {
+//    background-color: darken($status-color, 10%);
+//  }
+//}
+
+.messages--status {
+  color: $base-font-color;
+  background-color: transparent;
+  border: $ice solid;
+  border-width: 1px 0 1px 0;
+  text-align: center;
+  a {
+    color: $action-color;
+    &:hover {
+      color: $base-font-color;
+    }
+  }
+  pre {
+    background-color: transparent;
+  }
+}

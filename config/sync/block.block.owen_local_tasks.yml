@@ -1,0 +1,22 @@
+uuid: 4844c3eb-943e-42ac-ab8e-56031b79c0b9
+langcode: en
+status: true
+dependencies:
+  theme:
+    - owen
+_core:
+  default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
+id: owen_local_tasks
+theme: owen
+region: content
+weight: -20
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

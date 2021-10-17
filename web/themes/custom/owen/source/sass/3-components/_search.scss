@@ -1,0 +1,470 @@
+// ==========================================================================
+//   SEARCH
+// ==========================================================================
+
+// Search Variable
+
+$search-top:                $mobile-header-height; // top edge of search box when it slides in
+
+// Search Icon Configuration
+$icon-font-family:          $icomoon;
+$icon-color:                $white;
+$icon-bgcolor:              $primary-color;
+$icon-bgcolor-mobile:       $primary-color;
+//$icon-font-size:            24px; // size for when there is a bg color
+$icon-font-size:            24px;
+$icon-height:               $nav-height;
+$icon-width:                $nav-height;
+$icon-line-height:          $nav-height;
+
+// Input Text Configuration
+$inputText-desktop-color:    $white; // Input Text
+$inputText-desktop-bgcolor:  transparent;
+$inputText-desktop-height:   45px;
+$inputText-mobile-color:     $white; // Input Text
+$inputText-mobile-height:    35px;
+
+
+// Responsive Search Trigger Button
+$trigger-icon-font-size:    20px;
+$trigger-height:            $nav-height;
+$trigger-width:             $nav-height;
+$trigger-line-height:       $nav-height;
+$trigger-top:               ($mobile-header-height - $trigger-height)/2;
+$mobile-search-trigger:     45px;
+
+// Sliding Box
+$responsiveBox-height:      250px;
+$responsiveBox-bgcolor:     $action-color;
+$sliding-form-item-height:   45px;
+
+// The search icon used for either a trigger to reveal the search box OR
+// to activate the search when the search box is always visible
+%search-icon { // Icon Trigger Configuration
+  text-align: center;
+  font-family: $icon-font-family;
+  content: $icon-search;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: $icon-font-size;
+  @include border-radius(5px);
+  color: $white;
+  background-color: $primary-color;
+  border: 1px solid $primary-color;
+  @include bp($main-nav, up) {
+    font-size: $icon-font-size;
+    //@include border-radius(0);
+    //background-color: $icon-bgcolor;
+    color: $action-color;
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+}
+
+button.search-button {
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  z-index:2;
+  outline: none !important;
+  height:$mobile-search-trigger;
+  width: $mobile-search-trigger;
+  border-radius: 0;
+  position: absolute;
+  top: 20px;
+  right: 75px;
+  // When the search icon is acting as a trigger to reveal the search box
+  @include bp($main-nav, up) {
+    top: 25px; // to visually align this to the vertical middle of the navbar
+    right: 50px; // enough for elements and spacing around it
+  }
+
+  span.search-icon {
+    height:$mobile-search-trigger;
+    width: $mobile-search-trigger;
+    &:after {
+      z-index:1;
+      @extend %search-icon;
+      outline: none !important;
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+      top: 0;
+      bottom: auto;
+      left: 0;
+      right: auto;
+      overflow: visible;
+      line-height: $mobile-search-trigger;
+      height: $mobile-search-trigger;
+      width: $mobile-search-trigger;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:hover {
+    span.search-icon {
+      &:after {
+        cursor: pointer;
+        color: $white;
+        background-color: $action-color;
+        border: 1px solid $action-color;
+        @include bp($main-nav, up) {
+          color: $primary-color;
+          background-color: transparent;
+          border: 1px solid transparent;
+          @include border-radius(0);
+        }
+      }
+    }
+  }
+  &:focus {
+    span.search-icon {
+      &:after {
+        color: $white;
+        background-color: $action-color;
+        border: 1px solid $action-color;
+        @include bp($main-nav, up) {
+          color: $action-color;
+          background-color: transparent;
+          border: 1px solid $black;
+          @include border-radius(0);
+        }
+      }
+    }
+  }
+}
+
+// database search for general site search
+// When the search box is revealed by the search trigger for all displays
+.bef-exposed-form.block-search,
+.search-block-form {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  right: 0;
+  left: auto;
+  width: 100%;
+  @include bp(large, up) {
+    width: 50%;
+  }
+  .block-inner { // hide to start with 0 height
+    position: relative;
+    box-sizing: border-box;
+    background-color: $responsiveBox-bgcolor;
+    border: none;
+    top: $search-top;
+    z-index: 991;
+    float: left;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all ease-in-out .2s;
+    @include bp($main-nav, up) {
+      top: $search-top;
+      right: $gutter*2;
+    }
+    form {
+      display: none;
+    }
+    &.open { // class applied via jQuery if toggleClass is used
+      height: auto;
+      max-height: $responsiveBox-height;
+      padding: $gutter;
+      form {
+        display: block;
+        border-bottom: 1px solid $white;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: right;
+        .form--inline {
+          width: 100%;
+          .form-item {
+            width: calc(100% - 45px); // minus height of sliding form item height
+            max-width: none;
+            margin-bottom: 0;
+            .form-item-label {
+              @include invisible;
+            }
+            input.form-text {
+              max-width: 100%;
+              font-family: $base-font-family;
+              color: $inputText-mobile-color;
+              @include font-weight(medium);
+              @include font-size(18px);
+              text-align: left;
+              margin: 0;
+              @include border-radius(0);
+              -webkit-appearance: none;
+              border: none;
+              line-height: $sliding-form-item-height;
+              height: $sliding-form-item-height;
+              padding: 0 10px;
+              background: none;
+              &:focus {
+                outline: none;
+              }
+              /* Webkit */
+              &::-webkit-input-placeholder {
+                color: $inputText-mobile-color;
+                @include font-weight(medium);
+                @include font-size(18px);
+              }
+              /* Firefox 4-18 */
+              &:-moz-placeholder {
+                color: $inputText-mobile-color;
+                @include font-weight(medium);
+                @include font-size(18px);
+              }
+              /* Firefox 19+ */
+              &::-moz-placeholder {
+                color: $inputText-mobile-color;
+                @include font-weight(medium);
+                @include font-size(18px);
+              }
+              /* IE10+ */
+              &:-ms-input-placeholder {
+                color: $inputText-mobile-color;
+                @include font-weight(medium);
+                @include font-size(18px);
+              }
+            }
+          }
+          .form-actions {
+            //float: left;
+            //clear: none;
+            position: absolute;
+            bottom: $gutter;
+            right: $gutter;
+            display: inline-block;
+            //margin-left: -5px;
+            margin-bottom: 0;
+            .submit-button:not(.reset-button) {
+              position: relative;
+              left: auto;
+              &:before { // it has to go on the wrapper since it cannot go on the input element
+                z-index:0;
+                text-align: center;
+                font-family: $icomoon;
+                content: $icon-search;
+                vertical-align: middle;
+                text-decoration: none;
+                cursor: pointer;
+                color: $white;
+                font-size: 20px;
+                @include border-radius(0);
+                position: absolute;
+                display: block;
+                box-sizing: border-box;
+                overflow: visible;
+                line-height: $sliding-form-item-height;
+                height: $sliding-form-item-height;
+                width: $sliding-form-item-height;
+              }
+              input.form-submit {
+
+                position: relative;
+                z-index: 10;
+                cursor: pointer;
+                display: block;
+                box-sizing: border-box;
+                border: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                text-indent: -9999px;
+                outline: none !important;
+
+                width: $sliding-form-item-height;
+                height: $sliding-form-item-height;
+                line-height: $sliding-form-item-height;
+                background: transparent;
+                margin-bottom: 3px;
+                &:hover,
+                &:focus {
+                  border: 1px solid $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// The search and submit elements placed directly on the search results page
+.region-pre-content, // when using views and not Search API pages
+.region-content, // when using views and not Search API pages
+.block-system-main-block {
+  form#views-exposed-form-database-search-page-1 { // when using views and not Search API pages
+    position: relative;
+    width: 100%;
+    max-width: $body-width;
+    .form--inline {
+      position: relative;
+      padding: 0;
+      //height: 62px; // form item height plus two pixels for borde;
+    }
+    .form-item--id-search-api-fulltext,
+    .form-item--search,
+    .form-item--search-api-autocomplete,
+    .form-item {
+      //width: calc(100% - 60px); // minus form item height
+      width: 100%;
+      max-width: none;
+      margin-bottom: 0;
+      .form-item-label {
+        @include invisible;
+      }
+      input.form-text {
+        max-width: 100%;
+        width: 100%;
+        font-family: $base-font-family;
+        color: $primary-color;
+        @include font-weight(medium);
+        @include font-size(18px);
+        text-align: left;
+        margin: 0;
+        @include border-radius(0);
+        -webkit-appearance: none;
+        line-height: $form-item-height;
+        height: $form-item-height;
+        padding: 0 70px 0 10px;
+        background: none;
+        border: 1px solid $base-border-color;
+        &:focus {
+          outline: none;
+          border: 2px solid $action-color;
+        }
+        /* Webkit */
+        &::-webkit-input-placeholder {
+          color: $inputText-mobile-color;
+          @include font-weight(medium);
+          @include font-size(18px);
+        }
+        /* Firefox 4-18 */
+        &:-moz-placeholder {
+          color: $inputText-mobile-color;
+          @include font-weight(medium);
+          @include font-size(18px);
+        }
+        /* Firefox 19+ */
+        &::-moz-placeholder {
+          color: $inputText-mobile-color;
+          @include font-weight(medium);
+          @include font-size(18px);
+        }
+        /* IE10+ */
+        &:-ms-input-placeholder {
+          color: $inputText-mobile-color;
+          @include font-weight(medium);
+          @include font-size(18px);
+        }
+      }
+    }
+    .form-actions {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      line-height: $form-item-height;
+      height: $form-item-height;
+      width: $form-item-height;
+      .submit-button:not(.reset-button) {
+        position: relative;
+        left: auto;
+        &:before { // it has to go on the wrapper since it cannot go on the input element
+          z-index:0;
+          text-align: center;
+          font-family: $icomoon;
+          content: $icon-search;
+          vertical-align: middle;
+          text-decoration: none;
+          cursor: pointer;
+          color: $primary-color;
+          font-size: 20px;
+          @include border-radius(0);
+          position: absolute;
+          display: block;
+          box-sizing: border-box;
+          overflow: visible;
+          line-height: $form-item-height;
+          height: $form-item-height;
+          width: $form-item-height;
+        }
+        input.form-submit {
+
+          position: relative;
+          z-index: 10;
+          cursor: pointer;
+          display: block;
+          box-sizing: border-box;
+          border: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          text-indent: -9999px;
+          outline: none !important;
+
+          width: $form-item-height;
+          height: $form-item-height;
+          line-height: $form-item-height;
+          background: transparent;
+          &:hover,
+          &:focus {
+            outline: none;
+            border: 2px solid $action-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// extra gutter needed if search box for search results page is placed in pre-content region
+.region-pre-content {
+  form#views-exposed-form-database-search-page-1 {
+    margin-top: $gutter*1.5;
+  }
+}
+
+// Search API Database site search using views
+body.section-search {
+  #pre-content,
+  #primary-content {
+    margin: $gutter 0;
+    @include clearfix;
+    .region {
+      @include center-block;
+      max-width: $content-width;
+    }
+    .region-content {
+      .database-site-search {
+        .view-empty {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// Search API SOLR Search using Views to display the results
+.view-pantheon-solr-content-search {
+  .view-header {
+    @include font-size(20px);
+    @include font-weight(medium);
+    margin-bottom: $gutter*2;
+  }
+}
+
+.results-total {
+  @include font-size(20px);
+  @include font-weight(medium);
+  margin-top: $gutter;
+}
+

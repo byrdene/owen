@@ -1,0 +1,126 @@
+/* Container used for styling the custom select, the button class below adds the
+ * bg gradient, corners, etc. */
+.custom-select {
+  position: relative;
+  display: block;
+}
+
+/* This is the native select, we're making everything but the text invisible so
+ * we can see the button styles in the wrapper */
+.custom-select select {
+  width: 100%;
+  margin: 0;
+  outline: none;
+  padding: .6em .8em .5em .8em;
+  &:focus {
+    //outline: rgb(59, 153, 252) auto 5px !important;
+    outline: $action-color 1px dotted !important;
+    outline-offset: 3px !important; // hard to see without an offset
+  }
+
+  /* Prefixed box-sizing rules necessary for older browsers */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /* Font size must be 16px to prevent iOS page zoom on focus */
+  @include font-size(16px);
+}
+
+
+/* Custom arrow sits on top of the select - could be an image, SVG, icon font,
+ * etc. or the arrow could just baked into the bg image on the select. */
+.custom-select::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  z-index: 2;
+  /* These hacks make the select behind the arrow clickable in some browsers */
+  pointer-events: none;
+  display: none;
+}
+
+/* Firefox <= 34 has a false positive on @supports( -moz-appearance: none )
+ * @supports ( mask-type: alpha ) is Firefox 35+
+ */
+@supports ( -webkit-appearance: none ) or ( appearance: none ) or ( ( -moz-appearance: none ) and ( mask-type: alpha ) ) {
+
+  /* Show custom arrow */
+  .custom-select::after {
+    display: block;
+  }
+
+  /* Remove select styling */
+  .custom-select select {
+    padding-right: 2em; /* Match-01 */
+    /* inside @supports so that iOS <= 8 display the native arrow */
+    background: none; /* Match-04 */
+    /* inside @supports so that Android <= 4.3 display the native arrow */
+    border: 1px solid transparent; /* Match-05 */
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .custom-select select:focus {
+    border-color: #aaa; /* Match-03 */
+  }
+}
+
+
+/* These are the "theme" styles for our button applied via separate button class, style as you like */
+/* Set the background fallback to solid #fff so Firefox renders the <option> list readably. */
+.cs-button {
+  //border: 1px solid $ice;
+  border-radius: 0;
+  box-shadow: none;
+  background: $white; /* Old browsers */
+}
+.custom-select {
+  margin-top: 0;
+}
+.custom-select select {
+  /* General select styles: change as needed */
+  @include font-size(14px);
+  @include font-weight(normal);
+  color: $base-font-color;
+  border-radius: 0;
+  border: 1px solid $base-border-color;
+  height: $form-item-height;
+  @include bp($main-nav, up) {
+    @include font-size($base-font-size);
+  }
+}
+.custom-select::after {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid $action-color;
+  margin-top: -3px;
+}
+.custom-select {
+  //border: 1px solid $ice;
+}
+/* Hover style */
+.custom-select:hover {
+  //border-color: $base-border-color;
+}
+/* Focus style */
+.custom-select select:focus {
+  box-shadow: none;
+  border-color: $base-border-color;
+  outline: none;
+}
+@supports ( box-shadow: none ) {
+  .custom-select select:focus {
+    outline: none;
+  }
+}
+
+/* Set options to normal weight */
+.custom-select option {
+  @include font-weight(normal);
+  min-height: auto;
+}

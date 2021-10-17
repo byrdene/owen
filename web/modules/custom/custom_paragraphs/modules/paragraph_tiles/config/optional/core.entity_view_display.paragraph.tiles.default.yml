@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tiles.field_custom_class
+    - field.field.paragraph.tiles.field_heading
+    - field.field.paragraph.tiles.field_heading_status
+    - field.field.paragraph.tiles.field_tile_item
+    - paragraphs.paragraphs_type.tiles
+  module:
+    - entity_reference_revisions
+id: paragraph.tiles.default
+targetEntityType: paragraph
+bundle: tiles
+mode: default
+content:
+  field_heading:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tile_item:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_custom_class: true
+  field_heading_status: true
+  search_api_excerpt: true

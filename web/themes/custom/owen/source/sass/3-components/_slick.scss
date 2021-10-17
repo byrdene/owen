@@ -1,0 +1,474 @@
+// =============================================================================
+//   SLICK CAROUSELS & SLIDESHOWS
+// =============================================================================
+
+$carouselfont:                    $icomoon;
+$carouselButtonSize:              40px; // includes bg
+$carouselButtonSizeLarge:         80px; // includes bg
+$carouselIcon:                    25px; // font size
+$carouselIconSmall:               20px; // font size
+$carouselIconColor:               $white;
+$carouselIconBackground:          $action-color;
+$carouselIconBackgroundHover:     $primary-color;
+$nextIconPosition:                3em;
+$prevIconPosition:                3em;
+
+.slick-slider  {
+  box-sizing: border-box;
+  display: block;
+  khtml-user-select: none;
+  moz-box-sizing: border-box;
+  moz-user-select: none;
+  ms-touch-action: pan-y;
+  ms-user-select: none;
+  position: relative;
+  touch-action: pan-y;
+  user-select: none;
+  webkit-tap-highlight-color: transparent;
+  webkit-touch-callout: none;
+  webkit-user-select: none;
+}
+.slick-list  {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 0; // For IE
+
+  &:focus {
+    outline: none;
+  }
+  &.dragging {
+    cursor: hand;
+    cursor: pointer;
+  }
+  .slick-loading & {
+    //background: white url("../images/ajax-loader.gif") center center no-repeat;
+  }
+}
+.slick-slider .slick-list,
+.slick-track,
+.slick-slide,
+.slick-slide img {
+  //@include transform(translate3d(0, 0, 0)); // do we need this?
+}
+.slick-track {
+  display: block;
+  left: 0;
+  position: relative;
+  top: 0;
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  .slick-loading & {
+    visibility: hidden;
+  }
+}
+
+.slick-slide,
+.slick-active,
+.slick-current {
+  outline: none !important;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  //height: 100%; // do we need this?
+  min-height: 1px;
+  img {
+    display: block;
+  }
+  &.slick-loading img {
+    display: none;
+  }
+  &.dragging img {
+    pointer-events: none;
+  }
+  .slick-initialized & {
+    display: block;
+  }
+  .slick-loading & {
+    visibility: hidden;
+  }
+  .slick-vertical & {
+    border: 1px solid transparent;
+    display: block;
+    height: auto;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  text-indent: -9999px;
+  overflow: hidden;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  outline: none !important;
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  line-height: $carouselButtonSize;
+  height: $carouselButtonSize;
+  width: $carouselButtonSize;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    color: transparent;
+    outline: none;
+    &:before {
+      opacity: 1;
+      color: $white;
+      background-color: $carouselIconBackgroundHover;
+    }
+  }
+
+  &:before {
+    outline: none !important;
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    overflow: visible;
+    font-family: $carouselfont;
+    line-height: $carouselButtonSize;
+    height: $carouselButtonSize;
+    width: $carouselButtonSize;
+    opacity: 1;
+    z-index: 1;
+    @extend %icon-font;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    cursor: pointer;
+    color: $carouselIconColor;
+    font-size: $carouselIcon;
+    @include font-weight(normal);
+    webkit-font-smoothing: antialiased;
+    moz-osx-font-smoothing: grayscale;
+    @include dl-rounded-icon($carouselIconBackground);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // Give the disbled arrow a greyed out style
+  &.slick-disabled:before {
+    background: rgba(0,0,0,.25);
+    color: $white;
+    cursor: default;
+    opacity: .5;
+  }
+  // Or hide the disabled arrow completely
+  //&.slick-disabled {
+  //  cursor: not-allowed !important;
+  //  pointer-events: none !important;
+  //  //display: none !important;
+  //  &:after,
+  //  &:before {
+  //    content: "";
+  //    background: transparent;
+  //    color: transparent;
+  //    outline: none;
+  //    box-shadow: none;
+  //    border: none;
+  //  }
+  //  &:hover,
+  //  &:focus {
+  //    background: transparent;
+  //    color: transparent;
+  //    outline: none;
+  //    box-shadow: none;
+  //    &:after,
+  //    &:before {
+  //      content: "";
+  //      background: transparent;
+  //      color: transparent;
+  //      outline: none;
+  //      box-shadow: none;
+  //      border: none;
+  //    }
+  //  }
+  //}
+}
+.slick-next {
+  right: $nextIconPosition;
+  &:before {
+    content: $icon-arrow-right;
+    //padding-left: 3px; // shift arrow icons so they look centered
+  }
+}
+.slick-prev {
+  left: $prevIconPosition;
+  &:before {
+    content: $icon-arrow-left;
+    //padding-right: 3px; // shift arrow icons so they look centered
+  }
+}
+.slick-dots {
+  bottom: -45px;
+  display: block;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  li {
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+    width: 20px;
+    button {
+      background: transparent;
+      border: 0;
+      color: transparent;
+      cursor: pointer;
+      display: block;
+      font-size: 0;
+      height: 20px;
+      line-height: 0;
+      outline: none;
+      padding: 5px;
+      width: 20px;
+      &:hover,
+      &:focus {
+        outline: none;
+        &:before {
+          opacity: 1;
+        }
+      }
+      &:before {
+        color: $carouselIconColor;
+        content: $icon-dot;
+        font-family: $icomoon;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+        display:block;
+        left: 0;
+        line-height: 20px;
+        opacity: 0.4;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        webkit-font-smoothing: antialiased;
+        moz-osx-font-smoothing: grayscale;
+      }
+    }
+    &.slick-active button:before {
+      color: $carouselIconColor;
+      opacity: 0.75;
+    }
+  }
+}
+
+[dir="rtl"] .slick-next {
+  left: -$nextIconPosition;
+  right: auto;
+}
+[dir="rtl"] .slick-next:before {
+  content: $icon-arrow-right;
+  @include rotate(180);
+}
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -$prevIconPosition;
+}
+[dir="rtl"] .slick-prev:before {
+  content: $icon-arrow-right;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+
+//************************************
+// CAROUSEL CUSTOMIZATIONS & OVERRIDES
+//************************************
+
+.component--type-gallery-carousel {
+  .slick-slider {
+    .slick-list {
+      margin: 0;
+    }
+    .slick-slide {
+      position: relative;
+      vertical-align: middle;
+      padding: 0 3.5em;
+    }
+
+    .slick-prev {
+      top: calc(50% - 15px);
+      left: $gutter/2;
+      z-index: 1;
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        left: $gutter;
+        width: $carouselButtonSizeLarge;
+        height: $carouselButtonSizeLarge;
+        line-height: $carouselButtonSizeLarge;
+        &:before {
+          width: $carouselButtonSizeLarge;
+          height: $carouselButtonSizeLarge;
+          line-height: $carouselButtonSizeLarge;
+        }
+      }
+    }
+    .slick-next {
+      top: calc(50% - 15px);
+      right: $gutter/2;
+      z-index: 1;
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        right: $gutter;
+        width: $carouselButtonSizeLarge;
+        height: $carouselButtonSizeLarge;
+        line-height: $carouselButtonSizeLarge;
+        &:before {
+          width: $carouselButtonSizeLarge;
+          height: $carouselButtonSizeLarge;
+          line-height: $carouselButtonSizeLarge;
+        }
+      }
+    }
+  }
+  &.fouc { // class applied on view
+    visibility: hidden;
+  }
+}
+
+.component--type-gallery-slider {
+  .slick-slider {
+    //margin: 0 $gutter; // place gutters on containers?
+    margin: 0;
+    .slick-list {
+      margin: 0;
+    }
+    .slick-slide {
+      position: relative;
+      vertical-align: middle;
+      padding: 10px;
+    }
+
+    .slick-prev {
+      top: calc(50% - 15px);
+      left: -($gutter/2);
+      z-index: 1;
+      &:before {
+        border: 2px solid $white;
+      }
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        //left: $gutter;
+        //width: $carouselButtonSizeLarge;
+        //height: $carouselButtonSizeLarge;
+        //line-height: $carouselButtonSizeLarge;
+        &:before {
+          //width: $carouselButtonSizeLarge;
+          //height: $carouselButtonSizeLarge;
+          //line-height: $carouselButtonSizeLarge;
+        }
+      }
+    }
+    .slick-next {
+      top: calc(50% - 15px);
+      right: -($gutter/2);
+      z-index: 1;
+      &:before {
+        border: 2px solid $white;
+      }
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        //right: $gutter;
+        //width: $carouselButtonSizeLarge;
+        //height: $carouselButtonSizeLarge;
+        //line-height: $carouselButtonSizeLarge;
+        &:before {
+          //width: $carouselButtonSizeLarge;
+          //height: $carouselButtonSizeLarge;
+          //line-height: $carouselButtonSizeLarge;
+        }
+      }
+    }
+    .slick-disabled {
+      &:before {
+        // uncomment if going for totally hidden disabled arrow
+        //border: none !important;
+      }
+    }
+  }
+  &.fouc { // class applied on view
+    visibility: hidden;
+  }
+}
+
+.component--type-card-deck {
+  .slick-slider {
+    margin: 0 $gutter*2;
+    .slick-list {
+      margin: 0;
+      padding: 0 5px; // horizontal padding needed to see the vertical borders on cards
+      .slick-track {
+        display: flex;
+      }
+    }
+    .slick-slide {
+      position: relative;
+      vertical-align: middle;
+      padding: 10px;
+    }
+
+    .slick-prev {
+      top: calc(50% - 15px);
+      left: -($gutter/2);
+      z-index: 1;
+      &:before {
+        border: 2px solid $white;
+      }
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        left: -($gutter/2);
+        &:before {}
+      }
+    }
+    .slick-next {
+      top: calc(50% - 15px);
+      right: -($gutter/2);
+      z-index: 1;
+      &:before {
+        border: 2px solid $white;
+      }
+      @include bp(large, up) {
+        top: calc(50% - 20px);
+        right: -($gutter/2);
+        &:before {}
+      }
+    }
+    .slick-disabled {
+      &:before {
+        // uncomment if going for totally hidden disabled arrow
+        //border: none !important;
+      }
+    }
+  }
+  &.fouc { // class applied on view
+    visibility: hidden;
+  }
+}

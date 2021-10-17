@@ -1,0 +1,166 @@
+/* =============================================================================
+   ACCORDIONS
+   This is applied to accordions created in the RTE as well as in the Accordion
+   Paragraphs bundle and powered by the jQuery plugin (https://a11y.nicolas-hoffmann.net/hide-show/)
+   with focus on accessibility
+================================================================================ */
+
+// required styles for the jQuery accordion accessibility plugin
+.js-to_expand[aria-hidden=true],
+.js-to_expand[data-hidden=true] {
+  display: none;
+}
+
+.accordion-group {
+  margin-bottom: $vertical-spacing;
+}
+
+// The title
+%accordion-title {
+  // Applies to the H2 accordion header
+  clear: both;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1em 0 0 0;
+  background-color: $accordion-title-background;
+  border-width: $accordion-title-border-width;
+  border-style: $accordion-title-border-style;
+  border-color: $accordion-title-border-color;
+  font-family: $base-font-family;
+  @include font-weight(bold);
+  color: $accordion-title-color;
+  @include font-size($accordion-title-font-size-mobile);
+  line-height: $accordion-title-font-size-mobile;
+  text-transform: none;
+  @include bp($sidebar, up) {
+    @include font-size($accordion-title-font-size);
+    line-height: $accordion-title-font-size;
+  }
+
+
+  // Applies to the button code created by the jQuery accordion accessibility plugin
+  .animated-expandmore__button {
+    width: 100%;
+    min-height: $accordion-header-size;
+    background: none;
+    border: none;
+    padding: 8px .25em 8px 50px; // Icon on Left: Top padding aligns with icon, bottom padding addresses multi-line
+    //padding: 8px 50px 8px .5em; // Icon on Right: Top padding aligns with icon, bottom padding addresses multi-line
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: left;
+    h2, h3, h4 {
+      margin-top: 0;
+      font-family: inherit;
+      font-weight: inherit;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      text-transform: inherit;
+    }
+    @include bp($sidebar, up) {
+      font-size: inherit;
+      line-height: inherit;
+    }
+    &:hover {
+      cursor: pointer;
+      &:after {
+        background-color: $accordion-icon-background-hover;
+      }
+    }
+    &:focus {
+      outline: 1px dotted;
+    }
+  }
+
+  // The icon (applies to both open and close versions)
+  .animated-expandmore__button > .animated-expandmore__symbol:before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0; // Icon on left
+    //right: 0; // Icon on right
+    width: $accordion-header-size;
+    height: $accordion-header-size;
+    background-color: $accordion-icon-background;
+    @extend %icon-font;
+    font-family: $accordion-icon-font;
+    font-size: $accordion-icon-font-size-mobile;
+    color: $accordion-icon-color;
+    @include font-weight(normal);
+    text-align: center;
+    line-height: $accordion-header-size;
+    @include bp($sidebar, up) {
+      font-size: $accordion-icon-font-size;
+      top: 0;
+    }
+  }
+  // Set the "close" icon
+  .animated-expandmore__button[aria-expanded=true] > .animated-expandmore__symbol:before {
+    font-family: $accordion-icon-font;
+    content: $icon-accordion-close;
+  }
+  // Set the "open" icon
+  .animated-expandmore__button[aria-expanded=false] > .animated-expandmore__symbol:before {
+    font-family: $accordion-icon-font;
+    content: $icon-accordion-open;
+  }
+}
+
+// The content
+%accordion-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-width: $accordion-content-border-width;
+  border-style: $accordion-content-border-style;
+  border-color: $accordion-content-border-color;
+
+}
+
+// Accordion Header
+.accordion-header {
+  position: relative; // ensure the absolute positioned icon lines up correctly
+  @extend %accordion-title;
+}
+
+// Accordion Content
+/* This is the default hidden state */
+.accordion-content,
+.accordion-content[data-hidden=true].animated-expandmore__to_expand {
+  @extend %accordion-content;
+  display: block;
+  margin: 0 0 0 0;
+  padding: 0;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 1s, 0s, 0s, 0s;
+}
+
+.accordion-content {
+  // For animation purposes
+  /* This is the opened state */
+  &.animated-expandmore__to_expand {
+    display: block;
+    margin: 0 0 1em 0;
+    padding: $accordion-content-padding;
+    overflow: hidden;
+    opacity: 1;
+    transition: visibility 0s ease, max-height .2s ease, opacity .5s ease, padding .2s ease;
+    max-height: 180em; /* magic number for max-height = enough height */
+    visibility: visible;
+    transition-delay: 0s;
+  }
+}
+
+.accordion-end {
+  margin-top: $gutter;
+  padding: 0;
+}

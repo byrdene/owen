@@ -1,0 +1,8 @@
+name: Custom Paragraphs
+type: module
+base theme: false
+description: 'Custom paragraph bundles with default config and templates'
+package: Custom
+core_version_requirement: ^8.8.0 || ^9.0
+dependencies:
+  - drupal:paragraphs

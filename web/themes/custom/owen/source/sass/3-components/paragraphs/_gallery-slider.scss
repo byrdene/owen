@@ -1,0 +1,58 @@
+// ==========================================================================
+//   PARAGRAPHS - Gallery Slider
+// ==========================================================================
+
+.component--type-gallery-slider {
+
+  // uncomment below to add background color behind slider
+  //background-color: $base-border-color;
+  //padding: $gutter*2 0;
+
+  .component-wrapper {}
+
+  .component-content {
+    a {
+      display: inline-block;
+      //padding: 5px;
+      &:focus {
+        //border: 1px solid $black;
+        outline: 1px dotted;
+        outline-offset: 5px;
+      }
+    }
+
+    // if there are not enough images to turn into a slider, we need to create the horizontal layout
+    .gallery-wrapper:not(.slick-slider) {
+      display: flex;
+      justify-content: center;
+      .gallery-item {
+        margin: 0 $gutter/2;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+      }
+      @include bp(x-small, up) {
+        .gallery-item {
+          width: calc(480px / 2);
+        }
+      }
+      @include bp(medium, up) {
+        .gallery-item {
+          width: calc(768px / 3);
+        }
+      }
+      @include bp(large, up) {
+        .gallery-item {
+          width: calc(992px / 4);
+        }
+      }
+    }
+
+    // when it turns into a slider
+    &.gallery-wrapper.slick-slider {
+      .gallery-item {
+        width: 100%;
+      }
+    }
+  }
+}

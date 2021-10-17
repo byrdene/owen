@@ -1,0 +1,26 @@
+uuid: 59d9250f-45ba-45b4-8891-e1b62e524c92
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - owen
+_core:
+  default_config_hash: 8yptDf6WrXxeyevUz4nP5vfr7BtxQqCBMninhV2IJ1g
+id: owen_page_title
+theme: owen
+region: content
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/node/*'
+    negate: true

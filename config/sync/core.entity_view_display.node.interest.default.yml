@@ -1,0 +1,45 @@
+uuid: eba4e77d-e6f3-416b-8a68-d1da8de74dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.interest.body
+    - field.field.node.interest.field_branding_color
+    - field.field.node.interest.field_impact_statement
+    - field.field.node.interest.field_intro_text
+    - node.type.interest
+  module:
+    - options
+    - text
+    - user
+id: node.interest.default
+targetEntityType: node
+bundle: interest
+mode: default
+content:
+  field_branding_color:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_impact_statement:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_intro_text:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  body: true
+  links: true
+  search_api_excerpt: true

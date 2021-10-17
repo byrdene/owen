@@ -1,0 +1,14 @@
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{# Important! Do not output region if no content exists. White space is not content! #}
+{# Sidebar regions trigger sidebar body classes that help to determine #}
+{# the size and position of the repsonsive layout. #}
+{% if content|render|trim %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content }}
+  </div>
+{% endif %}

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_paragraphs.module.
+ */
+
+function custom_paragraphs_page_attachments(array &$attachments) {
+  $config = \Drupal::config('system.theme');
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  if ($theme == $config->get('admin')) {
+    $attachments['#attached']['library'][] = 'custom_paragraphs/overrides';
+  }
+}

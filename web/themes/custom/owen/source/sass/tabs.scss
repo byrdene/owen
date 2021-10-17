@@ -1,0 +1,99 @@
+@import "0-config/__config";
+
+ul.tabs {
+  width: 100%;
+  list-style: none;
+  margin: $gutter 0 0 0;
+  padding: 0;
+  border-bottom: $base-border;
+}
+
+ul.tabs li {
+  display: inline-block;
+  margin-right: 0.3em; /* LTR */
+}
+
+ul.tabs a {
+  display: block;
+  padding: 0.2em 1em;
+  text-decoration: none;
+  color: $tab-text;
+  background: $tab-background;
+  font-weight: normal;
+  @include border-radius(4px);
+  &.is-active {
+    background-color: $tab-background;
+    color: $tab-text;
+  }
+  &:hover,
+  &:focus {
+    background-color: $tab-background-active;
+    color: $tab-text;
+    text-decoration: none;
+  }
+}
+
+
+// stick them to the bottom (should we exclude user/* pages)
+body {
+
+  .user-logged-in {
+    padding-bottom: 57px; // need to see the full height of body
+  }
+
+  @include bp(small, up) {
+    .block-local-tasks-block {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 10000;
+    }
+
+    ul.tabs {
+      width: auto;
+      display: inline-block;
+      float: right;
+      background-color: #F5F5F5;
+      border-top: 1px solid #D4D4D8;
+      border-left: 1px solid #D4D4D8;
+      //background: #fefefe;
+      //border-top: 4px solid #2d2d2d;
+      //border-left: 4px solid #2d2d2d;
+      list-style: none;
+      //margin: $gutter/2 0 $gutter*.75 0;
+      padding: $gutter*.75 $gutter/2;
+      border-bottom: none;
+      //text-align: center;
+    }
+
+    ul.tabs li {
+      margin-bottom: 0;
+      &:first-of-type {
+        margin-left: .3em;
+      }
+    }
+
+    ul.tabs a {
+      font-size: small;
+      background-color: $action-admin-color;
+      border-radius: 0;
+      padding: .75em 1.25em;
+      border: 1px solid $action-admin-color;
+      background-clip: border-box;
+      &.is-active{
+        background-color: $action-admin-color;
+      }
+      &:hover,
+      &:focus {
+        background-color: $white;
+        color: $action-admin-color;
+      }
+    }
+    @include bp(medium, up) {
+      ul.tabs {
+        text-align: right;
+      }
+    }
+  }
+}
+

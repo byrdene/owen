@@ -1,0 +1,25 @@
+uuid: 89df8df9-f7a4-4ea5-968a-382b75cb16ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - owen
+id: mainnavigation
+theme: owen
+region: navigation_primary
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

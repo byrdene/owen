@@ -1,0 +1,47 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "1.0.0",
+  "description": "Based on a simple front-end boilerplate using Gulp 4 by @thecodercoder",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thecodercoder/frontend-boilerplate.git"
+  },
+  "keywords": [
+    "gulp",
+    "boilerplate",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "@thecodercoder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thecodercoder/frontend-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thecodercoder/frontend-boilerplate#readme",
+  "browserslist": [
+    "> 1%",
+    "ie >= 8",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.6.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-jsvalidate": "^4.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {}
+}

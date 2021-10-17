@@ -1,0 +1,23 @@
+uuid: c32352fb-5eae-4a2a-a6a7-c17a7868bb71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.interest
+  module:
+    - text
+id: node.interest.body
+field_name: body
+entity_type: node
+bundle: interest
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

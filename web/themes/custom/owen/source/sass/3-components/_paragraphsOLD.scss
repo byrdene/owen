@@ -1,0 +1,1241 @@
+// ==========================================================================
+//   PARAGRAPHS
+// ==========================================================================
+
+// Paragraph variables
+$layout_bgcolor_01: $primary-color;
+$layout_bgcolor_02: $action-color;
+$layout_bgcolor_03: $ice;
+$layout_bgcolor_04: $charcoal;
+$layout_bgcolor_05: $black;
+$layout_bgcolor_06: $white;
+
+$component_bgcolor_01: $primary-color;
+$component_bgcolor_02: $action-color;
+$component_bgcolor_03: $ice;
+$component_bgcolor_04: $charcoal;
+$component_bgcolor_05: $black;
+$component_bgcolor_06: $white;
+
+// foreground text color when dark backgrounds are used
+$reverse-color: $white;
+$reverse-border: $white;
+
+
+//All paragraphs regardless of field
+
+  // x-small content-width
+//.section.x-small-width {
+//  .paragraph-wrapper {
+//    @include center-block;
+//    max-width: $body-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter*2;
+//    }
+//  }
+//}
+//// small content-width
+//.component-paragraph.default-width,
+//.section.small-width {
+//  .paragraph-wrapper {
+//    @include center-block;
+//    max-width: $content-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter*2;
+//    }
+//  }
+//}
+//// medium page-width
+//.section.medium-width {
+//  .paragraph-wrapper {
+//    @include center-block;
+//    max-width: $page-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter*2;
+//    }
+//  }
+//}
+// some parts of full width components should have constrained widths
+//.section.full-width {
+//  // x-small content-width
+//  .constrained-x-small {
+//    @include center-block;
+//    max-width: $body-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter;
+//    }
+//  }
+//  // small content-width
+//  .constrained-small {
+//    @include center-block;
+//    max-width: $content-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter*2;
+//    }
+//  }
+//  // medium page-width
+//  .constrained-medium {
+//    @include center-block;
+//    max-width: $page-width;
+//    padding: 0 $gutter;
+//    @include bp(medium, up) {
+//      padding: 0 $gutter*2;
+//    }
+//  }
+//}
+
+//Gutters specific to when paragraph components are placed within our Layout Paragraph field
+.field--name-field-layouts {
+  > .field__item {
+    //add padding between first paragraph and banner
+    &:first-child {
+      > .section {
+        margin-top: $gutter*2;
+        @include bp(medium, up) {
+          margin-top: $gutter*2;
+        }
+        @include bp(large, up) {
+          margin-top: $gutter*3;
+        }
+      }
+    }
+
+    // gutters for the components in the layout
+    .layout__region {
+      > .section {
+        margin-top: 0;
+        //padding-top: $gutter;
+        //padding-bottom: $gutter;
+        padding-bottom: $gutter*2;
+        box-sizing: border-box;
+        &:nth-child(even) {}
+        &:nth-child(odd) {}
+        &:first-child {
+           //padding-top: $gutter*2;
+        }
+        &:last-child {
+          //padding-bottom: $gutter*2;
+        }
+
+        @include bp(medium, up) {
+          //padding-top: $gutter*2;
+          //padding-bottom: $gutter*2;
+          padding-bottom: $gutter*4;
+          &:first-child {
+            //padding-top: $gutter*2;
+          }
+          &:last-child {
+            //padding-bottom: $gutter*4;
+          }
+        }
+
+        @include bp(large, up) {
+          //padding-top: $gutter*3;
+          //padding-bottom: $gutter*3;
+          padding-bottom: $gutter*6;
+          &:first-child {
+            //padding-top: $gutter*3;
+          }
+          &:last-child {
+            //padding-bottom: $gutter*6;
+          }
+        }
+      }
+    }
+    // for subsequent layout fields, the padding of the first component needs to be different
+    & + .field__item {
+      .layout__region {
+        > .section {
+          &:first-child {
+            //padding-top: $gutter*2;
+          }
+          @include bp(medium, up) {
+            &:first-child {
+              //padding-top: $gutter*4;
+            }
+          }
+
+          @include bp(large, up) {
+            &:first-child {
+              //padding-top: $gutter*6;
+            }
+          }
+        }
+      }
+    }
+  }
+  // If a layout paragraph has a bgimage or bgcolor, the following layout paragraph needs to have top padding
+  // in most scenarios
+  &.background {
+    + .no-background {
+      // add top padding to interior but don't need bottom padding since the interior component will have it
+      .layout-paragraph {
+        > .layout-paragraph-wrapper {
+          padding: $gutter*2 0 0 0;
+          @include bp(medium, up) {
+            padding: $gutter*4 0 0 0;
+          }
+          @include bp(large, up) {
+            padding: $gutter*6 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Gutters specific to paragraphs placed within our simple component field
+.field--name-field-components {
+  > .field__item {
+    margin-top: 0;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+    box-sizing: border-box;
+    &:nth-child(even) {}
+    &:nth-child(odd) {}
+    &:first-child {
+      padding-top: $gutter*2;
+    }
+    &:last-child {}
+
+    @include bp(medium, up) {
+      padding-top: $gutter*2;
+      padding-bottom: $gutter*2;
+      &:first-child {
+        padding-top: $gutter*2;
+      }
+      &:last-child {}
+    }
+
+    @include bp(large, up) {
+      padding-top: $gutter*3;
+      padding-bottom: $gutter*3;
+      &:first-child {
+        padding-top: $gutter*3;
+      }
+      &:last-child {}
+    }
+  }
+}
+
+// Applies to all paragraph types (maybe not?)
+.section {
+  // width settings for Layout paragraphs and paragraph components
+  &.full_width {
+    > .layout-paragraph-wrapper,
+    > .paragraph-wrapper {}
+  }
+  &.wide_width {
+    > .layout-paragraph-wrapper,
+    > .paragraph-wrapper {
+      @include center-block;
+      max-width: $page-width;
+    }
+    // paragraph components also need gutters applied
+    > .paragraph-wrapper {
+      > .paragraph-content {
+        margin: 0 $gutter;
+        @include bp(medium, up) {
+          margin: 0 $gutter*2;
+        }
+      }
+    }
+  }
+  &.medium_width {
+    > .layout-paragraph-wrapper,
+    > .paragraph-wrapper {
+      @include center-block;
+      max-width: $content-width;
+    }
+    // paragraph components also need gutters applied
+    > .paragraph-wrapper {
+      > .paragraph-content {
+        margin: 0 $gutter;
+        @include bp(medium, up) {
+          margin: 0 $gutter*2;
+        }
+      }
+    }
+  }
+  &.small_width {
+    > .layout-paragraph-wrapper,
+    > .paragraph-wrapper {
+      @include center-block;
+      max-width: $body-width;
+    }
+    // paragraph components also need gutters applied
+    > .paragraph-wrapper {
+      > .paragraph-content {
+        margin: 0 $gutter;
+        @include bp(medium, up) {
+          margin: 0 $gutter*2;
+        }
+      }
+    }
+  }
+  // multi-column layouts need to align with one column layout
+  .layout--twocolumn {
+    @include bp(medium, up) {
+      padding: 0 $gutter*2;
+    }
+  }
+  &.add-gutter:not(.transparent) {
+    // paragraph components only
+    > .paragraph-wrapper {
+      padding: $gutter 0;
+      @include bp(medium, up) {
+        padding: $gutter*2 $gutter;
+      }
+      @include bp(large, up) {
+        padding: $gutter*4 $gutter*2;
+      }
+    }
+    // layout paragraphs only (no gutters between layout paragraphs!
+    &.layout-paragraph {
+      // if there is a background color, we need to add bottom gutter to the layout paragraph
+      //margin-bottom: $gutter*2;
+      @include bp(medium, up) {
+        //margin-bottom: $gutter*4;
+      }
+      @include bp(large, up) {
+        //margin-bottom: $gutter*6;
+      }
+      // add top padding to interior but don't need bottom padding since the interior component will have it
+      > .layout-paragraph-wrapper {
+        padding: $gutter*2 0 0 0;
+        @include bp(medium, up) {
+          padding: $gutter*4 0 0 0;
+        }
+        @include bp(large, up) {
+          padding: $gutter*6 0 0 0;
+        }
+      }
+    }
+    //.add-gutter:not(.transparent) {
+    //  // but if layout paragraph has bg color, paragraph components gutter should be tighter
+    //  > .paragraph-wrapper {
+    //    padding: $gutter 0;
+    //    @include bp(medium, up) {
+    //      padding: $gutter*2 0;
+    //    }
+    //    @include bp(large, up) {
+    //      padding: $gutter*2 0;
+    //    }
+    //  }
+    //}
+  }
+
+  //Background color choices for our Layout Paragraph field
+  &.layout-paragraph.default-bgcolor {
+    background-color: transparent;
+  }
+  &.layout_bgcolor_01 {  // primary
+    background-color: $layout_bgcolor_01;
+  }
+  &.layout_bgcolor_02 { // action
+    background-color: $layout_bgcolor_02;
+  }
+  &.layout_bgcolor_03 { //ice
+    background-color: $layout_bgcolor_03;
+  }
+  &.layout_bgcolor_04 { //charcoal
+    background-color: $layout_bgcolor_04;
+  }
+  &.layout_bgcolor_05 { //black
+    background-color: $layout_bgcolor_05;
+  }
+  &.layout_bgcolor_06 { //white
+    background-color: $layout_bgcolor_06;
+  }
+
+  //Background color choices for our paragraph components
+  &.component-paragraph.default-bgcolor {
+    > .paragraph-wrapper {
+      background-color: transparent;
+    }
+  }
+  &.component_bgcolor_01 { // primary
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_01;
+    }
+  }
+  &.component_bgcolor_02 { // action
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_02;
+    }
+  }
+  &.component_bgcolor_03 { //ice
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_03;
+    }
+  }
+  &.component_bgcolor_04 { //charcoal
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_04;
+    }
+  }
+  &.component_bgcolor_05 { //black
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_05;
+    }
+  }
+  &.component_bgcolor_06 { //white
+    > .paragraph-wrapper {
+      background-color: $component_bgcolor_06;
+    }
+  }
+
+  // Headings
+  .field--name-field-heading {
+    text-align: center;
+    margin-bottom: $gutter;
+    padding: 0 $gutter;
+    h2 {
+      @include font-size($h1-font-size-mobile);
+      @include font-weight(bold);
+      color: $base-font-color;
+      @include bp(medium, up) {
+        @include font-size($h1-font-size-tablet);
+      }
+      @include bp(large, up) {
+        @include font-size($h1-font-size);
+      }
+    }
+  }
+}
+
+.field--name-field-layouts,
+.field--name-field-components {
+    > .field__item {
+
+      // let's add the following only where we need it
+      //img {
+      //  max-width: none;
+      //  width: 100%; // let it grow to fill container for add breakpoints
+      //}
+
+      // Text Block (Basic Text) bundle
+      .section--type-text-block {}
+
+      // Full-width image bundle
+      .section--type-image {
+        .image-wrapper {
+          position: relative;
+          img {
+            max-width: none;
+            width: 100%; // let it grow to fill container for all breakpoints
+          }
+        }
+        .field--name-field-caption {
+          display: block;
+          @extend %caption;
+          padding: $gutter;
+          margin: 0;
+          //background-color: $primary-color;
+          background-color: $black;
+          color: $white;
+          font-size: $base-font-size;
+          @include bp(small, up) {
+            position: absolute;
+            bottom: -($gutter);
+            right: 0;
+            width: 70%;
+            background-color: rgba(0, 0, 0 , .75);
+          }
+          @include bp(large, up) {
+            width: 40%;
+          }
+        }
+      }
+
+      // Accordions bundle (accordion styles are found in 3-components/_accordions.scss since they are potentially used
+      // in lots of places and not just here.
+      .section--type-accordions {
+        // If our accordion title has its own bgcolor, we need to overwrite the reverse color style
+        &.reverse-color {
+          .js-expandmore-button {
+            h3 {
+              color: $accordion-title-color;
+            }
+          }
+        }
+      }
+
+      // Video bundle
+      .section--type-video {}
+
+      // Call to Action bundle
+      .section--type-call-to-action {
+        // the text can't get too long if full width is chosen in order to set a bgcolor
+        .content-wrapper {
+          @include center-block;
+          max-width: $page-width;
+          padding: 0 $gutter;
+          @include bp(medium, up) {
+            padding: 0 $gutter*2;
+          }
+
+          .field + .field {
+            margin-top: $gutter;
+          }
+
+          .field--name-field-text {
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold;
+          }
+          .field--name-field-links {
+            &.field__items {
+              text-align: center;
+              .field__item {
+                display: inline-block;
+                margin: 0 $gutter/4;
+              }
+            }
+          }
+
+        }
+        &.reverse-color {
+          .field--name-field-links {
+            .button.button-outlined {
+              color: $white;
+              background: transparent;
+              border: 2px solid $white;
+              &:hover,
+              &:active,
+              &:focus {
+                color: $primary-color !important;
+                background: $white;
+                border: 2px solid $primary-color;
+              }
+            }
+          }
+        }
+      }
+
+      // Tabs bundle
+      .section--type-tabs {
+
+        // Non-tqb display for mobile
+        .non-tabs {
+          .non-tab-section {
+            padding: 0 $gutter;
+            .non-tab-section-title {
+              h2, h3 {
+                font-size: 1.25em;
+                background-color: $base-border-color;
+                padding: $gutter/2;
+              }
+              margin-bottom: $gutter/2;
+            }
+            & + .non-tab-section {
+              margin-top: $gutter;
+            }
+          }
+          @include bp(small, up) {
+            display: none;
+          }
+        }
+
+        // required styles for the jQuery tab accessibility plugin
+        .js-tabcontent[aria-hidden=true] {
+          display: none;
+        }
+
+        .owen-tabs {
+          display: none; // don't show for mobile
+
+          // regardless of component width setting, let's set a max size on content
+          max-width: $page-width;
+          margin: 0 auto;
+
+          @include bp(small, up) { // display in tab format when the browser is wide enough
+            display: block;
+            border: 1px solid $base-border-color;
+            @include border-radius(6px);
+            padding: $gutter*2;
+            margin: 0 $gutter*2; // we don't want the border at the browser's edge
+            overflow: auto;
+          }
+
+          //the list of tab links/buttons
+          .owen-tabs-tabs__list {
+            margin: 0;
+            padding: 0;
+
+            .owen-tabs-tabs__item {
+              display: block;
+              width: 100%;
+              @include bp(small, up) {
+                display: inline-block;
+                width: auto;
+              }
+
+              .owen-tabs-tabs__link {
+                display: block;
+                color: $white;
+                background: $primary-color;
+                border: 1px solid $primary-color;
+                padding: 1em 2em;
+                @include font-size(14px);
+                @include font-weight(bold);
+                line-height: 16px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover {
+                  background-color: $secondary-color;
+                  border-color: $secondary-color;
+                }
+              }
+
+              [aria-selected="true"].owen-tabs-tabs__link {
+                background: $white;
+                color: $black;
+                border: solid $primary-color;
+                border-width: 1px 1px 1px 1px;
+                cursor: default;
+              }
+
+            }
+          }
+
+          // the tab content "panes"
+          .tabcontent-wrapper {
+            margin-top: $gutter;
+
+            .js-tabcontent {
+              background: transparent;
+              padding: 0;
+            }
+          }
+
+          // the tab title that displays in the content "pane"
+          .tab-item-title {
+            display: inline-block;
+            &:focus {
+              outline: 1px dotted;
+              outline-offset: 2px;
+            }
+          }
+
+          // if "vertical" style is chosen {
+          &.vertical {
+            .owen-tabs-tabs__list {
+              .owen-tabs-tabs__item {
+                width: 100%;
+              }
+              @include bp(small, up) {
+                width: 30%;
+                float: left;
+              }
+            }
+            .tabcontent-wrapper {
+              @include bp(small, up) {
+                //margin-top: $gutter/2;
+                margin-top: 0;
+                width: 70%;
+                float: right;
+                padding-left: $gutter*2;
+              }
+            }
+          }
+        }
+      }
+
+
+// Old styles
+
+
+      // Full-width image bundle
+      .section--type-full-width-image {
+        .image-wrapper {
+          position: relative;
+        }
+        .field--name-field-caption {
+          display: block;
+          @extend %caption;
+          padding: $gutter;
+          margin: 0;
+          //background-color: $primary-color;
+          background-color: $black;
+          color: $white;
+          font-size: $base-font-size;
+          @include bp(small, up) {
+            position: absolute;
+            bottom: -($gutter);
+            right: 0;
+            width: 70%;
+            background-color: rgba(0, 0, 0 , .75);
+          }
+          @include bp(large, up) {
+            width: 40%;
+          }
+        }
+      }
+
+      // Two Columns with Image & Text
+      .section--type-image-text {
+        box-sizing: border-box;
+        .field--name-field-caption {
+          display: block;
+          width: 100%;
+          clear: both;
+          float: left;
+          @extend %caption;
+          margin-bottom: 0;
+          //background-color: $base-font-color;
+          //color: $white;
+          //margin: 0;
+          //padding: $gutter/2;
+        }
+        .media-col,
+        .text-col {
+          float: left;
+          box-sizing: border-box;
+          width: 100%;
+          margin-right: 0;
+          margin-left: 0;
+        }
+        .media-col + .text-col {
+          margin-top: $gutter;
+        }
+        @include bp(small, up) {
+          .media-col + .text-col {
+            margin-top: 0;
+          }
+          .media-col {
+            float: left;
+            width: 50%;
+            padding-right: $gutter*2;
+          }
+          .text-col {
+            float: right;
+            width: calc(100% - 50%);
+          }
+
+          // Image alignment choices (default is left so only right needs to be addressed
+          .right {
+            .media-col {
+              box-sizing: border-box;
+              float: right;
+              padding-left: $gutter;
+            }
+            .text-col {
+              float: left;
+            }
+          }
+        }
+      }
+
+      // Two Columns with Video & Text
+      .section--type-video-text {
+        box-sizing: border-box;
+        .media-col,
+        .text-col {
+          float: left;
+          box-sizing: border-box;
+          width: 100%;
+          margin-right: 0;
+          margin-left: 0;
+        }
+        .media-col + .text-col {
+          margin-top: $gutter;
+        }
+        @include bp(small, up) {
+          .media-col + .text-col {
+            margin-top: 0;
+          }
+          .media-col {
+            float: left;
+            width: 50%;
+            padding-right: $gutter*2;
+          }
+          .text-col {
+            float: right;
+            width: calc(100% - 50%);
+          }
+
+          // Image alignment choices (default is left so only right needs to be addressed
+          .right {
+            .media-col {
+              box-sizing: border-box;
+              float: right;
+              padding-left: $gutter;
+            }
+            .text-col {
+              float: left;
+            }
+          }
+        }
+      }
+
+      // Callout text bundle
+      .section--type-callout-text {
+        background-color: $action-color;
+        color: $white;
+        padding: $gutter*2 $gutter;
+        .field--name-field-text {
+          font-size: 1.5em;
+          text-align: center;
+          font-weight: bold;
+          @include bp(large, up) {
+            font-size: 2em;
+          }
+        }
+      }
+
+      // Quote
+      .section--type-quote {
+        background-color: $primary-color;
+        width: 100%;
+        float: left; // to deal with floated children and needing the parent div to expand in height
+        //padding: $gutter*2 0; // this needs to happen at the wrapper level
+        .paragraph-wrapper {
+          position: relative;
+          .quote-text {
+            position: relative;
+            padding: 0 $gutter;
+            &:before {
+              display: block;
+              position: absolute;
+              left: -($gutter);
+              top: -30px;
+              font-family: $icomoon;
+              font-size: 60px;
+              content: $icon-quotes-left;
+              color: $white;
+            }
+            .field--name-field-quote {
+              color: $white;
+              @include font-size(30px);
+              line-height: 38px;
+              padding: 0 $gutter;
+            }
+            .field--name-field-citation {
+              @extend %citation;
+              color: $white;
+              margin-top: $gutter;
+              padding: 0 $gutter;
+              &:before {
+                display: inline;
+                content: "\2014";
+              }
+            }
+          }
+          @include bp(medium, up) {
+            .quote-text {
+              padding-left: $gutter*2;
+              &:before {}
+              .field--name-field-quote,
+              .field--name-field-citation {
+                padding: 0; // no longer need horizontal space for the quote mark
+              }
+            }
+          }
+
+          // If an image has been included
+          &.constrained-x-small {
+            padding: $gutter*2 0; // this needs to happen at the wrapper level
+
+          }
+          &.image {
+            .image-wrapper {
+              display: none; // hide until larger breakpoints
+            }
+            .quote-text-wrapper {
+              padding: $gutter*2 $gutter; // this needs to happen at the wrapper level
+              max-width: $body-width;
+              .quote-text {
+                padding-left: $gutter;
+                &:before {
+                  left: -($gutter);
+                }
+              }
+            }
+            @include bp(medium, up) {
+              display: flex !important;
+              .image-wrapper {
+                display: block;
+                width: 35%;
+                float: left;
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover; /* Resize the background image to cover the entire container */
+                .field--name-field-image {
+                  opacity: 0;
+                }
+              }
+              .quote-text-wrapper {
+                width: 65%;
+                float: right;
+                display: flex;
+                align-items: center;
+                padding: $gutter*2 0 $gutter*2 $gutter*2;
+                .quote-text {
+                  padding-left: $gutter*2;
+                  &:before {
+                    left: -($gutter);
+                  }
+                }
+              }
+            }
+            // uncomment the following if a constrained look is desired for large breakpoints
+            //@include bp(x-large, up) {
+            //  max-width: $page-width;
+            //  margin: 0 auto;
+            //  padding: 0 $gutter*2;
+            //}
+          }
+        }
+      }
+
+      // Collapsed Content (with Intro text)
+      .section--type-collapsed-content {
+        .field--name-field-intro-text {
+          font-family: $base-font-family;
+          @include font-size(22px);
+          @include font-weight(normal);
+          @include bp(medium, up) {
+            @include font-size(28px);
+          }
+        }
+        .collapsed-text-trigger {
+          z-index: 2;
+          background-color: $white;
+          border: 0;
+          outline: 0;
+          cursor: pointer;
+          display: block;
+          position: relative;
+          width: 90px;
+          margin: $gutter auto 0 auto;
+          .collapsed-text-trigger-title {
+            position: relative;
+            display: block;
+            color: $primary-color;
+            &:before {
+              display: inline-block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 90px;
+              @include font-size(14px);
+              @include font-weight(normal);
+              @include tracking(40);
+              padding: 5px;
+              text-transform: uppercase;
+              content: "MORE";
+              background-color: $action-color;
+              border: 1px solid $action-color;
+              @include border-radius(4px);
+              color: $white;
+              text-align: center;
+            }
+          }
+          &:hover {
+            .collapsed-text-trigger-title {
+              &:before {
+                background-color: $primary-color;
+                border: 1px solid $primary-color;
+              }
+            }
+          }
+          &:focus,
+          &:active {
+            .collapsed-text-trigger-title {
+              &:before {
+                outline-width: 1px;
+                outline-style: dotted;
+                outline-color: $black;
+                outline-offset: 3px;
+              }
+            }
+          }
+          &:active {
+            .collapsed-text-trigger-title {
+              &:before {
+                top: 1px;
+                left: 1px;
+              }
+            }
+          }
+          &.open {
+            .collapsed-text-trigger-title {
+              &:before {
+                content: "LESS";
+              }
+            }
+          }
+          & + .data-collapse {
+            clear: both;
+            margin-top:$vertical-spacing*4;
+          }
+        }
+      }
+
+      // Gallery Slider bundle
+      .section--type-gallery-slider {
+        background-color: $base-border-color;
+        padding: $gutter*2 0;
+
+        // if there are not enough images to turn into a slider, we need to create the horizontal layout
+        .field--name-field-images {
+          a {
+            display: inline-block;
+            //padding: 5px;
+            &:focus {
+              //border: 1px solid $black;
+              outline: 1px dotted;
+              outline-offset: 5px;
+            }
+          }
+          &.field__items:not(.slick-slider) {
+            display: flex;
+            justify-content: center;
+            .field__item.field--name-field-images {
+              margin: 0 $gutter/2;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+            }
+            @include bp(x-small, up) {
+              .field__item.field--name-field-images {
+                width: calc(480px / 2);
+              }
+            }
+            @include bp(medium, up) {
+              .field__item.field--name-field-images {
+                width: calc(768px / 3);
+              }
+            }
+            @include bp(large, up) {
+              .field__item.field--name-field-images {
+                width: calc(992px / 4);
+              }
+            }
+          }
+
+          // when it turns into a slider
+          &.field__items.slick-slider {
+            .field__item.field--name-field-images {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      // Card Deck bundle
+      .section--type-card-deck {
+        background-color: $base-border-color;
+        padding: $gutter*2 0;
+
+        // if there are not enough images to turn into a slider, we need to create the horizontal layout
+        .field--name-field-cards {
+          &.field__items:not(.slick-slider) {
+            .field__item.field--name-field-cards {
+              width: 100%;
+              margin: 0 auto; // center it until they display in rows
+              padding: $gutter*1.5;
+              border-top: 2px solid $white;
+              box-sizing: border-box;
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+              align-items: center;
+              &:first-of-type {
+                border-top: 0;
+              }
+            }
+            @include bp(medium, up) {
+              display: flex;
+              justify-content: center;
+              .field__item.field--name-field-cards {
+                width: calc(768px / 3);
+                padding: 0 $gutter*1.5;
+                margin: 0;
+                border-top: 0; // reset
+                border-left: 2px solid $white;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                &:first-of-type {
+                  border-top: 0; // reset
+                  border-left: 2px solid transparent;
+                }
+              }
+            }
+            @include bp(large, up) {
+              .field__item.field--name-field-cards {
+                width: calc(992px / 3);
+              }
+            }
+            @include bp(x-large, up) {
+              .field__item.field--name-field-cards {
+                width: calc(1200px / 3);
+              }
+            }
+          }
+
+          // when it turns into a slider
+          &.field__items.slick-slider {
+            .field__item.field--name-field-cards {
+              width: 100%;
+              padding: 0 $gutter*1.5;
+              border-right: 2px solid $white;
+              &:first-of-type {
+                border-left: 2px solid $white;
+              }
+            }
+            @include bp(small, up) {
+              display: flex;
+              .field__item.field--name-field-cards {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+              }
+            }
+          }
+        }
+      }
+
+      // Card bundle
+      .section--type-card {
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        .paragraph-wrapper {
+          display: flex;
+          flex-direction: column;
+          flex: 1 0 auto;
+          .card-text {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            justify-content: space-between;
+            .field {
+              margin-top: $gutter/2;
+              &.field--name-field-link {
+                margin-top: $gutter;
+                margin-bottom: 1px; // this is for the 1px movement when button is being clicked.
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+// dark backgrounds need a light foreground text color
+// the class is applied in the twig templates
+.layout-paragraph {
+  &.reverse-color .component-paragraph.transparent, // if the dark bg is on layout and component bg is transparent
+  .component-paragraph.reverse-color { // if dark bg is directly on component
+    *,
+    legend,
+    .form-item:not(.form-item--checkbox):not(.form-item--radio) > label.form-item__label,
+    .section .field--name-field-heading H2 {
+      color: $reverse-color;
+    }
+    a.button {
+      color: $action-color !important;
+      background: $reverse-color !important;
+      border: 1px solid $reverse-color !important;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $primary-color !important;
+      }
+    }
+    a.button.button--outlined {
+      color: $reverse-color !important;
+      background: transparent !important;
+      border: 1px solid $reverse-color !important;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $action-color !important;
+        background: $reverse-color !important;
+        //border: 1px solid $action-color;
+      }
+    }
+    ul {
+      li {
+        &:before {
+          color: $reverse-color !important;
+        }
+      }
+    }
+
+    // Tabs
+    // Is not currently set up for a black background - just other dark colors
+    &.section--type-tabs {
+      .owen-tabs {
+        border-color: rgba(255, 255, 255, .4);
+        .owen-tabs-tabs__link {
+          background-color: transparent !important;
+          border-radius: $base-border-radius;
+          border-color: rgba(255, 255, 255, .4) !important;
+          &:hover {
+            background-color: rgba(0, 0, 0, .2) !important;
+            border-color: rgba(255, 255, 255, .4) !important;
+          }
+        }
+        [aria-selected="true"].owen-tabs-tabs__link {
+          background-color: $reverse-color !important;
+          border-color: $reverse-color;
+          &:hover {
+            background-color: $reverse-color !important;
+          }
+        }
+      }
+    }
+    //contextual links should remain black
+    .contextual-links {
+      a {
+        color: $black;
+      }
+    }
+  }
+
+  // when the background color matches the default border color. For example, light gray (or $ice)
+  &.reverse-border .component-paragraph.transparent, // if the dark bg is on layout and component bg is transparent
+  .component-paragraph.reverse-border { // if dark bg is directly on component
+    a.button.button--outlined {
+      color: $action-color !important;
+      background: transparent !important;
+      border: 1px solid $action-color !important;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $action-color !important;
+        background: $white !important;
+        //border: 1px solid $action-color;
+      }
+    }
+
+    // Accordions
+    .accordion-header {
+      background: $white;
+    }
+
+    // Tabs
+    // Is not currently set up for a black background - just other dark colors
+    &.section--type-tabs {
+      .owen-tabs {
+        border-color: rgba(255, 255, 255, .6);
+      }
+    }
+
+  }
+}
+

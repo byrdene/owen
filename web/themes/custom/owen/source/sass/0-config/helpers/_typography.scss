@@ -1,0 +1,32 @@
+// ==========================================================================
+//   TYPOGRAPHY HELPERS
+// ==========================================================================
+
+
+// Convert pixel values to em.
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+// Convert pixel values to rem.
+@function rem($px, $base: $base-font-size) {
+  @return ($px / $base) * 1rem;
+}
+
+@mixin font-size($px, $base: $base-font-size) {
+  font-size: $px; // fallback for old browser
+  font-size: ($px / $base) * 1rem;
+}
+
+@mixin font-weight($weight) {
+  font-weight: map-get($font-weights, $weight);
+}
+
+// Convert illustrator, indesign and photoshop tracking into letter spacing.
+@function tracking( $target ){
+  @return ($target / 1000) * 1em;
+}
+
+@mixin tracking( $target ){
+  letter-spacing: tracking( $target );
+}

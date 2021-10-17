@@ -1,0 +1,240 @@
+// ==========================================================================
+//   FORMS
+// ==========================================================================
+
+legend,
+.form-item:not(.form-item--checkbox):not(.form-item--radio) > label.form-item-label {
+  @extend %label-small;
+}
+
+// Default gutters and width for wrappers
+.form-item {
+  margin-bottom: $vertical-spacing-forms;
+}
+
+// Element description
+.form-item {
+  .description {
+    font-size: .8em;
+  }
+}
+
+// Required indicator
+.form-required {
+  &:after {
+    content: "*";
+    color: $error-color;
+  }
+}
+
+input.form-text,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+input[type="time"],
+input[type="search"] {
+  display: block;
+  max-width: 100%;
+  height: $form-item-height;
+  line-height: $form-item-height;
+  padding: $gutter/4 $gutter/2;
+  border: 1px solid $base-border-color;
+  font-family: $base-font-family;
+  @include font-size(18px);
+  @include font-weight(normal);
+  color: $primary-color;
+  /* Webkit */
+  &::-webkit-input-placeholder {
+    font-family: $base-font-family;
+    @include font-size(18px);
+    @include font-weight(normal);
+    color: $primary-color;
+  }
+  /* Firefox 4-18 */
+  &:-moz-placeholder {
+    font-family: $base-font-family;
+    @include font-size(18px);
+    @include font-weight(normal);
+    color: $primary-color;
+  }
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+    font-family: $base-font-family;
+    @include font-size(18px);
+    @include font-weight(normal);
+    color: $primary-color;
+  }
+  /* IE10+ */
+  &:-ms-input-placeholder {
+    font-family: $base-font-family;
+    @include font-size(18px);
+    @include font-weight(normal);
+    color: $primary-color;
+  }
+  &:focus {
+    outline: none;
+    border: 2px solid $action-color;
+  }
+}
+
+input[type="search"] {
+  width: auto;
+}
+
+textarea {
+  display: block;
+  border: 1px solid $base-border-color;
+  &:focus {
+    outline: none;
+    border: 2px solid $action-color;
+  }
+}
+
+// The "Custom Select" wrapper has been added to select form elements which makes the
+// form element 100% of its container. All styling is in custom-select partial
+select {
+  &:focus {
+    //outline: rgb(59, 153, 252) auto 5px !important;
+    outline: $action-color 2px solid !important;
+    outline-offset: 3px !important; // hard to see without an offset
+  }
+}
+
+// Custom checkboxes
+// Radio & Checkbox
+.form-item--checkbox,
+.form-item--radio {
+  line-height: 1.5;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  opacity: 0;
+  width: 20px;
+  & + label:before {
+    display: inline-block;
+    font-family: $icomoon;
+    font-style: normal;
+    @include font-weight(normal);
+    line-height: .8em;
+    font-size: .8em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: .25em;
+  }
+  &:focus {
+    & + label:before {
+      //outline: rgb(59, 153, 252) auto 5px;
+      outline: $action-color 2px solid;
+      outline-offset: 3px; // hard to see without an offset
+    }
+  }
+}
+
+// Checkbox
+input[type="checkbox"] {
+  & + label {
+    margin-left: -20px;
+    font-size: 1em;
+    &:before {
+      content: $icon-checkbox-off; /* Checkbox Unchecked */
+      color: $base-font-color;
+    }
+  }
+  &:checked + label:before {
+    content: $icon-checkbox-on; /* Checkbox Checked */
+    color: $base-font-color;
+  }
+}
+
+// Radio
+input[type="radio"] {
+  & + label {
+    display: inline-block;
+    margin-left: -20px;
+    font-size: 1em;
+    &:before {
+      content: $icon-radio-off; /* Radio Unselected */
+      color: $base-font-color;
+    }
+  }
+  &:checked + label:before {
+    content: $icon-radio-on; /* Radio Selected */
+    color: $base-font-color;
+  }
+}
+
+// Submit (although overwritten in bef)
+input[type="submit"] {
+  &.button-link {
+    height: $form-item-height;
+  }
+  &:focus {
+    //outline: rgb(59, 153, 252) auto 5px !important;
+    //outline: $action-color 1px dotted;
+    outline: $action-color 2px solid !important;
+    outline-offset: 3px !important; // hard to see without an offset
+  }
+}
+
+// Fieldsets
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  &:focus {
+    outline: none;
+    border: 2px solid $action-color;
+  }
+}
+
+// Details
+details {
+  border: $base-border;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  summary {
+    outline: none;
+    cursor: pointer;
+    padding: 0.2em 0.5em;
+    @include font-weight(bold);
+    &:focus {
+      outline: 1px dotted $base-font-color;
+      outline-offset: 3px;
+    }
+  }
+  summary[aria-pressed="true"] { // border applied on details
+    &:focus {
+      outline: none;
+      border: 0;
+    }
+  }
+  .collapse-processed > summary {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
+
+details > .details-wrapper,
+details > .details__content {
+  padding: 0.5em 1.5em;
+}
+
+// Specific to Webforms
+.js-webform-message__link {
+  color: $white;
+}
+
+.form-type-tel {
+  .selected-flag {
+    &:focus {
+      outline: none;
+      border: 2px solid $action-color;
+    }
+  }
+}

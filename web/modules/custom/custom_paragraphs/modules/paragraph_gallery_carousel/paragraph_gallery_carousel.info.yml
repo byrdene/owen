@@ -1,0 +1,10 @@
+name: 'Paragraph - Gallery Carousel'
+description: 'Paragraph bundle for image carousel that displays one image at a time'
+type: module
+package: Custom
+core_version_requirement: '^8.9 || ^9'
+dependencies:
+  - field
+  - media
+  - media_library
+  - paragraphs

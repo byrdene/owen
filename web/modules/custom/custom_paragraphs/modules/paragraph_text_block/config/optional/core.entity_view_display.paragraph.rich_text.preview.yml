@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.rich_text.field_custom_class
+    - field.field.paragraph.rich_text.field_heading
+    - field.field.paragraph.rich_text.field_heading_status
+    - field.field.paragraph.rich_text.field_text
+    - paragraphs.paragraphs_type.rich_text
+id: paragraph.rich_text.preview
+targetEntityType: paragraph
+bundle: rich_text
+mode: preview
+content:
+  field_heading:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_custom_class: true
+  field_heading_status: true
+  field_text: true
+  search_api_excerpt: true

@@ -1,0 +1,31 @@
+{#{{ attach_library('owen/messages') }}#}
+{% block messages %}
+{% for type, messages in message_list %}
+  {%
+    set classes = [
+      'messages',
+      'drupal-messages',
+      'messages--' ~ type,
+    ]
+  %}
+  <div role="region" aria-label="{{ type }} message"{{ attributes.addClass(classes) }}>
+    {% if type == 'error' %}
+      <div role="alert">
+    {% endif %}
+      {% if messages|length > 1 %}
+        <ul class="messages__list">
+          {% for message in messages %}
+            <li class="messages__item">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ messages|first }}
+      {% endif %}
+    {% if type == 'error' %}
+      </div>
+    {% endif %}
+  </div>
+  {# Remove type specific classes. #}
+  {{ attributes.removeClass(classes) }}
+{% endfor %}
+{% endblock messages %}

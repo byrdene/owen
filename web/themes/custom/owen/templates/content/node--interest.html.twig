@@ -1,0 +1,26 @@
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+
+{% set bgcolor = 'bg-charcoal' %}
+{% if not (content.field_branding_color.isEmpty == true) and content.field_branding_color is defined %}
+  {% set bgcolor = 'bg-' ~ node.field_branding_color.0.value %}
+{% endif %}
+
+<section {{ attributes.addClass(classes)}}>
+
+  <div class="page-title-wrapper container centered {{ bgcolor }}">
+    <h1 class="page-title padded-row">{{ node.label }}</h1>
+  </div>
+
+  <div class="content-wrapper padded-column">
+
+    {{ content.field_components }}
+
+
+  </div>
+
+</section>
