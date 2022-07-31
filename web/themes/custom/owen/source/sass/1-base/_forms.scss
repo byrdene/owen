@@ -4,7 +4,7 @@
 
 legend,
 .form-item:not(.form-item--checkbox):not(.form-item--radio) > label.form-item-label {
-  @extend %label-small;
+  @extend %label;
 }
 
 // Default gutters and width for wrappers
@@ -45,40 +45,18 @@ input[type="search"] {
   padding: $gutter/4 $gutter/2;
   border: 1px solid $base-border-color;
   font-family: $base-font-family;
-  @include font-size(18px);
+  @include font-size(14px);
   @include font-weight(normal);
   color: $primary-color;
-  /* Webkit */
-  &::-webkit-input-placeholder {
-    font-family: $base-font-family;
-    @include font-size(18px);
-    @include font-weight(normal);
-    color: $primary-color;
-  }
-  /* Firefox 4-18 */
-  &:-moz-placeholder {
-    font-family: $base-font-family;
-    @include font-size(18px);
-    @include font-weight(normal);
-    color: $primary-color;
-  }
-  /* Firefox 19+ */
-  &::-moz-placeholder {
-    font-family: $base-font-family;
-    @include font-size(18px);
-    @include font-weight(normal);
-    color: $primary-color;
-  }
-  /* IE10+ */
-  &:-ms-input-placeholder {
-    font-family: $base-font-family;
-    @include font-size(18px);
-    @include font-weight(normal);
-    color: $primary-color;
-  }
+  border-radius: 0;
+
+  @include placeholder($size: 14px, $weight: normal);
+
   &:focus {
-    outline: none;
-    border: 2px solid $action-color;
+    //outline: none;
+    //border: 2px solid $action-color;
+    outline: 2px solid $primary-color;
+    outline-offset: -1px;
   }
 }
 
@@ -100,8 +78,8 @@ textarea {
 select {
   &:focus {
     //outline: rgb(59, 153, 252) auto 5px !important;
-    outline: $action-color 2px solid !important;
-    outline-offset: 3px !important; // hard to see without an offset
+    outline: 2px solid $action-color;
+    outline-offset: -1px;
   }
 }
 
@@ -124,12 +102,11 @@ input[type="checkbox"] {
     font-size: .8em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-right: .25em;
+    margin-right: .5em;
   }
   &:focus {
     & + label:before {
-      //outline: rgb(59, 153, 252) auto 5px;
-      outline: $action-color 2px solid;
+      outline: $action-color 1px dotted;
       outline-offset: 3px; // hard to see without an offset
     }
   }
@@ -170,14 +147,17 @@ input[type="radio"] {
 
 // Submit (although overwritten in bef)
 input[type="submit"] {
+  border-radius: 0;
+
   &.button-link {
     height: $form-item-height;
   }
   &:focus {
     //outline: rgb(59, 153, 252) auto 5px !important;
     //outline: $action-color 1px dotted;
-    outline: $action-color 2px solid !important;
-    outline-offset: 3px !important; // hard to see without an offset
+    //outline: $action-color 2px solid !important;
+    //outline-offset: 3px !important; // hard to see without an offset
+    @include focus-outline(); // hard to see without an offset
   }
 }
 
@@ -204,8 +184,7 @@ details {
     padding: 0.2em 0.5em;
     @include font-weight(bold);
     &:focus {
-      outline: 1px dotted $base-font-color;
-      outline-offset: 3px;
+      @include focus-outline();
     }
   }
   summary[aria-pressed="true"] { // border applied on details
@@ -236,5 +215,74 @@ details > .details__content {
       outline: none;
       border: 2px solid $action-color;
     }
+  }
+}
+
+.webform-submission-form {
+  .form-item {
+    text-align: center;
+    margin-bottom: $gutter*2;
+  }
+
+  input.form-text,
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    //max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .submit-button {
+    text-align: center;
+  }
+
+  .checkboxes--wrapper {
+    .js-webform-checkboxes {
+      label {
+        font-size: 16px !important;
+        text-transform: none !important;
+      }
+      .form-item {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .description {
+    text-align: center;
+    font: normal normal 300 18px/26px $raleway;
+    color: $primary-color;
+    text-transform: capitalize;
+    max-width: 460px;
+    padding: 10px 10px 0 10px;
+    margin: 0 auto;
+  }
+}
+
+// user login form
+.user-login-form {
+  margin-top: $gutter*2;
+  //margin-left: $gutter;
+  @include bp(medium, up) {
+    //margin-left: $gutter*2;
+  }
+
+  .form-item {
+    text-align: center;
+    margin-bottom: $gutter*2;
+  }
+
+  input.form-text,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .submit-button {
+    text-align: center;
   }
 }

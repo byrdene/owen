@@ -1,6 +1,8 @@
 
 // General container level styles and resets
 .layout-container {
+  position: relative;
+  overflow-x: hidden; //help eliminate horizontal scrolling with animation effects
   div,
   section {
     position: relative;
@@ -24,24 +26,34 @@
   max-width: none;
 }
 
+.wide-width {
+  width: 100%;
+  max-width: 1600px;
+}
+
 .page-width {
   width: 100%;
-  max-width: $page-width;
+  max-width: $page-max; //1425px
 }
 
-.medium-width {
+.content-large {
   width: 100%;
-  max-width: $content-width;
+  max-width: $content-large; //1200px
 }
 
-.small-width {
+.content-medium {
   width: 100%;
-  max-width: $body-width;
+  max-width: 992px; //matches large breakpoint
 }
 
-.x-small-width {
+.content-small {
   width: 100%;
-  max-width: 640px;
+  max-width: $content-small; //800px
+}
+
+.content-x-small {
+  width: 100%;
+  max-width: 575px; //matches 'small' breakpoint
 }
 
 
@@ -51,30 +63,147 @@
   @include bp(medium, up) {
     padding: 0 $gutter*2;
   }
+
+  @include bp(x-large, up) {
+    padding: 0;
+  }
+}
+
+.padded-row-small {
+  padding: 0 $gutter;
+  @include bp(medium, up) {
+    padding: 0 $gutter;
+  }
+
+  @include bp(x-large, up) {
+    padding: 0;
+  }
 }
 
 .padded-column { //used mostly for outermost containers that are not one item in many
-  padding: $gutter/2 0 $gutter*3 0;
+  padding: $gutter 0;
   @include bp(medium, up) {
-    padding: $gutter*2 0 $gutter*4 0;
+    padding: $gutter*1.5 0;
+  }
+}
+
+.padded-column-large { //used mostly for outermost containers that are not one item in many
+  padding: $gutter*2 0;
+  @include bp(medium, up) {
+    padding: $gutter*2 0;
+  }
+}
+
+.padded {
+  padding: $gutter;
+  @include bp(medium, up) {
+    padding: $gutter*2;
+  }
+}
+
+.padded-small {
+  padding: $gutter;
+  @include bp(medium, up) {
+    padding: $gutter;
+  }
+}
+
+//.padded-column { //used mostly for outermost containers that are not one item in many
+//  padding: $gutter/2 0 $gutter*3 0;
+//  @include bp(medium, up) {
+//    padding: $gutter*3 0 $gutter*4 0;
+//  }
+//}
+
+.margin-top {
+  margin-top: $gutter;
+  @include bp(medium, up) {
+    margin-top: $gutter*2;
+  }
+}
+
+.margin-top-large {
+  margin-top: $gutter*2;
+  @include bp(medium, up) {
+    margin-top: $gutter*3;
+  }
+}
+
+.margin-top-x-large {
+  margin-top: $gutter*3;
+  @include bp(medium, up) {
+    margin-top: $gutter*4;
+  }
+}
+
+.margin-top-small {
+  margin-top: $gutter;
+}
+
+.margin-top-x-small {
+  margin-top: $gutter/2;
+}
+
+.margin-bottom {
+  margin-bottom: $gutter;
+  @include bp(medium, up) {
+    margin-bottom: $gutter*2;
+  }
+}
+
+.margin-bottom-large {
+  margin-bottom: $gutter*2;
+}
+
+.margin-bottom-x-large {
+  margin-bottom: $gutter*3;
+  @include bp(medium, up) {
+    margin-bottom: $gutter*4;
+  }
+}
+
+.margin-bottom-small {
+  margin-bottom: $gutter;
+}
+
+.margin-bottom-x-small {
+  margin-bottom: $gutter/2;
+}
+
+.vertical-flow {
+  & + .vertical-flow {
+    @include vertical-flow($mobile: $gutter, $desktop: $gutter*2);
+  }
+}
+
+.vertical-flow-large {
+  & + .vertical-flow-large {
+    @include vertical-flow($mobile: $gutter*2, $desktop: $gutter*3);
+  }
+}
+
+.vertical-flow-small {
+  & + .vertical-flow-small {
+    @include vertical-flow($mobile: $gutter/2, $desktop: $gutter);
+  }
+}
+
+.vertical-flow-x-small {
+  & + .vertical-flow-x-small {
+    @include vertical-flow($mobile: $gutter/2, $desktop: $gutter/2);
   }
 }
 
 .section {
   & + .section {
-    margin-top: $gutter*2;
-    @include bp(large, up) {
-      margin-top: $gutter*4;
-    }
+    @include vertical-flow($mobile: $gutter*2, $desktop: $gutter*3);
   }
 }
 
 .component {
   & + .component {
-    margin-top: $gutter*2;
-    @include bp(large, up) {
-      margin-top: $gutter*4;
-    }
+    //@include vertical-flow($mobile: $gutter*2, $desktop: $gutter*3);
+    @include vertical-flow($mobile: $gutter*3, $desktop: $gutter*5);
   }
 }
 
@@ -87,17 +216,17 @@
     float: none;
     width: 100%;
     padding: 0;
-    margin-bottom: 2em;
+    margin-bottom: $gutter;
     @include bp(small, up) {
       float: left;
       &:nth-of-type(2n+1) { // First item (1st in row of 2)
         clear: left;
         width: 48%;
-        margin: 0 2% 2em 0;
+        margin: 0 2% $gutter 0;
       }
       &:nth-of-type(2n+2) { // Last item (2nd in row of 2)
         width: 48%;
-        margin: 0 0 2em 2%;
+        margin: 0 0 $gutter 2%;
       }
     }
   }
@@ -110,17 +239,17 @@
     float: none;
     width: 100%;
     padding: 0;
-    margin-bottom: 2em;
+    margin-bottom: $gutter;
     @include bp(small, up) {
       float: left;
       &:nth-of-type(2n+1) { // First item (1st in row of 2)
         clear: left;
         width: 49%;
-        margin: 0 1% 2em 0;
+        margin: 0 1% $gutter 0;
       }
       &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
         width: 49%;
-        margin: 0 0 2em 1%;
+        margin: 0 0 $gutter 1%;
       }
     }
     @include bp(medium, up) {
@@ -131,15 +260,15 @@
       &:nth-of-type(3n+1) { // First item (1st in row of 3)
         clear: left;
         width: 32%;
-        margin: 0 1% 2em 0;
+        margin: 0 1% $gutter 0;
       }
       &:nth-of-type(3n+2) { // Middle item (2nd in row of 3)
         width: 32%;
-        margin: 0 1% 2em 1%;
+        margin: 0 1% $gutter 1%;
       }
       &:nth-of-type(3n+3) { // Last item (3rd in row of 3)
         width: 32%;
-        margin: 0 0 2em 1%;
+        margin: 0 0 $gutter 1%;
       }
     }
   }
@@ -152,17 +281,17 @@
     float: none;
     width: 100%;
     padding: 0;
-    margin-bottom: 2em;
+    margin-bottom: $gutter;
     @include bp(small, up) {
       float: left;
       &:nth-of-type(2n+1) { // First item (1st in row of 2)
         clear: left;
         width: 49%;
-        margin: 0 1% 2em 0;
+        margin: 0 1% $gutter 0;
       }
       &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
         width: 49%;
-        margin: 0 0 2em 1%;
+        margin: 0 0 $gutter 1%;
       }
     }
     @include bp(medium, up) {
@@ -173,19 +302,19 @@
       &:nth-of-type(4n+1) { // First item (1st in row of 4)
         clear: left;
         width: 23.5%;
-        margin: 0 1% 2em 0;
+        margin: 0 1% $gutter 0;
       }
       &:nth-of-type(4n+2) { // Second item (2nd in row of 4)
         width: 23.5%;
-        margin: 0 1% 2em 1%;
+        margin: 0 1% $gutter 1%;
       }
       &:nth-of-type(4n+3) { // Third item (3rd in row of 4)
         width: 23.5%;
-        margin: 0 1% 2em 1%;
+        margin: 0 1% $gutter 1%;
       }
       &:nth-of-type(4n) { // Last item (4th in row of 4)
         width: 23.5%;
-        margin: 0 0 2em 1%;
+        margin: 0 0 $gutter 1%;
       }
     }
   }

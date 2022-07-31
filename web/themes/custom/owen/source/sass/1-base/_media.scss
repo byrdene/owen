@@ -12,7 +12,9 @@ img {
   padding: 0;
 }
 
-figure,
+// alignment styles
+div.media, //wrapper when no caption
+figure, //wrapper when caption is enabled
 article {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
@@ -23,18 +25,59 @@ article {
   }
   &.align-left {
     float: none;
-    @include bp($sidebar, up) {
+    margin-bottom: $vertical-spacing;
+    @include bp(small, up) {
       float: left;
-      margin: $gutter/2 $gutter $gutter 0;
+      margin: $gutter/2 $gutter*1.5 $vertical-spacing 0;
       max-width: 35%;
+    }
+    @include bp(medium, up) {
+      .field--name-field-media-image,
+      figcaption {
+        margin-left: -$gutter*1.5;
+      }
+    }
+    @include bp(large, up) {
+      .field--name-field-media-image,
+      figcaption {
+        margin-left: -$gutter*2;
+      }
     }
   }
   &.align-right {
     float: none;
-    @include bp($sidebar, up) {
-      margin: $gutter/2 0 $gutter $gutter;
+    margin-bottom: $vertical-spacing;
+    @include bp(small, up) {
+      margin: $gutter/2 0 $vertical-spacing $gutter*1.5;
       float: right;
       max-width: 35%;
+    }
+    @include bp(medium, up) {
+      .field--name-field-media-image,
+      figcaption {
+        margin-right: -$gutter*1.5;
+      }
+    }
+    @include bp(large, up) {
+      .field--name-field-media-image,
+      figcaption {
+        margin-right: -$gutter*2;
+      }
+    }
+  }
+  &.align-center {
+    margin-bottom: $vertical-spacing;
+    figcaption {
+      margin: $gutter/2 0 $vertical-spacing 0;
+    }
+    @include bp(small, up) {
+      display: flex;
+      flex-direction: column;
+      figcaption {
+        align-self: flex-end;
+        width: 50%;
+        max-width: $content-large / 2;
+      }
     }
   }
 }
@@ -53,7 +96,29 @@ caption {
 .field--type-image {
   a {
     &:focus {
-      outline-offset: 5px; // hard to see without an offset
+      @include focus-outline($offset: 5px); // hard to see without an offset
+    }
+  }
+}
+
+// embedded video with oembed video
+
+.media {
+  .field--name-field-media-oembed-video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
+    /* Then style the iframe to fit in the container div with full height and width */
+    .media-oembed-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -147,7 +212,7 @@ caption {
 
 }
 
-// aspect ratios for media view modes
+// aspect ratios for media view modes (img and srcset approach to responsive images)
 .media--view-mode-square {
   @include fluid-aspect-ratio(1 1);
 }
@@ -160,4 +225,67 @@ caption {
 .media--view-mode-landscape-full-width-4x3,
 .media--view-mode-landscape-contained-4x3 {
   @include fluid-aspect-ratio(4 3);
+}
+
+// aspect ratios - custom per project
+
+.media--view-mode-banner {
+  .field--name-field-media-image {
+    @include fluid-aspect-ratio(14 5);
+  }
+}
+
+.media--view-mode-slide {
+  @include fluid-aspect-ratio(5 2);
+}
+
+.default-landscape-teaser,
+.media--view-mode-landscape-teaser {
+  @include fluid-aspect-ratio(16 9);
+}
+
+.media--view-mode-image-component {
+  @include fluid-aspect-ratio(3 2);
+}
+
+.media--view-mode-colorbox {
+  a.colorbox {
+    position: relative;
+    &:before {
+      position:absolute;
+      bottom: 0;
+      right: 0;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      font-family: $icomoon;
+      content: $icon-expand;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      color: $action-color;
+      background: $white;
+      z-index: 1;
+    }
+  }
+}
+
+// for video embeds via iframes added manually in the RTE
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
+  /* Then style the iframe to fit in the container div with full height and width */
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
 }

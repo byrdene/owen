@@ -16,29 +16,34 @@
       //padding: 5px;
       &:focus {
         //border: 1px solid $black;
-        outline: 1px dotted;
-        outline-offset: 5px;
+        @include focus-outline();
       }
     }
 
-    // if there are not enough images to turn into a slider, we need to create the horizontal layout
+    // if there are not enough images to turn into a slider, we need to create a horizontal or grid layout
     .gallery-wrapper:not(.slick-slider) {
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 -($gutter/2); // go edge-to-edge for slides with horizontal margins
       .gallery-item {
-        margin: 0 $gutter/2;
+        padding: $gutter/2;
         box-sizing: border-box;
-        display: flex;
-        align-items: center;
+        width: 50%;
       }
       @include bp(x-small, up) {
         .gallery-item {
-          width: calc(480px / 2);
+          //width: calc(480px / 2);
+        }
+      }
+      @include bp(small, up) {
+        justify-content: center;
+        .gallery-item {
+          width: 25%;
         }
       }
       @include bp(medium, up) {
         .gallery-item {
-          width: calc(768px / 3);
+          //width: calc(768px / 4);
         }
       }
       @include bp(large, up) {
@@ -46,12 +51,28 @@
           width: calc(992px / 4);
         }
       }
+      @include bp(x-large, up) {
+        .gallery-item {
+          width: calc(1200px / 4);
+        }
+      }
     }
 
     // when it turns into a slider
-    &.gallery-wrapper.slick-slider {
-      .gallery-item {
-        width: 100%;
+    .gallery-wrapper.slick-slider {
+      margin: 0 -($gutter/2); // go edge-to-edge for slides with horizontal margins
+      .slick-list {
+        margin: 0;
+      }
+      .slick-slide {
+        position: relative;
+        vertical-align: middle;
+        padding: 0;
+        margin: 0 $gutter/2;
+
+        .gallery-item {
+          width: 100%;
+        }
       }
     }
   }

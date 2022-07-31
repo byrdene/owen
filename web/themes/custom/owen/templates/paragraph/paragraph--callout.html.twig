@@ -1,0 +1,27 @@
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'bg__dark',
+  'bg__geo',
+  custom_class,
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="callout-wrapper container content-medium padded-row">
+
+
+    <div class="callout-content container padded-column">
+
+      <div class="text-wrapper text__centered">
+        {{ content.field_text }}
+      </div>
+
+
+    </div>
+  </div>
+</section>

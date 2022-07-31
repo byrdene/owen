@@ -1,0 +1,31 @@
+uuid: a86d827a-78f8-40cc-ad6c-2185c26c1991
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_leadership
+    - node.type.resume
+    - paragraphs.paragraphs_type.experience
+  module:
+    - entity_reference_revisions
+id: node.resume.field_work_leadership
+field_name: field_work_leadership
+entity_type: node
+bundle: resume
+label: 'Work & Leadership Experience'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      experience: experience
+    target_bundles_drag_drop:
+      experience:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

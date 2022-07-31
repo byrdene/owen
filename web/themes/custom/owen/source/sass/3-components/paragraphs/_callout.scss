@@ -1,0 +1,19 @@
+// ==========================================================================
+//   PARAGRAPHS - Rich Text
+// ==========================================================================
+
+.component--type-callout {
+  .text-wrapper {
+    @include font-size(30px);
+    @include font-weight(bold);
+    @include tracking(-.35);
+    line-height: 1.1;
+  }
+
+  @include bp(small, up) {
+    .text-wrapper {
+      @include font-size(35px);
+    }
+  }
+
+}

@@ -22,7 +22,7 @@
   'component--type-' ~ paragraph.bundle|clean_class,
   'component-paragraph',
   'container',
-  'page-width',
+  'content-large',
   'padded-row',
   custom_class,
 ]
@@ -34,12 +34,12 @@
     {{ title_suffix }}
 
     {% if component_heading_status %}
-    <div class="heading-wrapper">
-      {{ content.field_heading }}
+    <div class="heading-wrapper text__centered vertical-flow">
+      <h2>{{ paragraph.field_heading.value }}</h2>
     </div>
     {% endif %}
 
-      <div class="card-deck-wrapper">
+      <div class="cards-wrapper four-col-grid vertical-flow">
         {{ content.field_card }}
       </div>
 

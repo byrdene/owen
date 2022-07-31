@@ -1,0 +1,168 @@
+/* =============================================================================
+   ACCORDIONS
+================================================================================ */
+
+.component--type-tabs {
+
+  h2:not(.tab-item-title):not(.accordion-title),
+  h3 {
+    background-color: $primary-color;
+    color: $white;
+    padding: $gutter/4 $gutter/2;
+    margin-bottom: $gutter/2;
+    @include font-size($h3-font-size-mobile);
+    @include font-weight(bold);
+    @include bp($desktop-nav, up) {
+      @include font-size($h3-font-size);
+    }
+  }
+
+  .non-tabs {
+    @include accordion();
+
+    .accordion__content {
+      h2,
+      h3 {
+        &:first-child {
+          margin-top: $gutter/2;
+        }
+      }
+    }
+
+    @include bp(large, up) {
+      display: none;
+    }
+  }
+
+  .tabs-wrapper {
+    display: none;
+
+    // required styles for the jQuery tab accessibility plugin
+    .js-tabcontent[aria-hidden=true] {
+      display: none;
+    }
+
+    @include bp(large, up) {
+      display: block;
+      @include border-radius(0);
+      overflow: auto;
+
+      //the list of tab links/buttons
+      .js-tablist {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+
+        .js-tablist__item {
+          width: auto;
+          display: inline-block;
+          margin-bottom: 0;
+          //display: block;
+          //width: 100%;
+          //@include bp(small, up) {
+          //  display: inline-block;
+          //  width: auto;
+          //}
+
+          .js-tablist__link {
+            display: block;
+            color: $primary-color;
+            background: $white;
+            border: 1px solid $base-border-color;
+            padding: $gutter/2;
+            @include font-size(14px);
+            @include font-weight(bold);
+            line-height: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover,
+            &:focus {
+              background-color: $action-color;
+              border-color: $action-color;
+              color: $white;
+            }
+          }
+
+          [aria-selected="true"].js-tablist__link {
+            background: $primary-color;
+            color: $white;
+            border: 1px solid $primary-color;
+            cursor: default;
+          }
+
+        }
+      }
+
+      // the tab content "panes"
+      .tabcontent-wrapper {
+        border: 1px solid $base-border-color;
+        padding: $gutter*2;
+        margin-top: -1px;
+
+        .js-tabcontent {
+          background: transparent;
+          padding: 0;
+
+          &:focus {
+            @include focus-outline($offset: 5px);
+          }
+
+          .tab-two-cols-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            .tab-panel-col-a,
+            .tab-panel-col-b {
+              width: 50%;
+            }
+
+            .tab-panel-col-a {
+              padding-right: $gutter;
+            }
+
+            .tab-panel-col-b {
+              padding-left: $gutter;
+            }
+          }
+        }
+      }
+
+      // the tab title that displays in the content "pane"
+      .tab-item-title {
+        display: inline-block;
+        &:focus {
+          outline: 1px dotted;
+          outline-offset: 2px;
+        }
+      }
+
+      // if "vertical" style is chosen
+      &.vertical {
+        .tofu-tabs-tabs__list {
+          .tofu-tabs-tabs__item {
+            width: 100%;
+          }
+          @include bp(small, up) {
+            width: 30%;
+            float: left;
+          }
+        }
+        .tabcontent-wrapper {
+          @include bp(small, up) {
+            //margin-top: $gutter/2;
+            margin-top: 0;
+            width: 70%;
+            float: right;
+            padding-left: $gutter*2;
+          }
+        }
+      }
+
+    }
+  }
+
+}
+

@@ -1,0 +1,6 @@
+----------------------------------------------------------------
+Developer notes for build/upgrade customizations and solutions
+----------------------------------------------------------------
+
+We customized the js file in this library to conform to screen reader recommendations from the Perkins review of the TLC site.
+These customizations can be found by searching for DEV NOTE within the js file.

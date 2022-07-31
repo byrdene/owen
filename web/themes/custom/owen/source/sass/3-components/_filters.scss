@@ -1,0 +1,266 @@
+// ==========================================================================
+//   FILTERS
+// ==========================================================================
+
+// Better Exposed Filters
+.bef-exposed-form {
+  width: 100%;
+
+  .form-item,
+  .form-actions {
+    clear: both;
+    float: left;
+  }
+}
+
+.view-filters {
+  //unique to project
+
+  .form-item,
+  .form-actions {
+    margin: 0 0 $gutter 0;
+
+    input {
+      border-radius: 0;
+    }
+  }
+
+  // be more specific in excluding if some labels should appear
+  .form-item {
+    label:not(.option) {
+      @include invisible;
+    }
+    input {
+      @include font-size(14px);
+    }
+
+  }
+
+  details {
+    .details-wrapper {
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          margin: 0;
+          padding-bottom: $gutter/2;
+        }
+      }
+    }
+  }
+
+  .form-item-field-event-date-value {
+    width: 210px;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      top: 2px;
+      right: 5px;
+      font-family: $icomoon;
+      content: $icon-calendar;
+      font-size: 20px;
+      text-align: center;
+      color: $white;
+    }
+
+    .bef-datepicker {
+      border: $charcoal;
+      background: $charcoal;
+      color: $white;
+      font-family: $numbers-font-family;
+      padding-left: $gutter;
+      padding-right: $gutter*2.5;
+      @include placeholder($size: 14px, $weight: normal, $color: $white);
+      cursor: pointer;
+    }
+
+  }
+
+  .form-item-field-event-type-target-id {
+    min-width: 170px;
+  }
+
+  .form-item--id-combine {
+    border-color: $charcoal;
+    width: 180px;
+    @include placeholder($size: 14px, $weight: normal, $color: $base-font-color);
+  }
+
+  @include bp(medium, up) {
+    //display: flex;
+    //justify-content: center;
+
+    .form--inline {
+      display: flex;
+      flex-direction: row;
+      //justify-content: center;
+      //align-items: center;
+
+      .form-item,
+      .form-actions {
+        margin-bottom: 0;
+      }
+
+      .form-item {
+        margin-right: 0;
+        & + .form-item,
+        & + .form-actions {
+          margin-left: $gutter*.75;
+        }
+      }
+
+    }
+  }
+
+  .submit-button:not(.reset-button) {
+    input {
+      height: $form-item-height;
+    }
+  }
+
+  #edit-reset-calendar {
+    background: none;
+    border: none;
+    color: $action-color;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: none;
+    @include font-size(14px);
+    padding: 0;
+    &:hover {
+      background: none;
+      border: none;
+      color: $primary-color !important;
+      text-align: center;
+      text-decoration: underline;
+      text-transform: none;
+    }
+    &:focus {
+      background: none;
+      border: none;
+      color: $primary-color !important;
+      text-align: center;
+      text-decoration: underline;
+      text-transform: none;
+      @include focus-outline();
+    }
+  }
+
+  .reset-button {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    input[type="submit"] { //override button styles
+      background: none;
+      border: none;
+      color: $action-color;
+      text-align: center;
+      text-decoration: underline;
+      text-transform: none;
+      @include font-size(14px);
+      padding: 0;
+      &:hover {
+        background: none;
+        border: none;
+        color: $primary-color !important;
+        text-align: center;
+        text-decoration: underline;
+        text-transform: none;
+      }
+      &:focus {
+        background: none;
+        border: none;
+        color: $primary-color !important;
+        text-align: center;
+        text-decoration: underline;
+        text-transform: none;
+        @include focus-outline();
+      }
+    }
+  }
+
+
+  // filter dropdowns for multivalue filters
+
+  .filter-dropdown {
+    position: relative;
+
+    .dropdown-header {
+      height: $form-item-height;
+      border: 1px solid $charcoal;
+      border-radius: 0;
+      cursor: pointer;
+      position: relative;
+      min-width: 155px;
+
+      .fieldset-legend {
+        @include font-size(14px);
+        @include font-weight(normal);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $action-color;
+        line-height: 40px; //line item height minus border
+        padding-left: 10px;
+        padding-right: 50px; // make space for arrow
+
+        &:before {
+          position: absolute;
+          top: 13px;
+          right: 13px; // for icon on right
+          display: inline-block;
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          font-family: $icomoon;
+          content: $icon-arrow-right;
+          color: $action-color;
+          text-align: center;
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .dropdown-content {
+      position: absolute;
+      background: $white;
+      border: solid $charcoal;
+      border-width: 0 1px 1px 1px;
+      z-index: 2;
+      width: 100%;
+      max-height: 150px;
+      overflow-y: scroll;
+
+      .bef-nested,
+      .bef-checkboxes {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 5px 10px;
+
+          li {
+            .js-form-item {
+              line-height: .5em;
+            }
+          }
+        }
+
+        label.form-item-label {
+          font-family: $numbers-font-family;
+          color: $base-font-color;
+          @include font-size(14px);
+          @include font-weight(normal);
+          display: inline !important;
+        }
+      }
+
+    }
+  }
+}

@@ -1,15 +1,23 @@
-name: Owen Cooper
+name: Tofu
 type: theme
 base theme: false
-description: 'Owen Cooper base theme.'
+description: "Theory One Design's Starter Tofu theme."
 package: Core
-core_version_requirement: ^8.8.0 || ^9.0
+core_version_requirement: ^9.0
 
 libraries:
   - owen/global
   - owen/tabs #part of admin interface
   - owen/messages #part of admin interface
   - owen/fonts
+  - owen/slick
+  - owen/masonry
+
+#preload-fonts:
+#  - fonts/Roboto-Regular.woff2
+#  - '@custom_theme/fonts/Roboto-Bold.woff2'
+#  - /libraries/shariff/fontawesome-webfont.woff2
+#  - https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu72xKOzY.woff2
 
 # Uncomment to override unnecessary js libraries. Example below:
 #libraries-override:
@@ -37,5 +45,5 @@ regions:
   footer_third: Footer third
   page_bottom: 'Page bottom'
 
-version: '8.x'
+version: '9.x'
 project: 'owen'

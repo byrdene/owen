@@ -2,4 +2,48 @@
 //   PARAGRAPHS - Card Deck (including Card)
 // ==========================================================================
 
-.component--type-card-deck{}
+.component--type-card-deck {
+  .heading-wrapper {
+    h2 {
+      @include font-size(40px);
+    }
+
+    @include bp($desktop-nav, up) {
+      h2 {
+        @include font-size(50px);
+      }
+    }
+  }
+
+  .card-item {
+    h3, .h2 {
+      @include font-size(20px);
+    }
+
+    @include bp($desktop-nav, up) {
+      h3, .h2 {
+        @include font-size(22px);
+      }
+    }
+
+    @include bp(x-large, up) {
+      h3, .h2 {
+        @include font-size(26px);
+      }
+    }
+  }
+
+  &.local-experiences { //class applied via the UI
+    position: relative;
+
+    &:before {
+      display: block;
+      content: "";
+      margin: 0 auto $gutter auto;
+      width: 270px;
+      height: 315px;
+      background: url("../../static/images/local-experiences.svg") no-repeat;
+      background-size: cover;
+    }
+  }
+}

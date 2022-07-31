@@ -4,25 +4,23 @@
 
 .logo {
   display: block;
-  position: $logo-position-mobile;
-  float: $logo-float-mobile;
-  width: $logo-mx-small;
-  max-width: $logo-mx-small;
-  outline-offset: 2px; // to improve keyboard accessibility
+  width: 100%;
+  max-width: $logo-mx-mobile;
+  //outline-offset: 2px; // to improve keyboard accessibility
+  &:focus {
+    @include focus-outline(); // to improve keyboard accessibility
+  }
   img {
     width:100%;// Required to make height of SVGs responsive in IE.
+    border: 1px solid $white;
   }
-  @include bp(medium, up) {
-    width: $logo-mx-medium;
-    max-width: $logo-mx-medium;
+  @include bp($desktop-nav, up) {
+    width: $logo-mx-tablet;
+    max-width: $logo-mx-tablet;
   }
-  @include bp(large, up) {
-    width: $logo-mx-large;
-    max-width: $logo-mx-large;
-  }
-  @include bp(x-large, up) {
-    width: $logo-mx-xlarge;
-    max-width: $logo-mx-xlarge;
+  @include bp(wide-menu, up) {
+    width: $logo-mx-desktop;
+    max-width: $logo-mx-desktop;
   }
 }
 .site-branding-text {

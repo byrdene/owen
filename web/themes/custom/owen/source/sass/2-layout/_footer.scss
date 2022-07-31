@@ -4,108 +4,23 @@
 
 footer {
   @include clearfix;
-  color: $black;
   width: 100%;
-  padding: $gutter 0;
-  a {
-    color: $indigo !important;
-  }
+  padding: $gutter*2 0;
+  background-color: $primary-color;
+
   .container {
     @include center-block;
-    max-width: $page-width;
+
     #footer-first,
     #footer-second,
-    #footer-third {
-      float: left;
-      width: 100%;
-    }
+    #footer-third {}
 
-    #footer-first {
-      h2 {
-        margin-bottom: 0;
-      }
-      h3 {
-        margin-top: 0;
-      }
-    }
+    #footer-first {}
 
-    #footer-second {
-      h2 {
-        margin-bottom: 0;
-        @include font-size($h3-font-size-mobile);
-        @include font-weight(bold);
-        color: $black;
-        text-transform: capitalize;
-        @include bp($main-nav, up) {
-          @include font-size($h3-font-size);
-        }
-      }
-    }
+    #footer-second {}
 
-    @include bp(small, up) {
-      #footer-first {
-        width: 33%;
-      }
-      #footer-second {
-        width: 66%;
-      }
-    }
-    //#footer-first {
-    //  .region-footer-first {
-    //    //margin-top: -20px;
-    //  }
-    //}
-    //#footer-second {
-    //  display: flex;
-    //  justify-content: center;
-    //  margin-top: $gutter;
-    //  padding-bottom: $gutter*2;
-    //  .block-menu {
-    //    float: left;
-    //    & + .block-menu {
-    //      padding-left: $gutter*4;
-    //    }
-    //    ul {
-    //      li {
-    //        display: block;
-    //        a {
-    //          &:hover {
-    //            text-decoration: underline !important;
-    //          }
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
-    //#footer-third {
-    //  text-align: right;
-    //  color: rgba(255, 255, 255, .8);
-    //  a {
-    //    color: rgba(255, 255, 255, .8) !important;
-    //    font-weight: normal !important;
-    //    &:hover {
-    //      color: rgba(255, 255, 255, 1) !important;
-    //      text-decoration: underline !important;
-    //    }
-    //  }
-    //  padding-top: $gutter/2;
-    //  padding-bottom: $gutter/2;
-    //}
-    //@include bp(large, up) {
-    //  display: flex;
-    //  #footer-first {
-    //    width: 200px;
-    //  }
-    //  #footer-second {
-    //    width: calc(100% - 590px); //200 + 20 + 20 + 350
-    //    margin: 0 $gutter;
-    //    padding-top: $gutter;
-    //  }
-    //  #footer-third {
-    //    width: calc(350px);
-    //    align-self: flex-end;
-    //  }
-    //}
+    #footer-third {}
+
   }
 }
 

@@ -17,8 +17,9 @@ table {
   thead tr th,
   thead tr th.ui-state-default {
     border: none;
-    @include font-weight(bold);
-    padding: $gutter * .75;
+    @include font-weight(semibold);
+    padding: $gutter/2 $gutter;
+    line-height: 1.15;
     text-align: left;
     text-transform: uppercase;
     color: $dt-th-color;
@@ -28,11 +29,22 @@ table {
     }
   }
 
+  tbody tr {
+    &.even {
+      background-color: transparent;
+    }
+    &.odd {
+      // uncomment below if striping
+      background-color: $dt-tr-odd-background-color;
+    }
+  }
+
   td {
     border-width: $dt-table-cell-border-width;
     border-color: $dt-table-cell-border-color;
     border-style: $dt-table-cell-border-style;
-    padding: $gutter * .75;
+    padding: $gutter/2 $gutter;
+    line-height: 1.15;
     @include font-size($table-cell-font-size);
     *:first-child {
       margin-top: 0;
@@ -40,83 +52,129 @@ table {
   }
 }
 
+// three columns tables
+table.cols-3 {
+  max-width: 100%;
+  thead tr th,
+  td {
+    padding: $gutter/2;
+    @include bp(medium, up) {
+      padding: $gutter;
+    }
+  }
+  thead {
+    tr {
+      th {
+        &:nth-of-type(3n+1) {
+          width: 24%;
+        }
+        &:nth-of-type(3n+2) {
+          width: 44%;
+        }
+        &:nth-of-type(3n+3) {
+          width: 32%;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Table Cards
+@media only screen and (max-width: 767px) { //our medium breakpoint
+
+  // odd/even bg colors swap since the header row bg color doesn't exist here
+  .responsive-table-cards tbody tr {
+    &.even {
+      background-color: $dt-tr-odd-background-color;
+    }
+    &.odd {
+      background-color: transparent;
+    }
+  }
+
+  /* Force table to not be like tables anymore */
+  .responsive-table-cards table,
+  .responsive-table-cards thead,
+  .responsive-table-cards tbody,
+  .responsive-table-cards th,
+  .responsive-table-cards td,
+  .responsive-table-cards tr {
+    display: block;
+  }
+
+  .responsive-table-cards tbody {
+    //border-top: 2px solid $secondary-color;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .responsive-table-cards thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .responsive-table-cards tr {
+    //border: 1px solid #ccc;
+    padding: $gutter;
+  }
+
+  .responsive-table-cards td {
+    /* Behave  like a "row" */
+    border: none;
+    //border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 0; //reset from non-mobile
+    padding-left: 50%;
+    white-space: normal;
+    text-align:left;
+    min-height: 1em; //to account for empty data cells
+    & + td {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(216, 219, 212, .5); //RGB for $cool-gray from HDTF
+      &:before {
+        top: 10px;
+      }
+    }
+  }
+
+  .responsive-table-cards td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    left: 0;
+    width: 45%;
+    //padding-right: 10px;
+    white-space: nowrap;
+    text-align:left;
+    @include font-weight(semibold);
+    color: $dt-th-color;
+    text-transform: uppercase;
+  }
+
+  /*
+  Label the data
+  */
+  .responsive-table-cards td:before {
+    content: attr(data-label);
+  }
+
+  /*
+  "odd" rows may need to have unique styles
+  */
+  .responsive-table-cards tr.even {
+    td {
+      & + td {
+        border-top: 1px solid rgba(255, 255, 255, .5); //RGB for $white
+      }
+    }
+  }
+}
+
+
 // Table drag handles (based on Webform examples)
 a.tabledrag-handle .handle {
   width: 30px;
   height: 30px;
-}
-
-// Table with DataTables plugin applied for responsive collapsing
-table.dataTable.dtr-inline.collapsed > tbody > tr {
-
-  td, th {
-    &:first-child:before {
-      display: inline-block;
-      @extend %icon-font;
-      font-family: $icomoon;
-      content: $icon-accordion-open;
-      color: $action-color;
-      width: 28px;
-      height: 28px;
-      text-align: center;
-      line-height: 28px;
-      margin: 0 5px 0 0;
-      cursor: pointer;
-    }
-  }
-
-  &.parent {
-    td, th {
-      &:first-child:before {
-        font-family: $icomoon;
-        content: $icon-accordion-close;
-      }
-    }
-  }
-
-  &.child {
-    td, th {
-      &:first-child:before {
-        display: none;
-      }
-      ul  {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-          margin-left: 0;
-          &:before {
-            content:"";
-          }
-        }
-      }
-      .dtr-title {
-        @include font-weight(bold);
-        margin-right: 5px;
-        a {}
-      }
-    }
-  }
-}
-
-// Override default jQuery styling of headers
-.dataTables_wrapper {
-  .ui-widget-header {
-    border: 0;
-  }
-  .ui-state-default {
-    border: 0;
-    .DataTables_sort_wrapper {
-      // Remove the pointer cursor if "sort" is set to FALSE in jquery.responsiveTables.js
-      // cursor: pointer;
-      display: inline-block;
-      white-space: nowrap;
-      position: relative;
-    }
-    .ui-icon {
-      display: inline-block;
-      position: absolute;
-      top: 3px;
-    }
-  }
 }

@@ -1,32 +1,38 @@
 
 {%
   set classes = [
-  'tile-item',
+  'tiles',
   'container',
-  custom_class,
+  'alternating-layout',
 ]
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="tile-item-wrapper">
-    <div class="tile-item-content">
-    {{ title_suffix }}
 
-      <div class="image-wrapper">
-        {{ content.field_image }}
+  <div class="media-wrapper tiles-item">
+    {{ content.field_image }}
+  </div>
+
+  <div class="text-wrapper tiles-item">
+
+    <div class="inner-wrapper">
+
+      <div class="heading-item-wrapper vertical-flow-small">
+        <h2>{{ paragraph.field_item_heading.value }}</h2>
       </div>
 
-      <div class="text-wrapper">
+      <div class="text-item-wrapper vertical-flow-small">
         {{ content.field_text }}
-
-        {% if content.field_button|render %}
-          <div class="button-wrapper">
-            {{ content.field_button }}
-          </div>
-        {% endif %}
-
       </div>
+
+      {% if content.field_button|render %}
+        <div class="button-wrapper vertical-flow-small">
+          {{ content.field_button }}
+        </div>
+      {% endif %}
 
     </div>
+
   </div>
+
 </article>

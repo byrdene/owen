@@ -19,6 +19,7 @@ body {
   background: $base-background-color;
   font-family: $base-font-family;
   @include font-size($base-font-size);
+  @include font-weight(normal);
   line-height: $base-line-height;
   letter-spacing: $base-letter-spacing;
   overflow-x: hidden;
@@ -34,7 +35,7 @@ p {
 
 a[href] {
   color: $link-color;
-  @include font-weight(bold);
+  @include font-weight(normal);
   text-decoration: underline;
 
   &:hover,
@@ -42,18 +43,52 @@ a[href] {
   &:active {
     color: $link-color-hover;
   }
+
+  &:focus {
+    @include focus-outline();
+  }
+}
+.tabcontent-item-wrapper,
+.rte,
+.field--type-text-with-summary,
+.field--type-text-long {
+  a[href]:not([class]) { // target plain text links without any kind of class
+    color: $white;
+    background-color: $link-color;
+    @include font-weight(normal);
+    //text-decoration: underline;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 5px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      //color: $white;
+      //background-color: $link-color;
+      background-color: $secondary-color;
+      color: $white;
+    }
+
+    &:focus {
+      @include focus-outline();
+    }
+  }
+}
+
+strong {
+  @include font-weight(bold);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
-  color: inherit;
-  //letter-spacing: $heading-letter-spacing;
   line-height: $heading-line-height;
-  text-transform: capitalize;
-  margin-top: 1.5em; // This will vary based on font size
+  color: inherit;
+  margin-top: 1.75em; // This will vary based on font size
   margin-bottom: rem($vertical-spacing); // Same bottom gutter as most elements
   text-rendering: optimizeLegibility;
   hyphens: none;
+  @include font-weight(semibold);
   &:first-child {
     margin-top: 0;
   }
@@ -62,7 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   a[href] {
     color: $action-color;
-    text-decoration: none;
+    font-weight: inherit;
+    text-decoration: underline;
     &:hover,
     &:focus,
     &:active {
@@ -73,22 +109,26 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 .h1 {
+  font-family: $raleway;
   @include font-size($h1-font-size-mobile);
-  @include font-weight(medium);
-  color: $white;
-  font-family: $base-font-family;
-  text-transform: capitalize;
-  @include bp($main-nav, up) {
+  color: $primary-color;
+  @include font-weight(light);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 0;
+  @include bp($desktop-nav, up) {
     @include font-size($h1-font-size);
   }
 }
 
 h2,
 .h2 {
+  font-family: $raleway;
   @include font-size($h2-font-size-mobile);
-  @include font-weight(bold);
-  color: $black;
-  @include bp($main-nav, up) {
+  color: $primary-color;
+  @include font-weight(thin);
+  text-transform: uppercase;
+  @include bp($desktop-nav, up) {
     @include font-size($h2-font-size);
   }
 }
@@ -96,10 +136,11 @@ h2,
 h3,
 .h3 {
   @include font-size($h3-font-size-mobile);
-  @include font-weight(bold);
-  color: $black;
-  text-transform: capitalize;
-  @include bp($main-nav, up) {
+  @include font-weight(normal);
+  text-transform: uppercase;
+  color: $base-font-color;
+  margin-top: rem($vertical-spacing);
+  @include bp($desktop-nav, up) {
     @include font-size($h3-font-size);
   }
 }
@@ -108,30 +149,10 @@ h4,
 .h4 {
   @include font-size($h4-font-size);
   @include font-weight(bold);
-  color: $black;
-  //text-transform: uppercase;
-  @include bp($main-nav, up) {
+  margin-top: rem($vertical-spacing);
+  margin-bottom: 0;
+  @include bp($desktop-nav, up) {
     @include font-size($h4-font-size);
-  }
-}
-
-h5 {
-  @include font-size($h5-font-size);
-  @include font-weight(bold);
-  color: $primary-color;
-  text-transform: uppercase;
-  @include bp($main-nav, up) {
-    @include font-size($h5-font-size);
-  }
-}
-
-h6 {
-  @include font-size($h6-font-size);
-  @include font-weight(bold);
-  color: $primary-color;
-  text-transform: uppercase;
-  @include bp($main-nav, up) {
-    @include font-size($h6-font-size);
   }
 }
 
@@ -155,11 +176,6 @@ pre {
 //}
 
 .citation {
-  //@include font-size(18px);
-  //@include font-weight(bold);
-  //letter-spacing: 1px;
-  //color: $primary-color;
-  //text-transform: uppercase;
   @extend %citation;
 }
 
@@ -172,35 +188,8 @@ pre {
   @extend %caption;
 }
 
-a.more-link,
-a.arrow-link,
-.arrow-link a {
-  color: $action-color;
-  position: relative;
-  @include font-weight(bold);
-  text-transform: none;
-  text-decoration: none;
-  margin-right: 1em;
-  &:after {
-    display: inline-block;
-    vertical-align: middle;
-    font-family: $icomoon;
-    content: $icon-arrow-right;
-    color: inherit;
-    font-size: .65em;
-    text-align: center;
-    @include font-weight(normal);
-    text-decoration: none;
-    padding: 0 0 0 .25em;
-    border-bottom: 1px dotted transparent;
-  }
-  &:hover,
-  &:active {
-    color: $primary-color;
-    &:after { /* nifty depress action!*/
-      //margin-left: 2px;
-    }
-  }
+a[href].fancy-button {
+  @extend %fancy-button;
 }
 
 div.more-link { // keep on same line as trimmed text
@@ -208,6 +197,6 @@ div.more-link { // keep on same line as trimmed text
   text-align: left;
   a {
     text-transform: uppercase;
-    font-size: .8em;
+    color: inherit;
   }
 }

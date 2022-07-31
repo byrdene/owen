@@ -1,2 +1,0 @@
-!function(t,a){var e,i=navigator.userAgent.match(/iPhone/i)?"touchstart":"click";e=".data-collapse",a("button.collapsed-text-trigger").each(function(){a(this).off(i).on(i,function(t){a(this).toggleClass("open").next(e).slideToggle("500"),a(this).hasClass("open")?a(this).attr("aria-expanded","true").next(e).attr("aria-hidden","false"):a(this).attr("aria-expanded","false").next(e).attr("aria-hidden","true")})}),a(e).hide()}(Drupal,jQuery);
-//# sourceMappingURL=owen-collapsed-content.js.map

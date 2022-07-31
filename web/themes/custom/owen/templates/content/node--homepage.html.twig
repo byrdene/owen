@@ -1,80 +1,21 @@
 {% set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 ] %}
 
-<div {{ attributes.addClass(classes, 'padded-column')}}>
+<section {{ attributes.addClass(classes)}}>
 
-{#  News section #}
-  {% if content.field_announcements|render %}
-  <section class="section news-section container medium-width padded-row">
-    <div class="news-wrapper">
-      <div class="news-heading"><h2>News</h2></div>
-      <div class="announcements-wrapper">{{ content.field_announcements }}</div>
-    </div>
-  </section>
-  {% endif %}
+  <div class="page-title-wrapper container centered">
+    <h1 class="page-title padded-row">{{ node.label }}</h1>
+  </div>
 
-  {#  Welcome section #}
-  {% if content.field_welcome_photos|render %}
-    <section class="section welcome-section has-photos container page-width padded-row">
-  {% else %}
-    <section class="section welcome-section container small-width padded-row">
-  {% endif %}
-      <div class="welcome-text-wrapper" data-aos="fade-up">
-        <h2 class="home-heading primary-color">{{ content.field_section_heading_welcome.0 }}</h2>
-        <div class="large-text">{{ content.body }}</div>
-        {% if content.field_welcome_links|render %}
-          <div class="welcome-links-wrapper large-text">
-          {{ content.field_welcome_links }}
-          </div>
-        {% endif %}
-      </div>
-    {% if content.field_welcome_photos|render %}
+  <div class="content-wrapper padded-column">
 
-      {% set num = content.field_welcome_photos['#items']|length %}
-      {% set cap = num - 1 %}
-      {% set random = random(cap) %}
-      {% set photo = content.field_welcome_photos[random] %}
+    {{ content.field_components }}
 
-      <div class="welcome-photo-wrapper" data-aos="fade-left">{{ photo }}</div>
-    {% endif %}
-  </section>
 
-  {#  Community section #}
-  <section class="section community-section container medium-width padded-row">
-    <div class="community-section-outer-wrapper container">
-      <h2 class="home-heading secondary-color">{{ content.field_section_heading_community.0 }}</h2>
-      <div class="community-section-wrapper container">
-      {% if content.field_quicklinks|render %}
-        <div class="quicklinks-wrapper blue-box" data-aos="fade-right">
-          <div class="quicklinks-heading"><h3>Quicklinks</h3></div>
-          {{ content.field_quicklinks }}
-        </div>
-      {% endif %}
-      {% if content.field_upcoming_events|render %}
-        <div class="events-wrapper">
-          <div class="events-heading"><h3>Upcoming Events</h3></div>
-          {{ content.field_upcoming_events }}</div>
-      {% endif %}
-      </div>
-    </div>
-  </section>
+  </div>
 
-  {#  Highlights section #}
-  {% if content.field_photo_gallery|render %}
-    <section class="section highlights-section container page-width padded-row">
-      <h2 class="home-heading action-color">{{ content.field_section_heading_highlights.0 }}</h2>
-      <div class="gallery-wrapper">{{ content.field_photo_gallery }}</div>
-      {% if content.field_gallery_caption|render %}
-        <div class="gallery-caption-wrapper">{{ content.field_gallery_caption }}</div>
-      {% endif %}
-    </section>
-  {% endif %}
-
-  {#  Testimonials section #}
-  <section class="section testimonials-section container">
-    <div class="testimonials">{{ content.field_featured_testimonial }}</div>
-  </section>
-
-</div>
+</section>

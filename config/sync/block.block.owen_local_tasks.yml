@@ -9,7 +9,7 @@ _core:
 id: owen_local_tasks
 theme: owen
 region: content
-weight: -20
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:

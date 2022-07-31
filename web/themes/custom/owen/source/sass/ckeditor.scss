@@ -5,7 +5,7 @@
 @import "1-base/horizontal-rules";
 @import "1-base/lists";
 @import "1-base/media";
-@import "3-components/accordions";
+//@import "3-components/accordions";
 // Do not import table styles. They need a different style applied within the RTE
 
 // Other base styles unique to the ckeditor window
@@ -47,45 +47,45 @@ table {
   }
 }
 
-.accordion {
-  margin-bottom: 20px;
-}
-.accordion-end {
-  &:before {
-    @include font-weight(normal);
-    font-size: 10px;
-    line-height: 10px;
-    text-align: center;
-    color: $base-font-color;
-    display: block;
-    content: "End of Accordions";
-    height: 1em;
-    width: 100%;
-    border-bottom: 1px dotted $ice;
-    margin: 10px 0;
-  }
-}
+//.accordion {
+//  margin-bottom: 20px;
+//}
+//.accordion-end {
+//  &:before {
+//    @include font-weight(normal);
+//    font-size: 10px;
+//    line-height: 10px;
+//    text-align: center;
+//    color: $base-font-color;
+//    display: block;
+//    content: "End of Accordions";
+//    height: 1em;
+//    width: 100%;
+//    border-bottom: 1px dotted $ice;
+//    margin: 10px 0;
+//  }
+//}
 
 // CKEditor styles menu
 
 .cke_panel_listItem {
-  .accordion {
-    &:before {
-      display: inline;
-      color: $action-color;
-      @extend %icon-font;
-      font-family: $icomoon;
-      content: $icon-accordion-open;
-      font-size: 14px;
-      @include font-weight(normal);
-      padding: 5px 5px 5px 0;
-      line-height: 1;
-    }
-  }
-  .accordion-end {
-    &:before {
-      content: "";
-      display: inline;
-    }
-  }
+  //.accordion {
+  //  &:before {
+  //    display: inline;
+  //    color: $action-color;
+  //    @extend %icon-font;
+  //    font-family: $icomoon;
+  //    content: $icon-accordion-open;
+  //    font-size: 14px;
+  //    @include font-weight(normal);
+  //    padding: 5px 5px 5px 0;
+  //    line-height: 1;
+  //  }
+  //}
+  //.accordion-end {
+  //  &:before {
+  //    content: "";
+  //    display: inline;
+  //  }
+  //}
 }

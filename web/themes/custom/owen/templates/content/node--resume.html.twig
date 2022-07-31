@@ -1,0 +1,58 @@
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'padded-column',
+] %}
+
+<section {{ attributes.addClass(classes)}}>
+
+  <div class="content-wrapper container content-large padded-row">
+
+    <div class="column-wrapper col-a">
+
+      {% if content.field_work_leadership|render %}
+        <div class="work-leadership-wrapper vertical-flow">
+          <h2 class="text__allcaps">Work & Leadership Experience</h2>
+          {{ content.field_work_leadership }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div class="column-wrapper col-b">
+
+      {% if content.field_education_rte|render %}
+        <div class="education-wrapper separator vertical-flow">
+          <h2 class="text__allcaps">Education</h2>
+          {{ content.field_education_rte }}
+        </div>
+      {% endif %}
+
+      {% if content.field_distinctions_rte|render %}
+        <div class="distinctions-wrapper separator vertical-flow">
+          <h2 class="text__allcaps">Distinctions</h2>
+          {{ content.field_distinctions_rte }}
+        </div>
+      {% endif %}
+
+      {% if content.field_skills_rte|render %}
+        <div class="skills-wrapper separator vertical-flow">
+          <h2 class="text__allcaps">Skills</h2>
+          {{ content.field_skills_rte }}
+        </div>
+      {% endif %}
+
+      {% if content.field_interests_rte|render %}
+        <div class="interests-wrapper separator vertical-flow">
+          <h2 class="text__allcaps">Interests</h2>
+          {{ content.field_interests_rte }}
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>

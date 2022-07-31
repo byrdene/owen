@@ -41,6 +41,10 @@ body {
     padding-bottom: 57px; // need to see the full height of body
   }
 
+  ul.tabs a {
+    @extend %admin-buttons;
+  }
+
   @include bp(small, up) {
     .block-local-tasks-block {
       position: fixed;
@@ -73,22 +77,6 @@ body {
       }
     }
 
-    ul.tabs a {
-      font-size: small;
-      background-color: $action-admin-color;
-      border-radius: 0;
-      padding: .75em 1.25em;
-      border: 1px solid $action-admin-color;
-      background-clip: border-box;
-      &.is-active{
-        background-color: $action-admin-color;
-      }
-      &:hover,
-      &:focus {
-        background-color: $white;
-        color: $action-admin-color;
-      }
-    }
     @include bp(medium, up) {
       ul.tabs {
         text-align: right;
@@ -97,3 +85,8 @@ body {
   }
 }
 
+
+//Gin Toolbar recently added this margin which now overlaps our navigation
+.toolbar-tray-horizontal li {
+  margin-bottom: 0;
+}

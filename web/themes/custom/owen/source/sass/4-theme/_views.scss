@@ -5,13 +5,15 @@
 // Empty view
 .view-empty {
   clear: both;
-  text-align: center;
+  //text-align: center;
   .filter-no-results { //class applied in Views UI or twig
     display: inline-block;
     &:focus {
-      outline: 1px dotted $base-border-color;
-      outline-offset: 10px;
+      @include focus-outline($offset: 10px);
     }
+  }
+  &.left-aligned {
+    text-align: left;
   }
 }
 
@@ -20,17 +22,29 @@
 // done programmatically in customized views-view.html.twig files
 .view-results-total {
   clear: both;
-  text-align: center;
+  //text-align: center;
   margin-top: $gutter/2;
   margin-bottom: $gutter*1.5;
   .filtered-results {
     display: inline-block;
     &:focus {
-      outline: 1px dotted $base-border-color;
-      outline-offset: 10px;
+      @include focus-outline($offset: 10px);
+    }
+  }
+  &.hide-to-start { // initial view should not show results
+    display: none;
+  }
+}
+
+
+body.filters-applied { // class applied via jQuery on BEF submit click
+  .view-results-total {
+    &.hide-to-start {
+      display: block;
     }
   }
 }
+
 
 // Footer
 .view-footer {
@@ -47,30 +61,19 @@
   }
 }
 
-// Better Exposed Filters
-.bef-exposed-form {
-  .form-item,
-  .form-actions {
-    clear: both;
-    float: left;
-  }
-}
-
 .view-database-search {
   .view-header {
     font-family: $base-font-family;
     @include font-size($h3-font-size-mobile);
     @include font-weight(medium);
     color: $base-font-color;
-    text-transform: capitalize;
     text-align: center;
     line-height: 1.28;
     margin-bottom: $vertical-spacing;
     .filtered-results {
       display: inline-block;
       &:focus {
-        outline: 1px dotted $base-border-color;
-        outline-offset: 10px;
+        @include focus-outline($offset: 10px);
       }
     }
   }
@@ -81,4 +84,119 @@
       border-top: 1px solid $base-border-color;
     }
   }
+}
+
+.four-col-grid {
+  @include four-col-grid();
+}
+
+.three-col-grid {
+  @include three-col-grid();
+}
+
+.view-gallery {
+
+  .view-filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .pre-text {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      @include font-size(16px);
+      @include font-weight(semibold);
+      text-transform: uppercase;
+      letter-spacing: .96px;
+      color: $base-font-color;
+    }
+
+    @include bp(medium, up) {
+      flex-direction: row;
+
+      .pre-text {
+        margin-bottom: 0;
+      }
+    }
+
+    .form--inline {
+      fieldset {
+        margin-bottom: 0;
+
+        legend {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+      }
+
+      .form-radios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .form-item {
+          margin-bottom: 0;
+
+          input {
+            width: 1px;
+            & + label {
+              margin: 0; // remove our custom form styles
+              cursor: pointer;
+              @include font-size(16px);
+              @include font-weight(normal);
+              letter-spacing: .96px;
+              color: $base-font-color;
+              text-decoration: underline;
+              text-decoration-color: transparent;
+              text-underline-offset: 3px;
+
+              &:before {
+                display: none; // remove our custom form styles
+              }
+            }
+            &:checked {
+              & + label {
+                @include font-weight(semibold);
+                text-decoration-color: $base-font-color;
+              }
+            }
+          }
+
+          & + .form-item {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .view-content {
+
+    @include bp(medium, down) {
+      margin-top: 0;
+    }
+
+    &.grid {
+      margin-left: $gutter/2;
+      margin-right: $gutter/2;
+    }
+
+    .grid-item {
+      width: calc(100% / 3);
+      padding: $gutter/2;
+
+      .media--view-mode-gallery {
+        cursor: pointer; // for when fancybox is enabled
+      }
+    }
+  }
+
 }

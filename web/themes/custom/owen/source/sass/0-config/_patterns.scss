@@ -4,36 +4,468 @@
 //   fields, classes, HTML selectors, etc.
 // ==========================================================================
 
+// Focus outlines
+@mixin focus-outline($offset: 3px, $color: $base-focus-outline-color) {
+  outline: 1px dotted $color;
+  outline-offset: $offset !important;
+}
+
 %label {
-  @include font-size(14px);
-  @include font-weight(bold);
-  color: $base-font-color;
+  @include font-size(20px);
+  @include font-weight(light);
+  color: $primary-color;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 %label-small {
+  //display: inline-block;
   @include font-size(12px);
-  @include font-weight(bold);
-  color: $base-font-color;
+  @include font-weight(semibold);
+  color: $primary-color;
   letter-spacing: 1px;
   text-transform: uppercase;
+  line-height: 16px;
 }
 
 %caption {
-  color: $base-font-color;
-  @include font-size(14px);
-  @include font-weight(bold);
-  text-transform: uppercase;
-  line-height: 18px;
-  text-align: right;
+  color: $default-gray;
+  @include font-size(16px);
+  @include font-weight(normal);
+  //text-transform: uppercase;
+  font-style: italic;
+  line-height: 1.25em;
+  text-align: left;
   margin: rem($vertical-spacing / 2) 0 ;
 }
 
 %citation {
-  @include font-size(18px);
-  @include font-weight(bold);
-  letter-spacing: 1px;
-  color: $primary-color;
+  @include font-size(14px);
+  @include font-weight(semibold);
+  color: inherit;
   text-transform: uppercase;
+  &:before {
+    display: inline-block;
+    content: "\2014";
+  }
+}
+
+%quote {
+  margin-top: $gutter*2;
+  padding-top: 3.5em;
+  position: relative;
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: $icomoon;
+    content: $icon-quotes-left;
+    color: $secondary-color;
+    font-size: 3.5em;
+    line-height: 1;
+  }
+}
+
+%fancy-button {
+  display: inline-block;
+  color: $black;
+  position: relative;
+  @include font-size(16px);
+  @include font-weight(bold);
+  line-height: 1.25;
+  @include tracking(.72);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-right: .5em;
+  border-bottom: 1px solid transparent;
+  &:after {
+    //display: inline-block;
+    vertical-align: middle;
+    font-family: $icomoon;
+    content: $icon-arrow-tail;
+    color: $action-color;
+    font-size: 1.5em;
+    text-align: center;
+    @include font-weight(normal);
+    text-decoration: none;
+    margin-left: -.25em;
+    padding: 0 0 0 .5em;
+    transition: all .2s ease-in;
+  }
+  &:hover,
+  &:active {
+    color: $black;
+    text-decoration: none;
+    border-bottom: 1px solid $action-color;
+    &:after {
+      padding-left: .75em;
+    }
+  }
+
+  &:focus {
+    @include focus-outline($color: $white);
+  }
+}
+
+%admin-buttons {
+  color: $white;
+  text-decoration: none;
+  background-color: $action-admin-color;
+  @include border-radius(8px);
+  padding: .75em 1.25em;
+  border: 1px solid $action-admin-color;
+  background-clip: border-box;
+  &.is-active {
+    background-color: $action-admin-color;
+  }
+  &:hover,
+  &:focus {
+    background-color: $white;
+    color: $action-admin-color;
+  }
+}
+
+// Placeholder text
+@mixin placeholder($size: 16px, $color: $default-gray, $weight: medium) {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color;
+    @include font-weight($weight);
+    @include font-size($size);
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color;
+    @include font-weight($weight);
+    @include font-size($size);
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $color;
+    @include font-weight($weight);
+    @include font-size($size);
+  }
+}
+
+// Accordions
+@mixin accordion() {
+  .accordion {
+    width: 100%;
+    padding-bottom: $gutter/2;
+    border-bottom: 1px solid $default-gray;
+
+    &__button {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      text-align: left;
+      cursor: pointer;
+
+      .accordion-title {
+        display: block; //in case we use span instead of H2 or H3
+        color: $black;
+        //padding: $gutter/2 $gutter*2 $gutter/2 $gutter; // for icon on right
+        padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
+        margin: 0;
+        position: relative;
+        @include font-size(25px);
+        @include font-weight(semibold);
+        @include tracking(.25);
+        &:before {
+          position: absolute;
+          display: inline-block;
+          top: $gutter*.75;
+          //right: 0; // for icon on right
+          left: 0; // for icon on left
+          font-size: 24px;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+          font-family: $icomoon;
+          content: $icon-arrow-right;
+          color: $action-color;
+          text-align: center;
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover {
+        //background-color: darken($ice, 10%);
+        .accordion-title {
+          color: $action-color;
+        }
+      }
+
+      &:focus {
+        @include focus-outline();
+
+        .accordion-title {
+          color: $action-color;
+        }
+      }
+
+      &.open {
+        .accordion-title {
+          color: $action-color;
+
+          &:before {
+            transform: rotate(270deg);
+          }
+        }
+      }
+    }
+
+    &__content {
+      display:none;
+      padding: 0 $gutter $gutter/2 $gutter*2;
+    }
+  }
+}
+
+// Tiles
+@mixin two-tiles($left: 50%, $right: 50%) {
+  .tiles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .tiles-item {
+      float: none;
+      width: 100%;
+
+      & + .tiles-item {
+        margin-top: $gutter;
+      }
+
+      img { // make sure it fills container
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    @include bp(medium, up) {
+      flex-direction: row;
+
+      .tiles-item {
+
+        & + .tiles-item {
+          margin-top: 0;
+        }
+
+        &:nth-of-type(2n+1) { // First item
+          width: $left;
+
+          &.text-wrapper {
+            padding: $gutter/2 $gutter 0 0;
+          }
+        }
+
+        &:nth-of-type(2n+2) { // Last item
+          width: $right;
+
+          &.text-wrapper {
+            padding: $gutter/2 0 0 $gutter;
+          }
+        }
+
+      }
+    }
+
+    @include bp(large, up) {
+      .tiles-item {
+        &:nth-of-type(2n+1) { // First item
+
+          &.text-wrapper {
+            padding: $gutter/2 $gutter*2 0 0;
+          }
+        }
+
+        &:nth-of-type(2n+2) { // Last item
+          &.text-wrapper {
+            padding: $gutter/2 0 0 $gutter*2;
+          }
+        }
+      }
+    }
+
+    &.alternating-layout {
+      @include bp(medium, up) {
+        &:nth-child(even) {
+          flex-direction: row;
+        }
+
+        &:nth-child(odd) {
+          flex-direction: row-reverse;
+
+          .tiles-item { // text needs its padding reversed if it is now on opposite side
+            &.text-wrapper {
+              padding: $gutter/2 $gutter 0 0;
+            }
+          }
+        }
+      }
+
+      @include bp(large, up) {
+        &:nth-child(even) {
+          flex-direction: row;
+        }
+
+        &:nth-child(odd) {
+          flex-direction: row-reverse;
+
+          .tiles-item { // text needs its padding reversed if it is now on opposite side
+            &.text-wrapper {
+              padding: $gutter/2 $gutter*2 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin three-tiles($left: 33%, $middle: 33, $right: 34%) {
+  .tiles-item {
+    width: 100%;
+    @include bp(small, up) {
+      float: left;
+      &:nth-of-type(3n+1) { // First item
+        width: 100%;
+      }
+      &:nth-of-type(3n+2) { // Middle item
+        width: calc(100% - #{$right});
+      }
+      &:nth-of-type(3n+3) { // Middle item
+        width: $right;
+        float: right;
+      }
+    }
+    @include bp(large, up) {
+      float: left;
+      &:nth-of-type(3n+1) { // First item
+        width: $left;
+      }
+      &:nth-of-type(3n+2) { // Middle item
+        width: $middle;
+      }
+      &:nth-of-type(3n+3) { // Middle item
+        width: $right;
+        float: left;
+      }
+    }
+  }
+}
+
+// Grids
+@mixin three-col-grid() {
+  .grid-item {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2em;
+    @include bp(small, up) {
+      float: left;
+      &:nth-of-type(2n+1) { // First item (1st in row of 2)
+        clear: left;
+        width: 49%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
+        width: 49%;
+        margin: 0 0 2em 1%;
+      }
+    }
+    @include bp(medium, up) {
+      float: left;
+      &:nth-of-type(2n+1) {
+        clear: none; // reset from previous breakpoint
+      }
+      &:nth-of-type(3n+1) { // First item (1st in row of 3)
+        clear: left;
+        width: 32%;
+        margin: 0 1% 2em 0;
+      }
+      &:nth-of-type(3n+2) { // Middle item (2nd in row of 3)
+        width: 32%;
+        margin: 0 1% 2em 1%;
+      }
+      &:nth-of-type(3n+3) { // Last item (3rd in row of 3)
+        width: 32%;
+        margin: 0 0 2em 1%;
+      }
+    }
+  }
+}
+
+@mixin four-col-grid() {
+  .grid-item {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-bottom: $gutter*2;
+    @include bp(x-small, up) {
+      float: left;
+      &:nth-of-type(2n+1) { // First item (1st in row of 2)
+        clear: left;
+        width: calc(50% - 10px);
+        margin: 0 $gutter/2 $gutter*3 0;
+      }
+      &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
+        width: calc(50% - 10px);
+        margin: 0 0 $gutter*3 $gutter/2;
+      }
+    }
+
+    @include bp(medium, up) {
+      float: left;
+      &:nth-of-type(2n+1) {
+        clear: none; // reset from previous breakpoint
+      }
+      &:nth-of-type(3n+1) { // First item (1st in row of 3)
+        clear: left;
+        width: calc(92%/3);
+        margin: 0 2% $gutter*3 0;
+      }
+      &:nth-of-type(3n+2) { // Middle item (2nd in row of 3)
+        width: calc(92%/3);
+        margin: 0 2% $gutter*3 2%;
+      }
+      &:nth-of-type(3n+3) { // Last item (3rd in row of 3)
+        width: calc(92%/3);
+        margin: 0 0 $gutter*3 2%;
+      }
+    }
+
+    @include bp(large, up) {
+      float: left;
+      &:nth-of-type(3n+1),
+      &:nth-of-type(3n+2),
+      &:nth-of-type(3n+3) {
+        clear: none; // reset from previous breakpoint
+      }
+      &:nth-of-type(4n+1) { // First item (1st in row of 4)
+        clear: left;
+        width: 22%;
+        margin: 0 2% $gutter*3 0;
+      }
+      &:nth-of-type(4n+2) { // Second item (2nd in row of 4)
+        width: 22%;
+        margin: 0 2% $gutter*3 2%;
+      }
+      &:nth-of-type(4n+3) { // Third item (3rd in row of 4)
+        width: 22%;
+        margin: 0 2% $gutter*3 2%;
+      }
+      &:nth-of-type(4n) { // Last item (4th in row of 4)
+        width: 22%;
+        margin: 0 0 $gutter*3 2%;
+      }
+    }
+  }
 }

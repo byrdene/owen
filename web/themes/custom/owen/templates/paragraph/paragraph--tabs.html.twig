@@ -1,0 +1,140 @@
+{# Default classes if no values exist in styling fields #}
+
+{% set custom_class = '' %}
+
+{# Apply classes based on field values if the field exists and it has a value #}
+
+{% if not (paragraph.field_custom_class.isEmpty == true) and paragraph.field_custom_class is defined %}
+  {% set custom_class = paragraph.field_custom_class.value %}
+{% endif %}
+
+{% set component_heading_status = false %}
+{% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
+  {% set component_heading_status = true %}
+  {% if paragraph.field_heading_status.value and paragraph.field_heading_status is defined %}
+    {% set component_heading_status = false %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'content-small',
+  'padded-row',
+  custom_class,
+]
+%}
+
+  {# Attach CSS/JS Libraries #}
+  {{ attach_library('owen/a11y-tabs') }}
+
+  {# Sets Unique ID for Accordion from Paragraph ID. #}
+  {% set section_id = 'section' ~ paragraph.id.value %}
+  {% set tab_id = 'tab' ~ paragraph.id.value %}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      {% if component_heading_status %}
+        <div class="heading-wrapper">
+          {{ content.field_heading }}
+        </div>
+      {% endif %}
+
+      {#    Do not display as tabs for mobile#}
+      <div class="non-tabs">
+        {# Loops through the tab sections to prints the tabs. #}
+        {% for key, item in content.field_sections if key|first != '#' %}
+
+          <div class="accordion">
+            <button id="{{ section_id }}-{{ key + 1 }}--button"
+                    class="accordion__button"
+                    aria-controls="{{ section_id }}-{{ key + 1 }}--content"
+                    aria-expanded="false">
+              <h2 class="accordion-title">{{ item['#paragraph'].field_section_title.value }}</h2>
+            </button>
+
+            <div id="{{ section_id }}-{{ key + 1 }}--content"
+                 class="accordion__content"
+                 aria-labelledby="{{ section_id }}-{{ key + 1 }}--button"
+                 aria-hidden="true">
+              {{ item['#paragraph'].field_section_body.value | check_markup(item['#paragraph'].field_section_body.format) }}
+            </div>
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+      {#    Display as tabs when browser is wide enough#}
+      <div class="js-tabs tabs-wrapper {{ paragraph.field_tab_style.value|clean_class }}">
+
+        <ul class="js-tablist"  data-existing-hx="h2">
+
+          {# Loops through the tab sections to print the tab section titles. #}
+          {% for key, item in content.field_sections if key|first != '#' %}
+
+            <li class="js-tablist__item">
+              <a href="#{{ section_id }}-{{ key + 1 }}" id="label_{{ section_id }}-{{ key + 1 }}" class="js-tablist__link">{{ item['#paragraph'].field_section_title.value }}</a>
+            </li>
+
+          {% endfor %}
+
+        </ul>
+
+        {#   the following wrapper and class is not necessary for the jQuery plugin - just for styling flexibiilty   #}
+        <div class="tabcontent-wrapper">
+
+          {# Loops through the tab sections again to print the tab section bodies. #}
+          {% for key, item in content.field_sections if key|first != '#' %}
+
+            <div id="{{ section_id }}-{{ key + 1 }}" class="js-tabcontent">
+
+              {#            <h2 class="invisible">#}
+              {#              {{ item['#paragraph'].field_section_title.value }}#}
+              {#            </h2>#}
+
+              <h2 class="tab-item-title vertical-flow-small">
+                {{ item['#paragraph'].field_section_title.value }}
+              </h2>
+
+              {#   the following wrapper and class is not necessary for the jQuery plugin - just for styling flexibiilty   #}
+              <div class="tabcontent-item-wrapper vertical-flow-small">
+
+                {% if item['#paragraph'].field_section_body_two.value %}
+
+                  {% if item['#paragraph'].field_intro.value %}
+                    {{ item['#paragraph'].field_intro.value | check_markup(item['#paragraph'].field_intro.format) }}
+                  {% endif %}
+
+                  <div class="tab-two-cols-wrapper">
+                    <div class="tab-panel-col-a">{{ item['#paragraph'].field_section_body.value | check_markup(item['#paragraph'].field_section_body.format) }}</div>
+                    <div class="tab-panel-col-b">{{ item['#paragraph'].field_section_body_two.value | check_markup(item['#paragraph'].field_section_body_two.format) }}</div>
+                  </div>
+
+                {% else %}
+                  {{ item['#paragraph'].field_section_body.value | check_markup(item['#paragraph'].field_section_body.format) }}
+
+                {% endif %}
+
+
+              </div>
+
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</section>

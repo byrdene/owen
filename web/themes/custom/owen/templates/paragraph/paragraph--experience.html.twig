@@ -1,0 +1,22 @@
+
+{%
+  set classes = [
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'vertical-flow-large',
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      <div class="description-wrapper">
+        {{ content.field_description }}
+      </div>
+
+
+    </div>
+  </div>
+</section>

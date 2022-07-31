@@ -28,23 +28,49 @@ ol, ul {
 }
 
 // Bulleted lists created in the RTE
+.tabcontent-item-wrapper,
 .rte,
 .field--type-text-with-summary,
+.field--type-text-long,
 .field--type-text {
   ul:not(.contextual-links):not(.pager__items):not(.pager):not(.menu):not(.js-tablist) {
     list-style: none;
     > li {
+      padding-left: .25em;
       position: relative;
       &:before {
         display: block;
         position: absolute;
         font-size: .6em; // adjust size for actual icon in the font file
-        top: 4px; // adjust for font size used
+        top: 6px; // adjust for font size used
         left: 0;
         margin-left: -18px; // this is right padding set on the parent ul
         font-family: $icomoon;
         content: $icon-bullet;
-        color: $action-color;
+        color: $primary-color;
+      }
+    }
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: item;
+    li {
+      counter-increment: item;
+      padding-left: .5em;
+      position: relative;
+      &:before {
+        content: counter(item);
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        margin-left: -18px;
+        color: $primary-color;
+        font-family: $numbers-font-family;
+        font-size: inherit;
+        width: 1.2em;
+        text-align: center;
       }
     }
   }

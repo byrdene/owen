@@ -1,5 +1,32 @@
 // ==========================================================================
-//   PARAGRAPHS - Tiles (includind Tiles Item bundle)
+//   PARAGRAPHS - Tiles (including Tiles Item bundle)
 // ==========================================================================
 
-.component--type-tiles{}
+.tiles-wrapper, //for when the tiles item bundle is on its own
+.component--type-tiles {
+  @include two-tiles($left: 50%, $right: 50%);
+
+  .tiles {
+    & + .tiles {
+      @include vertical-flow($mobile: $gutter*3, $desktop: $gutter*5);
+    }
+
+    .tiles-item {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    @include bp(medium, up) {
+      .tiles-item {
+        display: flex;
+        align-items: center;
+        max-width: none;
+
+        .media-wrapper {
+          max-width: none;
+        }
+      }
+    }
+  }
+}
+

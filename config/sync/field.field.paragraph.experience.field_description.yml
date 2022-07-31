@@ -1,0 +1,30 @@
+uuid: cd02510c-ebcb-4976-ac23-6f2100b0bdb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.experience
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    plain_text: '0'
+id: paragraph.experience.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: experience
+label: Description
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<h3><strong>FLL/FTC CAD &amp; Coding CampS:&nbsp; Teacher &amp; Curriculum Developer</strong></h3>\r\n\r\n<p><em>Waring School | Summer 2022 and Summer 2021</em></p>\r\n\r\n<p>In 2021, I helped establish the new FLL/FTC CAD &amp; Coding summer camps offered at my school to share FIRST robotics with our greater community. I created the curriculum for 2 weeks of CAD camp, 3 weeks of Java camp, 1 week of FLL camp, and taught all 6 weeks. In 2022, I further developed the curriculum for the FTC CAD camp and taught 2 weeks of CAD camp and 1 week of FLL camp.</p>\r\n\r\n<p><strong>Key Achievements</strong></p>\r\n\r\n<ul>\r\n\t<li>2022&nbsp;— Welcomed our first international student to our FTC CAD camp!</li>\r\n\t<li>2021&nbsp;— After our summer CAD &amp; Coding camps, 94% of our students joined FIRST teams</li>\r\n\t<li>2021&nbsp;— Started a new JV FTC team at our school, #18224 Lupine Robotics</li>\r\n\t<li>2021&nbsp;— Re-established our school’s FLL program since our team had all moved up to FTC</li>\r\n</ul>\r\n"
+    format: full_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,29 +1,143 @@
-header {
-  .region-navigation-primary {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 0;
-    @include bp(medium, up) {
-      top: 10px;
-    }
-  }
-  .hamburger-navigation {
-    display: block;
-    width: 100%;
-    z-index: 1;
-  }
-}
+.wrapper__menu--main {
+  // unique to mobile menu
+  @include bp($desktop-nav, down) {
 
-footer {
-  .main-men-wrapper {
-    ul {
-      li {
+    > ul.menu {
+      border-top: 1px solid $ice;
+      > li {
         display: block;
+        position: relative;
+        color: $white;
+        cursor: pointer;
+        width: 100%;
+        background-color: $primary-color;
+        border-bottom: 1px solid $ice;
+        transition: all 0.5s ease;
+
+        &.mobile-only { //home link added via jQuery
+          padding: 0;
+        }
+
+        > a {
+          color: $white;
+          display: inline-block;
+          text-align: left;
+          width: 100%;
+          text-decoration: none;
+          padding: $gutter/2 $gutter;
+          background-color: transparent;
+          border: 0;
+          cursor: pointer;
+          text-transform: uppercase;
+
+          &:focus {
+            @include focus-outline($offset: -5px, $color: $white);
+          }
+
+        }
+
+        // hover effects of main level placed on li instead of a
+        &:hover {
+          background-color: $primary-color;
+        }
+
+        // subnav
+        > ul {
+          //background-color: $action-color;
+          padding-bottom: $gutter;
+          > li {
+            display: block;
+            padding: $gutter/4 $gutter;
+            > a {
+              color: $white;
+              @include font-size(16px);
+              background-color: transparent;
+              border: 0;
+              cursor: pointer;
+              outline-offset: 3px;
+              text-decoration: underline;
+              text-decoration-color: transparent;
+              text-underline-offset: 2px;
+              transition: all .3s;
+
+              &:hover,
+              &:focus {
+                text-decoration: underline;
+                text-decoration-color: $white;
+              }
+
+              &:focus {
+                @include focus-outline($offset: 3px, $color: $white);
+              }
+            }
+          }
+        }
+
       }
     }
   }
+
+  // unique to non-hamburger, desktop menu
+  @include bp($desktop-nav, up) {
+    > ul.menu {
+      display: flex;
+      justify-content: right;
+      margin: $gutter*.75;
+
+      > li {
+        display: block;
+        color: $primary-color;
+        padding: 0 $gutter/2;
+
+        button, // for nolink menu items that start as buttons, jQuery or otherwise
+        > a {
+          color: $primary-color;
+          @include font-size(18px);
+          @include font-weight(semibold);
+          @include tracking(1.08);
+          text-transform: capitalize;
+          text-align: center;
+          text-decoration: underline;
+          text-decoration-color: transparent;
+          text-underline-offset: 3px;
+          background-color: transparent;
+          border: 0;
+          position: relative; // necessary for accessible arrows with keyboard nav
+          outline-offset: 4px;
+          transition: all .3s;
+
+          // hover effects of main level
+          &:hover,
+          &:focus {
+            color: $primary-color;
+            text-decoration: underline;
+            text-decoration-color: $primary-color;
+          }
+
+          &:focus {
+            @include focus-outline($offset: 4px, $color: $default-gray);
+          }
+
+        }
+
+        &.menu-item--active-trail {
+          a {
+            color: $primary-color;
+            @include font-weight(semibold);
+            text-decoration: underline;
+            text-decoration-color: $primary-color;
+          }
+        }
+
+      }
+    }
+  }
+
 }
+
+/* Styles for hover-able devices */
+@media (hover: hover) and (pointer: fine) {
+
+}
+
 

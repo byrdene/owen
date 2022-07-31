@@ -16,7 +16,7 @@
 *:before {
   // Universal transitions
   transition-duration: 0.2s;
-  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform, filter, -webkit-filter;
   transition-timing-function: linear;
 }
 

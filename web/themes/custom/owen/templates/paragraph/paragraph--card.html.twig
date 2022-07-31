@@ -1,33 +1,32 @@
 
 {%
   set classes = [
-  'card',
+  'grid-item',
   'container',
-  custom_class,
+  'card-item',
 ]
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="card-wrapper">
-    <div class="card-content">
-    {{ title_suffix }}
 
-      {% if content.field_image|render %}
-        <div class="image-wrapper">
-          {{ content.field_image }}
-        </div>
-      {% endif %}
+  <div class="media-wrapper vertical-flow-small">
+    {{ content.field_image }}
+  </div>
 
-      <div class="item-heading-wrapper">
-        {{ content.field_item_heading }}
+  <div class="text-wrapper vertical-flow-small">
+
+    <div class="inner-wrapper">
+
+      <div class="heading-item-wrapper vertical-flow-x-small">
+        <h3 class="h2">{{ paragraph.field_item_heading.value }}</h3>
       </div>
 
-      {% if content.field_text|render %}
-        <div class="text-wrapper">
-          {{ content.field_text }}
-        </div>
-      {% endif %}
+      <div class="text-item-wrapper vertical-flow-x-small">
+        {{ content.field_text }}
+      </div>
 
     </div>
+
   </div>
+
 </article>

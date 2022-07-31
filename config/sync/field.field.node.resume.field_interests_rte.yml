@@ -1,0 +1,27 @@
+uuid: 22a3c9b0-74cd-4849-b47b-7a9ff2b0a6d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interests_rte
+    - node.type.resume
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    plain_text: '0'
+id: node.resume.field_interests_rte
+field_name: field_interests_rte
+entity_type: node
+bundle: resume
+label: Interests
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

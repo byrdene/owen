@@ -4,10 +4,16 @@
 
 $named-breakpoints: (
     "init":     0px,
-    "x-small":  320px,
+    "xx-small":  320px,
+    "x-small":  480px,
     "small":    576px,
-    "medium":   768px, // In Superfish, when the main menu replaces the mobile menu
+    "medium":   768px,
     "large":    992px,
-    "x-large":  1200px,
+    "x-large":  1250px,
     "xx-large": 1600px,
+    "content-small":     800px,
+    "tablet-menu":     900px,
+    "content-large":  1200px,
+    "wide-menu":  1250px,
+    "page-max":  1425px,
 );

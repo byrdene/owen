@@ -1,0 +1,27 @@
+uuid: 295dcef7-e2df-4ef7-b183-6bc48c7ea890
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_education_rte
+    - node.type.resume
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    plain_text: '0'
+id: node.resume.field_education_rte
+field_name: field_education_rte
+entity_type: node
+bundle: resume
+label: Education
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

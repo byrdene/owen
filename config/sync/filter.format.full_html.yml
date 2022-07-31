@@ -47,7 +47,7 @@ filters:
     status: true
     weight: -49
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <ul type> <ol start type> <li> <h2 class=""> <h3 class=""> <h4 class=""> <h5 class=""> <p class="citation"> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title class="button button--outlined"> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <ul type> <ol start type> <li> <h2 class=""> <h3 class=""> <h4 class=""> <h5 class=""> <p class="citation"> <a href hreflang data-entity-substitution data-entity-type data-entity-uuid title class="button button--outlined"> <drupal-entity data-entity-type data-entity-uuid data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button data-langcode alt title> <drupal-media data-entity-type data-entity-uuid> <br>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_autop:
@@ -102,7 +102,7 @@ filters:
     weight: -40
     settings:
       default_view_mode: embedded
-      allowed_view_modes:
-        embedded: embedded
       allowed_media_types:
         image: image
+      allowed_view_modes:
+        embedded: embedded

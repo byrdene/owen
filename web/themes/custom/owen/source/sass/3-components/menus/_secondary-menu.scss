@@ -1,20 +1,65 @@
+.wrapper__menu--secondary,
 .menu--secondary {
-  display: none;
-  @include bp($main-nav, up) {
+
+  // mobile menu only
+  @include bp($desktop-nav, down) {
+    ul.menu {
+      li {
+        display: block;
+        position: relative;
+        color: $white;
+        cursor: pointer;
+        width: 100%;
+        background-color: $primary-color;
+        border-bottom: 1px solid $ice;
+        transition: all 0.5s ease;
+        a {
+          color: $white;
+          display: inline-block;
+          text-align: left;
+          width: 100%;
+          text-decoration: none;
+          padding: $gutter/2 $gutter;
+          background-color: transparent;
+          border: 0;
+          cursor: pointer;
+
+          &:hover,
+          &:focus {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+@include bp($desktop-nav, up) {
     display: block;
     float:right;
     ul.menu {
       li {
         display: inline-block;
         float:left;
-        padding: 0 .5em;
-        border-right: 1px solid $base-border-color;
-        &:last-of-type {
-          border-right: none;
-        }
+        margin-right: $gutter*.75;
+        //padding: 0 .5em;
+        //border-right: 1px solid $base-border-color;
+        //&:last-of-type {
+        //  border-right: none;
+        //}
         a {
+          @include font-size(18px);
+          color: $black;
+          @include tracking(-.18);
           text-decoration: none;
+          @include font-weight(normal);
+          &:hover,
+          &:focus {
+            color: $action-color;
+            text-decoration: underline;
+            @include font-weight(normal);
+          }
         }
+
       }
     }
   }

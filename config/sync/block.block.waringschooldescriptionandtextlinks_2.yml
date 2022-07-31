@@ -1,0 +1,25 @@
+uuid: ac022bbe-e1f7-4ed2-afc1-15ab2a89cf14
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:text:83bc7b61-cf09-447f-8534-86d325d61304'
+  module:
+    - block_content
+  theme:
+    - owen
+id: waringschooldescriptionandtextlinks_2
+theme: owen
+region: footer_second
+weight: 0
+provider: null
+plugin: 'block_content:83bc7b61-cf09-447f-8534-86d325d61304'
+settings:
+  id: 'block_content:83bc7b61-cf09-447f-8534-86d325d61304'
+  label: 'Waring School'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

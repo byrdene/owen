@@ -3,62 +3,53 @@
 // ==========================================================================
 
 %icon-font {
-  box-sizing: border-box;
-  @include font-weight(normal);
+  display: inline-block;
+  position: relative;
   font-style: normal;
-  text-decoration: none;
-  text-indent: 0;
+  font-variant: normal;
+  text-rendering: auto;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-  zoom: 1;
+  //text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  //zoom: 1;
 }
 
-@mixin dl-icon($iconContent, $fontsize:30px, $iconColor: inherit, $fontfamily: $icomoon, $iconWidth: 30px , $iconHeight:30px, $hoverBackground: $action-color) {
-  width: $iconWidth;
-  height: $iconHeight;
-  text-indent: -9999px;
-  overflow: hidden;
+@mixin icon(
+  $iconContent,
+  $iconSize: 16px,
+  $iconBgSize: 30px,
+  $iconColor: inherit,
+  $iconBg: transparent,
+  $iconHoverColor: inherit,
+  $iconHoverBg: $action-color,
+  $iconRadius: 0%,
+  $iconBorder: none) {
+
+  @extend %icon-font;
+
+  width: $iconBgSize;
+  height: $iconBgSize;
+  line-height: $iconBgSize;
   color: $iconColor;
+  background-color: $iconBg;
+  border: $iconBorder;
+  @include border-radius($iconRadius);
   &:before {
     display: block;
-    @extend %icon-font;
+    position: absolute;
+    font-family: $icomoon;
     content: $iconContent;
-    font-family: $fontfamily;
-    text-align:center;
-    width: $iconWidth;
-    height: $iconHeight;
-    font-size: $fontsize;
-    line-height: $iconHeight;
+    font-size: $iconSize;
+    text-align: center;
+    color: inherit;
+    width: inherit;
+    height: inherit;
   }
   &:hover,
   &:focus {
-    color: $hoverBackground;
+    color: $iconHoverColor;
+    background-color: $iconHoverBg;
   }
 }
 
-@mixin dl-icon-linked($iconContent, $fontsize:30px, $iconColor: inherit, $fontfamily: $icomoon, $iconWidth: 30px , $iconHeight:30px)  {
-  text-decoration: none;
-  @include dl-icon($iconContent, $fontsize, $iconColor, $fontfamily, $iconWidth, $iconHeight);
-  display: inline-block;
-}
-
-@mixin dl-rounded-icon($bgcolor: $white, $radius: 50%) {
-  display: inline-block;
-  @include border-radius($radius);
-  background-color: $bgcolor;
-  padding:0;
-  &:hover,
-  &:focus {
-    background-color: lighten($bgcolor, 10%);
-  }
-}
-
-@mixin dl-square-icon($bgcolor: $white) {
-  display: inline-block;
-  background-color: $bgcolor;
-  padding:0;
-  &:hover {
-    background-color: lighten($bgcolor, 10% );
-  }
-}

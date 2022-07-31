@@ -5,7 +5,7 @@
 body.page-node,
 body.path-taxonomy {
   .block-page-title-block {
-    display: none; // On node pages, the title is displayed and positioned with Display Suite
+    display: none; // On node pages, the title is displayed via twig
   }
 }
 

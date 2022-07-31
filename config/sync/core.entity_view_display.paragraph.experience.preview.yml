@@ -1,0 +1,25 @@
+uuid: 5442760e-9d33-4a89-b080-9942aa277c9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.experience.field_admin_title
+    - field.field.paragraph.experience.field_description
+    - paragraphs.paragraphs_type.experience
+id: paragraph.experience.preview
+targetEntityType: paragraph
+bundle: experience
+mode: preview
+content:
+  field_admin_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_description: true
+  search_api_excerpt: true

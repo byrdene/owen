@@ -1,0 +1,181 @@
+
+// General class definitions for styles that can be applied globally
+
+.fouc {
+  visibility: hidden;
+}
+
+// Background classes
+.bg {
+  &__ice {
+    background-color: $ice;
+    color: $base-font-color;
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    a[href] {
+      color: $primary-color !important;
+      &:focus {
+        @include focus-outline($color: $charcoal);
+      }
+    }
+  }
+  &__dark {
+    color: $white;
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    a[href] {
+      color: $white !important;
+    }
+    a[href]:not(.button__outlined-white):not(.button):not(.arrow-link-white):not(.external-link) {
+      &:hover {
+        background-color: $white !important;
+        color: $primary-color !important;
+      }
+      &:focus {
+        @include focus-outline($color: $white);
+        background-color: $white !important;
+        color: $primary-color !important;
+      }
+    }
+    a[href]:not(.button__outlined-white):not(.button):not(.arrow-link-white):not(.external-link) {
+      text-decoration: underline;
+    }
+    a[href].button__outlined-white {
+      color: $action-color;
+      &:hover {
+        background-color: $white;
+        color: $primary-color !important;
+      }
+      &:focus {
+        @include focus-outline($color: $white);
+        color: $primary-color !important;
+      }
+    }
+    a[href].button {
+      color: $action-color !important;
+      background-color: $white;
+      border: 1px solid $white !important;
+      &:hover {
+        color: $white !important;
+        background-color: $action-color !important;
+        border: 1px solid $action-color !important;
+      }
+      &:focus {
+        color: $white !important;
+        background-color: $action-color !important;
+        border: 1px solid $action-color !important;
+        @include focus-outline($color: $white);
+      }
+    }
+  }
+  &__primary {
+    background-color: $primary-color;
+  }
+  &__white {
+    background-color: $white;
+  }
+
+}
+
+// Text classes
+.text {
+  &__centered {
+    text-align: center;
+  }
+  &__large {
+    font-size: 1.25em;
+  }
+  &__small {
+    font-size: .8em;
+  }
+  &__allcaps {
+    text-transform: uppercase;
+  }
+  &__label {
+    text-transform: uppercase;
+    color: $primary-color;
+    @include font-size(16px);
+    @include font-weight(semibold);
+    @include tracking(40);
+    margin-bottom: 0;
+  }
+}
+
+// viewport visibility
+.desktop {
+  display: none;
+  @include bp(large, up) {
+    display: block;
+  }
+}
+
+.mobile {
+  display: block;
+  @include bp(large, up) {
+    display: none;
+  }
+}
+
+.page-title-wrapper {
+  margin-top: $gutter*2;
+  margin-bottom: $gutter;
+  .page-title {
+    text-align: center;
+    //padding-bottom: rem($vertical-spacing/2);
+    //border-bottom: 7px solid $ice;
+  }
+}
+
+.breadcrumb-wrapper {
+  & + .page-title-wrapper {
+    margin-top: 0;
+  }
+}
+
+.hero-image-wrapper {
+  position: relative;
+  margin-top: 20px;
+  &:after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 45px;
+    background: url("../../static/images/hero-border.svg") bottom left;
+  }
+
+  @include bp($desktop-nav, up) {
+    margin-top: 0;
+    &:after {
+      height: 90px;
+    }
+  }
+}
+
+h3.teaser-title {
+  a[href] {
+    color: $black;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: .3s;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.tags {
+  @include font-size(14px);
+  text-transform: uppercase;
+}
+
+.toolbar-icon-toggle-horizontal,
+.toolbar-icon-toggle-vertical {
+  z-index: 2;
+}

@@ -25,6 +25,14 @@
   margin-right: auto;
 }
 
+// Vertical flow
+@mixin vertical-flow($breakpoint: large, $mobile: $gutter*2, $desktop: $gutter*4) {
+  margin-top: $mobile;
+  @include bp($breakpoint, up) {
+    margin-top: $desktop;
+  }
+}
+
 
 // Based on this but with pseudo element: https://gist.github.com/jonathantneal/a9b8901273475d261dd3
 // Examples:

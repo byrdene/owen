@@ -10,39 +10,37 @@
 //  }
 //}
 
-#navigation-panel {
-  display: none; // hide to start
-}
+// override hamburger icons styles from hamburgers/base.scss (we want two lines instead of three)
+//.hamburger--squeeze {
+//  .hamburger-inner {
+//    background-color: transparent !important; //effectively eliminates the middle line
+//    &:before {
+//      top: -4px;
+//    }
+//    &:after {
+//      bottom: -4px;
+//    }
+//  }
+//  &.is-active {
+//    .hamburger-inner {
+//      &:before {
+//        opacity: 1;
+//      }
+//    }
+//  }
+//}
 
-.hamburger-navigation {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  left: auto;
-  bottom: auto;
+#hamburger-navigation {
   button.hamburger {
     position: absolute;
-    top:-40px;
+    top:0;
     right: 0;
-    height: 50px;
-    line-height: 50px;
-    width: 60px; // needs to allow for label (60px), hamburger box(40px), padding (15 * 2)
-    padding: 5px 0;
+    height: 32px; // match height of something
+    line-height: 32px; // match height of something
+    width: 32px; // needs to allow for label (if using), potential padding, etc
+    padding: 0;
     background-color: transparent;
-    &:hover {
-      //background: transparentize($black, .2);
-      opacity: 1;
-      outline: none;
-    }
-    &:active,
-    &:focus {
-      opacity: 1;
-      outline: none;
-      //outline-style: solid;
-      //outline-color: $black;
-      //outline-offset: -1px;
-      //outline-width: 1px;
-    }
+    transition: all .3s ease-in;
     .hamburger-label {
       display: none;
       //display: inline-block;
@@ -50,71 +48,44 @@
       color: $black;
       text-decoration: none;
       font-family: $base-font-family;
-      @include font-weight(medium);
-      @include font-size(18px);
+      @include font-weight(normal);
+      @include font-size(14px);
+      @include tracking(80);
       text-transform: uppercase;
     }
     .hamburger-box {
-      top: -2px; // to visually center it
+      width: 32px;
+      height: 32px;
+      top: 0; // to visually center it
+      .hamburger-inner, // comment out if not showing the middle line
+      .hamburger-inner:after,
+      .hamburger-inner:before  {
+        background-color: $white;
+        width: 32px;  // this how to make it thinner/wider
+        height: 3px; // this will make the lines thicker
+      }
+    }
+    &.is-active,
+    &:active,
+    &:focus,
+    &:hover {
+      //background-color: $primary-color;
+      background-color: transparent;
+      opacity: 1;
+      outline: none;
+      .hamburger-label {
+        display: none;
+        //color: $white;
+      }
       .hamburger-inner,
       .hamburger-inner:after,
       .hamburger-inner:before  {
-        background-color: $black;
+        background-color: $white;
       }
     }
-    //&:not(.is-active) {
-    //  .hamburger-inner {
-    //    &:after {
-    //      width: 80%;
-    //      right: 0;
-    //    }
-    //  }
-    //}
-  }
-
-  #navigation-panel {
-    background-color: $black;
-    z-index: 500;
-    width: 250px;
-    padding: $gutter;
-    float: right;
-    top: 10px;
-    right: 0;
-    .menu--main {
-      ul {
-        li {
-          display: block;
-          background-color: $action-color;
-          @include border-radius(4px);
-          padding: $gutter/2;
-          text-align: center;
-          & + li {
-            margin-top: $gutter/2;
-          }
-          a {
-            color: $white;
-            text-decoration: none;
-            @include font-size(14px);
-          }
-        }
-      }
-    }
-
-    .utility-men-wrapper {
-      margin-top: $gutter;
-      ul {
-        li {
-          display: block;
-          a {
-            color: $white;
-            text-decoration: none;
-            @include font-size(14px);
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
+    &:active,
+    &:focus {
+      outline: $ice 1px dotted;
     }
   }
 }

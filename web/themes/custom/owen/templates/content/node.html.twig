@@ -7,20 +7,18 @@
 
 <section {{ attributes.addClass(classes)}}>
 
-  <div class="page-title-wrapper container bg-charcoal centered">
-    <h1 class="page-title padded-row">{{ node.label }}</h1>
+  <div class="page-title-wrapper container content-small padded-row vertical-flow">
+    <h1{{ title_attributes }} class="page-title">{{ node.label }}</h1>
   </div>
 
-  <div class="content-wrapper padded-column">
+{#  {% if content.body|render %}#}
+{#    <div class="content-wrapper container content-small padded-row vertical-flow">#}
+{#      {{ content.body }}#}
+{#    </div>#}
+{#  {% endif %}#}
 
-    {{ content.field_components }}
-
-    {% if content.field_related_view|render %}
-      <div class="related-view-wrapper container page-width padded-row">
-        {{ content.field_related_view }}
-      </div>
-    {% endif %}
-
+  <div class="content-wrapper container content-small padded-row vertical-flow">
+    {{ content }}
   </div>
 
 </section>

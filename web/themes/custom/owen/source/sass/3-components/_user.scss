@@ -1,0 +1,20 @@
+// ==========================================================================
+//   USER Path
+// ==========================================================================
+
+// User login
+.path-user {
+  #primary-content {
+    #content {
+      margin-top: $gutter*2;
+      @include center-block;
+      width: 100%;
+      max-width: 800px;
+      padding: $gutter/2 $gutter $gutter*3 $gutter;
+      box-shadow: rgba(149,157,165,.2) 0 8px 24px;
+      @include bp(medium, up) {
+        padding: $gutter*2 $gutter*2 $gutter*4 $gutter*2;
+      }
+    }
+  }
+}

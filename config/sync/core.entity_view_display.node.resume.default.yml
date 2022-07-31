@@ -1,0 +1,68 @@
+uuid: 7b1cc22e-6367-4139-93e3-4fb4acff21a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.resume.field_distinctions_rte
+    - field.field.node.resume.field_education_rte
+    - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_skills_rte
+    - field.field.node.resume.field_work_leadership
+    - field.field.node.resume.field_work_leadership_rte
+    - node.type.resume
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.resume.default
+targetEntityType: node
+bundle: resume
+mode: default
+content:
+  field_distinctions_rte:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_education_rte:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_interests_rte:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_skills_rte:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_work_leadership:
+    type: entity_reference_revisions_entity_view
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_work_leadership_rte:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  links: true
+  search_api_excerpt: true

@@ -1,0 +1,27 @@
+// ==========================================================================
+//   NODE PREVIEW CONTAINER
+// ==========================================================================
+
+.node-preview-container {
+  position: fixed 1im;
+  z-index: 499;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  bottom: 0;
+  background: white;
+  border-top: 4px solid black;
+  a.node-preview-backlink {
+    @extend %admin-buttons;
+  }
+  .node-preview-form-select {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center;
+    margin: $gutter/4;
+  }
+  .form-item-view-mode {
+    display: none;
+  }
+}
+

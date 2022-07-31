@@ -1,0 +1,39 @@
+{% set override = node.field_wide_header.value ? 'wide-header' : '' %}
+
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  override,
+] %}
+
+<section {{ attributes.addClass(classes)}}>
+
+{#  <div class="breadcrumb-wrapper container padded-row content-small margin-top-x-small margin-bottom-small">#}
+{#    {{ drupal_breadcrumb() }}#}
+{#  </div>#}
+
+  {% if content.field_main_image|render %}
+    <div class="hero-image-wrapper margin-bottom-x-large">
+      {{ content.field_main_image }}
+    </div>
+  {% endif %}
+
+  <div class="page-title-wrapper container content-small padded-row">
+    <h1{{ title_attributes }} class="page-title">{{ node.label }}</h1>
+  </div>
+
+  {% if content.field_intro_text|render %}
+    <div class="intro-wrapper text__centered container content-small padded-row vertical-flow-large">
+      {{ content.field_intro_text }}
+    </div>
+  {% endif %}
+
+  {% if content.webform|render %}
+    <div class="webform-outer-wrapper container content-x-small padded-row vertical-flow vertical-flow-large">
+      {{ content.webform }}
+    </div>
+  {% endif %}
+
+</section>

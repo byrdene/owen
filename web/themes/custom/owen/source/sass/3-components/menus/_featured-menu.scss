@@ -1,0 +1,125 @@
+.wrapper__menu--featured,
+.menu--featured {
+
+  // mobile menu only
+  @include bp($desktop-nav, down) {
+    ul.menu {
+      li {
+        display: block;
+        position: relative;
+        color: $white;
+        cursor: pointer;
+        width: 100%;
+        background-color: $primary-color;
+        border-bottom: 1px solid $ice;
+        transition: all 0.5s ease;
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        a {
+          color: $white;
+          display: inline-block;
+          text-align: left;
+          width: 100%;
+          text-decoration: none;
+          padding: $gutter/2 $gutter;
+          background-color: transparent;
+          border: 0;
+          cursor: pointer;
+
+          &:hover,
+          &:focus {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  @include bp($desktop-nav, up) {
+    display: block;
+    float:right;
+    ul.menu {
+      li {
+        display: inline-block;
+        float:left;
+        a {
+          display: inline-block;
+          color: $white;
+          @include font-size(15px);
+          @include font-weight(semibold);
+          @include tracking(.45);
+          text-transform: uppercase;
+          padding: 0 .5em;
+          text-decoration: underline;
+          text-decoration-color: transparent;
+          transition: .3s;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $white;
+          }
+
+          &:focus {
+            @include focus-outline($offset: -3px, $color: $white);
+          }
+
+          // The SVG backgrounds were converted to black and then filters are used to
+          // set the static and hover colors.
+          // The filter creation tool: https://codepen.io/sosuke/pen/Pjoqqp
+          &.link-reserve { // 131 x 18 text
+            position: relative;
+            z-index: 1;
+            &:before {
+              content: "";
+              position: absolute;
+              top: -10px;
+              left: -10px;
+              width: 154px;
+              height: 42px;
+              background: url("../../static/images/reserve-ticket-button.svg") no-repeat top left;
+              //background: url("../../static/images/reserve-ticket-button-black.svg") no-repeat top left;
+              //filter: invert(12%) sepia(86%) saturate(1793%) hue-rotate(208deg) brightness(90%) contrast(114%);
+              background-size: cover;
+              z-index: -1;
+            }
+            &:hover,
+            &:focus {
+              &:before {
+                //filter: invert(4%) sepia(72%) saturate(6754%) hue-rotate(206deg) brightness(78%) contrast(108%);
+              }
+            }
+          }
+
+          &.link-member { // 157 x 18 text
+            position: relative;
+            z-index: 1;
+            &:before {
+              content: "";
+              position: absolute;
+              top: -10px;
+              left: -14px;
+              width: 182px;
+              height: 42px;
+              background: url("../../static/images/member-button.svg") no-repeat top left;
+              //background: url("../../static/images/member-button-black.svg") no-repeat top left;
+              //filter: invert(36%) sepia(20%) saturate(4582%) hue-rotate(184deg) brightness(91%) contrast(80%);
+              background-size: cover;
+              z-index: -1;
+            }
+            &:hover,
+            &:focus {
+              &:before {
+                //filter: invert(24%) sepia(92%) saturate(1168%) hue-rotate(185deg) brightness(90%) contrast(97%);
+              }
+            }
+          }
+        }
+        & + li {
+          margin-left: $gutter*1.5;
+        }
+      }
+    }
+  }
+}

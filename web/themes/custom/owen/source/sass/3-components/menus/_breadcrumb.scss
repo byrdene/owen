@@ -1,32 +1,83 @@
 // Breadcrumb styles
 
 .breadcrumb {
-  text-align: center;
-  padding-top: $gutter;
-  padding-bottom: $gutter/2;
   ol,
   ul {
     margin-left: 0;
     padding-left: 0;
     margin-bottom: 0;
+    line-height: 1.2;
   }
   li {
     list-style-type: none;
-    display: inline-block;
+    display: inline;
     padding-bottom: 0;
     margin-bottom: 0;
-    a {
-      @include font-size(12px);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $action-color;
-      &:after {
+    @include font-size(16px);
+    @include font-weight(normal);
+    color: $default-gray;
+    a[href] {
+      @include font-weight(semibold);
+      color: $default-gray;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: $action-color;
+      }
+    }
+    &:after {
+      display: inline-block;
+      padding-left: .25em;
+      padding-right: .25em;
+      content: "/";
+      font-size: .8em;
+    }
+    &:first-of-type { //home link
+      a {
         display: inline-block;
-        padding-left: .25em;
-        padding-right: .25em;
-        content: ">";
-        font-size: .8em;
+        position: relative;
+        text-decoration: none;
+        text-align: left;
+        text-indent: -9999px;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+
+        &:before {
+          position: absolute;
+          bottom: 1px;
+          left: 0;
+          display: block;
+          font-family: $icomoon;
+          color: $default-gray;
+          content: $icon-home;
+          text-align: center;
+          text-indent: 0;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          font-size: 16px;
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            color: $action-color;
+          }
+        }
+
+        &:focus {
+          &:before {
+            //@include focus-outline();
+          }
+        }
+
+      }
+    }
+    &:last-of-type {
+      &:after {
+        display: none;
       }
     }
   }

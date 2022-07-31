@@ -12,24 +12,25 @@
 }
 .pager__item {
   display: inline-block;
-  color: $action-color;
-  @include font-size($base-font-size);
+  color: $base-font-color;
+  @include font-size(18px);
   margin: 0;
   padding: 0 $gutter/4 $gutter/2 $gutter/4;
 }
 .pager__item a {
-  border-bottom: 6px solid transparent;
-  line-height: 1.55em;
-  padding: 0 5px 2px;
-  @include font-weight(bold);
+  border-bottom: 2px solid transparent;
+  line-height: 1;
+  padding: 0 2px 2px;
+  @include font-weight(semibold);
+  color: $base-font-color;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
 }
 .pager__item.is-active a {
-  border-bottom-width: 6px;
+  border-bottom-width: 2px;
   border-bottom-color: $action-color;
   color: $action-color;
-  @include font-weight(bold);
+  @include font-weight(semibold);
 }
 .pager__item a:hover,
 .pager__item a:focus {
@@ -40,8 +41,22 @@
 .pager__item--last a,
 .pager__item--first a,
 .pager__item--previous a {
-  border-bottom-width: 0;
-  color: $action-color;
+  //border-bottom-width: 0;
+  border-bottom: 2px solid transparent;
+  color: $base-font-color;
+  text-transform: uppercase;
+  @include font-weight(normal);
+}
+
+.pager__item--next a,
+.pager__item--last a,
+.pager__item--first a,
+.pager__item--previous a {
+  &:hover,
+  &:focus {
+    border-bottom-color: $action-color;
+    color: $action-color;
+  }
 }
 
 // Infinite Scroll pager does its own thing

@@ -1,0 +1,38 @@
+// ==========================================================================
+//   PARAGRAPHS - Tiles (includind Tiles Item bundle)
+// ==========================================================================
+
+.component--type-call-to-action{
+  .cta-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .text-wrapper {
+      text-align: center;
+      strong {
+        @include font-size(30px);
+        @include font-weight(bold);
+        @include tracking(-.35);
+        line-height: 1.1;
+      }
+      & + .button-wrapper {
+        text-align: center;
+        margin-top: $gutter;
+      }
+    }
+    @include bp(small, up) {
+      flex-direction: row;
+      align-items: center;
+      .text-wrapper {
+        strong {
+          @include font-size(35px);
+          text-align: center;
+        }
+        & + .button-wrapper {
+          margin-top: 0;
+          margin-left: $gutter;
+        }
+      }
+    }
+  }
+}

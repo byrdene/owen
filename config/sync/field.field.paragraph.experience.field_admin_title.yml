@@ -1,0 +1,19 @@
+uuid: afd241d6-9465-47d9-b445-d1e61f145847
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_admin_title
+    - paragraphs.paragraphs_type.experience
+id: paragraph.experience.field_admin_title
+field_name: field_admin_title
+entity_type: paragraph
+bundle: experience
+label: 'Admin Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

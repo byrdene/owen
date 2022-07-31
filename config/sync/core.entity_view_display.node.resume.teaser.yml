@@ -1,0 +1,33 @@
+uuid: c56d600b-88a7-4ba8-8ef3-73ce495adfae
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.resume.field_distinctions_rte
+    - field.field.node.resume.field_education_rte
+    - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_skills_rte
+    - field.field.node.resume.field_work_leadership
+    - field.field.node.resume.field_work_leadership_rte
+    - node.type.resume
+  module:
+    - user
+id: node.resume.teaser
+targetEntityType: node
+bundle: resume
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_distinctions_rte: true
+  field_education_rte: true
+  field_interests_rte: true
+  field_skills_rte: true
+  field_work_leadership: true
+  field_work_leadership_rte: true
+  search_api_excerpt: true

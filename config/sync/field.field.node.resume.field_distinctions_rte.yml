@@ -1,0 +1,27 @@
+uuid: 1df1e0c1-dbd6-46eb-8df6-8b697e213324
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_distinctions_rte
+    - node.type.resume
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    full_html: full_html
+    basic_html: '0'
+    plain_text: '0'
+id: node.resume.field_distinctions_rte
+field_name: field_distinctions_rte
+entity_type: node
+bundle: resume
+label: Distinctions
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

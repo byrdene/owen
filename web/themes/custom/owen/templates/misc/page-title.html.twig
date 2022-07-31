@@ -16,12 +16,8 @@
 #}
 {{ title_prefix }}
 {% if title %}
-  <div class="page-title-wrapper background">
-    <div class="page-title-content container page-width padded-row">
-      <div class="page-title-background">
-        <h1{{ title_attributes }} class="page-title">{{ title }}</h1>
-      </div>
-    </div>
+  <div class="page-title-wrapper container content-small padded-row vertical-flow">
+    <h1{{ title_attributes }} class="page-title">{{ title }}</h1>
   </div>
 {% endif %}
 {{ title_suffix }}

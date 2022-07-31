@@ -1,0 +1,27 @@
+{%
+set classes = [
+'block',
+'block-search',
+'container-inline',
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+{#  #}{# Site search trigger #}
+{#  <div id="search-trigger">#}
+{#    <button aria-label='General Site Search' aria-expanded="false" class="search-button"><span class='search-icon'></span></button>#}
+{#  </div>#}
+  <div class="search-wrapper">
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% block content %}
+      <div aria-hidden="true" class="block-inner">
+        {{ content }}
+      </div>
+    {% endblock %}
+  </div>
+</div>
+

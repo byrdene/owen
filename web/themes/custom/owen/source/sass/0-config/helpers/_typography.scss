@@ -24,7 +24,8 @@
 
 // Convert illustrator, indesign and photoshop tracking into letter spacing.
 @function tracking( $target ){
-  @return ($target / 1000) * 1em;
+  //@return ($target / 1000) * 1em;
+  @return ($target) + px;
 }
 
 @mixin tracking( $target ){

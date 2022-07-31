@@ -10,8 +10,8 @@ _core:
   default_config_hash: 8yptDf6WrXxeyevUz4nP5vfr7BtxQqCBMninhV2IJ1g
 id: owen_page_title
 theme: owen
-region: content
-weight: -30
+region: pre_content
+weight: -4
 provider: null
 plugin: page_title_block
 settings:

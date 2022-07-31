@@ -1,3 +1,4 @@
+
 /* Container used for styling the custom select, the button class below adds the
  * bg gradient, corners, etc. */
 .custom-select {
@@ -14,8 +15,8 @@
   padding: .6em .8em .5em .8em;
   &:focus {
     //outline: rgb(59, 153, 252) auto 5px !important;
-    outline: $action-color 1px dotted !important;
-    outline-offset: 3px !important; // hard to see without an offset
+    outline: $primary-color 2px solid !important;
+    outline-offset: -1px !important; // hard to see without an offset
   }
 
   /* Prefixed box-sizing rules necessary for older browsers */
@@ -53,7 +54,8 @@
 
   /* Remove select styling */
   .custom-select select {
-    padding-right: 2em; /* Match-01 */
+    //padding-right: 2.75em; /* Match-01 */
+    padding-right: 45px;
     /* inside @supports so that iOS <= 8 display the native arrow */
     background: none; /* Match-04 */
     /* inside @supports so that Android <= 4.3 display the native arrow */
@@ -84,21 +86,34 @@
   /* General select styles: change as needed */
   @include font-size(14px);
   @include font-weight(normal);
-  color: $base-font-color;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $action-color;
   border-radius: 0;
-  border: 1px solid $base-border-color;
+  border: 1px solid $black;
   height: $form-item-height;
-  @include bp($main-nav, up) {
-    @include font-size($base-font-size);
+  //margin-right: 3em; // make room for arrow
+  padding-right: 45px; // make room for arrow
+  @include bp($desktop-nav, up) {
+    //@include font-size($base-font-size);
   }
 }
 .custom-select::after {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 7px solid $action-color;
-  margin-top: -3px;
+  //width: 0;
+  //height: 0;
+  //border-left: 6px solid transparent;
+  //border-right: 6px solid transparent;
+  //border-top: 7px solid $action-color;
+  //margin-top: -3px;
+  font-family: $icomoon;
+  @extend %icon-font;
+  content: $icon-select !important;
+  //font-size: 24px;
+  font-size: 18px;
+  line-height: $form-item-height;
+  top:0;
+  right: $gutter*.75;
+  color: $action-color;
 }
 .custom-select {
   //border: 1px solid $ice;
@@ -110,7 +125,9 @@
 /* Focus style */
 .custom-select select:focus {
   box-shadow: none;
-  border-color: $base-border-color;
+  //border-color: $action-color;
+  //outline: none;
+  border-color: $primary-color;
   outline: none;
 }
 @supports ( box-shadow: none ) {

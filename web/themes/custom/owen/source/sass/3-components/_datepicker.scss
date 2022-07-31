@@ -1,0 +1,115 @@
+// ==========================================================================
+//   jQuery Datepicker
+// ==========================================================================
+
+
+#ui-datepicker-div {
+  margin-top: 5px;
+  border: 1px solid #000000;
+  border-radius: 0;
+  font-family: $numbers-font-family;
+
+  .ui-datepicker-header {
+    background-color: $action-color;
+    color: $white;
+    border: none;
+    border-radius: 0;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      top: 6px;
+      width: 30px;
+      height: 30px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 0;
+
+      .ui-icon {
+        background: none;
+        width: 30px;
+        height: 30px;
+        left: 0;
+        margin-left: 0;
+        top: 0;
+        margin-top: 0;
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: #ffffff;
+          font-family: $icomoon;
+          content: $icon-arrow-right;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          text-indent: 1px;
+          font-size: 18px;
+        }
+      }
+
+      &:hover {
+        background: none;
+        border: none;
+        top: 6px;
+        margin: 0;
+        padding: 0;
+      }
+
+      &:focus {
+        @include focus-outline($color: $white);
+      }
+
+    }
+
+    .ui-datepicker-prev {
+      left: 7px;
+      .ui-icon {
+        &:before {
+          content: $icon-arrow-right;
+          transform: rotate(180deg);
+        }
+      }
+      &:hover {
+        left: 7px;
+      }
+    }
+
+    .ui-datepicker-next {
+      right: 7px;
+      .ui-icon {
+        &:before {
+          content: $icon-arrow-right;
+        }
+      }
+      &:hover {
+        right: 7px;
+      }
+    }
+
+  }
+
+  .ui-datepicker-calendar {
+    th {
+      background-color: transparent;
+      color: $action-color;
+      text-transform: none;
+    }
+    td {
+      a.ui-state-default {
+        background-color: transparent;
+        border: 0;
+        color: $action-color;
+        text-align: center;
+      }
+      &.ui-datepicker-today {
+        a.ui-state-highlight {
+          color: $action-color;
+          border: 1px solid $action-color;
+        }
+      }
+    }
+  }
+}

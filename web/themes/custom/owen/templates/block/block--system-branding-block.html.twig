@@ -1,0 +1,24 @@
+{% extends "block--no-wrapper.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for the site branding block.
+ */
+#}
+
+{% block content %}
+  <div class="branding-wrapper container content-large">
+    {% if site_logo %}
+      <div class="logo-wrapper">
+        <a href="{{ path('<front>') }}" title="{{ 'Owen T.S. Cooper Homepage'|t }}" rel="home" class="logo">
+          <img src="/{{ base_path ~ directory }}/static/images/owen-photo.jpg" alt="{{ 'Owen T.S. Cooper headshot'|t }}"/>
+        </a>
+      </div>
+    {% endif %}
+    <div class="header-text">
+      <h1>Owen Cooper</h1>
+      <div class="subtitle">College Applicant &mdash; Technical Innovator</div>
+    </div>
+  </div>
+
+{% endblock %}

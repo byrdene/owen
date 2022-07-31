@@ -1,0 +1,68 @@
+// ==========================================================================
+//   FEATURED VIDEO
+// ==========================================================================
+
+.featured-video-wrapper {
+  padding: $gutter 0;
+  background: $white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 5; // because of aspect ratio code for controls
+
+  .video-play-button {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    display: inline-block;
+    -webkit-transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+    transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+
+    // set the width/height to match that of the icon (set in the mixin if not overwritten below)
+    width: 50px;
+    height: 50px;
+
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      @include icon($icon-play, $iconSize: 27px, $iconBgSize: 50px, $iconBg: $action-color, $iconColor: $white, $iconHoverBg: $primary-color, $iconHoverColor: $white, $iconRadius: 50%);
+      &:before {
+        left: 2px;
+      }
+    }
+
+    &:focus {
+      @include focus-outline();
+
+      &:before {
+        background: $primary-color;
+      }
+    }
+  }
+
+  .video-text-wrapper {
+    padding: 0 $gutter;
+    @include font-size(20px);
+    @include font-weight(semibold);
+    color: $primary-color;
+    line-height: 1.15;
+  }
+
+  @include bp(small, up) {
+    position: absolute !important;
+    bottom: 0;
+    max-width: 420px;
+  }
+
+  @include bp(medium, up) {
+    max-width: 480px;
+    .video-text-wrapper {
+      @include font-size(24px);
+    }
+  }
+}

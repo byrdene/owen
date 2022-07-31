@@ -3,38 +3,118 @@
 // ==========================================================================
 
 header {
+
   #site-header {
-    position: relative;
-    height: 55px;
-    .logo-wrapper {
-      float: left;
-      @include font-size(30px);
-      line-height: 1;
-      padding-top: 15px;
-      @include font-weight(medium);
-      a {
-        text-decoration: none;
-        color: $black;
+    .region-header {
+      padding: $gutter 0;
+
+      .branding-wrapper {
+        color: $white;
+        display: flex;
+
+        > *,
+        h1 {
+          color: $white;
+        }
       }
     }
-    .nav-wrapper {
-      float: right;
-      margin-right: -20px;
+    .navigation-wrapper {
+      #navigation-panel {}
     }
-    @include bp(medium, up) {
-      height: 60px;
-      .logo-wrapper {
-        @include font-size(40px);
+
+    // unique to hamburger-triggered mobile menu
+    @include bp($desktop-nav, down) {
+      //height: $mobile-header-height;
+      //background-color: $primary-color;
+      //padding: 0 $gutter;
+
+      .region-header {
+        //position: absolute;
+        //top: $gutter*2;
+        //left: 0;
+        //right: 0;
+        //padding: 20px;
+        //background: $white;
+
+        position: relative;
+        padding: $gutter;
+        background-color: $primary-color;
+        color: $white;
+
+        .branding-wrapper {
+          flex-direction: column;
+
+          .header-text {
+            padding: $gutter 0;
+          }
+        }
+
+        .logo {
+          //margin: 0 auto;
+        }
       }
-      .nav-wrapper {
-        margin-right: 0;
+
+      .navigation-wrapper-desktop {
+        display: none;
+      }
+
+      .navigation-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        #navigation-panel {
+          display: none;
+          z-index: 500;
+          //padding: $gutter 0;
+          width: 100%;
+          max-width: 360px;
+          float: right;
+          top: $mobile-trigger-height;
+          background-color: $primary-color;
+        }
+      }
+
+    }
+
+    // desktop up
+    @include bp(medium, up) { // wide enough to ignore tablet compensations
+      .region-header {
+        position: relative;
+        padding: $gutter*1.5 0;
+        background-color: $primary-color;
+        color: $white;
+
+        .branding-wrapper {
+          flex-direction: row;
+          align-items: center;
+
+          .header-text {
+            padding: 0 0 0 $gutter*2;
+          }
+        }
+      }
+      .navigation-wrapper {
+        display: none;
+      }
+
+    }
+
+    // positioning the hamburger trigger
+    #hamburger-navigation {
+      display: block;
+      position: absolute;
+      top: 4px;
+      right: $gutter;
+      left: auto;
+      bottom: auto;
+      z-index: 999;
+
+      @include bp($desktop-nav, up) {
+        display: none;
       }
     }
-  }
-  .tagline {
-    padding: 5px 0;
-    @include font-size(16px);
-    @include font-weight(medium);
+
   }
 }
 

@@ -1,94 +1,43 @@
-.menu--social-media {
-  li.menu-item {
-    display: inline-block;
-    margin-top: 0 !important;
-    margin-right: .5em; // adjust for whether icon has a visible background
-    a {
-      // Uncomment if icon has a square or round background
-      @include dl-rounded-icon($bgcolor: $black, $radius: 50%);
-      //@include dl-square-icon($action-color);
+// This is not a Drupal generated menu but instead a manually created one
 
-      &:hover,
-      &:active {
-        text-decoration: none;
-        background-color: $green;
+.social-men-wrapper {
+  //display: flex;
+  //justify-items: center;
+
+  ul.menu {
+    //margin: 0 auto;
+
+    li {
+      //margin: 0 5px 0 0;
+      margin: 0;
+
+      a {
+        display: flex;
+        align-items: center;
+        -webkit-transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+        transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+
+        .icon {
+          & + span {
+            padding: 0 $gutter/2;
+            @include font-size(20px);
+          }
+        }
+
+        &.instagram .icon {
+          @include icon($icon-instagram, $iconSize: 27px, $iconBgSize: 30px, $iconBg: transparent, $iconColor: $white, $iconHoverBg: transparent, $iconHoverColor: $white, $iconRadius: 0);
+        }
+
+        &:focus {
+          @include focus-outline($color: $white);
+
+          //.icon {
+          //  background-color: $white;
+          //  color: $primary-color;
+          //}
+        }
+
       }
     }
-
-    // ICON ONLY - no background (font size, line-height, width, height are the same)
-
-    // usually bigger for mobile to better suit finger clicks!
-    .facebook {
-      @include dl-icon-linked($icon-facebook, 30px, $white, $icomoon, 45px, 45px);
-    }
-    .twitter {
-      @include dl-icon-linked($icon-twitter, 30px, $white, $icomoon, 45px, 45px);
-    }
-    .instagram {
-      @include dl-icon-linked($icon-instagram, 30px, $white, $icomoon, 45px, 45px);
-    }
-
-    // can be a little smaller for desktop
-    //@include bp(large, up) {
-    //  .facebook, .twitter, .instagram {
-    //    width: 35px;
-    //    height: 35px;
-    //    &:before {
-    //      font-size: 20px;
-    //      width: 35px;
-    //      height: 35px;
-    //      line-height: 35px;
-    //    }
-    //  }
-    //}
-
-
-    // ICON with Square or Circle background (font size is smaller than background)
-
-    //// usually bigger for mobile to better suit finger clicks!
-    //.facebook {
-    //  @include dl-icon-linked($icon-facebook, 30px, $white, $icomoon, 45px, 45px);
-    //  &:hover,
-    //  &:focus {
-    //    &:before {
-    //      background: $secondary-color;
-    //      color: $white;
-    //    }
-    //  }
-    //}
-    //.twitter {
-    //  @include dl-icon-linked($icon-twitter, 30px, $white, $icomoon, 45px, 45px);
-    //  &:hover,
-    //  &:focus {
-    //    &:before {
-    //      background: $secondary-color;
-    //      color: $white;
-    //    }
-    //  }
-    //}
-    //.instagram {
-    //  @include dl-icon-linked($icon-instagram, 30px, $white, $icomoon, 45px, 45px);
-    //  &:hover,
-    //  &:focus {
-    //    &:before {
-    //      background: $secondary-color;
-    //      color: $white;
-    //    }
-    //  }
-    //}
-    //
-    //// can be a little smaller for desktop
-    //@include bp(large, up) {
-    //  .facebook, .twitter, .instagram {
-    //    width: 30px;
-    //    height: 30px;
-    //    &:before {
-    //      font-size: 15px;
-    //      width: 30px;
-    //      height: 30px;
-    //      line-height: 30px; // matches width/height to vertically center the icon
-    //    }
-    //  }
-    //}
   }
 }
