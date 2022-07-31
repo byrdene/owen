@@ -136,8 +136,8 @@ h2,
 h3,
 .h3 {
   @include font-size($h3-font-size-mobile);
-  @include font-weight(normal);
-  text-transform: uppercase;
+  @include font-weight(bold);
+  text-transform: none;
   color: $base-font-color;
   margin-top: rem($vertical-spacing);
   @include bp($desktop-nav, up) {
