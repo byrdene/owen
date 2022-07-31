@@ -14,11 +14,11 @@ bundle: experience
 mode: default
 content:
   field_description:
-    weight: 0
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 0
     region: content
 hidden:
   field_admin_title: true

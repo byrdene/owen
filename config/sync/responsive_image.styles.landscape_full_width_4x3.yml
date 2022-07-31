@@ -14,8 +14,6 @@ id: landscape_full_width_4x3
 label: 'Landscape - Full width (4x3)'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
-    multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
       sizes: 100vw
@@ -25,5 +23,7 @@ image_style_mappings:
         - 4x3_small
         - 4x3_x_large
         - 4x3_x_small
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: 4x3_x_small

@@ -1,3 +1,7 @@
+_core:
+  default_config_hash: IHpWWIkDQSprhgjf0eggbMD_Jg3fiN7Mr5qlHUalmkY
+langcode: en
+uuid: 84d2f209-fee1-453d-aaa3-4ff86dc1d3a2
 name: 'Owen T.S. Cooper'
 mail: byrdene@gmail.com
 slogan: ''
@@ -7,9 +11,5 @@ page:
   front: /node/6
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
 default_langcode: en
 mail_notification: ''
-_core:
-  default_config_hash: IHpWWIkDQSprhgjf0eggbMD_Jg3fiN7Mr5qlHUalmkY
-uuid: 84d2f209-fee1-453d-aaa3-4ff86dc1d3a2

@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: Z1-G4uA66auLhl7rJR8HQuJUqU_UEQkun1_5QLm46q0
 determine_menu: true
 disable_admin_page: true
 append_current_page: false
@@ -18,29 +20,27 @@ menu_breadcrumb_menus:
     taxattach: 0
     langhandle: 0
   admin:
-    weight: 0
     enabled: 0
+    weight: 0
     taxattach: 0
     langhandle: 0
   devel:
-    weight: 0
     enabled: 0
+    weight: 0
     taxattach: 0
     langhandle: 0
   footer:
-    weight: 0
     enabled: 0
+    weight: 0
     taxattach: 0
     langhandle: 0
   tools:
-    weight: 0
     enabled: 0
+    weight: 0
     taxattach: 0
     langhandle: 0
   account:
-    weight: 0
     enabled: 0
+    weight: 0
     taxattach: 0
     langhandle: 0
-_core:
-  default_config_hash: Z1-G4uA66auLhl7rJR8HQuJUqU_UEQkun1_5QLm46q0

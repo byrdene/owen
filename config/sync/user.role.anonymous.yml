@@ -1,7 +1,10 @@
 uuid: 7a3c3e6a-5b19-4800-97e2-3cc92788b773
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - media
+    - system
 _core:
   default_config_hash: V_AqOIgcX5DMOy1ENrfxtXeEtfIZ15Bn7vRW8g4EhJw
 id: anonymous
@@ -10,5 +13,4 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'search content'
   - 'view media'

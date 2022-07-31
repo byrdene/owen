@@ -20,10 +20,10 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_extensions: mp4
-  file_directory: video
-  max_filesize: ''
-  description_field: false
   handler: 'default:file'
   handler_settings: {  }
+  file_directory: video
+  file_extensions: mp4
+  max_filesize: ''
+  description_field: false
 field_type: file

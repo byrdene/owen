@@ -17,8 +17,8 @@ plugin: 'block_content:83bc7b61-cf09-447f-8534-86d325d61304'
 settings:
   id: 'block_content:83bc7b61-cf09-447f-8534-86d325d61304'
   label: 'Waring School'
-  provider: block_content
   label_display: visible
+  provider: block_content
   status: true
   info: ''
   view_mode: full

@@ -10,9 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
-    basic_html: '0'
-    plain_text: '0'
+    allowed_formats:
+      - full_html
 id: node.resume.field_skills_rte
 field_name: field_skills_rte
 entity_type: node

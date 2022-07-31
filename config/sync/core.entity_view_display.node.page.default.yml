@@ -21,37 +21,37 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: landscape_full_width_16x9
       link: false
     third_party_settings: {  }
+    weight: 0
     region: content
   field_metatags:
-    weight: 3
+    type: metatag_empty_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: metatag_empty_formatter
+    weight: 3
     region: content
   field_related_view:
-    weight: 2
+    type: viewfield_default
     label: hidden
     settings:
       view_title: hidden
       always_build_output: true
       empty_view_title: hidden
     third_party_settings: {  }
-    type: viewfield_default
+    weight: 2
     region: content
 hidden:
   links: true

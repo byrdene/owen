@@ -49,8 +49,6 @@ settings:
     drupallink:
       linkit_enabled: true
       linkit_profile: default
-    language:
-      language_list: un
     stylescombo:
       styles: "p|Normal\r\nh2|Heading 2\r\nh3|Heading 3\r\nh4|Heading 4\r\np.citation|Quote Citation\r\na.button|Button Link - Solid\r\na.button.button--outlined|Button Link - Outlined"
 image_upload:

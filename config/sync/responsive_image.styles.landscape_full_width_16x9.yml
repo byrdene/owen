@@ -14,8 +14,6 @@ id: landscape_full_width_16x9
 label: 'Landscape - Full width (16x9)'
 image_style_mappings:
   -
-    breakpoint_id: responsive_image.viewport_sizing
-    multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
       sizes: 100vw
@@ -25,5 +23,7 @@ image_style_mappings:
         - 16x9_small
         - 16x9_x_large
         - 16x9_x_small
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
 breakpoint_group: responsive_image
 fallback_image_style: 16x9_x_small

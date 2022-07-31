@@ -7,6 +7,7 @@ _core:
 id: test
 label: Test
 description: 'This is the Test or Stage environment.'
+weight: 2
 folder: ../config/splits/test
 module: {  }
 theme: {  }
@@ -14,4 +15,3 @@ blacklist: {  }
 graylist: {  }
 graylist_dependents: true
 graylist_skip_equal: true
-weight: 2

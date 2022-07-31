@@ -21,21 +21,21 @@ bundle: page
 mode: search_index
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
     region: content
   field_related_view:
-    weight: 1
+    type: viewfield_default
     label: hidden
     settings:
       view_title: hidden
       always_build_output: true
       empty_view_title: hidden
     third_party_settings: {  }
-    type: viewfield_default
+    weight: 1
     region: content
 hidden:
   field_main_image: true

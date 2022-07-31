@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
@@ -66,6 +68,7 @@ module:
   metatag: 0
   module_filter: 0
   multiple_fields_remove_button: 0
+  mysql: 0
   node: 0
   options: 0
   page_cache: 0
@@ -107,5 +110,3 @@ theme:
   gin: 0
   owen: 0
 profile: zaldomoh_profile
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
