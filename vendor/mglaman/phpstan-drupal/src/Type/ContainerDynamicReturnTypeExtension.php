@@ -1,17 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace PHPStan\Type;
+namespace mglaman\PHPStanDrupal\Type;
 
+use mglaman\PHPStanDrupal\Drupal\DrupalServiceDefinition;
+use mglaman\PHPStanDrupal\Drupal\ServiceMap;
+use PhpParser\Node;
+use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\VariadicPlaceholder;
 use PHPStan\Analyser\Scope;
-use PHPStan\Drupal\DrupalServiceDefinition;
-use PHPStan\Drupal\ServiceMap;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\ShouldNotHappenException;
 use PHPStan\Type\Constant\ConstantBooleanType;
+use PHPStan\Type\DynamicMethodReturnTypeExtension;
 use Psr\Container\ContainerInterface;
 
 class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtension
@@ -40,7 +44,7 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodReflection $methodReflection,
         MethodCall $methodCall,
         Scope $scope
-    ): Type {
+    ): \PHPStan\Type\Type {
         $returnType = ParametersAcceptorSelector::selectSingle($methodReflection->getVariants())->getReturnType();
         if (!isset($methodCall->args[0])) {
             return $returnType;
@@ -51,23 +55,16 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
             throw new ShouldNotHappenException();
         }
         $arg1 = $arg1->value;
-        if (!$arg1 instanceof String_) {
-            // @todo determine what these types are.
+
+        $serviceId = $this->getServiceId($arg1);
+        if ($serviceId === null) {
             return $returnType;
         }
-
-        $serviceId = $arg1->value;
 
         if ($methodReflection->getName() === 'get') {
             $service = $this->serviceMap->getService($serviceId);
             if ($service instanceof DrupalServiceDefinition) {
-                // Work around Drupal misusing the SplString class for string
-                // pseudo-services such as 'app.root'.
-                // @see https://www.drupal.org/project/drupal/issues/3074585
-                if ($service->getClass() === 'SplString') {
-                    return new StringType();
-                }
-                return new ObjectType($service->getClass() ?? $serviceId);
+                return $service->getType();
             }
             return $returnType;
         }
@@ -77,5 +74,19 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
         }
 
         throw new ShouldNotHappenException();
+    }
+
+    protected function getServiceId(Node $arg1): ?string
+    {
+        if ($arg1 instanceof String_) {
+            // @todo determine what these types are.
+            return $arg1->value;
+        }
+
+        if ($arg1 instanceof ClassConstFetch && $arg1->class instanceof FullyQualified) {
+            return (string) $arg1->class;
+        }
+
+        return null;
     }
 }

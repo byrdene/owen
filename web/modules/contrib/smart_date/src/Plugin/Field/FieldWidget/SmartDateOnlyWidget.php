@@ -2,6 +2,7 @@
 
 namespace Drupal\smart_date\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -42,9 +43,6 @@ class SmartDateOnlyWidget extends SmartDateInlineWidget {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
 
-    // The widget form element type has transformed the value to a
-    // DrupalDateTime object at this point. We need to convert it back to the
-    // storage timestamp.
     foreach ($values as &$item) {
       if (isset($item['time_wrapper']['value'])) {
         $item['value'] = $item['time_wrapper']['value'];
@@ -53,8 +51,12 @@ class SmartDateOnlyWidget extends SmartDateInlineWidget {
         $item['end_value'] = $item['time_wrapper']['end_value'];
       }
       // Force to all day.
-      $item['value']->setTime(0, 0, 0);
-      $item['end_value']->setTime(23, 59, 0);
+      if (!empty($item['value']) && $item['value'] instanceof DrupalDateTime) {
+        $item['value']->setTime(0, 0, 0);
+      }
+      if (!empty($item['end_value']) && $item['value'] instanceof DrupalDateTime) {
+        $item['end_value']->setTime(23, 59, 0);
+      }
     }
     $values = parent::massageFormValues($values, $form, $form_state);
     return $values;

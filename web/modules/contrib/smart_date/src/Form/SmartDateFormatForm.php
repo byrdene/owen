@@ -186,7 +186,7 @@ class SmartDateFormatForm extends EntityForm {
       '#type' => 'checkbox',
       '#return_value' => '1',
       '#title' => $this->t('"Site Time" display'),
-      '#description' => $this->t("Show default site time in parentheses at end of the value if the timezone is overridden. ex. (12:00pm - 1:00pm UTC)"),
+      '#description' => $this->t("Show times in the user's preferred timezone (defaults to the site's timezone) in parentheses at end of the value if the timezone is overridden. ex. (12:00pm - 1:00pm UTC)"),
       '#default_value' => $options['site_time_toggle'],
     ];
 

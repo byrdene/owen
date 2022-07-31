@@ -1,16 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace PHPStan\Type;
+namespace mglaman\PHPStanDrupal\Type;
 
+use Drupal;
+use mglaman\PHPStanDrupal\Drupal\DrupalServiceDefinition;
+use mglaman\PHPStanDrupal\Drupal\ServiceMap;
+use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\StaticCall;
+use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\VariadicPlaceholder;
 use PHPStan\Analyser\Scope;
-use PHPStan\Drupal\DrupalServiceDefinition;
-use PHPStan\Drupal\ServiceMap;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\ShouldNotHappenException;
+use PHPStan\Type\DynamicStaticMethodReturnTypeExtension;
+use PHPStan\Type\Type;
 
 class DrupalServiceDynamicReturnTypeExtension implements DynamicStaticMethodReturnTypeExtension
 {
@@ -26,7 +31,7 @@ class DrupalServiceDynamicReturnTypeExtension implements DynamicStaticMethodRetu
 
     public function getClass(): string
     {
-        return \Drupal::class;
+        return Drupal::class;
     }
 
     public function isStaticMethodSupported(MethodReflection $methodReflection): bool
@@ -48,23 +53,29 @@ class DrupalServiceDynamicReturnTypeExtension implements DynamicStaticMethodRetu
         if ($arg1 instanceof VariadicPlaceholder) {
             throw new ShouldNotHappenException();
         }
+
         $arg1 = $arg1->value;
-        if (!$arg1 instanceof String_) {
-            // @todo determine what these types are.
-            return $returnType;
+
+        if ($arg1 instanceof String_) {
+            $serviceId = $arg1->value;
+            return $this->getServiceType($serviceId) ?? $returnType;
         }
 
-        $serviceId = $arg1->value;
+        if ($arg1 instanceof ClassConstFetch && $arg1->class instanceof FullyQualified) {
+            $serviceId = (string) $arg1->class;
+            return $this->getServiceType($serviceId) ?? $returnType;
+        }
+
+        return $returnType;
+    }
+
+    protected function getServiceType(string $serviceId): ?Type
+    {
         $service = $this->serviceMap->getService($serviceId);
         if ($service instanceof DrupalServiceDefinition) {
-            // Work around Drupal misusing the SplString class for string
-            // pseudo-services such as 'app.root'.
-            // @see https://www.drupal.org/project/drupal/issues/3074585
-            if ($service->getClass() === 'SplString') {
-                return new StringType();
-            }
-            return new ObjectType($service->getClass() ?? $serviceId);
+            return $service->getType();
         }
-        return $returnType;
+
+        return null;
     }
 }

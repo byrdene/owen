@@ -12,12 +12,26 @@ use Drupal\smart_date\Entity\SmartDateFormatInterface;
 trait SmartDateTrait {
 
   /**
+   * The parent entity on which the dates exist.
+   *
+   * @var mixed
+   */
+  protected $entity;
+
+  /**
+   * The configuration, particularly for the augmenters.
+   *
+   * @var array
+   */
+  protected $sharedSettings = [];
+
+  /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $field_type = $this->fieldDefinition->getType();
     $elements = [];
-    // TODO: intelligent switching between retrieval methods.
+    // @todo intelligent switching between retrieval methods.
     // Look for a defined format and use it if specified.
     $format_label = $this->getSetting('format');
     if ($format_label) {
@@ -43,14 +57,9 @@ trait SmartDateTrait {
     $add_classes = $this->getSetting('add_classes');
     $time_wrapper = $this->getSetting('time_wrapper');
 
-    // Look for the Date Augmenter plugin manager service.
-    $augmenters = [];
-    if (!empty(\Drupal::hasService('plugin.manager.dateaugmenter'))) {
-      $dateAugmenterManager = \Drupal::service('plugin.manager.dateaugmenter');
-      // TODO: Support custom entities.
-      $config = $this->getThirdPartySettings('date_augmenter');
-      $augmenters = $dateAugmenterManager->getActivePlugins($config);
-      $entity = $items->getEntity();
+    $augmenters = $this->initializeAugmenters();
+    if ($augmenters) {
+      $this->entity = $items->getEntity();
     }
 
     foreach ($items as $delta => $item) {
@@ -62,11 +71,21 @@ trait SmartDateTrait {
         $end_ts = $item->end_value;
       }
       elseif ($field_type == 'daterange') {
-        if (empty($item->start_date) || empty($item->end_date)) {
+        // Start and end dates are optional, but one of them is required
+        // to display anything regardless of what the field thinks.
+        if ($item->isEmpty() || (empty($item->start_date) && empty($item->end_date))) {
           continue;
         }
-        $start_ts = $item->start_date->getTimestamp();
-        $end_ts = $item->end_date->getTimestamp();
+        elseif (empty($item->start_date)) {
+          $start_ts = $end_ts = $item->end_date->getTimestamp();
+        }
+        elseif (empty($item->end_date)) {
+          $start_ts = $end_ts = $item->start_date->getTimestamp();
+        }
+        else {
+          $start_ts = $item->start_date->getTimestamp();
+          $end_ts = $item->end_date->getTimestamp();
+        }
       }
       elseif ($field_type == 'datetime') {
         if (empty($item->date)) {
@@ -128,26 +147,7 @@ trait SmartDateTrait {
       }
 
       if ($augmenters) {
-        foreach ($augmenters as $augmenter_id => $augmenter) {
-          // Use the enabled plugin to manipulate the output.
-          $augmenter->augmentOutput(
-            // The existing render array.
-            $elements[$delta],
-            // The start and end (optional), as DrupalDateTime objects.
-            DrupalDateTime::createFromTimestamp($start_ts),
-            DrupalDateTime::createFromTimestamp($end_ts),
-            // An optional array of additional parameters.
-            [
-              'timezone' => $timezone,
-              'allday' => static::isAllDay($start_ts, $end_ts, $timezone),
-              'entity' => $entity,
-              'settings' => $config['settings'][$augmenter_id],
-              'delta' => $delta,
-              'formatter' => $this,
-              'field_name' => $this->fieldDefinition->getName(),
-            ]
-          );
-        }
+        $this->augmentOutput($elements[$delta], $augmenters, $item->value, $item->end_value, $timezone, $delta);
       }
     }
 
@@ -333,6 +333,7 @@ trait SmartDateTrait {
       return static::rangeFormat($range, $settings, $return_type);
     }
     if ($timezone) {
+      $settings['timezone_reset'] = date_default_timezone_get();
       date_default_timezone_set($timezone);
       $tz_check = $timezone;
     }
@@ -606,6 +607,10 @@ trait SmartDateTrait {
     // Otherwise, return a nested array.
     $output = static::arrayToRender($range);
     $output['#attributes']['class'] = ['smart_date_range'];
+    // If a timezone was forced, reset to the default.
+    if (!empty($settings['timezone_reset'])) {
+      date_default_timezone_set($settings['timezone_reset']);
+    }
     return $output;
   }
 
@@ -699,6 +704,90 @@ trait SmartDateTrait {
       return TRUE;
     }
     return FALSE;
+  }
+
+  /**
+   * Use provided configuration to retrieve a list of date augmenters.
+   *
+   * @param array $keys
+   *   Optional array to allow multiple sets of augmenter configurations.
+   *
+   * @return array
+   *   An array of the available augmenters.
+   */
+  protected function initializeAugmenters(array $keys = []) {
+    if (empty(\Drupal::hasService('plugin.manager.dateaugmenter'))) {
+      return [];
+    }
+    $config = $this->getThirdPartySettings('date_augmenter');
+    $this->sharedSettings = $config;
+    $dateAugmenterManager = \Drupal::service('plugin.manager.dateaugmenter');
+    // @todo Support custom entities.
+    if ($keys) {
+      $augmenters = [];
+      foreach ($keys as $key) {
+        $key_config = $config[$key] ?? NULL;
+        $augmenters[$key] = $dateAugmenterManager->getActivePlugins($key_config);
+      }
+    }
+    else {
+      $augmenters = $dateAugmenterManager->getActivePlugins($config);
+    }
+    return $augmenters;
+  }
+
+  /**
+   * Apply any configured augmenters.
+   *
+   * @param array $output
+   *   Render array of output.
+   * @param array $augmenters
+   *   The augmenters that have been configured.
+   * @param int $start_ts
+   *   The start of the date range.
+   * @param int $end_ts
+   *   The end of the date range.
+   * @param string $timezone
+   *   The timezone to use.
+   * @param int $delta
+   *   The field delta being formatted.
+   * @param string $type
+   *   The set of configuration to use.
+   * @param string $repeats
+   *   An optional RRULE string containing recurrence details.
+   * @param string $ends
+   *   An optional timestamp to specify the end of the last instance.
+   */
+  protected function augmentOutput(array &$output, array $augmenters, $start_ts, $end_ts, $timezone, $delta, $type = '', $repeats = '', $ends = '') {
+    if (!$augmenters) {
+      return;
+    }
+
+    foreach ($augmenters as $augmenter_id => $augmenter) {
+      if (!empty($type)) {
+        $settings = $this->sharedSettings[$type]['settings'][$augmenter_id] ?? [];
+      }
+      else {
+        $settings = $this->sharedSettings['settings'][$augmenter_id] ?? [];
+      }
+
+      $augmenter->augmentOutput(
+        $output,
+        DrupalDateTime::createFromTimestamp($start_ts),
+        DrupalDateTime::createFromTimestamp($end_ts),
+        [
+          'timezone' => $timezone,
+          'allday' => static::isAllDay($start_ts, $end_ts, $timezone),
+          'entity' => $this->entity,
+          'settings' => $settings,
+          'delta' => $delta,
+          'formatter' => $this,
+          'repeats' => $repeats,
+          'ends' => empty($ends) ? $ends : DrupalDateTime::createFromTimestamp($ends),
+          'field_name' => $this->fieldDefinition->getName(),
+        ]
+      );
+    }
   }
 
 }

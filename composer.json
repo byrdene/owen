@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "bower-asset/colorbox": "^1.6",
         "bower-asset/lazysizes": "^5.3",
         "composer/installers": "^1.9",

@@ -25,8 +25,8 @@ function git_deploy_system_info_alter(array &$info, Extension $file, $type) {
   // Core has hard-coded version numbers, so we need to verify them. Otherwise,
   // a valid version number indicates that this project was not installed with
   // Git.
-  if (empty($info['hidden']) && ($file->origin == 'core' && strstr($info['version'], '-dev') == '-dev' || empty($info['version']) || $info['version'] == \Drupal::VERSION || !preg_match('/^\d\..+\..+/', $info['version']))) {
-    // Workaround bug that causes Git to fail for users without home directory.
+  if (empty($info['hidden']) && (empty($info['version']) || ($file->origin == 'core' ? strstr($info['version'], '-dev') == '-dev' : $info['version'] == \Drupal::VERSION || !preg_match('/^\d\..+\..+/', $info['version'])))) {
+    // Work around bug that causes Git to fail for users without home directory.
     $home = getenv('HOME') === FALSE ? 'HOME=' . DRUPAL_ROOT . ' ' : '';
     // Verify that we are in a Git repository. For core, also verify that this
     // is really a Drupal repository.
@@ -286,6 +286,8 @@ function _git_deploy_datestamp_sync(array &$project, array $release) {
   // release and last commit, because dev releases are packaged only twice a
   // day. Add a 100-second buffer to account for packaging time.
   if ($project['datestamp'] + 43200 + 100 > $release['date']) {
-    $project['datestamp'] = $release['date'];
+    // A dev release for the latest commit may be created later than an official
+    // release, so use release time only if it is later than the commit time.
+    $project['datestamp'] = max($release['date'], $project['datestamp']);
   }
 }

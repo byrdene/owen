@@ -81,7 +81,7 @@ header {
     @include bp(medium, up) { // wide enough to ignore tablet compensations
       .region-header {
         position: relative;
-        padding: $gutter*1.5 0;
+        padding: $gutter*1.5 $gutter*2;
         background-color: $primary-color;
         color: $white;
 
