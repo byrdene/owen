@@ -8,7 +8,6 @@ dependencies:
     - field.field.config_pages.site_settings.field_personal_youtube_link
     - field.field.config_pages.site_settings.field_resume_subtitle
     - field.field.config_pages.site_settings.field_waring_robotics_website
-    - field.field.config_pages.site_settings.field_waring_robotics_youtube_li
 id: config_pages.site_settings.default
 targetEntityType: config_pages
 bundle: site_settings
@@ -45,14 +44,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 3
-    region: content
-  field_waring_robotics_youtube_li:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 4
     region: content
 hidden:
   search_api_excerpt: true
