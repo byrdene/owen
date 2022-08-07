@@ -4,7 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_library
+    - field.field.media.remote_video.field_creation_date
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_video_description
+    - field.field.media.remote_video.field_video_title
     - image.style.medium
     - media.type.remote_video
   module:
@@ -29,7 +32,10 @@ content:
     region: content
 hidden:
   created: true
+  field_creation_date: true
   field_media_oembed_video: true
+  field_video_description: true
+  field_video_title: true
   name: true
   search_api_excerpt: true
   uid: true

@@ -1,0 +1,29 @@
+uuid: 32942483-647c-4222-a733-157f9f6d885b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_videos
+    - media.type.remote_video
+    - paragraphs.paragraphs_type.experience
+id: paragraph.experience.field_videos
+field_name: field_videos
+entity_type: paragraph
+bundle: experience
+label: Videos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

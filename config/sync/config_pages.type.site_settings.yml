@@ -1,0 +1,17 @@
+uuid: 4f48158d-09b9-475b-b681-ffe115c9e725
+langcode: en
+status: true
+dependencies: {  }
+id: site_settings
+label: 'Site Settings'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/owen-site-settings
+  weight: 0
+  description: ''

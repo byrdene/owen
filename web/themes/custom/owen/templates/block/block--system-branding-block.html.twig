@@ -11,13 +11,13 @@
     {% if site_logo %}
       <div class="logo-wrapper">
         <a href="{{ path('<front>') }}" title="{{ 'Owen T.S. Cooper Homepage'|t }}" rel="home" class="logo">
-          <img src="/{{ base_path ~ directory }}/static/images/owen-photo.jpg" alt="{{ 'Owen T.S. Cooper headshot'|t }}"/>
+          <img src="/{{ base_path ~ directory }}/static/images/owen-photo.jpg" alt="{{ 'Owen T. S. Cooper headshot'|t }}"/>
         </a>
       </div>
     {% endif %}
     <div class="header-text">
       <h1>Owen Cooper</h1>
-      <div class="subtitle">College Applicant &mdash; Technical Innovator</div>
+      <div class="subtitle">{{ config_pages_field('site_settings', 'field_resume_subtitle') }}</div>
     </div>
   </div>
 

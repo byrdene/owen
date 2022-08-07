@@ -1,0 +1,22 @@
+uuid: f5a2daad-8132-40f6-89b0-d95a2522f670
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_settings
+    - field.field.config_pages.site_settings.field_resume_subtitle
+id: config_pages.site_settings.default
+targetEntityType: config_pages
+bundle: site_settings
+mode: default
+content:
+  field_resume_subtitle:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  label: true

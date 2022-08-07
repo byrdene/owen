@@ -1,0 +1,53 @@
+{{ attach_library('owen/fancybox') }}
+
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'media',
+    'media--type-' ~ media.bundle()|clean_class,
+    view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+    'video-teaser-wrapper',
+  ]
+%}
+
+<div{{ attributes.removeClass('contextual-region').addClass(classes) }}>
+  <div class="video-thumbnail">
+    {{ drupal_image(media.thumbnail.target_id, '16x9_small') }}
+
+{#    <div class="video-button-wrapper">#}
+{#      <button class="video-play-button" data-fancybox="gallery" href="{{ media.field_media_oembed_video.value }}">#}
+{#        <span class="sr-only">Open Video</span>#}
+{#        <i class="icon"></i>#}
+{#      </button>#}
+{#    </div>#}
+
+  </div>
+  <div class="video-text-wrapper">
+    {% if content.field_video_title|render %}
+      <div class="video-title vertical-flow-x-small"><strong>{{ content.field_video_title.0 }}</strong>
+
+        {% if content.field_creation_date|render %}
+          <div class="video-creation-date text__small"><em>{{ content.field_creation_date.0 }}</em></div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+    {% if content.field_video_description|render %}
+      <div class="video-description text__small vertical-flow-x-small">{{ content.field_video_description }}</div>
+    {% endif %}
+    <div class="video-source-link text__small vertical-flow-x-small"><a class="button button-small" data-fancybox="gallery" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_description.0 }}">Play Video</a>  <a class="button button-small" href="{{ media.field_media_oembed_video.value }}">Watch on YouTube</a></div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'zaporylie\\ComposerDrupalOptimizations\\' => array($vendorDir . '/zaporylie/composer-drupal-optimizations/src'),
-    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'mglaman\\PHPStanDrupal\\' => array($vendorDir . '/mglaman/phpstan-drupal/src'),
     'cweagans\\Composer\\' => array($vendorDir . '/cweagans/composer-patches/src'),
     'Webmozart\\PathUtil\\' => array($vendorDir . '/webmozart/path-util/src'),
@@ -108,7 +108,7 @@ return array(
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib/Doctrine/Common/Collections'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations'),
-    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common', $vendorDir . '/doctrine/persistence/lib/Doctrine/Common', $vendorDir . '/doctrine/reflection/lib/Doctrine/Common', $vendorDir . '/doctrine/event-manager/lib/Doctrine/Common'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib/Doctrine/Common', $vendorDir . '/doctrine/event-manager/lib/Doctrine/Common', $vendorDir . '/doctrine/persistence/lib/Doctrine/Common', $vendorDir . '/doctrine/reflection/lib/Doctrine/Common'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
     'Consolidation\\SiteProcess\\' => array($vendorDir . '/consolidation/site-process/src'),
@@ -126,7 +126,7 @@ return array(
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'Composer\\' => array($vendorDir . '/composer/composer/src/Composer'),
-    'Behat\\Mink\\Driver\\' => array($vendorDir . '/friends-of-behat/mink-browserkit-driver/src', $vendorDir . '/behat/mink-selenium2-driver/src'),
+    'Behat\\Mink\\Driver\\' => array($vendorDir . '/behat/mink-selenium2-driver/src', $vendorDir . '/friends-of-behat/mink-browserkit-driver/src'),
     'Behat\\Mink\\' => array($vendorDir . '/behat/mink/src'),
     'Asm89\\Stack\\' => array($vendorDir . '/asm89/stack-cors/src/Asm89/Stack'),
 );

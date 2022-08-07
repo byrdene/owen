@@ -169,27 +169,28 @@
 
       .accordion-title {
         display: block; //in case we use span instead of H2 or H3
-        color: $black;
-        //padding: $gutter/2 $gutter*2 $gutter/2 $gutter; // for icon on right
-        padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
+        color: $base-font-color;
+        padding: $gutter/2 $gutter*2 $gutter/2 $gutter; // for icon on right
+        //padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
         margin: 0;
         position: relative;
-        @include font-size(25px);
-        @include font-weight(semibold);
-        @include tracking(.25);
-        &:before {
+        @include font-size($base-font-size);
+        @include font-weight(bold);
+        //@include tracking(.25);
+        &:after {
           position: absolute;
           display: inline-block;
-          top: $gutter*.75;
-          //right: 0; // for icon on right
-          left: 0; // for icon on left
-          font-size: 24px;
+          top: 7px;
+          right: 10px; // for icon on right
+          //left: 0; // for icon on left
+          font-size: 14px;
           width: 25px;
           height: 25px;
           line-height: 25px;
           font-family: $icomoon;
-          content: $icon-arrow-right;
-          color: $action-color;
+          content: $icon-plus;
+          color: $primary-color;
+          background-color: transparent;
           text-align: center;
           transform: rotate(90deg);
         }
@@ -203,7 +204,7 @@
       }
 
       &:focus {
-        @include focus-outline();
+        //@include focus-outline();
 
         .accordion-title {
           color: $action-color;
@@ -214,8 +215,9 @@
         .accordion-title {
           color: $action-color;
 
-          &:before {
-            transform: rotate(270deg);
+          &:after {
+            transform: rotate(45deg);
+            background-color: $white;
           }
         }
       }
@@ -223,7 +225,7 @@
 
     &__content {
       display:none;
-      padding: 0 $gutter $gutter/2 $gutter*2;
+      padding: 0 $gutter $gutter $gutter;
     }
   }
 }

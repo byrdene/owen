@@ -1,0 +1,26 @@
+uuid: 128e4ece-ef43-460b-867d-5af0268d2389
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_portfolio_intro
+    - paragraphs.paragraphs_type.experience
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: paragraph.experience.field_portfolio_intro
+field_name: field_portfolio_intro
+entity_type: paragraph
+bundle: experience
+label: 'Portfolio Intro'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

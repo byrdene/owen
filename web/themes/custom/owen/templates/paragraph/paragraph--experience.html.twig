@@ -12,9 +12,46 @@
     <div class="component-content">
       {{ title_suffix }}
 
-      <div class="description-wrapper">
+      <div class="description-wrapper vertical-flow-small">
         {{ content.field_description }}
       </div>
+
+      {% if content.field_portfolio_label|render %}
+
+        {% set title = paragraph.field_portfolio_label.value %}
+        {#Use the label as attribute values but strip unwanted characters and replace spaces wish dashes#}
+        {% set titleID = title|lower|replace({'!': '', '?': '', ',': '', ' ': '-',}) %}
+
+        <div class="portfolio-section vertical-flow-small">
+        <button id="{{ titleID }}--button"
+                class="accordion__button"
+                aria-controls="{{ titleID }}--content"
+                aria-expanded="false">
+          <strong class="accordion-title">{{ title }}</strong>
+        </button>
+
+          <div id="{{ titleID }}--content"
+               class="accordion__content"
+               aria-labelledby="{{ titleID }}--button"
+               aria-hidden="true">
+
+            {% if content.field_portfolio_intro|render %}
+              <div class="portfolio-intro vertical-flow-small text__small">{{ content.field_portfolio_intro }}</div>
+            {% endif %}
+
+            {% if content.field_videos|render %}
+              <div class="portfolio-videos vertical-flow-small">{{ content.field_videos }}</div>
+            {% endif %}
+
+            {% if content.field_portfolio_addendum|render %}
+              <div class="portfolio-addendum vertical-flow-small text__small">{{ content.field_portfolio_addendum }}</div>
+            {% endif %}
+          </div>
+
+        </div>
+
+
+      {% endif %}
 
 
     </div>

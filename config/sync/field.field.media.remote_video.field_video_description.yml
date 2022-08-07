@@ -1,0 +1,26 @@
+uuid: 4bfa467f-0e1d-41ff-b72a-9a58b6d4beab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_video_description
+    - media.type.remote_video
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: media.remote_video.field_video_description
+field_name: field_video_description
+entity_type: media
+bundle: remote_video
+label: 'Video Description'
+description: 'Describe the reason this video exists and/or your specific contributions. E.g. "We were not able to attend FLL Worlds because of COVID and since it was also my last year in FLL, I made this training video to help new teams so they could get as much out of FLL as I did."'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

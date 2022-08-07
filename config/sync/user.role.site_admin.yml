@@ -1,11 +1,31 @@
 uuid: 30a5ad37-8524-47ee-aa1d-eee8432c5f6b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - media.type.remote_video
+    - node.type.resume
+  module:
+    - file
+    - media
+    - node
+    - shortcut
+    - system
+    - toolbar
 _core:
   default_config_hash: uAKrmoZ0xL8nAOsHY74PdWfvarVcgF2ed5jbTXe7yfI
 id: site_admin
 label: 'Site Admin'
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access shortcuts'
+  - 'access toolbar'
+  - 'create remote_video media'
+  - 'delete any media'
+  - 'edit any resume content'
+  - 'update any media'
+  - 'view the administration theme'

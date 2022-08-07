@@ -38,6 +38,7 @@
         "drupal/composer_deploy": "^1.6",
         "drupal/conditional_fields": "^4.0",
         "drupal/config_ignore": "^2.3",
+        "drupal/config_pages": "^2.10",
         "drupal/config_split": "^1.7",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",

@@ -5,6 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.experience.field_admin_title
     - field.field.paragraph.experience.field_description
+    - field.field.paragraph.experience.field_portfolio_addendum
+    - field.field.paragraph.experience.field_portfolio_intro
+    - field.field.paragraph.experience.field_portfolio_label
+    - field.field.paragraph.experience.field_videos
     - paragraphs.paragraphs_type.experience
   module:
     - text
@@ -19,6 +23,37 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_portfolio_addendum:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_portfolio_intro:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_portfolio_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_videos:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
   field_admin_title: true

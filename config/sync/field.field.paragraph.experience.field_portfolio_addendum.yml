@@ -1,0 +1,26 @@
+uuid: 3e45c430-d86e-4209-a7c4-2a7702e3b580
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_portfolio_addendum
+    - paragraphs.paragraphs_type.experience
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: paragraph.experience.field_portfolio_addendum
+field_name: field_portfolio_addendum
+entity_type: paragraph
+bundle: experience
+label: 'Portfolio Addendum'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

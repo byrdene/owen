@@ -6,6 +6,10 @@ dependencies:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.experience.field_admin_title
     - field.field.paragraph.experience.field_description
+    - field.field.paragraph.experience.field_portfolio_addendum
+    - field.field.paragraph.experience.field_portfolio_intro
+    - field.field.paragraph.experience.field_portfolio_label
+    - field.field.paragraph.experience.field_videos
     - paragraphs.paragraphs_type.experience
 id: paragraph.experience.preview
 targetEntityType: paragraph
@@ -22,4 +26,8 @@ content:
     region: content
 hidden:
   field_description: true
+  field_portfolio_addendum: true
+  field_portfolio_intro: true
+  field_portfolio_label: true
+  field_videos: true
   search_api_excerpt: true
