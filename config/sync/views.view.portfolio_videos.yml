@@ -448,19 +448,22 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        field_creation_date_value:
-          id: field_creation_date_value
-          table: media__field_creation_date
-          field: field_creation_date_value
+        created:
+          id: created
+          table: media_field_data
+          field: created
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: standard
-          order: ASC
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
+          granularity: second
       arguments: {  }
       filters:
         status:
