@@ -31,6 +31,21 @@
 {#      </div>#}
 
       {% if page.header %}
+        <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Header">
+          <ul class="menu">
+            <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">
+                <span class="sr-only">Youtube</span>
+                <i class="icon"></i>
+              </a>
+            </li>
+            <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">
+                <span class="sr-only">Linkedin</span>
+                <i class="icon"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
         {{ page.header }}
       {% endif %}
 
@@ -78,8 +93,27 @@
 
           <div id="footer-first">
             <div class="footer-first-wrapper">
-              <div>Owen T. S. Cooper |
-              &#169; {{ "now"|date('Y') }} All rights reserved.</div>
+              <div class="copyright-info">Owen T. S. Cooper | &#169; {{ "now"|date('Y') }} All rights reserved.</div>
+              <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Footer">
+                <ul class="menu">
+                  <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">
+                      <span class="sr-only">Youtube</span>
+                      <i class="icon"></i>
+                    </a>
+                  </li>
+                  <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">
+                      <span class="sr-only">Linkedin</span>
+                      <i class="icon"></i>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+              <div class="wolfpack-logo-wrapper">
+                <a href="https://www.wolfpackmachina.com/" title="{{ 'Wolfpack Machina website'|t }}" target="_blank">
+                  <img src="{{ base_path ~ directory }}/static/images/wolfpackmachina-logo.png" alt="{{ 'Wolfpack Machina logo'|t }}"/>
+                </a>
+              </div>
             </div>
 
           </div><!-- /#footer-first -->

@@ -170,6 +170,7 @@
       .accordion-title {
         display: block; //in case we use span instead of H2 or H3
         color: $base-font-color;
+        //color: $primary-color;
         padding: $gutter/2 $gutter*2 $gutter/2 $gutter; // for icon on right
         //padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
         margin: 0;
@@ -207,13 +208,13 @@
         //@include focus-outline();
 
         .accordion-title {
-          color: $action-color;
+          //color: $action-color;
         }
       }
 
       &.open {
         .accordion-title {
-          color: $action-color;
+          //color: $action-color;
 
           &:after {
             transform: rotate(45deg);

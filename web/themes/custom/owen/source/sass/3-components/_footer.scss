@@ -17,7 +17,17 @@ footer {
       margin: 0 auto;
     }
 
-    #footer-first {}
+    #footer-first {
+      .footer-first-wrapper {
+        .copyright-info {
+          margin-bottom: 20px;
+        }
+        .wolfpack-logo-wrapper {
+          width: 40px;
+          margin-top: 20px;
+        }
+      }
+    }
 
     #footer-second {
       margin-top: $gutter*2;
@@ -26,6 +36,26 @@ footer {
     #footer-third {
       margin-top: $gutter*2;
 
+    }
+
+    @include bp(small, up) {
+      #footer-first {
+        .footer-first-wrapper {
+          display: flex;
+          align-items: center;
+
+          .copyright-info {
+            margin-bottom: 0;
+            padding-right: 10px;
+          }
+
+          .wolfpack-logo-wrapper {
+            margin-top: 0;
+            padding-left: 2px;
+            padding-bottom: 3px;
+          }
+        }
+      }
     }
 
     @include bp(large, up) {

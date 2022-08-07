@@ -53,9 +53,11 @@ a[href] {
 .field--type-text-with-summary,
 .field--type-text-long {
   a[href]:not([class]) { // target plain text links without any kind of class
-    color: $white;
-    background-color: $link-color;
-    @include font-weight(normal);
+    //color: $white;
+    //background-color: $link-color;
+    background-color: $ice;
+    color: $primary-color;
+    @include font-weight(semibold);
     //text-decoration: underline;
     text-decoration: none;
     display: inline-block;
@@ -66,8 +68,9 @@ a[href] {
     &:active {
       //color: $white;
       //background-color: $link-color;
-      background-color: $secondary-color;
-      color: $white;
+      //background-color: $secondary-color;
+      //color: $white;
+      color: $secondary-color;
     }
 
     &:focus {
