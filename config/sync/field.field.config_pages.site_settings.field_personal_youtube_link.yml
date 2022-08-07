@@ -1,0 +1,19 @@
+uuid: 085673ad-b14a-49ab-b43c-e9a452f53508
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_settings
+    - field.storage.config_pages.field_personal_youtube_link
+id: config_pages.site_settings.field_personal_youtube_link
+field_name: field_personal_youtube_link
+entity_type: config_pages
+bundle: site_settings
+label: 'Personal YouTube Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

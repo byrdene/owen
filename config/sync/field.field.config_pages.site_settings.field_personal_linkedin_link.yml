@@ -1,0 +1,19 @@
+uuid: 518a3aaf-e437-4a28-8c18-4d527428b122
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_settings
+    - field.storage.config_pages.field_personal_linkedin_link
+id: config_pages.site_settings.field_personal_linkedin_link
+field_name: field_personal_linkedin_link
+entity_type: config_pages
+bundle: site_settings
+label: 'Personal LinkedIn Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 3c12099c-de6f-4f32-bbf9-855491cb5357
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_settings
+    - field.storage.config_pages.field_waring_robotics_youtube_li
+id: config_pages.site_settings.field_waring_robotics_youtube_li
+field_name: field_waring_robotics_youtube_li
+entity_type: config_pages
+bundle: site_settings
+label: 'Waring Robotics YouTube Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

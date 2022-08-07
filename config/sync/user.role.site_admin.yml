@@ -6,6 +6,7 @@ dependencies:
     - media.type.remote_video
     - node.type.resume
   module:
+    - config_pages
     - file
     - media
     - node
@@ -26,6 +27,9 @@ permissions:
   - 'access toolbar'
   - 'create remote_video media'
   - 'delete any media'
+  - 'edit any remote_video media'
   - 'edit any resume content'
+  - 'edit site_settings config page entity'
   - 'update any media'
+  - 'view site_settings config page entity'
   - 'view the administration theme'
