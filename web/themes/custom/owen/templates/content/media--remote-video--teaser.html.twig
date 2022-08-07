@@ -48,6 +48,6 @@
     {% if content.field_video_description|render %}
       <div class="video-description text__small vertical-flow-x-small">{{ content.field_video_description }}</div>
     {% endif %}
-    <div class="video-source-link text__small vertical-flow-x-small"><a class="button button-small" data-fancybox="gallery" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_description.0 }}">Play Video</a>  <a class="button button-small" href="{{ media.field_media_oembed_video.value }}">Watch on YouTube</a></div>
+    <div class="video-source-link text__small vertical-flow-x-small"><a class="button button-small" data-fancybox="gallery" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_title.0 }} {{ content.field_video_description.0 }}">Play Video</a>  <a class="button button-small" href="{{ media.field_media_oembed_video.value }}">Watch on YouTube</a></div>
   </div>
 </div>
