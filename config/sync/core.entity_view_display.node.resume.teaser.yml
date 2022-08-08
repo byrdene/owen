@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
     - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_metatags
     - field.field.node.resume.field_personal_portfolio_intro
     - field.field.node.resume.field_personal_portfolio_label
     - field.field.node.resume.field_personal_portfolio_videos
@@ -29,6 +30,7 @@ hidden:
   field_distinctions_rte: true
   field_education_rte: true
   field_interests_rte: true
+  field_metatags: true
   field_personal_portfolio_intro: true
   field_personal_portfolio_label: true
   field_personal_portfolio_videos: true

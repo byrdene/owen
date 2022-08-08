@@ -1,0 +1,21 @@
+uuid: 10d0f68b-061c-4bf5-8db6-eaf1c8dc02d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatags
+    - node.type.resume
+  module:
+    - metatag
+id: node.resume.field_metatags
+field_name: field_metatags
+entity_type: node
+bundle: resume
+label: 'Search engine optimization'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

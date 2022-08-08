@@ -22,11 +22,17 @@
         border: 1px solid $white;
 
         &.youtube .icon {
-          @include icon($icon-youtube, $iconSize: 20px, $iconBgSize: 30px, $iconBg: $white, $iconColor: $primary-color, $iconHoverBg: $primary-color, $iconHoverColor: $white, $iconRadius: 0);
+          @include icon($icon-youtube, $iconSize: 20px, $iconBgSize: 30px, $iconBg: $white, $iconColor: $primary-color, $iconHoverBg: $white, $iconHoverColor: $primary-color, $iconRadius: 0);
+          &:hover {
+            background-color: rgba(255,255,255,.75);
+          }
         }
 
         &.linkedin .icon {
-          @include icon($icon-linkedin, $iconSize: 20px, $iconBgSize: 30px, $iconBg: $white, $iconColor: $primary-color, $iconHoverBg: $primary-color, $iconHoverColor: $white, $iconRadius: 0);
+          @include icon($icon-linkedin, $iconSize: 20px, $iconBgSize: 30px, $iconBg: $white, $iconColor: $primary-color, $iconHoverBg: $white, $iconHoverColor: $primary-color, $iconRadius: 0);
+          &:hover {
+            background-color: rgba(255,255,255,.75);
+          }
         }
 
         &:focus {

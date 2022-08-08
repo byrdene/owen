@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
     - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_metatags
     - field.field.node.resume.field_personal_portfolio_intro
     - field.field.node.resume.field_personal_portfolio_label
     - field.field.node.resume.field_personal_portfolio_videos
@@ -16,6 +17,7 @@ dependencies:
     - allowed_formats
     - field_group
     - media_library
+    - metatag
     - paragraphs
     - text
 third_party_settings:
@@ -118,6 +120,14 @@ content:
       allowed_formats:
         hide_help: '1'
         hide_guidelines: '1'
+  field_metatags:
+    type: metatag_firehose
+    weight: 26
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
   field_personal_portfolio_intro:
     type: text_textarea
     weight: 7

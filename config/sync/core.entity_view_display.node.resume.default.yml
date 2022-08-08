@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
     - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_metatags
     - field.field.node.resume.field_personal_portfolio_intro
     - field.field.node.resume.field_personal_portfolio_label
     - field.field.node.resume.field_personal_portfolio_videos
@@ -14,6 +15,7 @@ dependencies:
     - node.type.resume
   module:
     - entity_reference_revisions
+    - metatag
     - text
     - user
 id: node.resume.default
@@ -41,6 +43,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
     region: content
   field_personal_portfolio_intro:
     type: text_default
