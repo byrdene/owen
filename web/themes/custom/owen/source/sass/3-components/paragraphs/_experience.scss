@@ -5,6 +5,10 @@
 .component--type-experience {
   .portfolio-section {
     background-color: $ice;
+    
+    .portfolio-intro {
+      margin-top: $gutter;
+    }
   }
   @include accordion();
 

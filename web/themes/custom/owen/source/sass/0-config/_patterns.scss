@@ -170,6 +170,7 @@
       .accordion-title {
         display: block; //in case we use span instead of H2 or H3
         color: $base-font-color;
+        //background: $ice;
         //color: $primary-color;
         padding: $gutter*.75 $gutter*2 $gutter*.75 $gutter; // for icon on right
         //padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
@@ -198,9 +199,9 @@
       }
 
       &:hover {
-        //background-color: darken($ice, 10%);
+        background: darken($ice, 5%);
         .accordion-title {
-          color: $action-color;
+          //color: $action-color;
         }
       }
 
@@ -214,6 +215,8 @@
 
       &.open {
         .accordion-title {
+          background: darken($ice, 5%);
+          //color: $white;
           //color: $action-color;
 
           &:after {
