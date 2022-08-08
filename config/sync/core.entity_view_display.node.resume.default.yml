@@ -6,6 +6,9 @@ dependencies:
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
     - field.field.node.resume.field_interests_rte
+    - field.field.node.resume.field_personal_portfolio_intro
+    - field.field.node.resume.field_personal_portfolio_label
+    - field.field.node.resume.field_personal_portfolio_videos
     - field.field.node.resume.field_skills_rte
     - field.field.node.resume.field_work_leadership
     - node.type.resume
@@ -38,6 +41,30 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_personal_portfolio_intro:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_personal_portfolio_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_personal_portfolio_videos:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser_small
+      link: false
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_skills_rte:
     type: text_default

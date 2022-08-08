@@ -41,6 +41,13 @@
     }
   }
 
+  .interests-wrapper {
+    .portfolio-section {
+      background-color: $ice;
+    }
+    @include accordion();
+  }
+
   @include bp(large, up) {
     .content-wrapper {
       display: flex;

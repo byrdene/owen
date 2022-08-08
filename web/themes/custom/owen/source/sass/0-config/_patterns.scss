@@ -171,7 +171,7 @@
         display: block; //in case we use span instead of H2 or H3
         color: $base-font-color;
         //color: $primary-color;
-        padding: $gutter/2 $gutter*2 $gutter/2 $gutter; // for icon on right
+        padding: $gutter*.75 $gutter*2 $gutter*.75 $gutter; // for icon on right
         //padding: $gutter/2 $gutter $gutter/2 $gutter*2; // for icon on left
         margin: 0;
         position: relative;
@@ -181,7 +181,7 @@
         &:after {
           position: absolute;
           display: inline-block;
-          top: 7px;
+          top: 10px;
           right: 10px; // for icon on right
           //left: 0; // for icon on left
           font-size: 14px;

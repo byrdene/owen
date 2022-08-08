@@ -1,0 +1,29 @@
+uuid: b9e45010-77d2-4595-9b4b-ede2194f6057
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_personal_portfolio_videos
+    - media.type.remote_video
+    - node.type.resume
+id: node.resume.field_personal_portfolio_videos
+field_name: field_personal_portfolio_videos
+entity_type: node
+bundle: resume
+label: 'Personal Portfolio Videos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
