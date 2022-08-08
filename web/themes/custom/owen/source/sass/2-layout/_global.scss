@@ -172,7 +172,7 @@
 
 .vertical-flow {
   & + .vertical-flow {
-    @include vertical-flow($mobile: $gutter, $desktop: $gutter*2);
+    @include vertical-flow($mobile: $gutter*2, $desktop: $gutter*2);
   }
 }
 
@@ -184,7 +184,7 @@
 
 .vertical-flow-small {
   & + .vertical-flow-small {
-    @include vertical-flow($mobile: $gutter/2, $desktop: $gutter);
+    @include vertical-flow($mobile: $gutter, $desktop: $gutter);
   }
 }
 

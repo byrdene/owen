@@ -57,7 +57,7 @@ a[href] {
     //background-color: $link-color;
     background-color: $ice;
     color: $primary-color;
-    @include font-weight(semibold);
+    @include font-weight(bold);
     //text-decoration: underline;
     text-decoration: none;
     display: inline-block;
