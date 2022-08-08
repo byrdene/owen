@@ -37,7 +37,18 @@
 {#  </div>#}
   <div class="video-text-wrapper">
     {% if content.field_video_title|render %}
-      <div class="video-title"><a data-fancybox="music-gallery" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_title.0 }} {{ content.field_video_description.0 }}"><strong>{{ content.field_video_title.0 }}</strong></a>
+      <div class="video-wrapper">
+        <div class="video-link">
+          <div class="video-button-wrapper">
+            <button class="video-play-button" data-fancybox="music-gallery" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_title.0 }} {{ content.field_video_description.0 }}">
+              <span class="sr-only">Open Video</span>
+              <i class="icon"></i>
+            </button>
+          </div>
+        </div>
+        <div class="video-title"><strong>{{ content.field_video_title.0 }}</strong>
+
+        </div>
       </div>
     {% endif %}
     {% if content.field_video_description|render %}
