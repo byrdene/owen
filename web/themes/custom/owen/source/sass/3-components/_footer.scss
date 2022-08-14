@@ -22,9 +22,17 @@ footer {
         .copyright-info {
           margin-bottom: 20px;
         }
-        .wolfpack-logo-wrapper {
-          width: 40px;
-          margin-top: 20px;
+        .footer-link-wrapper {
+          margin-top: 0;
+          padding-left: 2px;
+          padding-bottom: 3px;
+
+          display: flex;
+          align-items: center;
+
+          .wolfpack-logo-wrapper {
+            width: 40px;
+          }
         }
       }
     }
@@ -49,11 +57,6 @@ footer {
             padding-right: 10px;
           }
 
-          .wolfpack-logo-wrapper {
-            margin-top: 0;
-            padding-left: 2px;
-            padding-bottom: 3px;
-          }
         }
       }
     }
