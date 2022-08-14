@@ -147,6 +147,14 @@ $line-height: calc(#{$size} - #{$border-size});
           z-index: -1;
         }
 
+        .slide-title {
+          top: auto;
+          bottom: -40px;
+          color: $charcoal;
+          text-shadow: none;
+          @include font-weight(bold);
+        }
+
         .slide-text-wrapper {
           opacity: 0;
         }
@@ -157,6 +165,14 @@ $line-height: calc(#{$size} - #{$border-size});
           opacity: 1;
           filter: grayscale(0);
           transform: scale(1.25);
+
+          .slide-title {
+            top: 0;
+            bottom: auto;
+            color: $white;
+            text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+            @include font-weight(bold);
+          }
 
           .slide-text-wrapper {
             opacity: 1;
