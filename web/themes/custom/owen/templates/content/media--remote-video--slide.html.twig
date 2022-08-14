@@ -1,0 +1,32 @@
+{{ attach_library('owen/fancybox') }}
+
+{#Based on https://mark.ie/blog/printing-values-of-a-parent-node-from-a-drupal-paragraphs-field#}
+{% set parentID = media._referringItem.parent.parent.entity.nid.value %}
+
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'media',
+    'media--type-' ~ media.bundle()|clean_class,
+    view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+    'video-slide-wrapper',
+  ]
+%}
+
+<div{{ attributes.removeClass('contextual-region').addClass(classes) }}>
+  <div class="video-source-link text__small"><a class="button button-small" data-fancybox="highlights-{{ parentID }}" href="{{ media.field_media_oembed_video.value }}" data-caption="{{ content.field_video_title.0 }} {{ content.field_video_description.0 }}">Watch</a></div>
+
+</div>

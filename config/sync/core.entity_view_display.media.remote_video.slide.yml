@@ -1,0 +1,50 @@
+uuid: 55356e7d-e708-416d-ace0-1c9435ed9813
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.slide
+    - field.field.media.remote_video.field_creation_date
+    - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_video_description
+    - field.field.media.remote_video.field_video_title
+    - media.type.remote_video
+  module:
+    - text
+_core:
+  default_config_hash: 3wLfiu5xD600Zc_nT7wPlYh6aNSC-214BGkNUL67TMk
+id: media.remote_video.slide
+targetEntityType: media
+bundle: remote_video
+mode: slide
+content:
+  field_media_oembed_video:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_video_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_video_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  field_creation_date: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

@@ -125,75 +125,6 @@ caption {
 
 .media {
   position: relative;
-  .field--name-video-modal-button {
-    .launch-button {
-      position: absolute;
-      top: calc(50% - 40px); // minus half the height of the play button
-      left: calc(50% - 40px); // minus half the width of the play button
-      button {
-        background: transparent;
-        border: none;
-        span {
-          display: inline-block;
-          overflow: hidden;
-          white-space: nowrap;
-          text-indent: -9999px;
-          position: relative;
-          width: 80px;
-          height: 80px;
-          border: 1px solid $white;
-          @include border-radius(50%);
-          &:after {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: $icomoon;
-            content: $icon-triangle-right;
-            text-indent: 0;
-            text-align:center;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            color: $white;
-            font-size: 48px;
-            cursor: pointer;
-          }
-          &:hover,
-          &:focus {
-            &:after {
-              background-color: rgba(0, 0, 0, .4);
-            }
-          }
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-  }
-  .field--name-video-modal-button-audio-desc {
-    .launch-button.audio-description  {
-      margin-top: $gutter/2;
-      button {
-        background: transparent;
-        border: none;
-        padding: 0;
-        span {
-          color: $action-color;
-          cursor: pointer;
-        }
-        &:hover,
-        &:focus {
-          outline: 1px dotted;
-          span {
-            color: $primary-color;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
 
   /* fade image in after load */
   .lazyload,
@@ -214,60 +145,38 @@ caption {
 
 // aspect ratios for media view modes (img and srcset approach to responsive images)
 .media--view-mode-square {
-  @include fluid-aspect-ratio(1 1);
+  //@include fluid-aspect-ratio(1 1);
 }
 
 .media--view-mode-landscape-full-width-16x9,
 .media--view-mode-landscape-contained-16x9 {
-  @include fluid-aspect-ratio(16 9);
+  //@include fluid-aspect-ratio(16 9);
 }
 
 .media--view-mode-landscape-full-width-4x3,
 .media--view-mode-landscape-contained-4x3 {
-  @include fluid-aspect-ratio(4 3);
+  //@include fluid-aspect-ratio(4 3);
 }
 
 // aspect ratios - custom per project
 
 .media--view-mode-banner {
   .field--name-field-media-image {
-    @include fluid-aspect-ratio(14 5);
+    //@include fluid-aspect-ratio(14 5);
   }
 }
 
 .media--view-mode-slide {
-  @include fluid-aspect-ratio(5 2);
+  //@include fluid-aspect-ratio(5 2);
 }
 
 .default-landscape-teaser,
 .media--view-mode-landscape-teaser {
-  @include fluid-aspect-ratio(16 9);
+  //@include fluid-aspect-ratio(16 9);
 }
 
 .media--view-mode-image-component {
-  @include fluid-aspect-ratio(3 2);
-}
-
-.media--view-mode-colorbox {
-  a.colorbox {
-    position: relative;
-    &:before {
-      position:absolute;
-      bottom: 0;
-      right: 0;
-      width: 28px;
-      height: 28px;
-      line-height: 28px;
-      font-family: $icomoon;
-      content: $icon-expand;
-      font-size: 18px;
-      text-align: center;
-      cursor: pointer;
-      color: $action-color;
-      background: $white;
-      z-index: 1;
-    }
-  }
+  //@include fluid-aspect-ratio(3 2);
 }
 
 // for video embeds via iframes added manually in the RTE

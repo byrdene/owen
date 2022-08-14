@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
+    - field.field.node.resume.field_highlight_carousel
     - field.field.node.resume.field_interests_rte
     - field.field.node.resume.field_metatags
     - field.field.node.resume.field_personal_portfolio_intro
@@ -28,12 +29,21 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_education_rte:
     type: text_default
     label: hidden
     settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_highlight_carousel:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
     third_party_settings: {  }
     weight: 0
     region: content
@@ -42,7 +52,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_metatags:
     type: metatag_empty_formatter
@@ -80,7 +90,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_work_leadership:
     type: entity_reference_revisions_entity_view

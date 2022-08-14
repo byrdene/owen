@@ -1,0 +1,23 @@
+uuid: e7267374-3217-47a1-be88-aa09ad0884d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.16x9_medium
+    - image.style.16x9_small
+    - image.style.16x9_x_small
+id: slide
+label: Slide
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 16x9_medium
+        - 16x9_small
+        - 16x9_x_small
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: 16x9_small

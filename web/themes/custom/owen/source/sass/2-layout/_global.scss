@@ -194,6 +194,12 @@
   }
 }
 
+.vertical-flow-xx-small {
+  & + .vertical-flow-xx-small {
+    @include vertical-flow($mobile: $gutter/4, $desktop: $gutter/4);
+  }
+}
+
 .section {
   & + .section {
     @include vertical-flow($mobile: $gutter*2, $desktop: $gutter*3);

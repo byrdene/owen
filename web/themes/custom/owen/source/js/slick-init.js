@@ -16,30 +16,36 @@
     var countItems = $slideshow.children($slide).length;
     if (countItems > 1) {
       $slideshow.slick({
-        arrows: true,
+        mobileFirst: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        infinite: true,
+        centerMode: false,
+        infinite: false,
         touchMove: true,
         centerPadding: 0,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        speed: 750,
         zIndex: 40,
-        fade: true,
-        cssEase: 'linear',
-        useCSS: true
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              centerMode: true,
+              infinite: true,
+              slidesToShow: 3
+            }
+          },
+        ]
       });
     }
 
-    var $activatedSlider = $('.active-controllers.slick-slider');
-
-    if (($activatedSlider.length > 0) && ($('.controls-wrapper').length < 1)) {
-      $activatedSlider.prepend($controls);
-      $('.active-controllers.slick-slider button').wrapAll("<div class='controls-position' />");
-      $('.controls-position').wrapAll("<div class='controls-wrapper' />");
-      $activatedSlider.wrap( "<section aria-label='Slideshow of featured images' />");
-    }
+    // var $activatedSlider = $('.active-controllers.slick-slider');
+    //
+    // if (($activatedSlider.length > 0) && ($('.controls-wrapper').length < 1)) {
+    //   $activatedSlider.prepend($controls);
+    //   $('.active-controllers.slick-slider button').wrapAll("<div class='controls-position' />");
+    //   $('.controls-position').wrapAll("<div class='controls-wrapper' />");
+    //   $activatedSlider.wrap( "<section aria-label='Slideshow of featured images' />");
+    // }
   }
 
   /**
@@ -250,6 +256,7 @@
 
 
   function initAllCarousel() {
+    setGalleryCarousel('.highlight-carousel-wrapper', '.slide-item');
     setGalleryCarousel('.homepage-slides', '.slide-item');
     setGalleryCarousel('.featured-media-wrapper', '.slide-item');
     // setGallerySlider('.component--type-gallery-slider .gallery-wrapper', '.gallery-item');

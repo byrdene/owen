@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.resume.field_distinctions_rte
     - field.field.node.resume.field_education_rte
+    - field.field.node.resume.field_highlight_carousel
     - field.field.node.resume.field_interests_rte
     - field.field.node.resume.field_metatags
     - field.field.node.resume.field_personal_portfolio_intro
@@ -29,6 +30,7 @@ content:
 hidden:
   field_distinctions_rte: true
   field_education_rte: true
+  field_highlight_carousel: true
   field_interests_rte: true
   field_metatags: true
   field_personal_portfolio_intro: true

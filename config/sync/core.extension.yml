@@ -77,6 +77,7 @@ module:
   path_alias: 0
   project_admin: 0
   project_utilities: 0
+  rebuild_cache_access: 0
   redirect: 0
   responsive_favicons: 0
   responsive_image: 0

@@ -10,6 +10,7 @@ dependencies:
     - file
     - media
     - node
+    - rebuild_cache_access
     - shortcut
     - system
     - toolbar
@@ -30,6 +31,7 @@ permissions:
   - 'edit any remote_video media'
   - 'edit any resume content'
   - 'edit site_settings config page entity'
+  - 'rebuild cache access'
   - 'update any media'
   - 'view site_settings config page entity'
   - 'view the administration theme'

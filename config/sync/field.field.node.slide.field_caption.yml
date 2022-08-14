@@ -1,0 +1,26 @@
+uuid: 1e8936e7-b2e1-4f77-9935-570e26f11f20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caption
+    - node.type.slide
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.slide.field_caption
+field_name: field_caption
+entity_type: node
+bundle: slide
+label: Caption
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,25 @@
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'slide-item',
+] %}
+
+<article {{ attributes.addClass(classes)}}>
+
+  <div class="slide-wrapper">
+    <div class="slide-image-wrapper">
+      {{ content.field_main_image }}
+    </div>
+    <div class="slide-text-wrapper">
+      <div class="inner-wrapper">
+{#        <div class="slide-title text__large"><strong>{{ node.label }}</strong></div>#}
+        <div class="slide-description text__small vertical-flow-xx-small">{{ content.field_caption }}</div>
+        <div class="slide-link vertical-flow-xx-small">{{ content.field_link }}</div>
+        <div class="slide-video-link vertical-flow-xx-small">{{ content.field_slide_videos }}</div>
+      </div>
+
+    </div>
+  </div>
+
+</article>

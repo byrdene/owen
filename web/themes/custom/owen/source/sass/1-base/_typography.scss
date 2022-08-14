@@ -115,9 +115,9 @@ h1,
   font-family: $raleway;
   @include font-size($h1-font-size-mobile);
   color: $primary-color;
-  @include font-weight(light);
-  text-transform: uppercase;
-  letter-spacing: 4px;
+  @include font-weight(semibold);
+  text-transform: none;
+  letter-spacing: .5px;
   margin-bottom: 0;
   @include bp($desktop-nav, up) {
     @include font-size($h1-font-size);

@@ -19,10 +19,21 @@ header {
         color: $white;
         display: flex;
 
-        > *,
-        h1 {
+        > * {
           color: $white;
         }
+      }
+    }
+
+    .header-text {
+      strong {
+        font-family: $raleway;
+        @include font-size(48px);
+        color: $white;
+        @include font-weight(light);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        margin-bottom: 0;
       }
     }
     .navigation-wrapper {
@@ -84,7 +95,6 @@ header {
 
     }
 
-    // desktop up
     @include bp(medium, up) { // wide enough to ignore tablet compensations
       .region-header {
         position: relative;
@@ -105,6 +115,14 @@ header {
         display: none;
       }
 
+    }
+
+    @include bp(tablet-menu, up) {
+      .header-text {
+        strong {
+          @include font-size(60px);
+        }
+      }
     }
 
     // positioning the hamburger trigger

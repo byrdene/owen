@@ -10,6 +10,12 @@
 
 <section {{ attributes.addClass(classes)}}>
 
+  {% if content.field_highlight_carousel|render %}
+    <div class="highlight-carousel-wrapper container content-large margin-bottom">
+      {{ content.field_highlight_carousel }}
+    </div>
+  {% endif %}
+
   <div class="content-wrapper container content-large padded-row">
 
     <div class="column-wrapper col-a">

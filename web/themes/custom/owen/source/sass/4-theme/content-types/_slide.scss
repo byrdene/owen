@@ -1,0 +1,28 @@
+// ==========================================================================
+//   SLIDE Content type
+// ==========================================================================
+
+.node--type-slide {
+  .slide-wrapper {
+    position: relative;
+
+    .slide-text-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: $gutter/2;
+      color: $white;
+      background-color: rgba(0,0,0,.5);
+      text-align: center;
+
+      .slide-video-link {
+        > div:not(:first-of-type) {
+          display: none;
+        }
+
+      }
+
+    }
+  }
+}

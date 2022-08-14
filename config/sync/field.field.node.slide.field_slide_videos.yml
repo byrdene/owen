@@ -1,0 +1,29 @@
+uuid: 1a37d5ff-1305-4a11-97f3-939bd39b3cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slide_videos
+    - media.type.remote_video
+    - node.type.slide
+id: node.slide.field_slide_videos
+field_name: field_slide_videos
+entity_type: node
+bundle: slide
+label: Videos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
