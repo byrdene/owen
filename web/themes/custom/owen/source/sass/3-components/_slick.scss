@@ -107,8 +107,20 @@ $line-height: calc(#{$size} - #{$border-size});
 .highlight-carousel-wrapper {
   display: none; // hide on mobile
 
-  @include bp(medium, up){ // 768 is when 3 slides are visible
+  @include bp(medium, up) { // 768 is when 3 slides are visible
     display: block;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 35%;
+      height: 30%;
+      content: "";
+      background-color: $ice;
+      z-index: -1;
+    }
 
     .slick-list {
       padding: 30px 0 !important; // to allow vertical overflow of taller center slides
@@ -116,11 +128,24 @@ $line-height: calc(#{$size} - #{$border-size});
 
     .slick-slide {
       .slide-wrapper {
+        position: relative;
         max-width: 100%;
         opacity: .45;
         filter: grayscale(1);
         transform: scale(.75);
         transition: transform 0.5s;
+
+        &:before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          content:"";
+          background-color: $white;
+          filter: grayscale(0);
+          z-index: -1;
+        }
 
         .slide-text-wrapper {
           opacity: 0;
@@ -128,6 +153,7 @@ $line-height: calc(#{$size} - #{$border-size});
       }
       &.slick-center {
         .slide-wrapper {
+          margin: 0 20px;
           opacity: 1;
           filter: grayscale(0);
           transform: scale(1.25);
