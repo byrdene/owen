@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media.type.image
     - media.type.remote_video
     - node.type.resume
   module:
@@ -26,8 +27,10 @@ permissions:
   - 'access media overview'
   - 'access shortcuts'
   - 'access toolbar'
+  - 'create image media'
   - 'create remote_video media'
   - 'delete any media'
+  - 'edit any image media'
   - 'edit any remote_video media'
   - 'edit any resume content'
   - 'edit site_settings config page entity'
