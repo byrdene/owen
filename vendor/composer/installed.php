@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ae659b0318b17de427e9aabf0b5b06363e51f458',
+        'reference' => 'dacc0b732f8c6497d76896ce30e2831906e92705',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -616,6 +616,15 @@
             'reference' => '8.x-1.0',
             'dev_requirement' => false,
         ),
+        'drupal/editor_advanced_link' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/editor_advanced_link',
+            'aliases' => array(),
+            'reference' => '2.0.0',
+            'dev_requirement' => false,
+        ),
         'drupal/embed' => array(
             'pretty_version' => '1.5.0',
             'version' => '1.5.0.0',
@@ -991,7 +1000,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ae659b0318b17de427e9aabf0b5b06363e51f458',
+            'reference' => 'dacc0b732f8c6497d76896ce30e2831906e92705',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(

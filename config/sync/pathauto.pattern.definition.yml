@@ -1,0 +1,22 @@
+uuid: ce5b4a21-f309-4c41-aa91-441b9bfe2e0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: definition
+label: Definition
+type: 'canonical_entities:node'
+pattern: 'definitions/[node:title]'
+selection_criteria:
+  74978ea8-571b-48e1-9f91-df90336e5f65:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 74978ea8-571b-48e1-9f91-df90336e5f65
+    context_mapping:
+      node: node
+    bundles:
+      definition: definition
+selection_logic: and
+weight: -5
+relationships: {  }

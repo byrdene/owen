@@ -28,7 +28,8 @@ header {
     .header-text {
       strong {
         font-family: $raleway;
-        @include font-size(48px);
+        @include font-size(40px);
+        line-height: 1.2;
         color: $white;
         @include font-weight(light);
         text-transform: uppercase;

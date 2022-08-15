@@ -1,0 +1,17 @@
+uuid: 4049df86-74f1-4341-99a8-28f03d7d1cf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Definition
+type: definition
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

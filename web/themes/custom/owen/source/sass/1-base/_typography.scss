@@ -195,6 +195,15 @@ a[href].fancy-button {
   @extend %fancy-button;
 }
 
+a.fancybox-link {
+  border-bottom: 1px solid $ice;
+
+  &:hover,
+  &:focus {
+    color: $base-font-color;
+  }
+}
+
 div.more-link { // keep on same line as trimmed text
   display: inline-block;
   text-align: left;

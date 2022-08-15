@@ -52,12 +52,18 @@
 
         // update the fancybox gallery attr to include slide index so our "galleries"
         // don't include the videos from cloned slides
-        if (".slick-initialized") {
+        if ($(".slick-initialized").length) {
           $('.highlight-carousel-wrapper .slick-slide').each(function () {
             var index = $( '.highlight-carousel-wrapper .slick-slide' ).index( this );
             $( this ).find('.video-source-link a').attr('data-fancybox', 'highlights-' + index);
           });
         }
+
+        //  Add the fancybox data attribute
+        $('a.fancybox-link').each(function () {
+          $( this ).attr('data-fancybox', 'definitions');
+          $( this ).attr('data-type', 'iframe');
+        });
 
       });
 

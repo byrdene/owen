@@ -1,0 +1,25 @@
+uuid: 2bfd6123-f098-4513-abb6-6e01a3a96ec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.definition.body
+    - node.type.definition
+  module:
+    - text
+    - user
+id: node.definition.default
+targetEntityType: node
+bundle: definition
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  links: true
+  search_api_excerpt: true
