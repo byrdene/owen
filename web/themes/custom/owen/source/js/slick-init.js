@@ -265,47 +265,49 @@
   }
 
   // randomization function
-  $.fn.shuffle = function() {
-
-    var allElems = this.get(),
-      getRandom = function(max) {
-        return Math.floor(Math.random() * max);
-      },
-      shuffled = $.map(allElems, function(){
-        var random = getRandom(allElems.length),
-          randEl = $(allElems[random]).clone(true)[0];
-        allElems.splice(random, 1);
-        return randEl;
-      });
-
-    this.each(function(i){
-      $(this).replaceWith($(shuffled[i]));
-    });
-
-    return $(shuffled);
-
-  };
+  // $.fn.shuffle = function() {
+  //
+  //   var allElems = this.get(),
+  //     getRandom = function(max) {
+  //       return Math.floor(Math.random() * max);
+  //     },
+  //     shuffled = $.map(allElems, function(){
+  //       var random = getRandom(allElems.length),
+  //         randEl = $(allElems[random]).clone(true)[0];
+  //       allElems.splice(random, 1);
+  //       return randEl;
+  //     });
+  //
+  //   this.each(function(i){
+  //     $(this).replaceWith($(shuffled[i]));
+  //   });
+  //
+  //   return $(shuffled);
+  //
+  // };
 
   // randomize homepage slide images
   // $('.node--type-homepage .hero-image-wrapper .hero-image').shuffle();
 
   initAllCarousel();
 
-  $('.active-controllers.slick-slider button.controls').click( function() {
-    if ($(this).hasClass('pause-slick')) {
-      $('.active-controllers.slick-slider').slick('slickPause');
-      $(this).html('Play slideshow');
-      $(this).removeClass('pause-slick');
-      $(this).addClass('play-slick');
-      $(this).attr('aria-label', 'Play automatic slideshow');
-    } else {
-      $('.active-controllers.slick-slider').slick('slickPlay');
-      $(this).html('Pause slideshow');
-      $(this).removeClass('play-slick');
-      $(this).addClass('pause-slick');
-      $(this).attr('aria-label', 'Pause automatic slideshow');
-    }
-  });
+
+
+  // $('.active-controllers.slick-slider button.controls').click( function() {
+  //   if ($(this).hasClass('pause-slick')) {
+  //     $('.active-controllers.slick-slider').slick('slickPause');
+  //     $(this).html('Play slideshow');
+  //     $(this).removeClass('pause-slick');
+  //     $(this).addClass('play-slick');
+  //     $(this).attr('aria-label', 'Play automatic slideshow');
+  //   } else {
+  //     $('.active-controllers.slick-slider').slick('slickPlay');
+  //     $(this).html('Pause slideshow');
+  //     $(this).removeClass('play-slick');
+  //     $(this).addClass('pause-slick');
+  //     $(this).attr('aria-label', 'Pause automatic slideshow');
+  //   }
+  // });
 
 
   // If slideshow needs to be reinitialized at different breakpoints, add it here:

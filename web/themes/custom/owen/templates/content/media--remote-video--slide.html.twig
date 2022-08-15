@@ -1,6 +1,8 @@
 {{ attach_library('owen/fancybox') }}
 
 {#Based on https://mark.ie/blog/printing-values-of-a-parent-node-from-a-drupal-paragraphs-field#}
+{# NOTE: I'm actually adding a unique value for data-fancybox via jQuery now because of Slick's cloning
+so the following is not really necessary #}
 {% set parentID = media._referringItem.parent.parent.entity.nid.value %}
 
 {#

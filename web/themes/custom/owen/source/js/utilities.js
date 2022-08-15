@@ -50,6 +50,15 @@
         // Remove the .fouc class that was added to elements to prevent the flash-of-unstyled-content
         $(".slick-initialized.fouc").removeClass("fouc");
 
+        // update the fancybox gallery attr to include slide index so our "galleries"
+        // don't include the videos from cloned slides
+        if (".slick-initialized") {
+          $('.highlight-carousel-wrapper .slick-slide').each(function () {
+            var index = $( '.highlight-carousel-wrapper .slick-slide' ).index( this );
+            $( this ).find('.video-source-link a').attr('data-fancybox', 'highlights-' + index);
+          });
+        }
+
       });
 
       $( window ).on( "load resize orientationchange", function( event ) {
