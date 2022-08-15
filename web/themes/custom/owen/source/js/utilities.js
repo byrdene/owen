@@ -58,7 +58,7 @@
             $( this ).find('.video-source-link a').attr('data-fancybox', 'highlights-' + index);
           });
         }
-        
+
         //  Add the fancybox data attribute
         $('a.fancybox-link').each(function () {
           $( this ).attr('data-fancybox', 'definitions');

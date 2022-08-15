@@ -130,8 +130,6 @@ $line-height: calc(#{$size} - #{$border-size});
       .slide-wrapper {
         position: relative;
         max-width: 100%;
-        opacity: .45;
-        filter: grayscale(1);
         transform: scale(.75);
         transition: transform 0.5s;
 
@@ -143,14 +141,18 @@ $line-height: calc(#{$size} - #{$border-size});
           right: 0;
           content:"";
           background-color: $white;
-          filter: grayscale(0);
           z-index: -1;
+        }
+
+        .slide-image-wrapper {
+          opacity: .45;
+          filter: grayscale(1);
         }
 
         .slide-title {
           top: auto;
           bottom: -40px;
-          color: $charcoal;
+          color: rgba(0,0,0,.4);
           text-shadow: none;
           @include font-weight(bold);
         }
@@ -162,9 +164,12 @@ $line-height: calc(#{$size} - #{$border-size});
       &.slick-center {
         .slide-wrapper {
           margin: 0 20px;
-          opacity: 1;
-          filter: grayscale(0);
           transform: scale(1.25);
+
+          .slide-image-wrapper {
+            opacity: 1;
+            filter: grayscale(0);
+          }
 
           .slide-title {
             top: 0;
