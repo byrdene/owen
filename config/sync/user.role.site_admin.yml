@@ -6,6 +6,7 @@ dependencies:
     - media.type.image
     - media.type.remote_video
     - node.type.resume
+    - node.type.slide
   module:
     - config_pages
     - file
@@ -29,10 +30,13 @@ permissions:
   - 'access toolbar'
   - 'create image media'
   - 'create remote_video media'
+  - 'create slide content'
   - 'delete any media'
+  - 'delete any slide content'
   - 'edit any image media'
   - 'edit any remote_video media'
   - 'edit any resume content'
+  - 'edit any slide content'
   - 'edit site_settings config page entity'
   - 'rebuild cache access'
   - 'update any media'
