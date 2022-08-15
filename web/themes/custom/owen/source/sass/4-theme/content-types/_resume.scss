@@ -81,10 +81,11 @@
 .node-type-resume {
   .fancybox__caption {
     max-width: 800px;
+    font-size: 1.25em;
 
     p {
-      font-size: .8em;
-      @include font-weight(thin);
+      font-size: .85em;
+      @include font-weight(light);
     }
   }
 }
