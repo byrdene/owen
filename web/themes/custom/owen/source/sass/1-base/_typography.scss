@@ -212,3 +212,22 @@ div.more-link { // keep on same line as trimmed text
     color: inherit;
   }
 }
+
+// universal transitions
+a,
+button,
+form {
+  @include universal-transitions();
+
+  &:before,
+  &:after {
+    @include universal-transitions();
+  }
+
+  * {
+    &:before,
+    &:after {
+      @include universal-transitions();
+    }
+  }
+}

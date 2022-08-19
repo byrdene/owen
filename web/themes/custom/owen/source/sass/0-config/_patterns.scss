@@ -10,6 +10,13 @@
   outline-offset: $offset !important;
 }
 
+// Universal transitions
+@mixin universal-transitions($properties: [background-color, border-color, box-shadow, color, opacity, text-shadow, transform, filter, -webkit-filter]) {
+  transition-duration: 0.2s;
+  transition-property: $properties;
+  transition-timing-function: linear;
+}
+
 %label {
   @include font-size(20px);
   @include font-weight(light);
