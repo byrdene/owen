@@ -11,7 +11,8 @@
 }
 
 // Universal transitions
-@mixin universal-transitions($properties: [background-color, border-color, box-shadow, color, opacity, text-shadow, transform, filter, -webkit-filter]) {
+$transition-list: background-color, border-color, box-shadow, color, opacity, text-shadow, transform, filter, -webkit-filter;
+@mixin universal-transitions($properties: $transition-list) {
   transition-duration: 0.2s;
   transition-property: $properties;
   transition-timing-function: linear;

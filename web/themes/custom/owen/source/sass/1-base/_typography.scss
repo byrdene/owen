@@ -225,6 +225,8 @@ form {
   }
 
   * {
+    @include universal-transitions();
+
     &:before,
     &:after {
       @include universal-transitions();
