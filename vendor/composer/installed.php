@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'dacc0b732f8c6497d76896ce30e2831906e92705',
+        'reference' => '946f54d25e28509fd613b37ec375f8b2b1d94543',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -452,6 +452,15 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/ckeditor_config',
             'aliases' => array(),
             'reference' => '8.x-3.1',
+            'dev_requirement' => false,
+        ),
+        'drupal/cloudfilt' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/cloudfilt',
+            'aliases' => array(),
+            'reference' => '1.0.1',
             'dev_requirement' => false,
         ),
         'drupal/coder' => array(
@@ -1000,7 +1009,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'dacc0b732f8c6497d76896ce30e2831906e92705',
+            'reference' => '946f54d25e28509fd613b37ec375f8b2b1d94543',
             'dev_requirement' => false,
         ),
         'drupal/redirect' => array(

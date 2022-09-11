@@ -1,0 +1,5 @@
+cloudfilt.config:
+  title: 'CloudFilt'
+  route_name: cloudfilt.config
+  description: 'Configure the connection with CloudFilt service.'
+  parent: system.admin_config_services

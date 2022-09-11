@@ -1,0 +1,10 @@
+name: 'CloudFilt'
+type: module
+description: 'Prevent and stop bots traffic, Web Scraping, Tor traffic, Spam Submissions, Web Fraud, Business logic and Denial of service (DDoS).'
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: cloudfilt.config
+# Information added by Drupal.org packaging script on 2021-05-04
+version: '1.0.1'
+project: 'cloudfilt'
+datestamp: 1620154724

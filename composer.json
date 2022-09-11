@@ -33,6 +33,7 @@
         "drupal/block_class": "^1.0",
         "drupal/chosen": "^3.0",
         "drupal/ckeditor_config": "^3.0",
+        "drupal/cloudfilt": "^1.0",
         "drupal/coffee": "^1.0@beta",
         "drupal/colorbox": "^1.4",
         "drupal/composer_deploy": "^1.6",

@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Contains cloudfilt.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_requirements().
+ */
+function cloudfilt_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'runtime') {
+    $config = \Drupal::config('cloudfilt.config');
+
+    if ($config->get('key_site')) {
+      $requirements['cloudfilt'] = array(
+        'title' => t('CloudFilt'),
+        'value' => t('Everything is set. Your website is protected.'),
+        'severity' => REQUIREMENT_OK,
+      );
+    }
+    else {
+      $requirements['cloudfilt'] = array(
+        'title' => t('CloudFilt'),
+        'value' => t('In order to protect your website, please <a href="@url" target="_blank">complete the configuration</a>.', ['@url' => Url::fromRoute('cloudfilt.config')->toString()]),
+        'severity' => REQUIREMENT_WARNING,
+      );
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function cloudfilt_page_attachments(array &$attachments) {
+  // Load Cloudfilt configs.
+  $config = \Drupal::config('cloudfilt.config');
+
+  // Check if configs exists.
+  if ($config->get('key_site')) {
+    // If excluded roles.
+    if ($config->get('roles_exclude')) {
+      // Get current user account.
+      $account = User::load(\Drupal::currentUser()->id());
+
+      if (!array_intersect($config->get('roles'), $account->getRoles())) {
+        _cloudfilt_attach_script($attachments, $config);
+      }
+    }
+    else {
+      _cloudfilt_attach_script($attachments, $config);
+    }
+  }
+}
+
+/**
+ * Attach script.
+ */
+function _cloudfilt_attach_script(&$attachments, $config) {
+  // Build src value.
+  $src = 'https://srv' . $config->get('key_site') . '.cloudfilt.com/analyz.js?render=' . $config->get('key_front');
+
+  // Attach script using config values.
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'script',
+      '#attributes' => [
+        'src' => $src,
+        'async' => TRUE
+      ],
+    ],
+    'cloudfilt-script',
+  ];
+}

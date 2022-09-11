@@ -1,0 +1,6 @@
+services:
+  cloudfilt.stack_middleware:
+    class: Drupal\cloudfilt\StackMiddleware\CloudfiltStackMiddleware
+    arguments: ['@http_client', '@config.factory']
+    tags:
+      - { name: http_middleware, priority: 280, responder: true }

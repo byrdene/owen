@@ -1,0 +1,9 @@
+cloudfilt.config:
+  path: '/admin/config/services/cloudfilt'
+  defaults:
+    _form: '\Drupal\cloudfilt\Form\CloudfiltConfigForm'
+    _title: 'CloudFilt'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
