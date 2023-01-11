@@ -151,11 +151,11 @@ $line-height: calc(#{$size} - #{$border-size});
         }
 
         .slide-title {
-          //top: auto;
-          //bottom: -40px;
-          //color: rgba(0,0,0,.4);
-          //text-shadow: none;
-          //@include font-weight(bold);
+          top: auto;
+          bottom: -40px;
+          color: rgba(0,0,0,.4);
+          text-shadow: none;
+          @include font-weight(bold);
         }
 
         .slide-text-wrapper {
@@ -179,9 +179,9 @@ $line-height: calc(#{$size} - #{$border-size});
         .slide-title {
           top: 0;
           bottom: auto;
-          //color: $white;
-          //text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-          //@include font-weight(bold);
+          color: $white;
+          text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+          @include font-weight(bold);
         }
 
         .slide-text-wrapper {
