@@ -7,9 +7,13 @@ header {
   #site-header {
     .social-men-wrapper {
       position: absolute;
-      top: 20px;
+      top: 40px;
       right: 20px;
       z-index: 3;
+
+      @include bp(medium, up) {
+        top: 30px;
+      }
     }
 
     .region-header {
