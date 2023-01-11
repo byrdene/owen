@@ -105,11 +105,19 @@ $line-height: calc(#{$size} - #{$border-size});
 }
 
 .highlight-carousel-wrapper {
-  //display: none; // hide on mobile
+  .slick-prev,
+  .slick-next {
+    top: 40%;
+  }
 
   @include bp(medium, up) { // 768 is when 3 slides are visible
     display: block;
     position: relative;
+
+    .slick-prev,
+    .slick-next {
+      top: 50%;
+    }
 
     &:before {
       position: absolute;
@@ -155,7 +163,7 @@ $line-height: calc(#{$size} - #{$border-size});
           bottom: -40px;
           color: rgba(0,0,0,.4);
           text-shadow: none;
-          @include font-weight(bold);
+          @include font-weight(normal);
         }
 
         .slide-text-wrapper {
