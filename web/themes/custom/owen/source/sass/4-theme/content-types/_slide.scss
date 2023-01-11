@@ -14,7 +14,7 @@
       padding: $gutter/2;
       text-align: center;
       color: $white;
-      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
       @include font-weight(bold);
     }
 
@@ -25,7 +25,7 @@
       right: 0;
       padding: $gutter/2;
       color: $white;
-      background-color: rgba(0,0,0,.5);
+      background-color: rgba(0,0,0,.6);
       text-align: center;
 
       .slide-video-link {

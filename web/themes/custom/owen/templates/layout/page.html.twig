@@ -31,21 +31,21 @@
 {#      </div>#}
 
       {% if page.header %}
-{#        <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Header">#}
-{#          <ul class="menu">#}
-{#            <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">#}
-{#                <span class="sr-only">Youtube</span>#}
-{#                <i class="icon"></i>#}
-{#              </a>#}
-{#            </li>#}
-{#            <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">#}
-{#                <span class="sr-only">Linkedin</span>#}
-{#                <i class="icon"></i>#}
-{#              </a>#}
-{#            </li>#}
-{#          </ul>#}
+        <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Header">
+          <ul class="menu">
+            <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">
+                <span class="sr-only">Youtube</span>
+                <i class="icon"></i>
+              </a>
+            </li>
+            <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">
+                <span class="sr-only">Linkedin</span>
+                <i class="icon"></i>
+              </a>
+            </li>
+          </ul>
 
-{#        </div>#}
+        </div>
         {{ page.header }}
       {% endif %}
 

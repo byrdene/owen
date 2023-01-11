@@ -20,7 +20,7 @@
         slidesToShow: 1,
         slidesToScroll: 1,
         centerMode: false,
-        infinite: false,
+        infinite: true,
         touchMove: true,
         centerPadding: 0,
         zIndex: 40,
