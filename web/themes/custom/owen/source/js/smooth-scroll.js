@@ -27,6 +27,16 @@
 
       });
 
+
+      $(window).scroll(function() {
+        if($(this).scrollTop() < 150) {
+          $("#scroll-top-wrapper").removeClass("visible");
+        }
+        else {
+          $("#scroll-top-wrapper").addClass("visible");
+        }
+      })
+
       // back to top scroll button
       $("#scroll-top").click(function() {
         $('html, body').animate({ scrollTop: 0 }, 750);
