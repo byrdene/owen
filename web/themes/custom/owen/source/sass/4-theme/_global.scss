@@ -95,6 +95,9 @@
   &__allcaps {
     text-transform: uppercase;
   }
+  &__italics {
+    font-style: italic;
+  }
   &__label {
     text-transform: uppercase;
     color: $primary-color;

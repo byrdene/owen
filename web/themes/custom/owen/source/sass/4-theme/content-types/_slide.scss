@@ -19,14 +19,21 @@
     }
 
     .slide-text-wrapper {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: $gutter/2;
+      padding: $gutter $gutter/2 0 $gutter/2;
       color: $white;
-      background-color: rgba(0,0,0,.6);
+      background-color: $black;
       text-align: center;
+      min-height: 100px;
+
+      @include bp(medium, up) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: $gutter/2;
+        background-color: rgba(0,0,0,.6);
+        min-height: auto;
+      }
 
       .slide-video-link {
         > div:not(:first-of-type) {
