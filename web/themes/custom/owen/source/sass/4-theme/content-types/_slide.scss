@@ -19,11 +19,11 @@
     }
 
     .slide-text-wrapper {
-      padding: $gutter $gutter/2 0 $gutter/2;
+      padding: $gutter $gutter/2 $gutter/2 $gutter/2;
       color: $white;
       background-color: $black;
       text-align: center;
-      min-height: 100px;
+      min-height: 110px;
 
       @include bp(medium, up) {
         position: absolute;
