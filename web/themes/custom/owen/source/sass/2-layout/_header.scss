@@ -106,6 +106,12 @@ header {
           display: flex;
           align-items: center;
 
+          ul.menu {
+            li {
+              margin: 0 10px 0 0;
+            }
+          }
+
           .wolfpack-logo-wrapper {
             width: 40px;
           }
