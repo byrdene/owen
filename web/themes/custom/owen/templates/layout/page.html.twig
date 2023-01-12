@@ -7,31 +7,62 @@
   <header>
     <div id="site-header" class="container">
 
+      <div id="mobile-nav" class="mobile">
       {# Hamburger navigation trigger #}
-{#      <div id="hamburger-navigation">#}
-{#        <button id="hamburger" class="hamburger hamburger--squeeze" type="button"#}
-{#                aria-label="Menu" aria-controls="navigation-panel" aria-expanded="false">#}
-{#          <span class="hamburger-label">Menu</span>#}
-{#          <span class="hamburger-box">#}
-{#          <span class="hamburger-inner"></span>#}
-{#        </span>#}
-{#        </button>#}
-{#      </div>#}
+      <div id="hamburger-navigation">
+        <button id="hamburger" class="hamburger hamburger--squeeze" type="button"
+                aria-label="Menu" aria-controls="navigation-panel" aria-expanded="false">
+          <span class="hamburger-label">Menu</span>
+          <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+        </button>
+      </div>
 
-{#      <div class="navigation-wrapper">#}
+      <div class="navigation-wrapper">
 
-{#        <div id="navigation-panel">#}
-{#          <div class="wrapper__menu--main">{{ drupal_menu('main', 1, 2, TRUE) }}</div>#}
-{#        </div>#}
+        <div id="navigation-panel">
+          <div class="wrapper__menu--main">
+            <ul class="menu">
+              <li><a href="#highlights">Highlight Reel</a></li>
+              <li><a href="#experience">Work and Leadership Experience</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#distinctions">Distinctions</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#interests">Interests</a></li>
+            </ul>
+          </div>
 
-{#      </div>#}
+          <div class="hamburger-social-wrapper padded">
+            <div class="social-men-wrapper mobile" role="navigation" aria-label="Social Media Links in Header">
+              <ul class="menu">
+                <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">
+                    <span class="sr-only">Youtube</span>
+                    <i class="icon"></i>
+                  </a>
+                </li>
+                <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">
+                    <span class="sr-only">Linkedin</span>
+                    <i class="icon"></i>
+                  </a>
+                </li>
+              </ul>
 
-{#      <div class="navigation-wrapper-desktop">#}
-{#        <div class="wrapper__menu--main">{{ drupal_menu('main', 1, 1) }}</div>#}
-{#      </div>#}
+            </div>
+            <div class="wolfpack-logo-wrapper">
+              <a href="{{ config_pages_field('site_settings', 'field_waring_robotics_website').0 }}" title="{{ 'Wolfpack Machina website'|t }}" target="_blank">
+                <img src="{{ base_path ~ directory }}/static/images/wolfpackmachina-logo.png" alt="{{ 'Wolfpack Machina logo'|t }}"/>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      </div>
 
       {% if page.header %}
-        <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Header">
+        <div class="social-men-wrapper desktop" role="navigation" aria-label="Social Media Links in Header">
           <ul class="menu">
             <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">
                 <span class="sr-only">Youtube</span>

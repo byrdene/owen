@@ -5,7 +5,7 @@
 header {
 
   #site-header {
-    .social-men-wrapper {
+    .social-men-wrapper:not(.mobile) {
       position: absolute;
       top: 40px;
       right: 20px;
@@ -90,11 +90,25 @@ header {
           display: none;
           z-index: 500;
           //padding: $gutter 0;
-          width: 100%;
+          width: 80%;
           max-width: 360px;
           float: right;
-          top: $mobile-trigger-height;
-          background-color: $primary-color;
+          top: 60px;
+          //background-color: $primary-color;
+          background-color: $black;
+          box-shadow: -2px 4px 9px 0px rgba(0,0,0,0.36);
+          -webkit-box-shadow: -2px 4px 9px 0px rgba(0,0,0,0.36);
+          -moz-box-shadow: -2px 4px 9px 0px rgba(0,0,0,0.36);
+        }
+
+        .hamburger-social-wrapper {
+
+          display: flex;
+          align-items: center;
+
+          .wolfpack-logo-wrapper {
+            width: 40px;
+          }
         }
       }
 
@@ -134,7 +148,7 @@ header {
     #hamburger-navigation {
       display: block;
       position: absolute;
-      top: 4px;
+      top: 20px;
       right: $gutter;
       left: auto;
       bottom: auto;

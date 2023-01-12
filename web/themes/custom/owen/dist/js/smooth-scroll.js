@@ -1,0 +1,2 @@
+!function(e,t){e.behaviors.smoothScroll={attach:function(e){t(document).on("click",'a[href^="#"]',function(e){e.preventDefault(),t("html, body").animate({scrollTop:t(t.attr(this,"href")).offset().top-20},750);e=document.getElementById("hamburger");t("#navigation-panel").slideUp(),e.className=e.className.replace(" is-active",""),e.setAttribute("aria-expanded","false")})}}}(Drupal,jQuery);
+//# sourceMappingURL=smooth-scroll.js.map

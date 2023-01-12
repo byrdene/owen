@@ -21,6 +21,7 @@ global:
     dist/js/accordions.js: {}
     'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js': { type: external }
     dist/js/utilities.js: {}
+    dist/js/smooth-scroll.js: {}
   dependencies:
     - core/jquery
     - core/drupal

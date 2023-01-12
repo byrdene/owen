@@ -10,7 +10,7 @@
 
 <section {{ attributes.addClass(classes)}}>
 
-  <h2 class="mobile padded-row text__allcaps">Highlight Reel</h2>
+  <h2 class="mobile padded-row text__allcaps"><a id="highlights">Highlight Reel</a></h2>
 
   {% if content.field_highlight_carousel|render %}
     <div class="highlight-carousel-wrapper container content-large margin-bottom">
@@ -24,7 +24,7 @@
 
       {% if content.field_work_leadership|render %}
         <div class="work-leadership-wrapper vertical-flow">
-          <h2 class="text__allcaps">Work & Leadership Experience</h2>
+          <h2 class="text__allcaps"><a id="experience">Work & Leadership Experience</a></h2>
           {{ content.field_work_leadership }}
         </div>
       {% endif %}
@@ -35,28 +35,28 @@
 
       {% if content.field_education_rte|render %}
         <div class="education-wrapper separator vertical-flow">
-          <h2 class="text__allcaps">Education</h2>
+          <h2 class="text__allcaps"><a id="education">Education</a></h2>
           {{ content.field_education_rte }}
         </div>
       {% endif %}
 
       {% if content.field_distinctions_rte|render %}
         <div class="distinctions-wrapper separator vertical-flow">
-          <h2 class="text__allcaps">Distinctions</h2>
+          <h2 class="text__allcaps"><a id="distinctions">Distinctions</a></h2>
           {{ content.field_distinctions_rte }}
         </div>
       {% endif %}
 
       {% if content.field_skills_rte|render %}
         <div class="skills-wrapper separator vertical-flow">
-          <h2 class="text__allcaps">Skills</h2>
+          <h2 class="text__allcaps"><a id="skills">Skills</a></h2>
           {{ content.field_skills_rte }}
         </div>
       {% endif %}
 
       {% if content.field_interests_rte|render %}
         <div class="interests-wrapper separator vertical-flow">
-          <h2 class="text__allcaps">Interests</h2>
+          <h2 class="text__allcaps"><a id="interests">Interests</a></h2>
           <div class="interests-inner-wrapper vertical-flow-small">{{ content.field_interests_rte }}</div>
 
           {% if content.field_personal_portfolio_label|render %}

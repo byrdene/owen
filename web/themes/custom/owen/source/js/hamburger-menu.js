@@ -31,7 +31,7 @@
         $('.block-search .block-inner').removeClass('open');
       };
 
-      $('#navigation-panel .wrapper__menu--main > ul.menu').prepend('<li class="mobile-only"><a href="/">Home</a></li>');
+      // $('#navigation-panel .wrapper__menu--main > ul.menu').prepend('<li class="mobile-only"><a href="/">Home</a></li>');
 
       /**
        * Set the main menu submenu accordions for hamburger navigation
@@ -72,7 +72,7 @@
 
       // close the menu if the user clicks outside of it or clicks the esc key
       $( document ).on(event, function(e) {
-        var container = $("header");
+        var container = $("#mobile-nav");
 
         if ( $('#hamburger-navigation').css('display') === 'block' ) {
           // if the target of the click isn't the container nor a descendant of the container
