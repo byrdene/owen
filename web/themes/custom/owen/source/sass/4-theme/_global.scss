@@ -211,10 +211,11 @@ h3.teaser-title {
   position: fixed;
   bottom: $gutter;
   right: $gutter;
-  opacity: 0;
+  //opacity: 0;
   z-index: 99;
+  display: none;
   &.visible {
-    opacity: 1;
+    //opacity: 1;
   }
 
   button,

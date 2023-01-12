@@ -30,10 +30,12 @@
 
       $(window).scroll(function() {
         if($(this).scrollTop() < 150) {
-          $("#scroll-top-wrapper").removeClass("visible");
+          // $("#scroll-top-wrapper").removeClass("visible");
+          $("#scroll-top-wrapper").slideUp();
         }
         else {
-          $("#scroll-top-wrapper").addClass("visible");
+          // $("#scroll-top-wrapper").addClass("visible");
+          $("#scroll-top-wrapper").slideDown();
         }
       })
 
