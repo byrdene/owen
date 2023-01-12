@@ -27,6 +27,11 @@
 
       });
 
+      // back to top scroll button
+      $("#scroll-top").click(function() {
+        $('html, body').animate({ scrollTop: 0 }, 750);
+      });
+
     }
   };
 
