@@ -1,0 +1,12 @@
+name: 'Tofu Custom Paragraph - Remote Video'
+description: 'Paragraph bundle for remote video'
+type: module
+package: Custom
+core_version_requirement: ^9.0 || ^10
+dependencies:
+  - allowed_formats
+  - field
+  - media
+  - media_library
+  - paragraphs
+  - text

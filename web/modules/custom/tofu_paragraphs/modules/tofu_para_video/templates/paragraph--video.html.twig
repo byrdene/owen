@@ -1,0 +1,57 @@
+{# Attach CSS/JS Libraries - change library location as needed #}
+{#{{ attach_library('tofu_paragraphs/fancybox') }}#}
+
+{% set component_heading_status = false %}
+{% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
+  {% set component_heading_status = true %}
+  {% if paragraph.field_heading_status.value and paragraph.field_heading_status is defined %}
+    {% set component_heading_status = false %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'content-medium',
+  'padded-row',
+]
+%}
+
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      {% if component_heading_status %}
+        <div class="heading-wrapper">
+          {{ content.field_heading }}
+        </div>
+      {% endif %}
+
+      <div class="video-wrapper">
+
+        <div class="video-thumbnail">
+          {% if content.field_image|render %}
+            {{ content.field_image }}
+          {% else %}
+            {# If no custom image exists, display thumbnail from provider.
+            The view mode for the video should be "Modal" with a custom twig file to display the thumbnail #}
+            {{ content.field_video }}
+          {% endif %}
+        </div>
+
+        <div class="video-button-wrapper">
+          <button class="video-play-button" data-fancybox href="{{ paragraph.field_video|file_uri }}">
+            <span class="sr-only">Open Video</span>
+            <i class="icon"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

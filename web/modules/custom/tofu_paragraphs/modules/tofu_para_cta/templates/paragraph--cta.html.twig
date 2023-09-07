@@ -1,0 +1,29 @@
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'bg__primary',
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="cta-wrapper container">
+
+
+    <div class="cta-content container content-large padded">
+
+      <div class="text-wrapper vertical-flow-small">
+        <strong class="h2">{{ paragraph.field_cta_text.value }}</strong>
+      </div>
+      {% if content.field_cta_button|render %}
+        <div class="button-wrapper vertical-flow-small">
+          {{ content.field_cta_button }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>

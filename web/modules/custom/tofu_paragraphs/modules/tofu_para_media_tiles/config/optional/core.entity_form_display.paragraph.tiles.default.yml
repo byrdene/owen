@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tiles.field_heading
+    - field.field.paragraph.tiles.field_heading_status
+    - field.field.paragraph.tiles.field_tile_item
+    - paragraphs.paragraphs_type.tiles
+  module:
+    - paragraphs
+id: paragraph.tiles.default
+targetEntityType: paragraph
+bundle: tiles
+mode: default
+content:
+  field_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_heading_status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tile_item:
+    type: paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: 'Media Tile'
+      title_plural: 'Media Tiles'
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: tiles_item
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

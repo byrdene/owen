@@ -1,0 +1,30 @@
+
+{% set title = paragraph.field_section_title.value %}
+{#Use the title as attribute values but strip unwanted characters and replace spaces wish dashes#}
+{% set titleID = title|lower|replace({'!': '', '?': '', ',': '', ' ': '-',}) %}
+
+{%
+  set classes = [
+  'accordion',
+  'container',
+  'vertical-flow-small'
+]
+%}
+
+<article{{ attributes.addClass(classes) }} id="{{ titleID }}">
+
+  <button id="{{ titleID }}--button"
+          class="accordion__button"
+          aria-controls="{{ titleID }}--content"
+          aria-expanded="false">
+    <h3 class="accordion-title">{{ title }}</h3>
+  </button>
+
+  <div id="{{ titleID }}--content"
+       class="accordion__content"
+       aria-labelledby="{{ titleID }}--button"
+       aria-hidden="true">
+    {{ content.field_section_body }}
+  </div>
+
+</article>

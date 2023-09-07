@@ -1,0 +1,23 @@
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'content-small',
+  'padded-row',
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      <div class="text-wrapper">
+        {{ content.field_text }}
+      </div>
+
+    </div>
+  </div>
+</section>

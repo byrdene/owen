@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.audio.field_audio
+    - field.field.paragraph.audio.field_heading
+    - field.field.paragraph.audio.field_heading_status
+    - field.field.paragraph.audio.field_text
+    - paragraphs.paragraphs_type.audio
+id: paragraph.audio.preview
+targetEntityType: paragraph
+bundle: audio
+mode: preview
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_audio: true
+  field_heading_status: true
+  field_text: true
+  search_api_excerpt: true

@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains tofu_paragraphs.module.
+ */
+
+function tofu_paragraphs_page_attachments(array &$attachments) {
+  $config = \Drupal::config('system.theme');
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  if ($theme == $config->get('admin')) {
+    $attachments['#attached']['library'][] = 'tofu_paragraphs/overrides';
+  }
+}

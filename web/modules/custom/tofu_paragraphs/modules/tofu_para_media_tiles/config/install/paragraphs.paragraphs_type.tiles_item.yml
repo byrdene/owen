@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: tiles_item
+label: 'Image/Text Combo'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

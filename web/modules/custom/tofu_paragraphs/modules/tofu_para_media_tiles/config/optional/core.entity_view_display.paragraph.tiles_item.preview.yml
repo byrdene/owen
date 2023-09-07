@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.tiles_item.field_button
+    - field.field.paragraph.tiles_item.field_image
+    - field.field.paragraph.tiles_item.field_item_heading
+    - field.field.paragraph.tiles_item.field_text
+    - paragraphs.paragraphs_type.tiles_item
+id: paragraph.tiles_item.preview
+targetEntityType: paragraph
+bundle: tiles_item
+mode: preview
+content:
+  field_item_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_button: true
+  field_image: true
+  field_text: true
+  search_api_excerpt: true

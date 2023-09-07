@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_body
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - full_html
+id: paragraph.accordion_item.field_section_body
+field_name: field_section_body
+entity_type: paragraph
+bundle: accordion_item
+label: 'Section Body'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

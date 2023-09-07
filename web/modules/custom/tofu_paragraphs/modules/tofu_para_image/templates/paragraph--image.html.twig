@@ -1,0 +1,45 @@
+
+{% set component_heading_status = false %}
+{% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
+  {% set component_heading_status = true %}
+  {% if paragraph.field_heading_status.value and paragraph.field_heading_status is defined %}
+    {% set component_heading_status = false %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'content-medium',
+]
+%}
+
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      {% if component_heading_status %}
+        <div class="heading-wrapper">
+          {{ content.field_heading }}
+        </div>
+      {% endif %}
+
+      <div class="image-wrapper">
+        {{ content.field_image }}
+      </div>
+
+      {% if content.field_caption|render %}
+        <div class="caption-wrapper">
+          {{ content.field_caption }}
+        </div>
+      {% endif %}
+
+
+    </div>
+  </div>
+</section>

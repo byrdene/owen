@@ -1,0 +1,10 @@
+name: 'Tofu Custom Paragraph - Media Tiles'
+type: module
+core_version_requirement: ^9.0 || ^10
+package: Custom
+description: 'Paragraph bundle for sets of media/text combinations'
+dependencies:
+  - allowed_formats
+  - field
+  - paragraphs
+  - text

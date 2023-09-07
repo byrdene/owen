@@ -1,0 +1,8 @@
+name: 'Tofu Custom Paragraphs'
+type: module
+base theme: false
+description: 'Custom paragraph bundles with default config and templates'
+package: Custom
+core_version_requirement: ^9.0 || ^10
+dependencies:
+  - drupal:paragraphs

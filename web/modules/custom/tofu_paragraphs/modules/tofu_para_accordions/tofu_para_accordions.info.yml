@@ -1,0 +1,10 @@
+name: 'Tofu Custom Paragraph - Accordions'
+description: 'Paragraph bundle for Accordions'
+type: module
+package: Custom
+core_version_requirement: ^9.0 || ^10
+dependencies:
+  - allowed_formats
+  - field
+  - paragraphs
+  - text

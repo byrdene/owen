@@ -1,0 +1,48 @@
+{# Attach CSS/JS Libraries - change library location as needed #}
+{#{{ attach_library('tofu_paragraphs/green-audio-player') }}#}
+
+{% set component_heading_status = false %}
+{% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
+  {% set component_heading_status = true %}
+  {% if paragraph.field_heading_status.value and paragraph.field_heading_status is defined %}
+    {% set component_heading_status = false %}
+  {% endif %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'content-small',
+  'padded-row',
+]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      {% if component_heading_status %}
+        <div class="heading-wrapper vertical-flow-small">
+          <h2>{{ content.field_heading.0 }}</h2>
+        </div>
+      {% endif %}
+
+      {% if content.field_text|render %}
+        <div class="intro-wrapper vertical-flow-small">
+          {{ content.field_text.0 }}
+        </div>
+      {% endif %}
+
+      <div class="ready-player-1 player player-accessible vertical-flow-small">
+        <audio crossorigin>
+          <source src="{{ file_url(paragraph.field_audio.entity.field_media_audio_file.entity.fileuri) }}" type="audio/mpeg">
+        </audio>
+      </div>
+
+    </div>
+  </div>
+</section>

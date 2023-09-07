@@ -1,0 +1,41 @@
+
+{% set component_image_status = 'no-image' %}
+{% set component_width = 'content-large' %}
+{% if not (paragraph.field_image.isEmpty == true) and paragraph.field_image is defined %}
+  {% set component_image_status = 'has-image' %}
+  {% set component_width = 'content-medium' %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  component_image_status,
+  'bg__ice',
+]
+%}
+
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper container {{ component_width }}">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      {% if content.field_image|render %}
+        <div class="image-wrapper">
+          {{ content.field_image }}
+        </div>
+      {% endif %}
+
+      <div class="text-wrapper">
+        <blockquote class="not-rte">{{ content.field_text.0 }}
+          <p class="citation">{{ content.field_attribution.0 }}</p>
+        </blockquote>
+
+      </div>
+
+
+    </div>
+  </div>
+</section>
