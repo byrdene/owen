@@ -1,0 +1,10 @@
+key_front: fV5uAdZEAswAhsaTnges
+key_back: ZeaEg5VcqrRRygKP6kpF
+key_site: 15330
+roles_exclude: 1
+roles:
+  authenticated: authenticated
+  editor: editor
+  site_admin: site_admin
+  developer: developer
+  anonymous: 0

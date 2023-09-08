@@ -1,0 +1,26 @@
+uuid: 4edd55df-01bf-4355-b3c6-cdefc1d48136
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_text
+    - node.type.blog_landing_page
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - blog_html
+id: node.blog_landing_page.field_intro_text
+field_name: field_intro_text
+entity_type: node
+bundle: blog_landing_page
+label: 'Intro Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

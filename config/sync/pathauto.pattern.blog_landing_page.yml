@@ -1,0 +1,24 @@
+uuid: 4de281b0-383b-4e58-aced-2a949635717c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: R-Leiqve7aQzhd3oxBY-Yt8Q_UvoIp5LHzNMe1Ih_PY
+id: blog_landing_page
+label: 'Blog Landing Page'
+type: 'canonical_entities:node'
+pattern: '[node:field_blog_type]'
+selection_criteria:
+  dc4556fe-43cb-4411-824a-3cbbbb651e5d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: dc4556fe-43cb-4411-824a-3cbbbb651e5d
+    context_mapping:
+      node: node
+    bundles:
+      blog_landing_page: blog_landing_page
+selection_logic: and
+weight: -5
+relationships: {  }

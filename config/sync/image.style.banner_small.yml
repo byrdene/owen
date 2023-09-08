@@ -1,0 +1,17 @@
+uuid: 688f875f-7993-47ab-8f16-872bdae31b77
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner_small
+label: 'Banner Small (700 x 330)'
+effects:
+  baabd4a2-00ce-408f-9d05-0d360b2c1b0b:
+    uuid: baabd4a2-00ce-408f-9d05-0d360b2c1b0b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 700
+      height: 330
+      crop_type: focal_point

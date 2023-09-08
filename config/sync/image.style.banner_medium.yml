@@ -1,0 +1,17 @@
+uuid: 2d6d2f1c-d378-4b3d-b96f-9db353562ddf
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner_medium
+label: 'Banner Medium (1120 x 528)'
+effects:
+  fead30c7-e466-43ef-86e7-954c19710596:
+    uuid: fead30c7-e466-43ef-86e7-954c19710596
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1120
+      height: 528
+      crop_type: focal_point

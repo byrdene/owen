@@ -1,0 +1,17 @@
+uuid: 10d40ea8-72f2-4f5e-8e6c-0bd41f72851c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner_extra_large
+label: 'Banner X-Large (2800 x 1320)'
+effects:
+  2951b2b7-6825-4229-8b18-5643ff156a7f:
+    uuid: 2951b2b7-6825-4229-8b18-5643ff156a7f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2800
+      height: 1320
+      crop_type: focal_point

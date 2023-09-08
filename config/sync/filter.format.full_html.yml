@@ -14,7 +14,7 @@ _core:
   default_config_hash: UncuhoP0fSvVW8R0DGXfNpKj3WOzOGhn_mtqv8ZWj30
 name: 'Full HTML'
 format: full_html
-weight: -10
+weight: -9
 filters:
   editor_file_reference:
     id: editor_file_reference

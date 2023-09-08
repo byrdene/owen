@@ -162,7 +162,7 @@ caption {
 
 .media--view-mode-banner {
   .field--name-field-media-image {
-    //@include fluid-aspect-ratio(14 5);
+    @include fluid-aspect-ratio(1400 660);
   }
 }
 

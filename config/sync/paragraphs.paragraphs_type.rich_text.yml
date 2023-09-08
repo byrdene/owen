@@ -1,0 +1,12 @@
+uuid: 00ceef0b-e57c-4d06-8637-7381002cbd0d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: oy6nwN8pkYxO3EsAULidsoK9VVjY_gS1sgOphGTER7A
+id: rich_text
+label: 'Rich Text'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

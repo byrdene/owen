@@ -1,0 +1,17 @@
+uuid: f780fc39-f63c-4993-84e1-91fb4ee0cae6
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner_extra_small
+label: 'Banner X-Small (560 x 264)'
+effects:
+  ce17c80d-aa9c-4e80-9c8d-5326b46687cb:
+    uuid: ce17c80d-aa9c-4e80-9c8d-5326b46687cb
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 560
+      height: 264
+      crop_type: focal_point

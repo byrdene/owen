@@ -1,0 +1,58 @@
+
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class
+] %}
+
+{% set randomimg = random(content.field_banner_images['#items']|length - 1) %}
+
+<section {{ attributes.addClass(classes)}}>
+
+{#  <div class="breadcrumb-wrapper container padded-row content-small margin-top-x-small margin-bottom-small">#}
+{#    {{ drupal_breadcrumb() }}#}
+{#  </div>#}
+
+  <div class="hero-wrapper vertical-flow-large">
+    <div class="hero-image">{{ content.field_header_images[randomimg]}}</div>
+    <div class="hero-text">
+      <div class="text-wrapper container padded-row content-large">
+        <h1{{ title_attributes }} class="page-title">{{ node.label }}</h1>
+        <div class="blog-author margin-top-x-small">Owen Cooper</div>
+      </div>
+    </div>
+    {% if content.field_header_links|render %}
+      <div class="hero-links">
+        <div class="links-wrapper container padded-row content-large">{{ content.field_header_links }}</div>
+      </div>
+    {% endif %}
+  </div>
+
+  {% if content.field_intro_text|render %}
+    <div class="intro-wrapper container content-small padded-row vertical-flow-large">
+      {% if content.field_headshot|render %}
+        <div class="image-wrapper">
+          {{ content.field_headshot }}
+        </div>
+      {% endif %}
+      <div class="text-wrapper">
+        {{ content.field_intro_text }}
+      </div>
+    </div>
+  {% endif %}
+
+
+  {% if content.field_related_view|render %}
+    <div class="related-view-wrapper container vertical-flow vertical-flow-large">
+      {{ content.field_related_view }}
+    </div>
+  {% endif %}
+
+  {% if content.field_outro_text|render %}
+    <div class="outro-wrapper container content-small padded-row vertical-flow-large">
+      {{ content.field_outro_text }}
+    </div>
+  {% endif %}
+
+</section>

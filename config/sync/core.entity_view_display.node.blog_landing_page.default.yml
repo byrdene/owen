@@ -1,0 +1,83 @@
+uuid: 3c4d820c-f18a-41fe-9f4b-25b650dd0f59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.blog_landing_page.body
+    - field.field.node.blog_landing_page.field_blog_type
+    - field.field.node.blog_landing_page.field_header_images
+    - field.field.node.blog_landing_page.field_header_links
+    - field.field.node.blog_landing_page.field_headshot
+    - field.field.node.blog_landing_page.field_intro_text
+    - field.field.node.blog_landing_page.field_outro_text
+    - field.field.node.blog_landing_page.field_related_view
+    - node.type.blog_landing_page
+  module:
+    - link
+    - text
+    - user
+    - viewfield
+id: node.blog_landing_page.default
+targetEntityType: node
+bundle: blog_landing_page
+mode: default
+content:
+  field_header_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: banner
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_header_links:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_headshot:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: square
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_intro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_outro_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_related_view:
+    type: viewfield_default
+    label: hidden
+    settings:
+      view_title: hidden
+      always_build_output: true
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  body: true
+  field_blog_type: true
+  links: true
+  search_api_excerpt: true

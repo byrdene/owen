@@ -1,0 +1,12 @@
+uuid: 89d37341-560f-48f3-a03b-02ca239669bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: OS4sGR0SUmpgMOlA87RkJzzOadkFqOqrDHO__9AqJhA
+id: media.gallery
+label: Gallery
+targetEntityType: media
+cache: true

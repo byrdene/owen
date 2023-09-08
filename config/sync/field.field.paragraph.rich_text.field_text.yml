@@ -1,0 +1,28 @@
+uuid: 9803f4e1-65f5-474c-bf40-66ad5fe9dcb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.rich_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - blog_html
+_core:
+  default_config_hash: I9kbHbxTQ6Ea-BXuyRNFAzVaCEbztqRWhcSqBkndqes
+id: paragraph.rich_text.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: rich_text
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

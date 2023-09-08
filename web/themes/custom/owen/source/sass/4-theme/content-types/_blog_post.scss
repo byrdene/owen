@@ -1,0 +1,56 @@
+// ==========================================================================
+//   BLOG POST Content type
+// ==========================================================================
+
+.node--type-blog-post {
+  // default view mode styles
+
+  &.node--view-mode-full {}
+  &.node--view-mode-teaser {
+    h2.teaser-title {
+      color: $black;
+      @include font-size(28px);
+      @include font-weight(semibold);
+      text-transform: none;
+
+      a {
+        color: $black;
+        @include font-weight(semibold);
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: lighten($black, 15%);
+          text-decoration: none;
+        }
+      }
+
+      @include bp(large, up) {
+        @include font-size(36px);
+      }
+    }
+
+    .blog-date-wrapper {
+      color: $black;
+      @include font-size(20px);
+      @include font-weight(regular);
+
+      @include bp(large, up) {
+        @include font-size(24px);
+      }
+    }
+
+    @include two-tiles($left: 55%, $right: 45%);
+
+    @include bp(small, up) {
+      .tiles {
+        align-items: center;
+      }
+    }
+
+  }
+  &.node--view-mode-teaser-small {}
+  &.node--view-mode-card {}
+  &.node--view-mode-featured {}
+}

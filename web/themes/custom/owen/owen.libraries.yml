@@ -49,6 +49,7 @@ fonts:
   css:
     theme:
       https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;500;600;700;800;900&display=swap: { type: external, minified: false }
+      https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap: { type: external, minified: false }
 
 slick:
   version: VERSION

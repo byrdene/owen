@@ -200,3 +200,68 @@ body.filters-applied { // class applied via jQuery on BEF submit click
   }
 
 }
+
+.view-rwanda-blog {
+  &.alternating-layout {
+    .views-row {
+
+      @include bp(medium, up) {
+        &:nth-child(odd) {
+          .tiles {
+            flex-direction: row;
+
+            .tiles-item { // text needs its padding reversed if it is now on opposite side
+              &.text-wrapper {
+                padding: 0 0 0 $gutter*2;
+              }
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          .tiles {
+            flex-direction: row-reverse;
+
+            .tiles-item { // text needs its padding reversed if it is now on opposite side
+              &.text-wrapper {
+                padding: 0 $gutter*2 0 0;
+              }
+            }
+
+          }
+
+        }
+      }
+
+      @include bp(large, up) {
+        &:nth-child(odd) {
+          .tiles {
+            flex-direction: row;
+
+            .tiles-item { // text needs its padding reversed if it is now on opposite side
+              &.text-wrapper {
+                padding: 0 0 0 $gutter*3;
+              }
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          .tiles {
+            flex-direction: row-reverse;
+
+            .tiles-item { // text needs its padding reversed if it is now on opposite side
+              &.text-wrapper {
+                padding: 0 $gutter*3 0 0;
+              }
+            }
+
+          }
+        }
+
+
+      }
+    }
+
+  }
+}

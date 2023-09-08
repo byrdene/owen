@@ -1,0 +1,27 @@
+uuid: 6c02ec0d-dade-4404-88e1-ad014cb07fa3
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.banner_extra_large
+    - image.style.banner_extra_small
+    - image.style.banner_large
+    - image.style.banner_medium
+    - image.style.banner_small
+id: banner
+label: Banner
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - banner_extra_large
+        - banner_extra_small
+        - banner_large
+        - banner_medium
+        - banner_small
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: banner_small

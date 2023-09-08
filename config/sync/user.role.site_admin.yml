@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.blog_html
     - media.type.image
     - media.type.remote_video
     - node.type.resume
@@ -10,6 +11,7 @@ dependencies:
   module:
     - config_pages
     - file
+    - filter
     - media
     - node
     - rebuild_cache_access
@@ -40,5 +42,6 @@ permissions:
   - 'edit site_settings config page entity'
   - 'rebuild cache access'
   - 'update any media'
+  - 'use text format blog_html'
   - 'view site_settings config page entity'
   - 'view the administration theme'

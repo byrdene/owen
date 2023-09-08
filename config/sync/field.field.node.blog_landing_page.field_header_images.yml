@@ -1,0 +1,29 @@
+uuid: 3eb725a1-25f7-4cd2-8b02-ffd115acddc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_header_images
+    - media.type.image
+    - node.type.blog_landing_page
+id: node.blog_landing_page.field_header_images
+field_name: field_header_images
+entity_type: node
+bundle: blog_landing_page
+label: 'Header Images'
+description: 'If multiple images are uploaded, one will randomly display'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.blog_html
     - filter.format.full_html
   module:
     - filter
@@ -18,5 +19,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'use text format basic_html'
+  - 'use text format blog_html'
   - 'use text format full_html'
   - 'view media'

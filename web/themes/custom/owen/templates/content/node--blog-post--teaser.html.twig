@@ -1,0 +1,34 @@
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+
+<article {{ attributes.addClass(classes)|without('role') }}>
+
+  <div class="teaser-wrapper container tiles">
+
+    <div class="col-a tiles-item">
+      {{ content.field_main_image }}
+    </div>
+
+    <div class="col-b tiles-item text-wrapper">
+
+      <div class="blog-title-wrapper vertical-flow-x-small">
+        <h2 class="teaser-title blog-title"><a href="{{ url }}">{{ node.label }}</a></h2>
+      </div>
+
+      <div class="blog-date-wrapper vertical-flow-x-small vertical-flow">
+        {{ content.field_publication_date }}
+      </div>
+
+      <div class="read-more-wrapper vertical-flow">
+        <a href="{{ url }}" class="button-link-solid">Read More</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</article>

@@ -1,0 +1,48 @@
+uuid: 0d5fc4e8-f582-46cf-af8c-482ef116b4d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.blog_html
+  module:
+    - ckeditor
+format: blog_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Styles
+            - Bold
+            - Italic
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Tools
+          items:
+            - Source
+  plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    stylescombo:
+      styles: "p|Normal\r\nh2|Heading\r\na.button-link|Button Link"
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

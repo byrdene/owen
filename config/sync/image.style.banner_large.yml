@@ -1,0 +1,17 @@
+uuid: e83de22f-cb78-4273-a5d9-53eb46b44c17
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: banner_large
+label: 'Banner Large (1400 x 660)'
+effects:
+  ce3507d1-67ec-452e-874f-02b9cc38579d:
+    uuid: ce3507d1-67ec-452e-874f-02b9cc38579d
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1400
+      height: 660
+      crop_type: focal_point

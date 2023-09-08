@@ -12,7 +12,7 @@ _core:
   default_config_hash: in5tDS7hkBrUujrrRZe6ik4r4y-h6QLjUh3ewAzWyEY
 name: 'Basic HTML'
 format: basic_html
-weight: -9
+weight: -8
 filters:
   media_embed:
     id: media_embed

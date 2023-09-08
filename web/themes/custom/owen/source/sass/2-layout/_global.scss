@@ -65,7 +65,7 @@
   }
 
   @include bp(x-large, up) {
-    padding: 0;
+    //padding: 0;
   }
 }
 
@@ -90,7 +90,7 @@
 .padded-column-large { //used mostly for outermost containers that are not one item in many
   padding: $gutter*2 0;
   @include bp(medium, up) {
-    padding: $gutter*2 0;
+    padding: $gutter*3 0;
   }
 }
 
@@ -197,6 +197,14 @@
 .vertical-flow-xx-small {
   & + .vertical-flow-xx-small {
     @include vertical-flow($mobile: $gutter/4, $desktop: $gutter/4);
+  }
+}
+
+.vertical-flow-border {
+  & + .vertical-flow-border {
+    margin-top: $gutter*2;
+    padding-top: $gutter*2;
+    border-top: 1px solid $white; // currently used against gray bg
   }
 }
 
