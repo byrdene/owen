@@ -1,43 +1,46 @@
-uuid: 0d5fc4e8-f582-46cf-af8c-482ef116b4d3
+uuid: a21f0330-651d-4cb7-824d-efaec3f62e2e
 langcode: en
 status: true
 dependencies:
   config:
     - filter.format.blog_html
   module:
-    - ckeditor
+    - ckeditor5
 format: blog_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Styles
-            - Bold
-            - Italic
-        -
-          name: Links
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Tools
-          items:
-            - Source
+    items:
+      - heading
+      - style
+      - bold
+      - italic
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - sourceEditing
+      - '|'
   plugins:
-    drupallink:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+    ckeditor5_style:
+      styles:
+        -
+          label: 'Button Link'
+          element: '<a class="button-link">'
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_list:
+      reversed: false
+      startIndex: false
+    linkit_extension:
       linkit_enabled: true
       linkit_profile: default
-    stylescombo:
-      styles: "p|Normal\r\nh2|Heading\r\na.button-link|Button Link"
 image_upload:
   status: false
   scheme: public

@@ -19,6 +19,7 @@
         }
     },
     "require": {
+        "php": "^8.1",
         "bower-asset/colorbox": "^1.6",
         "bower-asset/lazysizes": "^5.3",
         "composer/installers": "^1.9",
@@ -63,6 +64,8 @@
         "drupal/git_deploy": "^2.3",
         "drupal/google_analytics": "^2.1",
         "drupal/honeypot": "^2.0",
+        "drupal/imageapi_optimize": "^4.0",
+        "drupal/imageapi_optimize_resmushit": "^2.0@beta",
         "drupal/inline_entity_form": "^1.0@RC",
         "drupal/jquery_ui": "^1.4",
         "drupal/jquery_ui_accordion": "^1.1",
@@ -139,7 +142,11 @@
     "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
+        "preferred-install": "dist",
         "sort-packages": true,
+        "platform": {
+            "php": "8.1.1"
+        },
         "allow-plugins": {
             "composer/installers": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,

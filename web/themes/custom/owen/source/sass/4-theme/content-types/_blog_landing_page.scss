@@ -219,7 +219,8 @@
 
     }
 
-    @include bp(medium, up) {
+    // release the object-fit hero image and filling the height of the viewport
+    @include bp(small, up) {
       height: auto;
 
       .hero-image {
