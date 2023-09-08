@@ -3,103 +3,10 @@
 // ==========================================================================
 
 .node-type-blog-landing-page {
-  font-family: $poppins;
-
-  h1, .h1,
-  h2, .h2,
-  h3, .h3,
-  p {
-    font-family: $poppins;
-  }
-
-  p {
-    @include font-weight(light);
-    line-height: 1.5em;
-  }
 
   header {
     height: 20px;
     background: $black;
-  }
-
-  footer {
-    background-color: $black;
-
-    .footer-first-wrapper {
-      max-width: none !important;
-    }
-  }
-
-  .button-link-outline-hero {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    @include font-size(14px);
-    @include font-weight(normal);
-    @include tracking(.72);
-    line-height: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $black;
-    background: rgba(255,255,255,.35);
-    border: 1px solid $black;
-    @include border-radius(0px);
-    &:hover,
-    &:active,
-    &:focus {
-      color: $black !important;
-      background: rgba(255,255,255,1);
-      border: 1px solid $black;
-      border-radius: inherit;
-    }
-  }
-
-  .button-link-solid {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    @include font-size(14px);
-    @include font-weight(normal);
-    @include tracking(.72);
-    line-height: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $white;
-    background: $dark-gray;
-    border: none;
-    @include border-radius(0px);
-    &:hover,
-    &:active,
-    &:focus {
-      color: $white !important;
-      background: darken($dark-gray, 15%);
-      border: none;
-      border-radius: inherit;
-    }
-  }
-
-  .button-link {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    @include font-size(14px);
-    @include font-weight(normal);
-    @include tracking(.72);
-    line-height: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $black;
-    background: rgba(204,204,204,0);
-    border: 1px solid $black;
-    @include border-radius(0px);
-    &:hover,
-    &:active,
-    &:focus {
-      color: $black !important;
-      background: rgba(204,204,204,1);
-      border: 1px solid $black;
-      border-radius: inherit;
-    }
   }
 
 }

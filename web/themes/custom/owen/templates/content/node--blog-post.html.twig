@@ -1,0 +1,36 @@
+
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isSticky() ? 'node--sticky',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  override,
+] %}
+
+<section {{ attributes.addClass(classes)}}>
+
+  <div class="banner vertical-flow-large">
+    <div class="image-wrapper">
+      {{ content.field_main_image }}
+    </div>
+
+    <div class="text-wrapper padded">
+      <div class="inner-wrapper">
+        <div class="blog-title-wrapper">
+          <h1{{ title_attributes }} class="page-title">{{ node.label }}</h1>
+        </div>
+        <div class="blog-date-wrapper">
+          {{ content.field_publication_date }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% if content.field_components|render %}
+    <div class="content-wrapper container vertical-flow-large">
+      {{ content.field_components }}
+    </div>
+  {% endif %}
+
+</section>

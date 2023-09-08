@@ -1,0 +1,76 @@
+
+<div{{ attributes.addClass(
+  'layout-container'
+) }}>
+
+  <!-- HEADER -->
+  <header>
+    <div id="site-header" class="container">
+      <div class="content-large container padded-row">
+        <a href="/rwanda"><< Robotics & STEM Outreach in Rwanda</a>
+      </div>
+
+    </div><!-- /#site-header -->
+
+  </header>
+
+  <!-- MAIN PAGE CONTENT -->
+  <main id="main-content" tabindex="-1">
+
+
+    <!-- PRIMARY-CONTENT -->
+    <div id="primary-content">
+      <div class="container">
+
+        <div id="content">
+
+          {{ page.content }}
+
+        </div><!-- /#content -->
+      </div><!-- /.container -->
+    </div><!-- /#primary-content -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="margin-top-large">
+    <div class="footer-wrapper container padded-row content-large">
+
+      <div id="footer-first">
+        <div class="footer-first-wrapper">
+          <div class="copyright-info">Owen T. S. Cooper | &#169; {{ "now"|date('Y') }} All rights reserved.</div>
+{#          <div class="footer-link-wrapper">#}
+{#            <div class="social-men-wrapper" role="navigation" aria-label="Social Media Links in Footer">#}
+{#              <ul class="menu">#}
+{#                {% if config_pages_field('site_settings', 'field_personal_youtube_link')|render %}#}
+{#                  <li><a href="{{ config_pages_field('site_settings', 'field_personal_youtube_link').0 }}" target="_blank" class="youtube">#}
+{#                      <span class="sr-only">Youtube</span>#}
+{#                      <i class="icon"></i>#}
+{#                    </a>#}
+{#                  </li>#}
+{#                {% endif %}#}
+{#                <li><a href="{{ config_pages_field('site_settings', 'field_personal_linkedin_link').0 }}" target="_blank" class="linkedin">#}
+{#                    <span class="sr-only">Linkedin</span>#}
+{#                    <i class="icon"></i>#}
+{#                  </a>#}
+{#                </li>#}
+{#              </ul>#}
+
+{#            </div>#}
+{#            #}
+{#        </div>#}
+
+      </div><!-- /#footer-first -->
+
+      <div id="footer-second">
+        <div class="footer-second-wrapper"></div>
+      </div><!-- /#footer-second -->
+
+      <div id="footer-third">
+        <div class="footer-third-wrapper"></div>
+      </div><!-- /#footer-third -->
+
+    </div><!-- /.container -->
+  </footer>
+
+</div><!-- /.layout-container -->

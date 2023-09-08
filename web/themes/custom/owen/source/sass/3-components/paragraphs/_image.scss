@@ -2,7 +2,7 @@
 //   PARAGRAPHS - Image
 // ==========================================================================
 
-.component--type-image {
+.component--type-image{
   .image-wrapper {
     position: relative;
     img {
@@ -13,23 +13,25 @@
   .caption-wrapper {
     display: block;
     @extend %caption;
-    //padding: $gutter $gutter 0 $gutter; if the image is full-width
-    padding: $gutter/2 0 0 $gutter;
+    //padding: $gutter; // if the caption is overlays
+    //padding: $gutter/2 $gutter 0 $gutter; // if the image is full-width
+    padding: $gutter/2 0 0 $gutter; // if the image is contained
     margin: 0;
-    // // uncomment below for caption overlays and adjsut above padding
-    //background-color: $primary-color;
+    // // uncomment below for caption overlays and adjust above padding
+    background-color: $medium-gray;
     //background-color: $black;
-    //color: $white;
+    color: $black;
     @include bp(small, up) {
       // // uncomment below for caption overlays
       //position: absolute;
-      //bottom: -($gutter);
+      //bottom: 0;
       //right: 0;
       //width: 70%;
-      //background-color: rgba(0, 0, 0 , .75);
+      //background-color: rgba(0, 0, 0 , .60);
+      // // uncomment below for caption after the image
       float: right;
       width: 50%;
-      max-width: $content-large / 2;
+      max-width: 50%;
 
     }
   }

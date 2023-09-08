@@ -2,8 +2,131 @@
 //   BLOG POST Content type
 // ==========================================================================
 
+.node-type-blog-post {
+
+  header {
+    padding: $gutter*.75 0;
+    background: $black;
+
+    a {
+      @include font-size(12px);
+      color: rgba(255, 255, 255, .8);
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: rgba(255, 255, 255, 1);
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+
 .node--type-blog-post {
   // default view mode styles
+
+  .banner {
+    .text-wrapper {
+      background: $medium-gray;
+
+      h1 {
+        color: $black;
+        @include font-size(35px);
+        @include font-weight(normal);
+        line-height: 1.1;
+      }
+
+      .blog-date-wrapper {
+        padding-top: $gutter;
+        color: $black;
+        @include font-size(20px);
+        @include font-weight(light);
+      }
+    }
+
+    @include bp(small, up) {
+      display: flex;
+      flex-direction: row;
+
+      .image-wrapper {
+        width: 55%;
+      }
+      .text-wrapper {
+        width: 45%;
+        display: flex;
+        align-items: center;
+
+        h1 {
+          @include font-size(30px);
+        }
+
+      }
+    }
+
+    @include bp(medium, up) {
+      align-items: center;
+
+      .text-wrapper {
+        .blog-date-wrapper {
+          padding-top: $gutter;
+          position: relative;
+
+          &:before {
+            position: absolute;
+            top: $gutter/2;
+            left: - $gutter*2;
+            width: calc(100% + 40px);
+            border-top: 1px solid $white;
+            content: "";
+          }
+        }
+      }
+
+    }
+
+    @include bp(large, up) {
+      .text-wrapper {
+        h1 {
+          @include font-size(50px);
+        }
+        .blog-date-wrapper {
+          @include font-size(24px);
+        }
+      }
+    }
+
+    @include bp(content-large, up) {
+      .text-wrapper {
+        h1 {
+          @include font-size(55px);
+        }
+
+        .blog-date-wrapper {
+          padding-top: $gutter*2;
+          position: relative;
+
+          &:before {
+            position: absolute;
+            top: $gutter;
+            left: - $gutter*2;
+            width: calc(100% + 40px);
+            border-top: 1px solid $white;
+            content: "";
+          }
+        }
+      }
+    }
+
+    @include bp(page-max, up) {
+      .text-wrapper {
+        .inner-wrapper {
+          padding: $gutter*2 0;
+        }
+      }
+    }
+  }
 
   &.node--view-mode-full {}
   &.node--view-mode-teaser {

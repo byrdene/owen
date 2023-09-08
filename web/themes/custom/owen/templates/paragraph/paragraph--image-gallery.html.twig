@@ -13,32 +13,24 @@
   'component--type-' ~ paragraph.bundle|clean_class,
   'component-paragraph',
   'container',
-  'content-medium',
 ]
 %}
 
 
 <section{{ attributes.addClass(classes) }}>
   <div class="component-wrapper">
-    <div class="component-content">
+    <div class="component-content container padded-row content-medium">
       {{ title_suffix }}
 
       {% if component_heading_status %}
-        <div class="heading-wrapper">
-          {{ content.field_heading }}
+        <div class="heading-wrapper vertical-flow-small">
+          <h2>{{ content.field_heading.0 }}</h2>
         </div>
       {% endif %}
 
-      <div class="image-wrapper">
-        {{ content.field_image }}
+      <div class="images-wrapper vertical-flow-small four-col-grid">
+        {{ content.field_images }}
       </div>
-
-      {% if content.field_caption|render %}
-        <div class="caption-wrapper">
-          {{ content.field_caption }}
-        </div>
-      {% endif %}
-
 
     </div>
   </div>

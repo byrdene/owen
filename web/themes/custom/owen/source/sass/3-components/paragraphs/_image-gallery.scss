@@ -1,0 +1,47 @@
+// ==========================================================================
+//   PARAGRAPHS - Image Gallery
+// ==========================================================================
+
+.component--type-image-gallery {
+  .component-content {
+    padding-bottom: $gutter !important;
+
+    .images-wrapper {
+      position: relative;
+      img {
+        cursor: pointer;
+        max-width: none;
+        width: 100%; // let it grow to fill container for all breakpoints
+      }
+
+      //.media--view-mode-gallery a {
+      //  position: relative;
+      //  &:before {
+      //    position:absolute;
+      //    bottom: 0;
+      //    right: 0;
+      //    width: 28px;
+      //    height: 28px;
+      //    line-height: 28px;
+      //    font-family: $icomoon;
+      //    content: $icon-expand;
+      //    font-size: 18px;
+      //    text-align: center;
+      //    cursor: pointer;
+      //    color: $primary-color;
+      //    background: $white;
+      //    z-index: 1;
+      //  }
+      //
+      //  &:hover,
+      //  &:focus {
+      //    &:before {
+      //      color: $base-font-color;
+      //    }
+      //  }
+      //}
+
+    }
+  }
+
+}
