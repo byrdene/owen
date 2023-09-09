@@ -6,7 +6,7 @@
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class
 ] %}
 
-{% set randomimg = random(content.field_banner_images['#items']|length - 1) %}
+{% set randomimg = random(content.field_header_images['#items']|length - 1) %}
 
 <section {{ attributes.addClass(classes)}}>
 

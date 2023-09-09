@@ -4,7 +4,12 @@
 
 .component--type-image-gallery {
   .component-content {
-    padding-bottom: $gutter !important;
+
+    //padding-bottom: $gutter !important;
+
+    .heading-wrapper {
+      text-align: center;
+    }
 
     .images-wrapper {
       position: relative;

@@ -22,6 +22,7 @@ global:
     'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js': { type: external }
     dist/js/utilities.js: {}
     dist/js/smooth-scroll.js: {}
+    dist/js/blogs.js: {}
   dependencies:
     - core/jquery
     - core/drupal

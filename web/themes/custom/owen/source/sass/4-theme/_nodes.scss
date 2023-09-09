@@ -7,6 +7,7 @@
 .node-type-blog-landing-page,
 .node-type-blog-post {
   font-family: $poppins;
+  @include font-size(20px);
 
   h1, .h1,
   h2, .h2,
@@ -20,11 +21,73 @@
     line-height: 1.5em;
   }
 
+  h2, .h2,
+  h3, .h3 {
+    margin-top: 1.5em; // This will vary based on font size
+    margin-bottom: rem($vertical-spacing); // Same bottom gutter as most elements
+    text-rendering: optimizeLegibility;
+    hyphens: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & + ol,
+    & + ul {
+      margin-top: $vertical-spacing;
+    }
+  }
+
+  h2,
+  .h2 {
+    font-family: $poppins;
+    @include font-size(26px);
+    color: $black;
+    @include font-weight(regular);
+    text-transform: uppercase;
+    @include bp($desktop-nav, up) {
+      @include font-size(40px);
+    }
+  }
+
+  h3,
+  .h3 {
+    font-family: $poppins;
+    @include font-size(22px);
+    color: $black;
+    @include font-weight(regular);
+    text-transform: none;
+    @include bp($desktop-nav, up) {
+      @include font-size(30px);
+    }
+  }
+
+  .tabcontent-item-wrapper,
+  .rte,
+  .field--type-text-with-summary,
+  .field--type-text-long,
+  .field--type-text {
+    ul, ol {
+      > li {
+        @include font-weight(light);
+        &:before {
+          color: $black !important;
+        }
+      }
+    }
+  }
+
   footer {
     background-color: $black;
 
     .footer-first-wrapper {
       max-width: none !important;
+      color: rgba(255, 255, 255, .85);
+      @include font-size(12px);
+      @include font-weight(light);
     }
   }
 
