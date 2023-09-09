@@ -7,18 +7,45 @@
   header {
     padding: $gutter*.75 0;
     background: $black;
+    border-top: 1px solid $medium-gray;
 
     a {
       @include font-size(14px);
       @include font-weight(light);
-      color: rgba(255, 255, 255, .85);
+      color: rgba(255, 255, 255, .8);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      &:before {
+        display: inline-block;
+        //font-family: $icomoon;
+        //content:$icon-arrow-right;
+        content: ">";
+        font-weight: bold;
+        transform: rotate(180deg);
+        color: $black;
+        //font-size: 10px;
+        font-size: 20px;
+        height: 20px;
+        line-height: 20px;
+        width: 20px;
+        text-align: center;
+        background: rgba(255, 255, 255, 1); // was .8
+        border-radius: 50%;
+        //margin-right: 5px;
+        margin-right: 10px;
+      }
 
       &:hover,
       &:focus,
       &:active {
         color: rgba(255, 255, 255, 1);
         text-decoration: none;
+
+        &:before {
+          background: rgba(255, 255, 255, 1);
+        }
       }
     }
   }
@@ -170,6 +197,44 @@
         .inner-wrapper {
           padding: $gutter*2 0;
         }
+      }
+    }
+  }
+
+  .component {
+    & + .component {
+      margin-top: 0;
+    }
+  }
+
+  .bg__white {
+    .component-wrapper {
+      padding-bottom: $gutter*2;
+
+      @include bp(large, up) {
+        padding-bottom: $gutter*3;
+      }
+    }
+  }
+
+  .gsap-pinned-background {
+    & + .bg__white {
+      .component-wrapper {
+        padding-top: $gutter*2;
+
+        @include bp(large, up) {
+          padding-top: $gutter*3;
+        }
+      }
+    }
+  }
+
+  .component--type-image-gallery { //override this
+    .component-wrapper {
+      padding-bottom: $gutter; // already some padding there
+
+      @include bp(large, up) {
+        padding-bottom: $gutter; // already some padding there
       }
     }
   }

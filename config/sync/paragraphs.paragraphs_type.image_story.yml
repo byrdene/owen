@@ -1,0 +1,10 @@
+uuid: 76d98fe2-91d3-4619-94cd-c9f98a619121
+langcode: en
+status: true
+dependencies: {  }
+id: image_story
+label: 'Image Story'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

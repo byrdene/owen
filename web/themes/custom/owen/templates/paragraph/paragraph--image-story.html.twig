@@ -1,0 +1,48 @@
+
+{% set text_alignment = 'center' %}
+{% if not (paragraph.field_text_alignment.isEmpty == true) and paragraph.field_text_alignment is defined %}
+  {% set text_alignment = paragraph.field_text_alignment.value %}
+{% endif %}
+
+{%
+  set classes = [
+  'component',
+  'component--type-' ~ paragraph.bundle|clean_class,
+  'component-paragraph',
+  'container',
+  'gsap-pinned-background',
+]
+%}
+
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="component-wrapper">
+    <div class="component-content">
+      {{ title_suffix }}
+
+      <div class="image-wrapper pin-wrapper gsap-zoom-container">
+        <div class="gsap-zoom-image">
+          {{ content.field_image }}
+        </div>
+      </div>
+
+      {% if content.field_text|render %}
+        <div class="content-wrapper gsap-pinned-image-text container padded-row {{ text_alignment }}">
+          <div class="inner-wrapper">
+            {% if content.field_heading|render %}
+              <div class="heading-wrapper margin-bottom-small">
+                <h2>{{ content.field_heading.0 }}</h2>
+              </div>
+            {% endif %}
+          <div class="text-wrapper">
+            {{ content.field_text }}
+          </div>
+
+          </div>
+        </div>
+      {% endif %}
+
+
+    </div>
+  </div>
+</section>

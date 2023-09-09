@@ -81,11 +81,13 @@
   }
 
   footer {
+    position: relative;
     background-color: $black;
+    z-index: 99999;
 
     .footer-first-wrapper {
       max-width: none !important;
-      color: rgba(255, 255, 255, .85);
+      color: rgba(255, 255, 255, .8);
       @include font-size(12px);
       @include font-weight(light);
     }
@@ -140,27 +142,7 @@
   }
 
   .button-link {
-    position: relative;
-    display: inline-block;
-    padding: 10px;
-    @include font-size(14px);
-    @include font-weight(normal);
-    @include tracking(.72);
-    line-height: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $black;
-    background: rgba(204,204,204,0);
-    border: 1px solid $black;
-    @include border-radius(0px);
-    &:hover,
-    &:active,
-    &:focus {
-      color: $black !important;
-      background: rgba(204,204,204,1);
-      border: 1px solid $black;
-      border-radius: inherit;
-    }
+    @extend %button-link;
   }
 
 }

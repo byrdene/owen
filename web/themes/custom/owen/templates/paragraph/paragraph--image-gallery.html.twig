@@ -1,3 +1,4 @@
+{{ attach_library('owen/fancybox') }}
 
 {% set component_heading_status = false %}
 {% if not (paragraph.field_heading.isEmpty == true) and paragraph.field_heading is defined %}
@@ -13,6 +14,7 @@
   'component--type-' ~ paragraph.bundle|clean_class,
   'component-paragraph',
   'container',
+  'bg__white',
 ]
 %}
 
@@ -23,7 +25,7 @@
       {{ title_suffix }}
 
       {% if component_heading_status %}
-        <div class="heading-wrapper vertical-flow-small">
+        <div class="heading-wrapper container padded-row content-small vertical-flow-small">
           <h2>{{ content.field_heading.0 }}</h2>
         </div>
       {% endif %}

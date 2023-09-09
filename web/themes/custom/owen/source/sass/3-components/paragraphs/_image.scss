@@ -22,10 +22,6 @@
       max-width: 75%;
     }
 
-    @include bp(medium, up) {
-      padding: $gutter/2 0 0 $gutter*2;
-    }
-
     @include bp(large, up) {
       padding: $gutter/2 0 0 0;
       width: 60%;

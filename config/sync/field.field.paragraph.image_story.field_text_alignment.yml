@@ -1,0 +1,23 @@
+uuid: 4b3cab08-2208-48ee-b6dc-9df5535b4e8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_alignment
+    - paragraphs.paragraphs_type.image_story
+  module:
+    - options
+id: paragraph.image_story.field_text_alignment
+field_name: field_text_alignment
+entity_type: paragraph
+bundle: image_story
+label: 'Text Alignment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

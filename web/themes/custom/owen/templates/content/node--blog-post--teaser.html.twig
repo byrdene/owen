@@ -3,6 +3,7 @@
   'node--type-' ~ node.bundle|clean_class,
   node.isSticky() ? 'node--sticky',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'gsap-fadein-up',
 ] %}
 
 <article {{ attributes.addClass(classes)|without('role') }}>

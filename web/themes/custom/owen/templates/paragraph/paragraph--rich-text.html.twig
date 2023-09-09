@@ -4,13 +4,12 @@
   'component--type-' ~ paragraph.bundle|clean_class,
   'component-paragraph',
   'container',
-  'content-small',
-  'padded-row',
+  'bg__white',
 ]
 %}
 
 <section{{ attributes.addClass(classes) }}>
-  <div class="component-wrapper">
+  <div class="component-wrapper container content-small padded-row">
     <div class="component-content">
       {{ title_suffix }}
 

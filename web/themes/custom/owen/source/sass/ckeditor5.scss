@@ -1,0 +1,12 @@
+@import "0-config/__config";
+
+// Other base styles unique to the ckeditor window
+
+.ck-content {
+
+  // this is currently only partially set up for the Blog HTML text format
+  .button-link {
+    @extend %button-link;
+  }
+}
+

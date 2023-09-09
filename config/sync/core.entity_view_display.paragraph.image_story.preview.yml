@@ -1,0 +1,29 @@
+uuid: 2fcb9509-57a1-45a4-a415-21e38c02ce6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.image_story.field_heading
+    - field.field.paragraph.image_story.field_image
+    - field.field.paragraph.image_story.field_text
+    - field.field.paragraph.image_story.field_text_alignment
+    - paragraphs.paragraphs_type.image_story
+id: paragraph.image_story.preview
+targetEntityType: paragraph
+bundle: image_story
+mode: preview
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image: true
+  field_text: true
+  field_text_alignment: true
+  search_api_excerpt: true

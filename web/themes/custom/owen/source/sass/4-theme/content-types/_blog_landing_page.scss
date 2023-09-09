@@ -7,6 +7,7 @@
   header {
     height: 20px;
     background: $black;
+    border-top: 1px solid $medium-gray;
   }
 
 }
@@ -17,12 +18,12 @@
 
   .hero-wrapper {
     position: relative;
-    height: 100vh;
+    height: 60vh;
 
     .hero-image {
       position: relative;
       z-index: 0;
-      height: 100vh;
+      height: 60vh;
 
       &:before {
         position: absolute;
@@ -39,10 +40,10 @@
       }
 
       .media {
-        height: 100vh;
+        height: 60vh;
 
         .field {
-          height: 100vh;
+          height: 60vh;
 
           img {
             object-fit: cover;

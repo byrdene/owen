@@ -18,6 +18,30 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
   transition-timing-function: linear;
 }
 
+%button-link {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  @include font-size(14px);
+  @include font-weight(normal);
+  @include tracking(.72);
+  line-height: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $black;
+  background: rgba(204,204,204,0);
+  border: 1px solid $black;
+  @include border-radius(0px);
+  &:hover,
+  &:active,
+  &:focus {
+    color: $black !important;
+    background: rgba(204,204,204,1);
+    border: 1px solid $black;
+    border-radius: inherit;
+  }
+}
+
 %label {
   @include font-size(20px);
   @include font-weight(light);
@@ -428,11 +452,11 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
       &:nth-of-type(2n+1) { // First item (1st in row of 2)
         clear: left;
         width: calc(50% - 10px);
-        margin: 0 $gutter/2 $gutter*3 0;
+        margin: 0 $gutter/2 $gutter 0;
       }
       &:nth-of-type(2n+2) { // Middle item (2nd in row of 2)
         width: calc(50% - 10px);
-        margin: 0 0 $gutter*3 $gutter/2;
+        margin: 0 0 $gutter $gutter/2;
       }
     }
 
@@ -443,16 +467,16 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
       }
       &:nth-of-type(3n+1) { // First item (1st in row of 3)
         clear: left;
-        width: calc(92%/3);
-        margin: 0 2% $gutter*3 0;
+        width: calc((100% - 80px)/3);
+        margin: 0 $gutter $gutter*2 0;
       }
       &:nth-of-type(3n+2) { // Middle item (2nd in row of 3)
-        width: calc(92%/3);
-        margin: 0 2% $gutter*3 2%;
+        width: calc((100% - 80px)/3);
+        margin: 0 $gutter $gutter*2 $gutter;
       }
       &:nth-of-type(3n+3) { // Last item (3rd in row of 3)
-        width: calc(92%/3);
-        margin: 0 0 $gutter*3 2%;
+        width: calc((100% - 80px)/3);
+        margin: 0 0 $gutter*2 $gutter;
       }
     }
 
@@ -465,20 +489,20 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
       }
       &:nth-of-type(4n+1) { // First item (1st in row of 4)
         clear: left;
-        width: 22%;
-        margin: 0 2% $gutter*3 0;
+        width: calc((100% - 120px)/4);
+        margin: 0 $gutter $gutter*2 0;
       }
       &:nth-of-type(4n+2) { // Second item (2nd in row of 4)
-        width: 22%;
-        margin: 0 2% $gutter*3 2%;
+        width: calc((100% - 120px)/4);
+        margin: 0 $gutter $gutter*2 $gutter;
       }
       &:nth-of-type(4n+3) { // Third item (3rd in row of 4)
-        width: 22%;
-        margin: 0 2% $gutter*3 2%;
+        width: calc((100% - 120px)/4);
+        margin: 0 $gutter $gutter*2 $gutter;
       }
       &:nth-of-type(4n) { // Last item (4th in row of 4)
-        width: 22%;
-        margin: 0 0 $gutter*3 2%;
+        width: calc((100% - 120px)/4);
+        margin: 0 0 $gutter*2 $gutter;
       }
     }
   }

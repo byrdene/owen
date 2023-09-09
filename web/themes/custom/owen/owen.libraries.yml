@@ -10,16 +10,16 @@ global:
     component:
       dist/css/components.css: {}
     theme:
-      'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css': { type: external }
+#      'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css': { type: external }
       dist/css/theme.css: {}
       dist/css/print.css: { media: print }
   # Each discreet feature or function should be in a unique js file.
   js:
 #    dist/js/accessible-menus.js: {}
-    dist/js/hamburger-menu.js: {}
+#    dist/js/hamburger-menu.js: {}
     dist/js/search.js: {}
     dist/js/accordions.js: {}
-    'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js': { type: external }
+#    'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js': { type: external }
     dist/js/utilities.js: {}
     dist/js/smooth-scroll.js: {}
     dist/js/blogs.js: {}
@@ -81,6 +81,24 @@ select2:
       static/vendor/select2/dist/css/select2.css: {}
   js:
     static/vendor/select2/dist/js/select2.js: {}
+
+resume-menu:
+  version: VERSION
+  js:
+    dist/js/hamburger-menu.js: {}
+  dependencies:
+    - core/jquery
+
+greensock:
+  version: VERSION
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js: {}
+    dist/js/greensock-init.js: {}
+  dependencies:
+    - core/jquery
 
 #animate:
 #  version: VERSION

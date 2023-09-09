@@ -10,6 +10,10 @@ libraries:
   - owen/tabs #part of admin interface
   - owen/messages #part of admin interface
   - owen/fonts
+  - owen/greensock
+
+ckeditor5-stylesheets:
+  - dist/css/ckeditor5.css
 
 #preload-fonts:
 #  - fonts/Roboto-Regular.woff2
