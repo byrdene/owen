@@ -10,8 +10,8 @@
     border-top: 1px solid $medium-gray;
 
     a {
-      @include font-size(14px);
-      @include font-weight(light);
+      @include font-size(16px);
+      @include font-weight(normal);
       color: rgba(255, 255, 255, .8);
       text-decoration: none;
       display: flex;
