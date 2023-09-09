@@ -5,7 +5,7 @@
 .ck-content {
 
   // this is currently only partially set up for the Blog HTML text format
-  
+
   a[href]:not([class]) { // target plain text links without any kind of class
     @extend %blog-links-rte;
   }

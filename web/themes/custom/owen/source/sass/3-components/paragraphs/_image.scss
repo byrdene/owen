@@ -3,29 +3,37 @@
 // ==========================================================================
 
 .component--type-image {
-  .image-wrapper {
-    position: relative;
-    img {
-      max-width: none;
-      width: 100%; // let it grow to fill container for all breakpoints
-    }
-  }
-  .caption-wrapper {
-    display: block;
-    padding: $gutter/2 0 0 $gutter;
-    margin: 0;
-    color: $black;
-    @include font-size(14px);
 
-    @include bp(small, up) {
-      width: 75%;
-      max-width: 75%;
+  .component-wrapper {
+
+    .image-wrapper {
+      position: relative;
+      img {
+        max-width: none;
+        width: 100%; // let it grow to fill container for all breakpoints
+      }
+    }
+    .caption-wrapper {
+      display: block;
+      padding: $gutter/2 0 0 $gutter;
+      margin: 0;
+      color: $black;
+      @include font-size(14px);
+
+      @include bp(small, up) {
+        width: 75%;
+        max-width: 75%;
+      }
+
+      @include bp(large, up) {
+        padding: $gutter/2 0 0 0;
+        width: 60%;
+        max-width: 60%;
+      }
     }
 
-    @include bp(large, up) {
-      padding: $gutter/2 0 0 0;
-      width: 60%;
-      max-width: 60%;
+    @include bp(large, up) { // because we removed the padded-row class in the twig file
+      padding: 0 $gutter*2;
     }
   }
 }
