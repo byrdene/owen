@@ -15,7 +15,7 @@
     }
     .caption-wrapper {
       display: block;
-      padding: $gutter/2 0 0 $gutter;
+      padding: $gutter/2 $gutter 0 $gutter;
       margin: 0;
       color: $black;
       @include font-size(14px);
