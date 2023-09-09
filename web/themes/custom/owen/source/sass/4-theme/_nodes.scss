@@ -21,6 +21,15 @@
     line-height: 1.5em;
   }
 
+  .tabcontent-item-wrapper,
+  .rte,
+  .field--type-text-with-summary,
+  .field--type-text-long {
+    a[href]:not([class]) { // target plain text links without any kind of class
+      @extend %blog-links-rte;
+    }
+  }
+
   h2, .h2,
   h3, .h3 {
     margin-top: 1.5em; // This will vary based on font size

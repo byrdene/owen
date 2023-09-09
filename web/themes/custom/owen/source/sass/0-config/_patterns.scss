@@ -18,6 +18,23 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
   transition-timing-function: linear;
 }
 
+%blog-links-rte {
+  background: none;
+  color: $primary-color;
+  @include font-weight(semibold);
+  text-decoration: underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $black;
+  }
+
+  &:focus {
+    @include focus-outline();
+  }
+}
+
 %button-link {
   position: relative;
   display: inline-block;
