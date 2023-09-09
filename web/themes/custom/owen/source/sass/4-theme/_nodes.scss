@@ -48,7 +48,7 @@
     color: $black;
     @include font-weight(regular);
     text-transform: uppercase;
-    @include bp($desktop-nav, up) {
+    @include bp(content-large, up) {
       @include font-size(40px);
     }
   }
@@ -60,7 +60,7 @@
     color: $black;
     @include font-weight(regular);
     text-transform: none;
-    @include bp($desktop-nav, up) {
+    @include bp(content-large, up) {
       @include font-size(30px);
     }
   }
