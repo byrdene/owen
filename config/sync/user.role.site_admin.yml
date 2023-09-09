@@ -3,9 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
     - filter.format.blog_html
+    - filter.format.full_html
     - media.type.image
     - media.type.remote_video
+    - node.type.blog_landing_page
+    - node.type.blog_post
     - node.type.resume
     - node.type.slide
   module:
@@ -26,15 +30,21 @@ weight: 3
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
   - 'access files overview'
   - 'access media overview'
   - 'access shortcuts'
   - 'access toolbar'
+  - 'create blog_post content'
   - 'create image media'
   - 'create remote_video media'
   - 'create slide content'
-  - 'delete any media'
+  - 'delete any blog_post content'
   - 'delete any slide content'
+  - 'delete media'
+  - 'edit any blog_landing_page content'
+  - 'edit any blog_post content'
   - 'edit any image media'
   - 'edit any remote_video media'
   - 'edit any resume content'
@@ -42,6 +52,9 @@ permissions:
   - 'edit site_settings config page entity'
   - 'rebuild cache access'
   - 'update any media'
+  - 'use text format basic_html'
   - 'use text format blog_html'
+  - 'use text format full_html'
+  - 'view own unpublished content'
   - 'view site_settings config page entity'
   - 'view the administration theme'
