@@ -16,6 +16,12 @@
     display: flex;
     flex-direction: column;
 
+    .heading-wrapper {
+      h2, h3 {
+        text-transform: none;
+      }
+    }
+
     &.center {
       .inner-wrapper {
         width: 75%;
@@ -28,7 +34,7 @@
 
       @include bp(medium, up) {
         .inner-wrapper {
-          max-width: 550px;
+          max-width: 600px;
           margin-left: auto;
         }
       }
@@ -45,7 +51,7 @@
 
       @include bp(medium, up) {
         .inner-wrapper {
-          max-width: 500px;
+          max-width: 600px;
           margin-right: auto;
         }
       }
@@ -62,7 +68,7 @@
 
       @include bp(medium, up) {
         .inner-wrapper {
-          max-width: 500px;
+          max-width: 600px;
           margin-left: auto;
         }
       }

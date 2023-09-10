@@ -48,15 +48,19 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
   text-transform: uppercase;
   text-decoration: none;
   color: $black;
-  background: rgba(204,204,204,0);
+  //background: rgba(204,204,204,0);
+  background: transparent;
   border: 1px solid $black;
   @include border-radius(0px);
   &:hover,
   &:active,
   &:focus {
-    color: $black !important;
-    background: rgba(204,204,204,1);
-    border: 1px solid $black;
+    //color: $black !important;
+    //background: rgba(204,204,204,1);
+    //border: 1px solid $black;
+    color: $white;
+    background: $primary-color;
+    border: 1px solid $primary-color;
     border-radius: inherit;
   }
 }

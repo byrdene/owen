@@ -48,6 +48,7 @@
     & + ul {
       margin-top: $vertical-spacing;
     }
+
   }
 
   h2,
@@ -55,8 +56,8 @@
     font-family: $poppins;
     @include font-size(26px);
     color: $black;
-    @include font-weight(regular);
-    text-transform: uppercase;
+    @include font-weight(light);
+    text-transform: none;
     @include bp(content-large, up) {
       @include font-size(40px);
     }
@@ -67,7 +68,7 @@
     font-family: $poppins;
     @include font-size(22px);
     color: $black;
-    @include font-weight(regular);
+    @include font-weight(light);
     text-transform: none;
     @include bp(content-large, up) {
       @include font-size(30px);
@@ -97,7 +98,7 @@
     .footer-first-wrapper {
       max-width: none !important;
       color: rgba(255, 255, 255, .8);
-      @include font-size(12px);
+      @include font-size(16px);
       @include font-weight(light);
     }
   }
@@ -144,7 +145,8 @@
     &:active,
     &:focus {
       color: $white !important;
-      background: darken($dark-gray, 15%);
+      background: $primary-color;
+      //background: darken($dark-gray, 15%);
       border: none;
       border-radius: inherit;
     }
@@ -163,7 +165,7 @@
       //margin: 0 auto;
 
       li {
-        margin: 0 3px 0 0;
+        margin: 0 7px 0 0;
         //margin: 0;
 
         a {
@@ -172,26 +174,26 @@
           transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
 
           // set the width/height to match that of the icon (set in the mixin if not overwritten below)
-          width: 20px;
-          height: 20px;
+          width: 24px;
+          height: 24px;
           //border: 1px solid $white;
 
           &.youtube .icon {
-            @include icon($icon-youtube, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            @include icon($icon-youtube, $iconSize: 16px, $iconBgSize: 24px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
             &:hover {
               background-color: rgba(255,255,255,1);
             }
           }
 
           &.linkedin .icon {
-            @include icon($icon-linkedin, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            @include icon($icon-linkedin, $iconSize: 16px, $iconBgSize: 24px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
             &:hover {
               background-color: rgba(255,255,255,1);
             }
           }
 
           &.instagram .icon {
-            @include icon($icon-instagram, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            @include icon($icon-instagram, $iconSize: 16px, $iconBgSize: 24px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
             &:hover {
               background-color: rgba(255,255,255,1);
             }
@@ -200,10 +202,10 @@
           &:focus {
             @include focus-outline($color: $white);
 
-            .icon {
-              background-color: $white;
-              color: $primary-color;
-            }
+            //.icon {
+            //  background-color: $white;
+            //  color: $primary-color;
+            //}
           }
 
         }
