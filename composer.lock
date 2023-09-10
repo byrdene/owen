@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1740d24433f6c588f753b2b0c997d51b",
+    "content-hash": "6f3097363b5c32fa028ec9a1f27c899d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6552,6 +6552,70 @@
             }
         },
         {
+            "name": "drupal/publishcontent",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/publishcontent.git",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/publishcontent-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "e0bd1fad771dcb327bea05b8daa0426f9285401e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1674143563",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "AaronBauman",
+                    "homepage": "https://www.drupal.org/user/384578"
+                },
+                {
+                    "name": "jacobroufa",
+                    "homepage": "https://www.drupal.org/user/168080"
+                },
+                {
+                    "name": "johnennew",
+                    "homepage": "https://www.drupal.org/user/1150042"
+                },
+                {
+                    "name": "malaussene",
+                    "homepage": "https://www.drupal.org/user/79249"
+                },
+                {
+                    "name": "rodrigoaguilera",
+                    "homepage": "https://www.drupal.org/user/408170"
+                },
+                {
+                    "name": "Simon Georges",
+                    "homepage": "https://www.drupal.org/user/172312"
+                }
+            ],
+            "description": "Adds a 'Publish' or 'Unpublish' link on the node edit/view pages, and a 'Publish Link' field if the Views module is enabled.",
+            "homepage": "https://www.drupal.org/project/publishcontent",
+            "support": {
+                "source": "https://git.drupalcode.org/project/publishcontent"
+            }
+        },
+        {
             "name": "drupal/rabbit_hole",
             "version": "1.0.0-beta10",
             "source": {
@@ -7644,6 +7708,71 @@
             "homepage": "https://www.drupal.org/project/view_mode_selector",
             "support": {
                 "source": "https://git.drupalcode.org/project/view_mode_selector"
+            }
+        },
+        {
+            "name": "drupal/view_unpublished",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/view_unpublished.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/view_unpublished-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "f9f5e88cbaf1a1e71952d94cf67ef2f180e292be"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1681757575",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Agnes Chisholm",
+                    "homepage": "https://www.drupal.org/user/66428",
+                    "email": "amaria@chisholmtech.com"
+                },
+                {
+                    "name": "beeradb",
+                    "homepage": "https://www.drupal.org/user/120651"
+                },
+                {
+                    "name": "elevins",
+                    "homepage": "https://www.drupal.org/user/781882"
+                },
+                {
+                    "name": "entendu",
+                    "homepage": "https://www.drupal.org/user/173461"
+                },
+                {
+                    "name": "fathima.asmat",
+                    "homepage": "https://www.drupal.org/user/3622664"
+                },
+                {
+                    "name": "tobiasb",
+                    "homepage": "https://www.drupal.org/user/183956"
+                }
+            ],
+            "description": "Select which roles should be able to see unpublished nodes.",
+            "homepage": "https://www.drupal.org/project/view_unpublished",
+            "support": {
+                "source": "https://git.drupalcode.org/project/view_unpublished"
             }
         },
         {

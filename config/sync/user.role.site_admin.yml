@@ -18,10 +18,12 @@ dependencies:
     - filter
     - media
     - node
+    - publishcontent
     - rebuild_cache_access
     - shortcut
     - system
     - toolbar
+    - view_unpublished
 _core:
   default_config_hash: uAKrmoZ0xL8nAOsHY74PdWfvarVcgF2ed5jbTXe7yfI
 id: site_admin
@@ -50,11 +52,14 @@ permissions:
   - 'edit any resume content'
   - 'edit any slide content'
   - 'edit site_settings config page entity'
+  - 'publish any node type blog_post'
   - 'rebuild cache access'
+  - 'unpublish any node type blog_post'
   - 'update any media'
   - 'use text format basic_html'
   - 'use text format blog_html'
   - 'use text format full_html'
+  - 'view any unpublished blog_post content'
   - 'view own unpublished content'
   - 'view site_settings config page entity'
   - 'view the administration theme'

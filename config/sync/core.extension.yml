@@ -82,6 +82,7 @@ module:
   path_alias: 0
   project_admin: 0
   project_utilities: 0
+  publishcontent: 0
   rebuild_cache_access: 0
   redirect: 0
   responsive_favicons: 0
@@ -106,6 +107,7 @@ module:
   twig_tweak: 0
   user: 0
   view_mode_selector: 0
+  view_unpublished: 0
   viewfield: 0
   views_ui: 0
   workflows: 0

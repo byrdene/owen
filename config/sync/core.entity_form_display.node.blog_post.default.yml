@@ -55,13 +55,10 @@ content:
       media_library_edit:
         show_edit: '1'
   field_publication_date:
-    type: datetime_datelist
+    type: datetime_default
     weight: 2
     region: content
-    settings:
-      increment: 15
-      date_order: MDY
-      time_type: none
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
