@@ -1,0 +1,19 @@
+uuid: 0204e161-5a8b-454a-90bc-c46fd7c89801
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.site_settings
+    - field.storage.config_pages.field_personal_instagram_link
+id: config_pages.site_settings.field_personal_instagram_link
+field_name: field_personal_instagram_link
+entity_type: config_pages
+bundle: site_settings
+label: 'Personal Instagram Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: b33ceb51-a580-40e4-a02d-313ac1f64f47
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+id: config_pages.field_personal_instagram_link
+field_name: field_personal_instagram_link
+entity_type: config_pages
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

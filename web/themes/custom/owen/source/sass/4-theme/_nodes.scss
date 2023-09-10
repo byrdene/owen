@@ -154,6 +154,63 @@
     @extend %button-link;
   }
 
+  .social-men-wrapper-blogs {
+    display: flex;
+    justify-items: flex-start;
+
+    ul.menu {
+      line-height: 1;
+      //margin: 0 auto;
+
+      li {
+        margin: 0 3px 0 0;
+        //margin: 0;
+
+        a {
+          display: inline-block;
+          -webkit-transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+          transition: color 250ms cubic-bezier(0.82, 0.06, 0.14, 0.97);
+
+          // set the width/height to match that of the icon (set in the mixin if not overwritten below)
+          width: 20px;
+          height: 20px;
+          //border: 1px solid $white;
+
+          &.youtube .icon {
+            @include icon($icon-youtube, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            &:hover {
+              background-color: rgba(255,255,255,1);
+            }
+          }
+
+          &.linkedin .icon {
+            @include icon($icon-linkedin, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            &:hover {
+              background-color: rgba(255,255,255,1);
+            }
+          }
+
+          &.instagram .icon {
+            @include icon($icon-instagram, $iconSize: 12px, $iconBgSize: 20px, $iconBg: $medium-gray, $iconColor: $black, $iconHoverBg: $white, $iconHoverColor: $black, $iconRadius: 50%);
+            &:hover {
+              background-color: rgba(255,255,255,1);
+            }
+          }
+
+          &:focus {
+            @include focus-outline($color: $white);
+
+            .icon {
+              background-color: $white;
+              color: $primary-color;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
 }
 //  1. All nodes
 //  ==========================================================================

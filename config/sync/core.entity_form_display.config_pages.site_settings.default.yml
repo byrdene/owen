@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - config_pages.type.site_settings
+    - field.field.config_pages.site_settings.field_personal_instagram_link
     - field.field.config_pages.site_settings.field_personal_linkedin_link
     - field.field.config_pages.site_settings.field_personal_youtube_link
     - field.field.config_pages.site_settings.field_resume_subtitle
@@ -13,9 +14,17 @@ targetEntityType: config_pages
 bundle: site_settings
 mode: default
 content:
+  field_personal_instagram_link:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_personal_linkedin_link:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -23,7 +32,7 @@ content:
     third_party_settings: {  }
   field_personal_youtube_link:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60
@@ -39,7 +48,7 @@ content:
     third_party_settings: {  }
   field_waring_robotics_website:
     type: string_textfield
-    weight: 3
+    weight: 4
     region: content
     settings:
       size: 60
