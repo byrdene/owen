@@ -36,4 +36,8 @@ blockquote {
       //  content: $icon-quotes-right;
       //}
   }
+
+  p.citation {
+    @include font-weight(regular);
+  }
 }
