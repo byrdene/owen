@@ -56,7 +56,7 @@
     font-family: $poppins;
     @include font-size(26px);
     color: $black;
-    @include font-weight(light);
+    @include font-weight(regular);
     text-transform: none;
     @include bp(content-large, up) {
       @include font-size(40px);
@@ -68,7 +68,7 @@
     font-family: $poppins;
     @include font-size(22px);
     color: $black;
-    @include font-weight(light);
+    @include font-weight(regular);
     text-transform: none;
     @include bp(content-large, up) {
       @include font-size(30px);
@@ -83,6 +83,8 @@
     ul, ol {
       > li {
         @include font-weight(light);
+        margin-bottom: 1em;
+
         &:before {
           color: $black !important;
         }

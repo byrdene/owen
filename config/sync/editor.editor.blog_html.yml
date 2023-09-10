@@ -20,6 +20,7 @@ settings:
       - '|'
       - bulletedList
       - numberedList
+      - blockQuote
       - '|'
       - sourceEditing
       - '|'
@@ -33,6 +34,9 @@ settings:
         -
           label: 'Button Link'
           element: '<a class="button-link">'
+        -
+          label: 'Quote Citation'
+          element: '<p class="citation">'
     ckeditor5_sourceEditing:
       allowed_tags: {  }
     ckeditor5_list:
