@@ -4,11 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.image.field_caption
     - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_tags
     - image.style.thumbnail
     - media.type.image
   module:
+    - allowed_formats
     - focal_point
+    - text
 _core:
   default_config_hash: PlyfyVZfALLkP7nbxLpaVKIDUWRioZghWpFDv0_rJ68
 id: media.image.media_library
@@ -16,6 +20,17 @@ targetEntityType: media
 bundle: image
 mode: media_library
 content:
+  field_caption:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
   field_media_image:
     type: image_focal_point
     weight: 1
@@ -25,6 +40,12 @@ content:
       preview_image_style: thumbnail
       preview_link: false
       offsets: '50,50'
+    third_party_settings: {  }
+  field_media_tags:
+    type: options_buttons
+    weight: 3
+    region: content
+    settings: {  }
     third_party_settings: {  }
   name:
     type: string_textfield

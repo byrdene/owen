@@ -4,13 +4,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.gallery
+    - field.field.media.image.field_caption
     - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_tags
     - lazy.settings
     - media.type.image
     - responsive_image.styles.square
   module:
     - lazy
     - responsive_image
+    - text
 _core:
   default_config_hash: 0WQUWikHGf8UbskMqhK8c0Sq6wtRNyIx_CFkNm3uP9k
 id: media.image.gallery
@@ -18,6 +21,13 @@ targetEntityType: media
 bundle: image
 mode: gallery
 content:
+  field_caption:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_media_image:
     type: lazy_responsive_image
     label: hidden
@@ -29,10 +39,11 @@ content:
         lazy_image: '1'
         placeholder_style: ''
         data_uri: false
-    weight: 1
+    weight: 0
     region: content
 hidden:
   created: true
+  field_media_tags: true
   name: true
   search_api_excerpt: true
   thumbnail: true

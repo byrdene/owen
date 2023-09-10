@@ -15,15 +15,14 @@ settings:
       - style
       - bold
       - italic
-      - '|'
       - link
       - '|'
       - bulletedList
       - numberedList
       - blockQuote
       - '|'
+      - specialCharacters
       - sourceEditing
-      - '|'
   plugins:
     ckeditor5_heading:
       enabled_headings:

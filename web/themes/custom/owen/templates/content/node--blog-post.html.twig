@@ -12,6 +12,11 @@
   <div class="banner container content-large padded-row margin-top vertical-flow-large">
     <div class="image-wrapper">
       {{ content.field_main_image }}
+      {% if content.field_caption|render %}
+        <div class="caption-wrapper">
+          {{ content.field_caption }}
+        </div>
+      {% endif %}
     </div>
 
     <div class="text-wrapper">

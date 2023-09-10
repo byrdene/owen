@@ -56,6 +56,26 @@
   // default view mode styles
 
   .banner {
+    .image-wrapper {
+      .caption-wrapper {
+        display: block;
+        padding: $gutter/2 0 0 0;
+        margin: 0;
+        color: $black;
+        @include font-size(12px);
+
+        @include bp(small, up) {
+          //width: 75%;
+          //max-width: 75%;
+        }
+
+        @include bp(large, up) {
+          padding: $gutter/2 0 0 0;
+          //width: 60%;
+          //max-width: 60%;
+        }
+      }
+    }
     .text-wrapper {
       //background: $medium-gray;
       padding-top: $gutter;

@@ -1,0 +1,26 @@
+uuid: 215bf58c-f24e-4c30-891f-1ce3f59edf84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caption
+    - node.type.blog_post
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.blog_post.field_caption
+field_name: field_caption
+entity_type: node
+bundle: blog_post
+label: 'Featured Image Caption'
+description: 'Meant for a short caption such as a photo credit or a very brief description. If a longer caption or "story" is needed, add this image to the page again via one of the content components.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
