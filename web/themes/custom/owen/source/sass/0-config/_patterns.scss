@@ -21,6 +21,7 @@ $transition-list: background-color, border-color, box-shadow, color, opacity, te
 %blog-links-rte {
   background: none;
   display: inline;
+  padding: 0;
   color: $primary-color;
   @include font-weight(semibold);
   text-decoration: underline;
