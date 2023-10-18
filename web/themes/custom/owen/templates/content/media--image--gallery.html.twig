@@ -1,6 +1,9 @@
 {# Attach CSS/JS Libraries - change library location as needed #}
 {#{{ attach_library('mwhc/fancybox') }}#}
 
+{#We need to add unique ID for this instance of an image gallery since there may be more than one on page#}
+{% set parentID = media._referringItem.parent.parent.entity.id.value %}
+
 {#
 /**
  * @file
@@ -28,6 +31,6 @@
 {#  {{ title_suffix.contextual_links }}#}
   {% if content %}
 {#    NOTE: Single quotes are required since we are referencing captions that may links using double quotes#}
-    <a data-fancybox='gallery' href='{{ media.field_media_image | file_url }}' data-caption='{{ content.field_caption.0 }}'>{{ content.field_media_image }}</a>
+    <a data-fancybox='gallery-{{ parentID }}' href='{{ media.field_media_image | file_url }}' data-caption='{{ content.field_caption.0 }}'>{{ content.field_media_image }}</a>
   {% endif %}
 </div>
