@@ -2,3 +2,6 @@
 //   FANCYBOX MODALS
 // ==========================================================================
 
+.fancybox__container {
+  z-index: 99999 !important; // need this because of footer
+}

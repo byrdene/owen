@@ -1,0 +1,53 @@
+// ==========================================================================
+//   PARAGRAPHS - Video
+// ==========================================================================
+
+.component--type-video {
+  .video-wrapper {
+    position: relative;
+
+    img { // make sure the thumbnail fills the container
+      max-width: none;
+      width: 100%;
+    }
+
+    .video-button-wrapper {
+      position: absolute;
+      top: calc(50% - 40px);
+      left: calc(50% - 40px);
+
+      .video-play-button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        // set the width/height to match that of the icon (set in the mixin if not overwritten below)
+        width: 80px;
+        height: 80px;
+
+        .icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 80px;
+          height: 80px;
+          @include icon($icon-play, $iconSize: 36px, $iconBgSize: 80px, $iconBg: $action-color, $iconColor: $white, $iconHoverBg: $primary-color, $iconHoverColor: $white, $iconRadius: 50%);
+          background-color: rgba(0,0,0,.6);
+
+          &:before {
+            left: 2px;
+          }
+        }
+
+        &:focus-visible {
+          @include focus-outline();
+
+          &:before {
+            background: $primary-color;
+          }
+        }
+      }
+    }
+
+  }
+}
