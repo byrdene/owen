@@ -72,6 +72,7 @@ module:
   menu_position: 0
   menu_ui: 0
   metatag: 0
+  metatag_open_graph: 0
   module_filter: 0
   multiple_fields_remove_button: 0
   mysql: 0
@@ -101,6 +102,7 @@ module:
   tofu_para_image: 0
   tofu_para_image_gallery: 0
   tofu_para_rich_text: 0
+  tofu_para_video: 0
   tofu_paragraphs: 0
   token: 0
   toolbar: 0

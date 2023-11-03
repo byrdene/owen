@@ -1,0 +1,21 @@
+uuid: 6630a491-62f7-440c-93d7-70ac4e71d1a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.video
+_core:
+  default_config_hash: 4nZ55vQNAZNMYk7ToB0VVYL3eVKO0wKBPeLpfXGSJv0
+id: paragraph.video.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: video
+label: Heading
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

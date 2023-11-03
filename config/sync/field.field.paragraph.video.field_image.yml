@@ -1,0 +1,31 @@
+uuid: eb96f65d-caf7-42d2-9a51-3e2a5b12a609
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.video
+_core:
+  default_config_hash: N45DJJTZVQfdMIl_ar-bNXR9-il_cyPv6GTn3EZHhOw
+id: paragraph.video.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: video
+label: 'Custom Video Thumbnail'
+description: 'If no image is selected, the thumbnail provided by YouTube or Vimeo will be used behind the video play button.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

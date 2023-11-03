@@ -9,6 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.image_gallery
     - paragraphs.paragraphs_type.image_story
     - paragraphs.paragraphs_type.rich_text
+    - paragraphs.paragraphs_type.video
   module:
     - entity_reference_revisions
 id: node.blog_post.field_components
@@ -29,6 +30,7 @@ settings:
       image: image
       image_gallery: image_gallery
       image_story: image_story
+      video: video
     negate: 0
     target_bundles_drag_drop:
       experience:
@@ -45,5 +47,8 @@ settings:
         enabled: true
       rich_text:
         weight: -11
+        enabled: true
+      video:
+        weight: 12
         enabled: true
 field_type: entity_reference_revisions

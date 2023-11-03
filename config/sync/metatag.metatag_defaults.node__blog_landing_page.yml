@@ -1,0 +1,16 @@
+uuid: 5d72ec3b-c2f0-49bf-9b2f-5d64229dcd51
+langcode: en
+status: true
+dependencies: {  }
+id: node__blog_landing_page
+label: 'Content: Blog Landing Page'
+tags:
+  image_src: '[node:field_header_images:entity:field_media_image]'
+  og_description: '[node:summary]'
+  og_image: '[node:field_header_images:entity:field_media_image]'
+  og_image_alt: '[node:field_header_images:entity:field_media_image:alt]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title] | [site:name]'
+  og_type: '[node:content-type]'
+  og_updated_time: '[node:changed]'
+  og_url: '[node:url]'

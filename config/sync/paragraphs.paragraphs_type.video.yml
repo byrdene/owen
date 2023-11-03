@@ -1,0 +1,12 @@
+uuid: a67dd337-ccd3-4e9d-aa75-a373ebd70bb1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sG6UYkEnnWpMbB_v3jHN3Bye-e9-sZw-EtFIzyi7mmg
+id: video
+label: 'Video - External'
+icon_uuid: null
+icon_default: null
+description: 'Remote video (YouTube, Vimeo)'
+behavior_plugins: {  }
