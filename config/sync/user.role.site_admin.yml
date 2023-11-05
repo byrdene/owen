@@ -8,6 +8,7 @@ dependencies:
     - filter.format.full_html
     - media.type.image
     - media.type.remote_video
+    - media.type.video
     - node.type.blog_landing_page
     - node.type.blog_post
     - node.type.resume
@@ -42,6 +43,7 @@ permissions:
   - 'create image media'
   - 'create remote_video media'
   - 'create slide content'
+  - 'create video media'
   - 'delete any blog_post content'
   - 'delete any slide content'
   - 'delete media'
@@ -51,6 +53,7 @@ permissions:
   - 'edit any remote_video media'
   - 'edit any resume content'
   - 'edit any slide content'
+  - 'edit any video media'
   - 'edit site_settings config page entity'
   - 'publish any node type blog_post'
   - 'rebuild cache access'
