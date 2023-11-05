@@ -13,6 +13,14 @@
 
       Fancybox.bind("[data-fancybox]", {
         // Options go here
+        on: {
+          reveal: (fancybox, slide) => {
+            // The content of this slide is loaded and ready to be revealed
+            console.log(
+              "The content of the current slide is loaded and revealed"
+            );
+          },
+        },
       });
 
 
