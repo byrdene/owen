@@ -1,8 +1,11 @@
 // ==========================================================================
-//   PARAGRAPHS - Video (YouTube/Vimeo)
+//   PARAGRAPHS -  (Onsite)
 // ==========================================================================
 
-.component--type-video {
+.component--type-video-local {
+  .fancybox-video {
+    display: none; // include code on page but hide until called by fancybox
+  }
 
   .heading-wrapper {
     text-align: center;

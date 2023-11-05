@@ -4,4 +4,14 @@
 
 .fancybox__container {
   z-index: 99999 !important; // need this because of footer
+
+  .fancybox__slide {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .fancybox-video {
+    padding: 0;
+    background: transparent !important; // to prevent the white background applied to the padding area
+  }
 }

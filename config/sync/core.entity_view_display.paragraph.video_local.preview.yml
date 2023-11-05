@@ -1,0 +1,29 @@
+uuid: dcd6a28e-842c-4b8c-bf4a-eb4ec6ecb5d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.video_local.field_heading
+    - field.field.paragraph.video_local.field_heading_status
+    - field.field.paragraph.video_local.field_image
+    - field.field.paragraph.video_local.field_video
+    - paragraphs.paragraphs_type.video_local
+id: paragraph.video_local.preview
+targetEntityType: paragraph
+bundle: video_local
+mode: preview
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_heading_status: true
+  field_image: true
+  field_video: true
+  search_api_excerpt: true

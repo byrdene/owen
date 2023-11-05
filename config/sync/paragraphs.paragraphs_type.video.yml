@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: sG6UYkEnnWpMbB_v3jHN3Bye-e9-sZw-EtFIzyi7mmg
 id: video
-label: 'Video - External'
+label: 'Video - YouTube/Vimeo'
 icon_uuid: null
 icon_default: null
 description: 'Remote video (YouTube, Vimeo)'

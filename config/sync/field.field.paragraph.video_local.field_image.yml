@@ -1,0 +1,29 @@
+uuid: d287f51a-5da3-4db4-81dc-80e9a426f870
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.video_local
+id: paragraph.video_local.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: video_local
+label: 'Custom Video Thumbnail'
+description: 'This image will be used behind the play button that opens the video in a modal.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

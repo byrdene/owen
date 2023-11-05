@@ -1,0 +1,10 @@
+uuid: 43e4853f-94c5-45a5-a28a-f00a28519c3f
+langcode: en
+status: true
+dependencies: {  }
+id: video_local
+label: 'Video - Onsite'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

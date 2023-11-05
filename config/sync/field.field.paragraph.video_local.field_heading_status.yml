@@ -1,0 +1,23 @@
+uuid: 715620fc-e9f2-4330-abb4-b64e8d2831d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_status
+    - paragraphs.paragraphs_type.video_local
+id: paragraph.video_local.field_heading_status
+field_name: field_heading_status
+entity_type: paragraph
+bundle: video_local
+label: 'Don''t display the heading on the page. Restrict to editorial reference on this edit form.'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
