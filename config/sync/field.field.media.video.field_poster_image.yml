@@ -1,0 +1,29 @@
+uuid: a0f07e5e-1b9a-4f14-8ce1-ff0072bc0e50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_poster_image
+    - media.type.image
+    - media.type.video
+id: media.video.field_poster_image
+field_name: field_poster_image
+entity_type: media
+bundle: video
+label: 'Poster Image'
+description: 'The image that will appear behind the Play button'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

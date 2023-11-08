@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.paragraph.video_local.field_heading
     - field.field.paragraph.video_local.field_heading_status
-    - field.field.paragraph.video_local.field_image
     - field.field.paragraph.video_local.field_video
     - paragraphs.paragraphs_type.video_local
 id: paragraph.video_local.default
@@ -20,15 +19,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: landscape_contained_16x9
-      link: false
-    third_party_settings: {  }
-    weight: 2
     region: content
   field_video:
     type: entity_reference_entity_view

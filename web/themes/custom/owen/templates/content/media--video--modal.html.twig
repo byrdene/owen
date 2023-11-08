@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'media',
+  'media--type-' ~ media.bundle()|clean_class,
+  view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<div{{ attributes.removeClass('contextual-region').addClass(classes) }}>
+
+  <div class="video-thumbnail">
+    {{ content.field_poster_image }}
+  </div>
+
+  <div class="video-button-wrapper">
+    <button class="video-play-button" id="launch-video" data-fancybox href="#onsite-video">
+      <span class="sr-only">Open Video</span>
+      <i class="icon"></i>
+    </button>
+  </div>
+
+  <div class="fancybox-video" id="onsite-video">
+    <video controls width="100%" height="auto">
+      <source src="{{ media.field_media_video_file | file_url }}" type="video/mp4">
+    </video>
+  </div>
+  
+</div>

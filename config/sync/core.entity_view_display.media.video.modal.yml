@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.modal
     - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_poster_image
     - media.type.video
   module:
     - file
@@ -28,6 +29,15 @@ content:
       height: 480
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_poster_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: landscape_contained_16x9
+      link: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   created: true

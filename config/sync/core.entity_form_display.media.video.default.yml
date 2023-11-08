@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_poster_image
     - media.type.video
   module:
     - file
+    - media_library
 _core:
   default_config_hash: 6Mvd2je1wVAEmWlG0yoZxnh5qb8p0kxbCWUIV5dDDHQ
 id: media.video.default
@@ -21,6 +23,13 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  field_poster_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -31,7 +40,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true

@@ -5,9 +5,12 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_library
     - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_poster_image
     - media.type.video
   module:
     - file
+    - media_library
+    - media_library_edit
 _core:
   default_config_hash: dNgi2KpFCZv-0PDJhgDYH2QzRpa0-eW6kDrG7zyCFBo
 id: media.video.media_library
@@ -22,6 +25,15 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+  field_poster_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '0'
   name:
     type: string_textfield
     weight: 0
