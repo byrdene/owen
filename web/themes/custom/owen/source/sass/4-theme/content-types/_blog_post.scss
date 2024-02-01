@@ -259,6 +259,19 @@
     }
   }
 
+  .paging-wrapper {
+    border-top: 1px solid #ccc;
+    padding-top: $gutter*2;
+  }
+
+  .blog-landing-link-wrapper {
+    text-align: center;
+    a {
+      display: inline-block;
+      margin: 0 auto;
+    }
+  }
+
   &.node--view-mode-full {}
   &.node--view-mode-teaser {
     .col-a { // image wrapper

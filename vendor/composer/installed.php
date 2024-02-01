@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '281c198fa17e8105411684571fd7ab21ddd2b907',
+        'reference' => 'af17d1411fb6a96688d7c11f4a65899d6def058c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -787,6 +787,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/flippy' => array(
+            'pretty_version' => '2.0.0-beta0',
+            'version' => '2.0.0.0-beta0',
+            'reference' => '2.0.0-beta0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/flippy',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/focal_point' => array(
             'pretty_version' => '1.5.0',
             'version' => '1.5.0.0',
@@ -1105,7 +1114,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '281c198fa17e8105411684571fd7ab21ddd2b907',
+            'reference' => 'af17d1411fb6a96688d7c11f4a65899d6def058c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -1,0 +1,17 @@
+flippy_blog_post: 1
+flippy_head_blog_post: 0
+flippy_show_empty_blog_post: 0
+flippy_prev_label_blog_post: '[node:title]'
+flippy_next_label_blog_post: '[node:title]'
+flippy_first_last_blog_post: 0
+flippy_first_label_blog_post: ''
+flippy_last_label_blog_post: ''
+flippy_loop_blog_post: 0
+flippy_random_blog_post: 0
+flippy_random_label_blog_post: ''
+flippy_truncate_blog_post: ''
+flippy_ellipse_blog_post: ''
+flippy_press_swipe_blog_post: null
+flippy_custom_sorting_blog_post: 1
+flippy_sort_blog_post: field_publication_date
+flippy_order_blog_post: ASC
