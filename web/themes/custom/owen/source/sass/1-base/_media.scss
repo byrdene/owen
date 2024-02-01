@@ -68,13 +68,19 @@ article {
   &.align-center {
     margin-bottom: $vertical-spacing;
     figcaption {
-      margin: $gutter/2 0 $vertical-spacing 0;
+      margin: 0 0 $vertical-spacing 0;
     }
     @include bp(small, up) {
       display: flex;
       flex-direction: column;
+
+      .field--name-field-media-image {
+        text-align: center;
+      }
+
       figcaption {
-        align-self: flex-end;
+        align-self: center;
+        text-align: center;
         width: 50%;
         max-width: $content-large / 2;
       }
@@ -85,7 +91,24 @@ article {
 figure {
   margin: 0 0 rem($vertical-spacing);
   figcaption {
-    @extend %caption;
+    //@extend %caption;
+    display: block;
+    padding: $gutter/2 0 0 0;
+    margin: 0;
+    color: $black;
+    @include font-size(12px);
+    font-weight: 300;
+
+    @include bp(small, up) {
+      //width: 75%;
+      //max-width: 75%;
+    }
+
+    @include bp(large, up) {
+      padding: $gutter/2 0 0 0;
+      //width: 60%;
+      //max-width: 60%;
+    }
   }
 }
 

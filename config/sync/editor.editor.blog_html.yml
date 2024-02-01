@@ -20,6 +20,7 @@ settings:
       - bulletedList
       - numberedList
       - blockQuote
+      - drupalMedia
       - '|'
       - specialCharacters
       - sourceEditing
@@ -41,6 +42,8 @@ settings:
     ckeditor5_list:
       reversed: false
       startIndex: false
+    media_media:
+      allow_view_mode_override: false
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
@@ -50,5 +53,5 @@ image_upload:
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: null
-    height: null
+    width: 0
+    height: 0

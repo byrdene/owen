@@ -2,6 +2,8 @@ uuid: 7b8a3e67-af71-4f53-aa6b-a78b9d61cf19
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
   module:
     - editor
     - entity_embed
@@ -21,7 +23,7 @@ filters:
   entity_embed:
     id: entity_embed
     provider: entity_embed
-    status: false
+    status: true
     weight: -39
     settings: {  }
   filter_html:
@@ -30,7 +32,7 @@ filters:
     status: true
     weight: -49
     settings:
-      allowed_html: '<br> <p class="citation"> <h2> <h3> <a class="button-link" href data-entity-type data-entity-uuid data-entity-substitution> <strong> <em> <blockquote> <ul> <ol> <li>'
+      allowed_html: '<br> <p class="citation"> <h2> <h3> <a class="button-link" href data-entity-type data-entity-uuid data-entity-substitution> <strong> <em> <blockquote> <ul> <ol> <li> <drupal-media data-entity-type data-entity-uuid alt data-caption data-align>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_autop:
@@ -54,7 +56,7 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: false
+    status: true
     weight: -46
     settings: {  }
   filter_url:
@@ -67,7 +69,7 @@ filters:
   filter_caption:
     id: filter_caption
     provider: filter
-    status: false
+    status: true
     weight: -44
     settings: {  }
   filter_htmlcorrector:
@@ -94,9 +96,11 @@ filters:
   media_embed:
     id: media_embed
     provider: media
-    status: false
+    status: true
     weight: -38
     settings:
       default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
+      allowed_view_modes:
+        embedded: embedded
+      allowed_media_types:
+        image: image
