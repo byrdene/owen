@@ -73,6 +73,12 @@
         .blog-author {
           color: $white;
           @include font-weight(light);
+
+          a {
+            color: $white;
+            @include font-weight(light);
+            text-decoration: none;
+          }
         }
       }
 

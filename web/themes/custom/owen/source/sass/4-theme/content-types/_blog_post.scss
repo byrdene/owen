@@ -9,7 +9,7 @@
     background: $black;
     border-top: 1px solid $medium-gray;
 
-    a {
+    a:not(.home-link) {
       @include font-size(16px);
       @include font-weight(normal);
       color: rgba(255, 255, 255, .8);
@@ -48,12 +48,51 @@
         }
       }
     }
+    a.home-link {
+      position: absolute;
+      top: auto;
+      bottom: -45px;
+      right: 0;
+      @include font-size(16px);
+      @include font-weight(normal);
+      //color: rgba(255, 255, 255, .8);
+      color: $black;
+      text-decoration: none;
+      display: block;
+
+      &:hover,
+      &:focus,
+      &:active {
+        //color: rgba(255, 255, 255, 1);
+        color: $black;
+        text-decoration: none;
+      }
+
+      @include bp(medium, up) {
+        color: rgba(255, 255, 255, .8);
+        top: 0;
+        bottom: auto;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: rgba(255, 255, 255, 1);
+          text-decoration: none;
+        }
+      }
+    }
+
+
   }
 
 }
 
 .node--type-blog-post {
   // default view mode styles
+  margin-top: 40px;
+  @include bp(medium, up) {
+    margin-top: 0;
+  }
 
   .banner {
     .image-wrapper {

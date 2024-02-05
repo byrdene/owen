@@ -21,6 +21,11 @@ footer {
       .footer-first-wrapper {
         .copyright-info {
           margin-bottom: 20px;
+
+          a {
+            text-decoration: none;
+            color: $white;
+          }
         }
         .footer-link-wrapper {
           margin-top: 0;
